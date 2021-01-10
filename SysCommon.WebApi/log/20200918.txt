@@ -1,0 +1,255 @@
+2020-09-18 08:49:23,723 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-09-18 08:49:24,480 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-09-18 08:49:24,576 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2020-09-18 08:49:24,577 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-09-18 08:49:24,578 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-09-18 08:49:24,582 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-18 08:49:24,583 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-09-18 08:49:24,583 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2020-09-18 08:49:24,842 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-18 08:51:16,083 [16] ERROR Microsoft.EntityFrameworkCore.Query [(null)] - An exception occurred while iterating over the results of a query for context type 'OpenAuth.Repository.OpenAuthDBContext'.
+System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlBuffer.ThrowIfNull()
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Boolean()
+   at Microsoft.Data.SqlClient.SqlDataReader.GetBoolean(Int32 i)
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlBuffer.ThrowIfNull()
+   at Microsoft.Data.SqlClient.SqlBuffer.get_Boolean()
+   at Microsoft.Data.SqlClient.SqlDataReader.GetBoolean(Int32 i)
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+2020-09-18 08:51:16,357 [16] ERROR Microsoft.EntityFrameworkCore.Database.Command [(null)] - Failed executing DbCommand (75ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppId], [r].[AppName], [r].[CreateId], [r].[CreateTime], [r].[CreateUserId], [r].[CreateUserName], [r].[Description], [r].[Disable], [r].[IsDelete], [r].[IsEnable], [r].[Sort], [r].[SortNo], [r].[TypeId], [r].[TypeName], [r].[UpdateId], [r].[UpdateTime], [r].[UpdateUserId], [r].[UpdateUserName]
+FROM [Resource] AS [r]
+WHERE [r].[Id] IN (
+    SELECT [r0].[TopFirstId]
+    FROM [Relevance] AS [r0]
+    WHERE ([r0].[TopKey] = N'RoleResourceTop') AND [r0].[TopFirstId] IN (N'af3669ea-6ca5-4dad-961d-c9779b751870')
+)
+2020-09-18 08:51:16,397 [16] ERROR Microsoft.EntityFrameworkCore.Query [(null)] - An exception occurred while iterating over the results of a query for context type 'OpenAuth.Repository.OpenAuthDBContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'CreateId' 无效。
+列名 'IsDelete' 无效。
+列名 'IsEnable' 无效。
+列名 'Sort' 无效。
+列名 'UpdateId' 无效。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:404dc3e2-f98e-4fc2-8665-4ab2e06b9a82
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'CreateId' 无效。
+列名 'IsDelete' 无效。
+列名 'IsEnable' 无效。
+列名 'Sort' 无效。
+列名 'UpdateId' 无效。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:404dc3e2-f98e-4fc2-8665-4ab2e06b9a82
+Error Number:207,State:1,Class:16
+2020-09-18 08:56:31,504 [22] ERROR Microsoft.EntityFrameworkCore.Database.Command [(null)] - Failed executing DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppId], [r].[AppName], [r].[CreateId], [r].[CreateTime], [r].[CreateUserId], [r].[CreateUserName], [r].[Description], [r].[Disable], [r].[IsDelete], [r].[IsEnable], [r].[Sort], [r].[SortNo], [r].[TypeId], [r].[TypeName], [r].[UpdateId], [r].[UpdateTime], [r].[UpdateUserId], [r].[UpdateUserName]
+FROM [Resource] AS [r]
+WHERE [r].[Id] IN (
+    SELECT [r0].[TopFirstId]
+    FROM [Relevance] AS [r0]
+    WHERE ([r0].[TopKey] = N'RoleResourceTop') AND [r0].[TopFirstId] IN (N'af3669ea-6ca5-4dad-961d-c9779b751870')
+)
+2020-09-18 08:56:31,505 [22] ERROR Microsoft.EntityFrameworkCore.Query [(null)] - An exception occurred while iterating over the results of a query for context type 'OpenAuth.Repository.OpenAuthDBContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'CreateId' 无效。
+列名 'IsDelete' 无效。
+列名 'IsEnable' 无效。
+列名 'Sort' 无效。
+列名 'UpdateId' 无效。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:404dc3e2-f98e-4fc2-8665-4ab2e06b9a82
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'CreateId' 无效。
+列名 'IsDelete' 无效。
+列名 'IsEnable' 无效。
+列名 'Sort' 无效。
+列名 'UpdateId' 无效。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:404dc3e2-f98e-4fc2-8665-4ab2e06b9a82
+Error Number:207,State:1,Class:16
+2020-09-18 09:02:33,939 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-09-18 09:02:34,146 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-09-18 09:02:34,170 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2020-09-18 09:02:34,171 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-09-18 09:02:34,172 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-09-18 09:02:34,178 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-18 09:02:34,179 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-09-18 09:02:34,181 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2020-09-18 09:02:34,426 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-18 09:06:42,876 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-09-18 09:06:43,034 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-09-18 09:06:43,058 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2020-09-18 09:06:43,059 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-09-18 09:06:43,060 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-09-18 09:06:43,064 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-18 09:06:43,065 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-09-18 09:06:43,065 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2020-09-18 09:06:43,180 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-18 09:17:04,168 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-09-18 09:17:04,297 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-09-18 09:17:04,315 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2020-09-18 09:17:04,316 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-09-18 09:17:04,317 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-09-18 09:17:04,320 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-18 09:17:04,320 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-09-18 09:17:04,320 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2020-09-18 09:17:04,390 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-18 09:28:36,648 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-09-18 09:28:36,810 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-09-18 09:28:36,833 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2020-09-18 09:28:36,834 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-09-18 09:28:36,835 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-09-18 09:28:36,840 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-18 09:28:36,841 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-09-18 09:28:36,841 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2020-09-18 09:28:36,931 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-18 09:42:16,326 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-09-18 09:42:16,467 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-09-18 09:42:16,486 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2020-09-18 09:42:16,486 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-09-18 09:42:16,487 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-09-18 09:42:16,490 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-18 09:42:16,490 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-09-18 09:42:16,491 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2020-09-18 09:42:16,567 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-18 10:54:28,195 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-09-18 10:54:28,329 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-09-18 10:54:28,349 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2020-09-18 10:54:28,350 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-09-18 10:54:28,351 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-09-18 10:54:28,354 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-18 10:54:28,354 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-09-18 10:54:28,354 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2020-09-18 10:54:28,434 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-18 15:47:33,116 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-09-18 15:47:33,553 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-09-18 15:47:33,568 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2020-09-18 15:47:33,569 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-09-18 15:47:33,570 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-09-18 15:47:33,574 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-18 15:47:33,575 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-09-18 15:47:33,575 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2020-09-18 15:47:33,701 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.

@@ -1,0 +1,454 @@
+2020-12-01 08:32:16,297 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-12-01 08:32:16,952 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-12-01 08:32:17,053 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.2.3.0 created.
+2020-12-01 08:32:17,057 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-12-01 08:32:17,058 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-12-01 08:32:17,061 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.2.3.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-12-01 08:32:17,061 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-12-01 08:32:17,062 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.2.3.0
+2020-12-01 08:32:17,791 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-12-01 09:24:28,394 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-12-01 09:24:28,609 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-12-01 09:24:28,691 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.2.3.0 created.
+2020-12-01 09:24:28,692 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-12-01 09:24:28,693 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-12-01 09:24:28,696 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.2.3.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-12-01 09:24:28,697 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-12-01 09:24:28,698 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.2.3.0
+2020-12-01 09:24:28,896 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-12-01 09:29:38,467 [23] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware [(null)] - An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at SysCommon.Service.ArticleTypeService.Show(QueryArticleTypeListReq request) in E:\Work\Project\SysCommon\SysCommon.Service\Service\Article\ArticleTypeService.cs:line 110
+   at SysCommon.WebApi.Controllers.ArticleTypeController.Show(QueryArticleTypeListReq request) in E:\Work\Project\SysCommon\SysCommon.WebApi\Controllers\Article\ArticleTypeController.cs:line 105
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-12-01 09:29:50,632 [37] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware [(null)] - An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at SysCommon.Service.ArticleTypeService.Show(QueryArticleTypeListReq request) in E:\Work\Project\SysCommon\SysCommon.Service\Service\Article\ArticleTypeService.cs:line 110
+   at SysCommon.WebApi.Controllers.ArticleTypeController.Show(QueryArticleTypeListReq request) in E:\Work\Project\SysCommon\SysCommon.WebApi\Controllers\Article\ArticleTypeController.cs:line 105
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-12-01 09:31:32,233 [46] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware [(null)] - An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at SysCommon.Service.ArticleTypeService.Show(QueryArticleTypeListReq request)
+   at SysCommon.WebApi.Controllers.ArticleTypeController.Show(QueryArticleTypeListReq request) in E:\Work\Project\SysCommon\SysCommon.WebApi\Controllers\Article\ArticleTypeController.cs:line 105
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-12-01 09:31:43,228 [46] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware [(null)] - An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at SysCommon.Service.ArticleTypeService.Show(QueryArticleTypeListReq request)
+   at SysCommon.WebApi.Controllers.ArticleTypeController.Show(QueryArticleTypeListReq request) in E:\Work\Project\SysCommon\SysCommon.WebApi\Controllers\Article\ArticleTypeController.cs:line 105
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-12-01 09:36:04,758 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-12-01 09:36:05,043 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-12-01 09:36:05,079 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.2.3.0 created.
+2020-12-01 09:36:05,088 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-12-01 09:36:05,094 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-12-01 09:36:05,104 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.2.3.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-12-01 09:36:05,111 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-12-01 09:36:05,114 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.2.3.0
+2020-12-01 09:36:05,302 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-12-01 09:38:54,501 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-12-01 09:38:54,777 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-12-01 09:38:54,811 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.2.3.0 created.
+2020-12-01 09:38:54,812 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-12-01 09:38:54,814 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-12-01 09:38:54,818 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.2.3.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-12-01 09:38:54,819 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-12-01 09:38:54,820 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.2.3.0
+2020-12-01 09:38:54,947 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-12-01 09:40:13,235 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-12-01 09:40:13,511 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-12-01 09:40:13,539 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.2.3.0 created.
+2020-12-01 09:40:13,542 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-12-01 09:40:13,543 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-12-01 09:40:13,547 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.2.3.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-12-01 09:40:13,548 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-12-01 09:40:13,549 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.2.3.0
+2020-12-01 09:40:13,640 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-12-01 09:45:07,637 [25] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware [(null)] - An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at SysCommon.Service.ArticleTypeService.Show(QueryArticleTypeListReq request) in E:\Work\Project\SysCommon\SysCommon.Service\Service\Article\ArticleTypeService.cs:line 110
+   at SysCommon.WebApi.Controllers.ArticleTypeController.Show(QueryArticleTypeListReq request) in E:\Work\Project\SysCommon\SysCommon.WebApi\Controllers\Article\ArticleTypeController.cs:line 105
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-12-01 09:45:38,406 [20] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware [(null)] - An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at SysCommon.Service.ArticleTypeService.Show(QueryArticleTypeListReq request) in E:\Work\Project\SysCommon\SysCommon.Service\Service\Article\ArticleTypeService.cs:line 110
+   at SysCommon.WebApi.Controllers.ArticleTypeController.Show(QueryArticleTypeListReq request) in E:\Work\Project\SysCommon\SysCommon.WebApi\Controllers\Article\ArticleTypeController.cs:line 105
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-12-01 10:02:57,446 [54] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware [(null)] - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Server.Kestrel.Core.BadHttpRequestException: Unexpected end of request content.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.BadHttpRequestException.Throw(RequestRejectionReason reason)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1ContentLengthMessageBody.ReadAsyncInternal(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpRequestStream.ReadAsyncInternal(Memory`1 buffer, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.WebUtilities.FileBufferingReadStream.ReadAsync(Byte[] buffer, Int32 offset, Int32 count, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.WebUtilities.StreamHelperExtensions.DrainAsync(Stream stream, ArrayPool`1 bytePool, Nullable`1 limit, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-12-01 13:44:59,457 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-12-01 13:44:59,908 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-12-01 13:44:59,924 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.2.3.0 created.
+2020-12-01 13:44:59,925 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-12-01 13:44:59,926 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-12-01 13:44:59,928 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.2.3.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-12-01 13:44:59,929 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-12-01 13:44:59,935 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.2.3.0
+2020-12-01 13:45:00,211 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-12-01 14:06:08,505 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-12-01 14:06:08,680 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-12-01 14:06:08,696 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.2.3.0 created.
+2020-12-01 14:06:08,698 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-12-01 14:06:08,699 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-12-01 14:06:08,708 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.2.3.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-12-01 14:06:08,709 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-12-01 14:06:08,710 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.2.3.0
+2020-12-01 14:06:08,839 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-12-01 14:07:18,059 [9] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware [(null)] - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Server.Kestrel.Core.BadHttpRequestException: Unexpected end of request content.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.BadHttpRequestException.Throw(RequestRejectionReason reason)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1ContentLengthMessageBody.ReadAsyncInternal(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpRequestStream.ReadAsyncInternal(Memory`1 buffer, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.WebUtilities.FileBufferingReadStream.ReadAsync(Byte[] buffer, Int32 offset, Int32 count, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.WebUtilities.StreamHelperExtensions.DrainAsync(Stream stream, ArrayPool`1 bytePool, Nullable`1 limit, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-12-01 14:27:14,588 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-12-01 14:27:14,857 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-12-01 14:27:14,889 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.2.3.0 created.
+2020-12-01 14:27:14,890 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-12-01 14:27:14,891 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-12-01 14:27:14,895 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.2.3.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-12-01 14:27:14,896 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-12-01 14:27:14,897 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.2.3.0
+2020-12-01 14:27:14,986 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-12-01 14:39:37,768 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-12-01 14:39:37,922 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-12-01 14:39:37,952 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.2.3.0 created.
+2020-12-01 14:39:37,953 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-12-01 14:39:37,954 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-12-01 14:39:37,959 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.2.3.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-12-01 14:39:37,960 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-12-01 14:39:37,961 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.2.3.0
+2020-12-01 14:39:38,144 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-12-01 14:42:55,850 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-12-01 14:42:56,034 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-12-01 14:42:56,171 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.2.3.0 created.
+2020-12-01 14:42:56,174 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-12-01 14:42:56,175 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-12-01 14:42:56,179 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.2.3.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-12-01 14:42:56,183 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-12-01 14:42:56,184 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.2.3.0
+2020-12-01 14:42:56,250 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-12-01 14:43:29,755 [17] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware [(null)] - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Server.Kestrel.Core.BadHttpRequestException: Unexpected end of request content.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.BadHttpRequestException.Throw(RequestRejectionReason reason)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1ContentLengthMessageBody.ReadAsyncInternal(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpRequestStream.ReadAsyncInternal(Memory`1 buffer, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.WebUtilities.FileBufferingReadStream.ReadAsync(Byte[] buffer, Int32 offset, Int32 count, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.WebUtilities.StreamHelperExtensions.DrainAsync(Stream stream, ArrayPool`1 bytePool, Nullable`1 limit, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-12-01 14:55:23,615 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-12-01 14:55:23,771 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-12-01 14:55:23,796 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.2.3.0 created.
+2020-12-01 14:55:23,797 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-12-01 14:55:23,798 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-12-01 14:55:23,802 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.2.3.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-12-01 14:55:23,802 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-12-01 14:55:23,803 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.2.3.0
+2020-12-01 14:55:23,864 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-12-01 15:20:20,804 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-12-01 15:20:20,959 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-12-01 15:20:20,983 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.2.3.0 created.
+2020-12-01 15:20:20,984 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-12-01 15:20:20,986 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-12-01 15:20:20,989 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.2.3.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-12-01 15:20:20,990 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-12-01 15:20:20,990 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.2.3.0
+2020-12-01 15:20:21,054 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-12-01 15:24:36,194 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-12-01 15:24:36,318 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-12-01 15:24:36,358 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.2.3.0 created.
+2020-12-01 15:24:36,359 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-12-01 15:24:36,360 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-12-01 15:24:36,363 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.2.3.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-12-01 15:24:36,363 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-12-01 15:24:36,364 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.2.3.0
+2020-12-01 15:24:36,433 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-12-01 17:13:03,063 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-12-01 17:13:03,177 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-12-01 17:13:03,199 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.2.3.0 created.
+2020-12-01 17:13:03,200 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-12-01 17:13:03,201 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-12-01 17:13:03,204 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.2.3.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-12-01 17:13:03,205 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-12-01 17:13:03,205 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.2.3.0
+2020-12-01 17:13:03,274 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-12-01 17:24:41,475 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-12-01 17:24:41,640 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-12-01 17:24:41,674 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.2.3.0 created.
+2020-12-01 17:24:41,675 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-12-01 17:24:41,680 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-12-01 17:24:41,686 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.2.3.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-12-01 17:24:41,689 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-12-01 17:24:41,690 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.2.3.0
+2020-12-01 17:24:41,780 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-12-01 17:31:15,459 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-12-01 17:31:15,760 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-12-01 17:31:15,867 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.2.3.0 created.
+2020-12-01 17:31:15,869 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-12-01 17:31:15,889 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-12-01 17:31:15,893 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.2.3.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-12-01 17:31:15,894 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-12-01 17:31:15,895 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.2.3.0
+2020-12-01 17:31:16,216 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.

@@ -1,0 +1,163 @@
+2020-09-30 13:58:49,223 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-09-30 13:58:49,764 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-09-30 13:58:49,856 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2020-09-30 13:58:49,857 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-09-30 13:58:49,858 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-09-30 13:58:49,862 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-30 13:58:49,863 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-09-30 13:58:49,863 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2020-09-30 13:58:50,452 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-30 14:01:28,040 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-09-30 14:01:28,450 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-09-30 14:01:28,476 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2020-09-30 14:01:28,477 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-09-30 14:01:28,478 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-09-30 14:01:28,481 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-30 14:01:28,482 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-09-30 14:01:28,482 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2020-09-30 14:01:28,585 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-30 14:57:19,207 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-09-30 14:57:19,704 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-09-30 14:57:19,740 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2020-09-30 14:57:19,741 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-09-30 14:57:19,741 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-09-30 14:57:19,762 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-30 14:57:19,764 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-09-30 14:57:19,764 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2020-09-30 14:57:20,268 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-30 15:34:10,541 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-09-30 15:34:10,839 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-09-30 15:34:10,885 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2020-09-30 15:34:10,886 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-09-30 15:34:10,887 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-09-30 15:34:10,891 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-30 15:34:10,892 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-09-30 15:34:10,892 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2020-09-30 15:34:10,983 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-30 15:48:44,019 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-09-30 15:48:44,181 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-09-30 15:48:44,203 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2020-09-30 15:48:44,205 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-09-30 15:48:44,205 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-09-30 15:48:44,210 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-30 15:48:44,211 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-09-30 15:48:44,211 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2020-09-30 15:48:44,333 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-30 16:00:47,826 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-09-30 16:00:47,967 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-09-30 16:00:48,014 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2020-09-30 16:00:48,015 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-09-30 16:00:48,016 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-09-30 16:00:48,021 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-30 16:00:48,021 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-09-30 16:00:48,021 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2020-09-30 16:00:48,263 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-30 16:12:05,451 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-09-30 16:12:05,661 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-09-30 16:12:05,685 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2020-09-30 16:12:05,685 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-09-30 16:12:05,686 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-09-30 16:12:05,689 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-30 16:12:05,689 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-09-30 16:12:05,689 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2020-09-30 16:12:05,791 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-30 16:14:41,849 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-09-30 16:14:42,093 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-09-30 16:14:42,122 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2020-09-30 16:14:42,123 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-09-30 16:14:42,124 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-09-30 16:14:42,129 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-30 16:14:42,130 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-09-30 16:14:42,130 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2020-09-30 16:14:42,282 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-30 16:48:13,783 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-09-30 16:48:13,925 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-09-30 16:48:13,947 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2020-09-30 16:48:13,948 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-09-30 16:48:13,949 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-09-30 16:48:13,953 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-30 16:48:13,954 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-09-30 16:48:13,954 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2020-09-30 16:48:14,080 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-30 17:11:43,765 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2020-09-30 17:11:44,181 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-09-30 17:11:44,213 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2020-09-30 17:11:44,215 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-09-30 17:11:44,216 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-09-30 17:11:44,223 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-30 17:11:44,224 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-09-30 17:11:44,224 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2020-09-30 17:11:44,495 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-30 17:11:47,752 [4] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+2020-09-30 17:11:47,754 [4] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+2020-09-30 17:11:47,762 [4] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED Shutdown complete.

@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "dgSpecHash": "kxCvhhDEAsnTCeeCS72mSloxyMhS6ptMSc7p8j8KC4YRYZoCsRHrJ1bEUt7X3zgI6kUds7PlO0SdmGz1OmZCog==",
+  "success": true,
+  "projectFilePath": "E:\\Work\\Project\\SysCommon\\src\\Essensoft.AspNetCore.WeChatPay\\Essensoft.AspNetCore.WeChatPay.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\World天\\.nuget\\packages\\microsoft.aspnetcore.http\\2.0.1\\microsoft.aspnetcore.http.2.0.1.nupkg.sha512",
+    "C:\\Users\\World天\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.0.1\\microsoft.aspnetcore.http.abstractions.2.0.1.nupkg.sha512",
+    "C:\\Users\\World天\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.0.1\\microsoft.aspnetcore.http.features.2.0.1.nupkg.sha512",
+    "C:\\Users\\World天\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.0.1\\microsoft.aspnetcore.webutilities.2.0.1.nupkg.sha512",
+    "C:\\Users\\World天\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.0.0\\microsoft.extensions.dependencyinjection.abstractions.2.0.0.nupkg.sha512",
+    "C:\\Users\\World天\\.nuget\\packages\\microsoft.extensions.objectpool\\2.0.0\\microsoft.extensions.objectpool.2.0.0.nupkg.sha512",
+    "C:\\Users\\World天\\.nuget\\packages\\microsoft.extensions.options\\2.0.0\\microsoft.extensions.options.2.0.0.nupkg.sha512",
+    "C:\\Users\\World天\\.nuget\\packages\\microsoft.extensions.primitives\\2.0.0\\microsoft.extensions.primitives.2.0.0.nupkg.sha512",
+    "C:\\Users\\World天\\.nuget\\packages\\microsoft.net.http.headers\\2.0.1\\microsoft.net.http.headers.2.0.1.nupkg.sha512",
+    "C:\\Users\\World天\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\World天\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\World天\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
+    "C:\\Users\\World天\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.4.0\\system.runtime.compilerservices.unsafe.4.4.0.nupkg.sha512",
+    "C:\\Users\\World天\\.nuget\\packages\\system.text.encodings.web\\4.4.0\\system.text.encodings.web.4.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}

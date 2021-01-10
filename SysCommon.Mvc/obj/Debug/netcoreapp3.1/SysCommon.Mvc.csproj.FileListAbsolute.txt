@@ -1,0 +1,7 @@
+C:\Users\World天\Downloads\SysCommon\SysCommon.Mvc\obj\Debug\netcoreapp3.1\SysCommon.Mvc.csprojAssemblyReference.cache
+C:\Users\World天\Downloads\SysCommon\SysCommon.Mvc\obj\Debug\netcoreapp3.1\SysCommon.Mvc.AssemblyInfoInputs.cache
+C:\Users\World天\Downloads\SysCommon\SysCommon.Mvc\obj\Debug\netcoreapp3.1\SysCommon.Mvc.AssemblyInfo.cs
+C:\Users\World天\Downloads\SysCommon\SysCommon.Mvc\obj\Debug\netcoreapp3.1\SysCommon.Mvc.csproj.CoreCompileInputs.cache
+C:\Users\World天\Downloads\SysCommon\SysCommon.Mvc\obj\Debug\netcoreapp3.1\SysCommon.Mvc.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\World天\Downloads\SysCommon\SysCommon.Mvc\obj\Debug\netcoreapp3.1\SysCommon.Mvc.RazorAssemblyInfo.cache
+C:\Users\World天\Downloads\SysCommon\SysCommon.Mvc\obj\Debug\netcoreapp3.1\SysCommon.Mvc.RazorAssemblyInfo.cs

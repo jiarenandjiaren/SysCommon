@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "1PmdoSOxB/sAW//aTonvl77TFsIUNh8sqEQxngwAcNLg+DaJFR9MyWzWveGkFSkWW29dMHsBVX1zQ3BHan14Tw==",
+  "success": true,
+  "projectFilePath": "E:\\Work\\Project\\SysCommon\\src\\Essensoft.AspNetCore.Security\\Essensoft.AspNetCore.Security.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\World天\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\World天\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

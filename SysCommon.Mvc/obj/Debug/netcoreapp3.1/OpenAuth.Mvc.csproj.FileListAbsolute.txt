@@ -1,0 +1,26 @@
+D:\gyj\Work\JiuboCMS\OpenAuth.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.csprojAssemblyReference.cache
+D:\gyj\Work\JiuboCMS\OpenAuth.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.AssemblyInfoInputs.cache
+D:\gyj\Work\JiuboCMS\OpenAuth.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.AssemblyInfo.cs
+D:\gyj\Work\JiuboCMS\OpenAuth.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.csproj.CoreCompileInputs.cache
+D:\gyj\Work\JiuboCMS\OpenAuth.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.MvcApplicationPartsAssemblyInfo.cs
+D:\gyj\Work\JiuboCMS\OpenAuth.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.MvcApplicationPartsAssemblyInfo.cache
+D:\gyj\Work\JiuboCMS\OpenAuth.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.RazorAssemblyInfo.cache
+D:\gyj\Work\JiuboCMS\OpenAuth.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.RazorAssemblyInfo.cs
+D:\gyj\Work\Project\SysCommon - 副本\OpenAuth.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.csprojAssemblyReference.cache
+D:\gyj\Work\Project\SysCommon - 副本\OpenAuth.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.AssemblyInfoInputs.cache
+D:\gyj\Work\Project\SysCommon - 副本\OpenAuth.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.AssemblyInfo.cs
+D:\gyj\Work\Project\SysCommon - 副本\OpenAuth.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.csproj.CoreCompileInputs.cache
+D:\gyj\Work\Project\SysCommon - 副本\OpenAuth.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.MvcApplicationPartsAssemblyInfo.cs
+D:\gyj\Work\Project\SysCommon - 副本\OpenAuth.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.MvcApplicationPartsAssemblyInfo.cache
+D:\gyj\Work\Project\SysCommon - 副本\OpenAuth.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.RazorAssemblyInfo.cache
+D:\gyj\Work\Project\SysCommon - 副本\OpenAuth.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.RazorAssemblyInfo.cs
+<<<<<<< HEAD
+D:\gyj\Work\Project\SysCommon\SysCommon.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.csprojAssemblyReference.cache
+D:\gyj\Work\Project\SysCommon\SysCommon.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.AssemblyInfoInputs.cache
+D:\gyj\Work\Project\SysCommon\SysCommon.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.AssemblyInfo.cs
+D:\gyj\Work\Project\SysCommon\SysCommon.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.csproj.CoreCompileInputs.cache
+D:\gyj\Work\Project\SysCommon\SysCommon.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.MvcApplicationPartsAssemblyInfo.cache
+D:\gyj\Work\Project\SysCommon\SysCommon.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.RazorAssemblyInfo.cache
+D:\gyj\Work\Project\SysCommon\SysCommon.Mvc\obj\Debug\netcoreapp3.1\OpenAuth.Mvc.RazorAssemblyInfo.cs
+=======
+>>>>>>> 3477d5b08cecddc6dc2a2029eae29ad8f7f07d5a

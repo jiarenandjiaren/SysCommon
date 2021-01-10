@@ -1,0 +1,624 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SysCommon.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:SysCommon.WebApi.Controllers.AdminController">
+            <summary>
+            管理员操作
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.AdminController.Add(SysCommon.Service.Request.ASysUserReq)">
+            <summary>
+            添加
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.AdminController.Edit(SysCommon.Service.Request.ESysUserReq)">
+            <summary>
+            修改
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.AdminController.Delete(System.String[])">
+            <summary>
+            删除
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.AdminController.Show(SysCommon.Service.Request.QuerySysUserListReq)">
+            <summary>
+            加载列表
+            获取管理员列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.AdminController.IsEnable(System.String[])">
+            <summary>
+            停用
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SysCommon.WebApi.Controllers.ArticleAttributeController">
+            <summary>
+            文章自定义属性
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.ArticleAttributeController.Add(SysCommon.Service.Request.AArticleAttributeReq)">
+            <summary>
+            添加
+            </summary>
+            <param name="aOEArticleAttributeReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.ArticleAttributeController.Edit(SysCommon.Service.Request.EArticleAttributeReq)">
+            <summary>
+            修改 
+            </summary>
+            <param name="aOEArticleAttributeReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.ArticleAttributeController.Delete(System.String[])">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.ArticleAttributeController.Show(SysCommon.Service.Request.QueryArticleAttributeListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="T:SysCommon.WebApi.Controllers.ArticleController">
+            <summary>
+            文章管理
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.ArticleController.Add(SysCommon.Service.Request.AArticleReq)">
+            <summary>
+            添加
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.ArticleController.Edit(SysCommon.Service.Request.EArticleReq)">
+            <summary>
+            修改
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.ArticleController.Delete(System.String[])">
+            <summary>
+            删除
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.ArticleController.Show(SysCommon.Service.Request.QueryArticleListReq)">
+            <summary>
+            获取文章列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.ArticleController.ShowOne(System.String)">
+            <summary>
+            获取指定文章数据
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.ArticleController.ShowCommonField(System.String)">
+            <summary>
+            获取模板对应的新添加字段
+            </summary>
+        </member>
+        <member name="T:SysCommon.WebApi.Controllers.BatchController">
+            <summary>
+            登录相关及用户资源分配（权限分配）
+            </summary>
+        </member>
+        <member name="T:SysCommon.WebApi.Controllers.CheckController">
+            <summary>
+            登录相关及用户资源分配（权限分配）
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.CheckController.GetUserProfile">
+            <summary>
+            获取登录用户资料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.CheckController.GetStatus">
+            <summary>
+            检验token是否有效
+            </summary>
+            <param name="token">The token.</param>
+            <param name="requestid">备用参数.</param>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.CheckController.GetProperties(System.String)">
+            <summary>
+            获取当前登录用户可访问的字段
+            </summary>
+            <param name="tablename">实体名称（对应数据表名称）</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.CheckController.GetOrgs">
+            <summary>
+            获取登录用户的所有可访问的组织信息
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.CheckController.GetRoles">
+            <summary>
+            获取登录用户的所有可访问的角色
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.CheckController.GetMenus">
+            <summary>
+            获取登录用户的所有可访问的模块(栏目)及按钮，以列表形式返回结果
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.CheckController.Login(SysCommon.Service.SSO.PassportLoginRequest)">
+            <summary>
+            登录接口
+            </summary>
+            <param name="request">登录参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.CheckController.GetVierificationCode">
+            <summary>
+            生成验证码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.CheckController.Logout">
+            <summary>
+            注销登录
+            </summary>
+            <param name="token"></param>
+            <param name="requestid">备用参数.</param>
+        </member>
+        <member name="T:SysCommon.WebApi.Controllers.DatabaseController">
+            <summary>
+            数据库操作操作
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.DatabaseController.GetTableNames">
+            <summary>
+            获取数据库表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.DatabaseController.GetProperties(SysCommon.Service.Request.GetTableNameReq)">
+            <summary>
+            获取数据库一个表的所有属性值及属性描述
+            </summary>
+            <param name="moduleName">模块名称/表名</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.DatabaseController.ContentReplace(SysCommon.Service.Request.ContentReplaceReq)">
+            <summary>
+            字段内容替换
+            </summary>
+            <param name="contentReplaceReq"></param>
+        </member>
+        <member name="T:SysCommon.WebApi.Controllers.ElementController">
+            <summary>
+            为模块分配按钮
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.ElementController.Add(SysCommon.Service.Request.AElementReq)">
+            <summary>
+            添加
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.ElementController.Edit(SysCommon.Service.Request.EElementReq)">
+            <summary>
+            修改
+            </summary>
+            <param name="eElementReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.ElementController.Delete(System.String[])">
+            <summary>
+            删除
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.ElementController.Show(SysCommon.Service.Request.QueryElementListReq)">
+            <summary>
+            加载列表
+            获取管理员列表
+            </summary>
+        </member>
+        <member name="T:SysCommon.WebApi.Controllers.FilesController">
+            <summary>
+            文件上传
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.FilesController.Upload(Microsoft.AspNetCore.Http.IFormFileCollection)">
+            <summary>
+             批量上传文件接口
+            </summary>
+            <param name="files"></param>
+            <returns>服务器存储的文件信息</returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.FilesController.Show(System.String)">
+            <summary>
+            展示指定目录文件名称
+            </summary>
+            <param name="testDir"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SysCommon.WebApi.Controllers.FormController">
+            <summary>
+            模板操作
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.FormController.Add(SysCommon.Service.Request.AFormReq)">
+            <summary>
+            添加
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.FormController.Edit(SysCommon.Service.Request.EFormReq)">
+            <summary>
+            修改
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.FormController.Delete(System.String[])">
+            <summary>
+            删除
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.FormController.Show(SysCommon.Service.Request.QueryFormListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="T:SysCommon.WebApi.Controllers.MenuController">
+            <summary>
+            栏目管理
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.MenuController.Add(SysCommon.Service.Request.AMenuReq)">
+            <summary>
+            添加
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.MenuController.Edit(SysCommon.Service.Request.EMenuReq)">
+            <summary>
+            修改
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.MenuController.Delete(System.String[])">
+            <summary>
+            删除
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.MenuController.Show(SysCommon.Service.Request.MenuQueryListReq)">
+            <summary>
+            加载列表
+            获取栏目
+            </summary>
+        </member>
+        <member name="T:SysCommon.WebApi.Controllers.OpenJobsController">
+            <summary>
+            定时任务操作
+            【系统模块】
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.OpenJobsController.Add(SysCommon.Service.Request.AddOrUpdateOpenJobReq)">
+            <summary>
+            添加
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.OpenJobsController.Edit(SysCommon.Service.Request.AddOrUpdateOpenJobReq)">
+            <summary>
+            修改
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.OpenJobsController.Show(SysCommon.Service.Request.QueryOpenJobListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.OpenJobsController.Delete(System.String[])">
+            <summary>
+            批量删除
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.OpenJobsController.QueryLocalHandlers">
+            <summary>
+            获取本地可执行的任务列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.OpenJobsController.ChangeStatus(SysCommon.Service.Request.ChangeJobStatusReq)">
+            <summary>
+            改变任务状态，启动/停止
+            </summary>
+        </member>
+        <member name="T:SysCommon.WebApi.Controllers.Pay.AlipayController">
+            <summary>
+            支付-支付宝
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.Pay.AlipayController.PagePayAsync(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            电脑网站支付
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="subject"></param>
+            <param name="total_amount"></param>
+            <param name="body"></param>
+            <param name="product_code"></param>
+            <param name="notify_url"></param>
+            <param name="return_url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.Pay.AlipayController.WapPay(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            手机网站支付
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="subject"></param>
+            <param name="total_amount"></param>
+            <param name="body"></param>
+            <param name="product_code"></param>
+            <param name="notify_url"></param>
+            <param name="return_url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.Pay.AlipayController.ScanCodeGen(SysCommon.Service.Request.AAllPayReq)">
+            <summary>
+            扫码支付
+            </summary>
+            <param name="orderName">订单名称</param>
+            <param name="orderAmount">订单金额</param>
+            <param name="outTradeNo">订单号</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.Pay.AlipayController.Pay">
+            <summary>
+            条码支付（开发中）
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="scene"></param>
+            <param name="auth_code"></param>
+            <param name="subject"></param>
+            <param name="total_amount"></param>
+            <param name="body"></param>
+            <param name="notify_url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.Pay.AlipayController.Query(System.String,System.String)">
+            <summary>
+            交易查询
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="trade_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.Pay.AlipayController.Refund(System.String,System.String,System.String,System.String)">
+            <summary>
+            交易退款
+            </summary>
+            <param name="out_trade_no">订单号</param>
+            <param name="trade_no">支付宝流水号</param>
+            <param name="refund_amount">退款金额</param>
+            <param name="refund_reason">退款原因</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.Pay.AlipayController.RefundQuery(System.String,System.String,System.String)">
+            <summary>
+            退款查询
+            </summary>
+            <param name="out_trade_no">订单号</param>
+            <param name="trade_no">流水号</param>
+            <param name="out_request_no">退款单号</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.Pay.AlipayController.Close(System.String,System.String)">
+            <summary>
+            关闭订单
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="trade_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.Pay.AlipayController.Trans(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            单笔转账 (开发中)
+            </summary>
+            <param name="out_biz_no"></param>
+            <param name="payee_account"></param>
+            <param name="payee_type"></param>
+            <param name="amount"></param>
+            <param name="remark"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.Pay.AlipayController.TransQuery(System.String,System.String)">
+            <summary>
+            转账查询 (开发中)
+            </summary>
+            <param name="out_biz_no"></param>
+            <param name="order_id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SysCommon.WebApi.Controllers.RelevanceController">
+            <summary>
+            关联数据的配置
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.RelevanceController.AddRoleToProperties(SysCommon.Service.Request.ARelevanceRoleToPropertyReq)">
+            <summary>
+            为角色分配数据字段权限
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.RelevanceController.AddRoleUsers(SysCommon.Service.Request.ARoleUsers)">
+            <summary>
+            为角色分配用户，需要统一提交，会删除以前该角色的所有用户
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.RelevanceController.AddUserRoles(SysCommon.Service.Request.AUserRoles)">
+            <summary>
+            为用户分配角色，需要统一提交，会删除以前该用户的所有角色
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.RelevanceController.AddOrgUsers(SysCommon.Service.Request.AOrgUsers)">
+            <summary>
+            为部门分配用户，需要统一提交，会删除以前该部门的所有用户
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.RelevanceController.AddRoleMenus(SysCommon.Service.Request.ARoleMenus)">
+            <summary>
+            为角色分配模块（栏目），需要统一提交，会删除以前该角色的所有模块（栏目）
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.RelevanceController.AddRoleElement(SysCommon.Service.Request.ARoleElement)">
+            <summary>
+            为角色分配按钮，需要统一提交，会删除以前该角色的所有按钮
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SysCommon.WebApi.Controllers.RoleController">
+            <summary>
+            角色管理
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.RoleController.Add(SysCommon.Service.Request.RoleAddReq)">
+            <summary>
+            添加
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.RoleController.Edit(SysCommon.Service.Request.RoleEditReq)">
+            <summary>
+            修改
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.RoleController.Delete(System.String[])">
+            <summary>
+            删除
+            </summary>
+            <param name="addAdminReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.RoleController.Show(SysCommon.Service.Request.RoleQueryListReq)">
+            <summary>
+            加载列表
+            </summary>
+            <param name="queryAdminListReq"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SysCommon.WebApi.Controllers.SysLogsController">
+            <summary>
+            系统日志（停用）
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.SysLogsController.Get(System.String)">
+            <summary>
+            获取详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.SysLogsController.Add(SysCommon.Repository.Domain.SysLog)">
+            <summary>
+            添加
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.SysLogsController.Update(SysCommon.Repository.Domain.SysLog)">
+            <summary>
+            修改日志（建议废弃）
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.SysLogsController.Load(SysCommon.Service.Request.QuerySysLogListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.SysLogsController.Delete(System.String[])">
+            <summary>
+            批量删除
+            </summary>
+        </member>
+        <member name="T:SysCommon.WebApi.Controllers.SysOrgController">
+            <summary>
+            组织管理
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.SysOrgController.Add(SysCommon.Service.Request.ASysOrgReq)">
+            <summary>
+            添加
+            </summary>
+            <param name="aSysOrgReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.SysOrgController.Edit(SysCommon.Service.Request.ESysOrgReq)">
+            <summary>
+            修改
+            </summary>
+            <param name="eSysOrgReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.SysOrgController.Delete(System.String[])">
+            <summary>
+            删除
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.SysOrgController.Show(SysCommon.Service.Request.SysOrgQueryListReq)">
+            <summary>
+            加载列表
+            </summary>
+            <param name="sysOrgQueryList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SysCommon.WebApi.Model.AuthResponsesOperationFilter">
+            <summary>
+            swagger请求的时候，如果是Identity方式，自动加授权方式
+            </summary>
+        </member>
+        <member name="T:SysCommon.WebApi.Model.StartupLogger">
+            <summary>
+            从3.0开始Startup ConfigureServices中不能使用ILogger，需要扩展
+            </summary>
+        </member>
+    </members>
+</doc>

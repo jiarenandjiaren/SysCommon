@@ -1,0 +1,28 @@
+2020-09-11 08:59:07,679 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2020-09-11 08:59:07,730 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2020-09-11 08:59:07,730 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2020-09-11 08:59:07,731 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2020-09-11 08:59:07,734 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-11 08:59:07,736 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2020-09-11 08:59:07,736 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2020-09-11 08:59:07,784 [1] INFO  OpenAuth.Service.HostedService.QuartzService [(null)] - 启动定时job，可以在这里配置读取数据库需要启动的任务，然后启动他们
+2020-09-11 08:59:07,790 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2020-09-11 09:00:15,188 [5] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - api doc basepath:D:\gyj\Work\Project\JiuboCMS\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\
+2020-09-11 09:00:15,195 [5] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileD:\gyj\Work\Project\JiuboCMS\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\Infrastructure.xml
+2020-09-11 09:00:15,197 [5] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileD:\gyj\Work\Project\JiuboCMS\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.App.xml
+2020-09-11 09:00:15,199 [5] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileD:\gyj\Work\Project\JiuboCMS\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.Repository.xml
+2020-09-11 09:00:15,201 [5] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileD:\gyj\Work\Project\JiuboCMS\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.Service.xml
+2020-09-11 09:00:15,202 [5] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileD:\gyj\Work\Project\JiuboCMS\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.WebApi.StaticWebAssets.xml
+2020-09-11 09:00:15,203 [5] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileD:\gyj\Work\Project\JiuboCMS\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.WebApi.xml
+2020-09-11 09:00:15,207 [5] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileD:\gyj\Work\Project\JiuboCMS\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\temp-keys\key-fbb552eb-08cf-4144-9810-7d190f998dfa.xml
+2020-09-11 09:50:23,125 [80] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+2020-09-11 09:50:23,127 [80] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+2020-09-11 09:50:23,132 [80] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED Shutdown complete.
+2020-09-11 09:50:23,132 [80] INFO  OpenAuth.Service.HostedService.QuartzService [(null)] - 关闭定时job

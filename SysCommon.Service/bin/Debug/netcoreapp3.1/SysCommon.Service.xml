@@ -1,0 +1,3251 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SysCommon.Service</name>
+    </assembly>
+    <members>
+        <member name="T:SysCommon.Service.AppManager">
+            <summary>
+            分类管理
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.AppSetting">
+            <summary>
+            配置项
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.AppSetting.SSOPassport">
+            <summary>
+            SSO地址
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.AppSetting.Version">
+            <summary>
+            版本信息
+            如果为demo,则屏蔽Post请求
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.AppSetting.DbType">
+            <summary>
+            数据库类型 SqlServer、MySql
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.AppSetting.UploadPath">
+            <summary> 附件上传路径</summary>
+        </member>
+        <member name="T:SysCommon.Service.AuthContextFactory">
+            <summary>
+            加载用户所有可访问的资源/机构/模块
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.AuthStrategyContext">
+            <summary>
+             授权策略上下文，一个典型的策略模式
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.NormalAuthStrategy">
+            <summary>
+            普通用户授权策略
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.NormalAuthStrategy.GetProperties(System.String)">
+            <summary>
+            获取用户可访问的字段列表
+            </summary>
+            <param name="moduleCode">模块的code</param>
+            <returns></returns>
+        </member>
+        <member name="T:SysCommon.Service.SystemAuthStrategy">
+            <summary>
+            领域服务
+            <para>超级管理员权限</para>
+            <para>超级管理员使用guid.empty为ID，可以根据需要修改</para>
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.CategoryApp.Load(SysCommon.Service.Request.QueryCategoryListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.CategoryTypeApp.Load(SysCommon.Service.Request.QueryCategoryTypeListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.DataPrivilegeRuleApp.Load(SysCommon.Service.Request.QueryDataPrivilegeRuleListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.DbExtension.GetProperties(System.String)">
+            <summary>
+            获取数据库一个表的所有属性值及属性描述
+            </summary>
+            <param name="moduleName">模块名称/表名</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.DbExtension.GetTableNames">
+            <summary>
+            获取数据库所有的表名
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.Define.ExpHours">
+            <summary>
+            token有效期(小时=默认10)
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.DomainModels.PageDataOptions.Order">
+            <summary>
+            排序方式
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.DomainModels.PageGridData`1.extra">
+            <summary>
+            可以在返回前，再返回一些额外的数据，比如返回其他表的信息，前台找到查询后的方法取出来
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.DomainModels.SaveModel.Extra">
+            <summary>
+            从前台传入的其他参数(自定义扩展可以使用)
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.Enum.ApiMessage.ParameterError">
+            <summary>
+            参数有误
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.Enum.ApiMessage.NotInputEntity">
+            <summary>
+            没有配置好输入参数
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.Enum.ApiMessage.TokenLose">
+            <summary>
+            token丢失
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.Enum.ApiMessage.VersionEmpty">
+            <summary>
+            版本号不能为空
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.Enum.ApiMessage.ContentEmpty">
+            <summary>
+            content不能为空
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.Enum.ApiMessage.TokenError">
+            <summary>
+            content不能为空
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.FileApp">
+            <summary>
+            文件
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.FileService">
+            <summary>
+            文件
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.FileService.DeleteFile(System.String)">
+            <summary>
+            删除文件夹下（包含嵌套文件夹里），所有.exe,.lib,.dll文件   _filePath
+            </summary>
+            <param name="file_path">文件路径</param>
+        </member>
+        <member name="T:SysCommon.Service.Flow.FlowLine">
+            <summary>
+            流程连线
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.FlowLine.Compares">
+            <summary> 分支条件 </summary>
+        </member>
+        <member name="T:SysCommon.Service.Flow.DataCompare">
+            <summary>
+             分支条件
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.DataCompare.Operation">
+            <summary>操作类型比如大于/等于/小于</summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.DataCompare.FieldName">
+            <summary> form种的字段名称 </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.DataCompare.FieldType">
+            <summary> 字段类型："form"：为表单中的字段，后期扩展系统表等. </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.DataCompare.Value">
+            <summary>比较的值</summary>
+        </member>
+        <member name="T:SysCommon.Service.Flow.FlowNode">
+            <summary>
+            流程节点
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.FlowNode.setInfo">
+            <summary>
+            节点的附加数据项
+            </summary>
+            <value>The set information.</value>
+        </member>
+        <member name="P:SysCommon.Service.Flow.Setinfo.NodeDesignate">
+            <summary>
+            节点执行权限类型
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.Setinfo.ThirdPartyUrl">
+            <summary>
+             流程执行时，三方回调的URL地址
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.Setinfo.NodeRejectType">
+            <summary>
+            驳回节点0"前一步"1"第一步"2"某一步" 3"不处理"
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.Setinfo.ConfluenceOk">
+            <summary>
+            会签通过的个数
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.Setinfo.ConfluenceNo">
+            <summary>
+            会签拒绝的个数
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Flow.Nodedesignatedata">
+            <summary>
+            节点执行人
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Flow.Tag">
+            <summary>
+            节点执行结果标签
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.Tag.Taged">
+            <summary>
+             1: 通过
+             2：不通过
+             3：驳回
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Flow.TagState">
+            <summary>
+             1: 通过
+             2：不通过
+             3：驳回
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.Flow.FlowRuntime.#ctor(SysCommon.Repository.Domain.FlowInstance)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.Flow.FlowRuntime.InitNodes(System.Object)">
+            <summary>
+            获取工作流节点的字典列表:key节点id
+            </summary>
+            <param name="schemeContentJson"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.Flow.FlowRuntime.GetNextNodeId(System.String)">
+            <summary>
+            获取下一个节点
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.Flow.FlowRuntime.GetNextNodeType">
+            <summary>
+            获取实例接下来运行的状态
+            </summary>
+            <returns>-1无法运行,0会签开始,1会签结束,2一般节点,4流程运行结束</returns>
+        </member>
+        <member name="M:SysCommon.Service.Flow.FlowRuntime.GetNodeType(System.String)">
+            <summary>
+            获取节点类型 0会签开始,1会签结束,2一般节点,开始节点,4流程运行结束
+            </summary>
+            <param name="nodeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.Flow.FlowRuntime.NodeConfluence(System.String,SysCommon.Service.Flow.Tag)">
+            <summary>
+            节点会签审核
+            </summary>
+            <param name="nodeId">会签时，currentNodeId是会签开始节点。这个表示当前正在处理的节点</param>
+            <param name="tag"></param>
+            <returns>-1不通过,1等待,其它通过</returns>
+        </member>
+        <member name="M:SysCommon.Service.Flow.FlowRuntime.RejectNode(System.String)">
+            <summary>
+            驳回
+            </summary>
+            <param name="rejectType">驳回类型。null:使用节点配置的驳回类型/0:前一步/1:第一步/2：指定节点，使用NodeRejectStep</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.Flow.FlowRuntime.MakeTagNode(System.String,SysCommon.Service.Flow.Tag)">
+            <summary>
+             标记节点1通过，-1不通过，0驳回
+             </summary>
+             <param name="nodeId"></param>
+        </member>
+        <member name="M:SysCommon.Service.Flow.FlowRuntime.NotifyThirdParty(System.Net.Http.HttpClient,SysCommon.Service.Flow.Tag)">
+            <summary>
+            通知三方系统，节点执行情况
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.FlowRuntime.flowInstanceId">
+            <summary>
+            运行实例的Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.FlowRuntime.startNodeId">
+            <summary>
+            开始节点的ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.FlowRuntime.currentNodeId">
+            <summary>
+            当前节点的ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.FlowRuntime.currentNodeType">
+            <summary>
+            当前节点类型 0会签开始,1会签结束,2一般节点,开始节点,4流程运行结束
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.FlowRuntime.currentNode">
+            <summary>
+            当前节点的对象
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.FlowRuntime.nextNodeId">
+            <summary>
+            下一个节点
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.FlowRuntime.nextNodeType">
+            <summary>
+            下一个节点类型 -1无法运行,0会签开始,1会签结束,2一般节点,4流程运行结束
+            </summary>
+            <value>The type of the next node.</value>
+        </member>
+        <member name="P:SysCommon.Service.Flow.FlowRuntime.nextNode">
+            <summary>
+            下一个节点对象
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.FlowRuntime.previousId">
+            <summary>
+            上一个节点
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.FlowRuntime.Nodes">
+            <summary>
+            实例节点集合
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.FlowRuntime.Lines">
+            <summary>
+            流程实例中所有的线段
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.FlowRuntime.FromNodeLines">
+            <summary>
+            从节点发出的线段集合
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.FlowRuntime.ToNodeLines">
+            <summary>
+            到达节点的线段集合
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Flow.FlowRuntime.FrmData">
+            <summary>
+            表单数据
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.FormUtil.GetHtml(SysCommon.Service.Response.FormResp)">
+            <summary>
+            只显示编辑框
+            </summary>
+            <param name="form">The form.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:SysCommon.Service.FormUtil.Preview(SysCommon.Repository.Domain.FlowInstance)">
+            <summary>
+            显示编辑框和里面的用户数据
+            </summary>
+            <param name="contentdata">The contentdata.</param>
+            <param name="contentParse">The content parse.</param>
+            <param name="frmData">The FRM data.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:SysCommon.Service.FormUtil.field_type_sql(System.String)">
+            功能:  创建表单数据表格（基于sql server）
+        </member>
+        <member name="M:SysCommon.Service.FrmLeaveReqApp.Load(SysCommon.Service.Request.QueryFrmLeaveReqListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.Interface.IAuth.CheckLogin(System.String,System.String)">
+            <summary>
+            检验token是否有效
+            </summary>
+            <param name="token">token值</param>
+            <param name="otherInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.Interface.IAuth.Login(SysCommon.Service.SSO.PassportLoginRequest)">
+            <summary>
+            登录接口
+            </summary>
+            <param name="appKey">登录的应用appkey</param>
+            <param name="username">用户名</param>
+            <param name="pwd">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.Interface.IAuth.Logout">
+            <summary>
+            退出登录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.IAuthStrategy.GetProperties(System.String)">
+            <summary>
+            根据模块id获取可访问的模块字段
+            </summary>
+            <param name="moduleCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.ModuleManagerApp.LoadForRole(System.String)">
+            <summary>
+            加载特定角色的模块
+            </summary>
+            <param name="roleId">The role unique identifier.</param>
+        </member>
+        <member name="M:SysCommon.Service.ModuleManagerApp.DelMenu(System.String[])">
+            <summary>
+            删除指定的菜单
+            </summary>
+            <param name="ids"></param>
+        </member>
+        <member name="M:SysCommon.Service.OrgManagerApp.Add(SysCommon.Repository.Domain.SysOrg)">
+            <summary>
+            添加部门
+            </summary>
+            <param name="org">The org.</param>
+            <returns>System.Int32.</returns>
+            <exception cref="T:System.Exception">未能找到该组织的父节点信息</exception>
+        </member>
+        <member name="M:SysCommon.Service.OrgManagerApp.DelOrg(System.String[])">
+            <summary>
+            删除指定ID的部门及其所有子部门
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.OrgManagerApp.LoadForUser(System.String)">
+            <summary>
+            加载特定用户的部门
+            </summary>
+            <param name="userId">The user unique identifier.</param>
+        </member>
+        <member name="T:SysCommon.Service.Request.AddFlowInstanceReq">
+            <summary>
+            创建工作流请求
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddFlowInstanceReq.Code">
+            <summary>
+            实例编号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddFlowInstanceReq.CustomName">
+            <summary>
+            自定义名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddFlowInstanceReq.SchemeContent">
+            <summary>
+            流程模板内容
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddFlowInstanceReq.SchemeId">
+            <summary>
+            流程模板ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddFlowInstanceReq.SchemeCode">
+            <summary>
+            流程模板自定义编号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddFlowInstanceReq.DbName">
+            <summary>
+            数据库名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddFlowInstanceReq.FrmData">
+            <summary>
+            表单数据
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddFlowInstanceReq.FrmType">
+            <summary>
+            表单类型
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddFlowInstanceReq.FrmContentData">
+            <summary>
+            表单中的控件属性描述
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddFlowInstanceReq.FrmContentParse">
+            <summary>
+            表单控件位置模板
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddFlowInstanceReq.FrmId">
+            <summary>
+            表单ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddFlowInstanceReq.OrgId">
+            <summary>
+            所属部门
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddFlowInstanceReq.CreateUserId">
+            <summary>
+            创建用户主键
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddFlowInstanceReq.CreateUserName">
+            <summary>
+            创建用户
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddFlowInstanceReq.Description">
+            <summary>
+            实例备注
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.AddOrUpdateCategoryReq">
+            <summary>
+            分类表，也可用作数据字典。表示一个全集，比如：男、女、未知。关联的分类类型表示按什么进行的分类，如：按照性别对人类对象集
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateCategoryReq.Name">
+            <summary>
+            分类名称或描述
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateCategoryReq.DtCode">
+            <summary>
+            分类标识
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateCategoryReq.DtValue">
+            <summary>
+            通常与分类标识一致，但万一有不一样的情况呢？
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateCategoryReq.Enable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateCategoryReq.SortNo">
+            <summary>
+            排序号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateCategoryReq.Description">
+            <summary>
+            详细说明，基本没啥用
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateCategoryReq.TypeId">
+            <summary>
+            分类的ID
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.AddOrUpdateCategoryTypeReq">
+            <summary>
+            分类类型
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateCategoryTypeReq.Id">
+            <summary>
+            分类表ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateCategoryTypeReq.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateDataPriviReq.SourceCode">
+            <summary>
+            资源标识（模块编号）
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateDataPriviReq.SubSourceCode">
+            <summary>
+            二级资源标识
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateDataPriviReq.Description">
+            <summary>
+            权限描述
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateDataPriviReq.SortNo">
+            <summary>
+            排序号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateDataPriviReq.PrivilegeRules">
+            <summary>
+            权限规则
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateDataPriviReq.Enable">
+            <summary>
+            是否可用
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.AddOrUpdateOpenJobReq">
+            <summary>
+            定时任务
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateOpenJobReq.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateOpenJobReq.JobName">
+            <summary>
+            任务名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateOpenJobReq.JobType">
+            <summary>
+            任务执行方式0：本地任务；1：外部接口任务
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateOpenJobReq.JobCall">
+            <summary>
+            任务地址
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateOpenJobReq.JobCallParams">
+            <summary>
+            任务参数，JSON格式
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateOpenJobReq.Cron">
+            <summary>
+            CRON表达式
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateOpenJobReq.Status">
+            <summary>
+            任务运行状态（0：停止，1：正在运行，2：暂停）
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateOpenJobReq.Description">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderDtblReq">
+            <summary>
+            入库通知单明细
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderDtblReq.Id">
+            <summary>
+            入库通知单明细号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderDtblReq.OrderId">
+            <summary>
+            入库通知单号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderDtblReq.Price">
+            <summary>
+            含税单价
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderDtblReq.PriceNoTax">
+            <summary>
+            无税单价
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderDtblReq.InStockStatus">
+            <summary>
+            是否收货中(0:非收货中,1:收货中)
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderDtblReq.AsnStatus">
+            <summary>
+            到货状况(SYS_GOODSARRIVESTATUS)
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderDtblReq.GoodsId">
+            <summary>
+            商品编号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderDtblReq.GoodsBatch">
+            <summary>
+            商品批号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderDtblReq.QualityFlg">
+            <summary>
+            品质(SYS_QUALITYFLAG)
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderDtblReq.OrderNum">
+            <summary>
+            通知数量
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderDtblReq.InNum">
+            <summary>
+            到货数量
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderDtblReq.LeaveNum">
+            <summary>
+            剩余数量
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderDtblReq.HoldNum">
+            <summary>
+            占用数量
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderDtblReq.ProdDate">
+            <summary>
+            生产日期
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderDtblReq.ExpireDate">
+            <summary>
+            失效日期
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderDtblReq.TaxRate">
+            <summary>
+            税率
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderDtblReq.OwnerId">
+            <summary>
+            货主编号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderDtblReq.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderTblReq">
+            <summary>
+            入库通知单（入库订单）
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderTblReq.Id">
+            <summary>
+            入库通知单号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderTblReq.ExternalNo">
+            <summary>
+            相关单据号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderTblReq.ExternalType">
+            <summary>
+            相关单据类型
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderTblReq.Status">
+            <summary>
+            入库通知单状态(SYS_INSTCINFORMSTATUS)
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderTblReq.OrderType">
+            <summary>
+            入库类型(SYS_INSTCTYPE)
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderTblReq.GoodsType">
+            <summary>
+            商品类别
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderTblReq.PurchaseNo">
+            <summary>
+            采购单号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderTblReq.StockId">
+            <summary>
+            仓库编号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderTblReq.OwnerId">
+            <summary>
+            货主编号(固定值CQM)
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderTblReq.ShipperId">
+            <summary>
+            承运人编号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderTblReq.SupplierId">
+            <summary>
+            供应商编号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderTblReq.ScheduledInboundTime">
+            <summary>
+            预定入库时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderTblReq.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderTblReq.Enable">
+            <summary>
+            有效标志
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderTblReq.TransferType">
+            <summary>
+            承运方式
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderTblReq.InBondedArea">
+            <summary>
+            是否入保税库(0:否,1:是)
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderTblReq.ReturnBoxNum">
+            <summary>
+            销退箱数
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddOrUpdateWmsInboundOrderTblReq.OrgId">
+            <summary>
+            所属部门
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AOECommonFieldReq.Id">
+            <summary>
+            字段Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AOECommonFieldReq.Placeholder">
+            <summary>
+            占位符
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AOECommonFieldReq.IsRequired">
+            <summary>
+            是否为必填
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AOECommonFieldReq.RequiredMessage">
+            <summary>
+            必填说明
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AOECommonFieldReq.Size">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AOECommonFieldReq.Columns">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AOECommonFieldReq.RegexPattern">
+            <summary>
+            正则表达
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AOECommonFieldReq.RegexMessage">
+            <summary>
+            正则说明
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AOECommonFieldReq.FieldOptions">
+            <summary>
+            可选择字段
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AOECommonFieldReq.AdditionalSettings">
+            <summary>
+            附加设置
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AOECommonFieldReq.IsConfigAble">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AOECommonFieldReq.Name">
+            <summary>
+            字段名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AOECommonFieldReq.PropertyName">
+            <summary>
+            属性名称，即前台提交时设置的字段名称"
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AOECommonFieldReq.DisplayName">
+            <summary>
+            前台显示名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AOECommonFieldReq.Value">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AOECommonFieldReq.ValueArray">
+            <summary>
+            前台显示名称
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.AArticleDataReq">
+            <summary>
+            文章
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AArticleDataReq.Title">
+            <summary>
+            主题
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AArticleDataReq.PictureUrl">
+            <summary>
+            主图路径
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AArticleDataReq.IsPublic">
+            <summary>
+            是否公开
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AArticleDataReq.Synopsis">
+            <summary>
+            简介
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AArticleDataReq.Content">
+            <summary>
+            文章内容
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AArticleReq.Title">
+            <summary>
+            主题
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AArticleReq.PictureUrl">
+            <summary>
+            主图路径
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AArticleReq.IsPublic">
+            <summary>
+            是否公开
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AArticleReq.Synopsis">
+            <summary>
+            简介
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AArticleReq.Content">
+            <summary>
+            文章内容
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AArticleTypeReq.TypeName">
+            <summary>
+            文章类型名称
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.ADictionarieReq">
+            <summary>
+            文章
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ADictionarieReq.TopName">
+            <summary>
+            关联描述（A表关联B表   ABTop）
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ADictionarieReq.TopFirstId">
+            <summary>
+            A表关联B表  （A表Id）
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ADictionarieReq.TopSecondId">
+            <summary>
+            A表关联B表  （B表Id）
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.ALabelReq">
+            <summary>
+            添加文章属性
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ArticleDataView.UpdateName">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ArticleDataView.CreateId">
+            <summary>
+            创建人id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ArticleDataView.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ArticleDataView.CreateName">
+            <summary>
+            创建人名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ArticleDataView.Title">
+            <summary>
+            主题
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ArticleDataView.PictureUrl">
+            <summary>
+            主图路径
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ArticleDataView.IsPublic">
+            <summary>
+            是否公开
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ArticleDataView.Synopsis">
+            <summary>
+            简介
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ArticleDataView.Content">
+            <summary>
+            文章内容
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ArticleDataView.labelids">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.EArticleDataReq">
+            <summary>
+            文章
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EArticleDataReq.Title">
+            <summary>
+            主题
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EArticleDataReq.PictureUrl">
+            <summary>
+            主图路径
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EArticleDataReq.IsPublic">
+            <summary>
+            是否公开
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EArticleDataReq.Synopsis">
+            <summary>
+            简介
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EArticleDataReq.Content">
+            <summary>
+            文章内容
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EArticleTypeReq.TypeName">
+            <summary>
+            文章类型名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.QueryArticleDataListReq.Title">
+            <summary>
+            文章标题
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.QueryArticleDataListReq.Check">
+            <summary>
+            审核意见
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.QueryArticleTypeListReq.TypeName">
+            <summary>
+            类型名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.QueryArticleTypeListReq.IsEnable">
+            <summary>
+            状态（1：在用 0：停用 2:全部）
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.QueryLabelListReq.LabelName">
+            <summary>
+            标签名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.QueryLabelListReq.IsEnable">
+            <summary>
+            状态（1：在用 0：停用 2:全部）
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.QueryLabelListReq.TypeId">
+            <summary>
+            类型id
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.AssignDataReq">
+            <summary>
+            为角色分配数据字段权限
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AssignDataReq.RoleId">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AssignDataReq.ModuleCode">
+            <summary>
+            模块的Code,比如Category/Resource
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AssignDataReq.Properties">
+            <summary>
+            字段名称列表
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.AssignOrgUsers">
+            <summary>
+            部门分配用户
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AssignOrgUsers.OrgId">
+            <summary>
+            部门id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AssignOrgUsers.UserIds">
+            <summary>
+            用户id列表
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.AssignReq">
+            <summary>
+            比如给用户分配资源，那么firstId就是用户ID，secIds就是资源ID列表
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AssignReq.type">
+            <summary>
+            分配的关键字，比如：UserRole
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AssignReq.firstId">
+            <summary>
+            比如给用户分配角色，那么firstId就是用户ID，secIds就是角色ID列表
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.AssignRoleUsers">
+            <summary>
+            角色分配用户
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AssignRoleUsers.RoleId">
+            <summary>
+            角色id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AssignRoleUsers.UserIds">
+            <summary>
+            用户id列表
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.BaseAEntityReq.CreateId">
+            <summary>
+            创建人Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.BaseEEntityReq.Id">
+            <summary>
+            数据对应Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.BaseEEntityReq.UpdateId">
+            <summary>
+            修改人Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.BaseEEntityReq.UpdateTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.BaseEntityReq.IsEnable">
+            <summary>
+            是否启动
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.BaseEntityReq.Sort">
+            <summary>
+            排序标识
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.BaseEntityReq.Description">
+            <summary>
+            备注说明
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.BaseViewReq.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.BaseViewReq.CreateName">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.BaseViewReq.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.BaseViewReq.UpdateName">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.BaseViewReq.UpdateTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.BaseViewReq.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ChangeJobStatusReq.Id">
+            <summary>
+            任务ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ChangeJobStatusReq.Status">
+            <summary>
+            改变任务状态
+            0：停止；1：启动（任务变成正在运行）
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ChangeProfileReq.Name">
+            <summary>
+            用户姓名
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ChangeProfileReq.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ContentReplaceReq.TableName">
+            <summary>
+            数据表名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ContentReplaceReq.FieldName">
+            <summary>
+            字段名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ContentReplaceReq.OldContent">
+            <summary>
+            被替换数据
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ContentReplaceReq.NewContent">
+            <summary>
+            替换数据
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ContentReplaceReq.CreateId">
+            <summary>
+            创建人Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ContentReplaceReq.Description">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AElementReq.DomId">
+            <summary>
+            DOM ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AElementReq.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AElementReq.Script">
+            <summary>
+            元素调用脚本
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AElementReq.Icon">
+            <summary>
+            元素图标
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AElementReq.Class">
+            <summary>
+            元素样式
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AElementReq.MenuId">
+            <summary>
+            功能模块Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EElementReq.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EElementReq.DomId">
+            <summary>
+            DOM ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EElementReq.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EElementReq.Script">
+            <summary>
+            元素调用脚本
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EElementReq.Icon">
+            <summary>
+            元素图标
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EElementReq.Class">
+            <summary>
+            元素样式
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EElementReq.MenuId">
+            <summary>
+            功能模块Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ElementView.DomId">
+            <summary>
+            DOM ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ElementView.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ElementView.Script">
+            <summary>
+            元素调用脚本
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ElementView.Icon">
+            <summary>
+            元素图标
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ElementView.Class">
+            <summary>
+            元素样式
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ElementView.MenuId">
+            <summary>
+            功能模块Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.GetTableNameReq.TableName">
+            <summary>
+            数据表名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AMenuReq.FatherId">
+            <summary>
+            上级Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AMenuReq.MenuName">
+            <summary>
+            栏目名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AMenuReq.URL">
+            <summary>
+            URL 
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AMenuReq.TemplateURL">
+            <summary>
+            模板Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AMenuReq.BackstageMenuUrl">
+            <summary>
+            后面栏目URL
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AMenuReq.FrontMenuUrl">
+            <summary>
+            前台栏目URL
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AMenuReq.FrontArticleUrl">
+            <summary>
+            前台文章URL
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ARoleMenuReq.RoleId">
+            <summary>
+            角色Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ARoleMenuReq.MenuId">
+            <summary>
+            角色Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EMenuReq.FatherId">
+            <summary>
+            上级栏目Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EMenuReq.MenuName">
+            <summary>
+            栏目名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EMenuReq.URL">
+            <summary>
+            URL
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EMenuReq.TemplateURL">
+            <summary>
+            模板URL
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EMenuReq.BackstageMenuUrl">
+             <summary>
+            后台栏目URL
+             </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EMenuReq.FrontMenuUrl">
+            <summary>
+            前台栏目URL
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EMenuReq.FrontArticleUrl">
+            <summary>
+            前台文章URL
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AAllPayReq.OutTradeNo">
+            <summary>
+            订单号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AAllPayReq.CreateId">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AAllPayReq.orderName">
+            <summary>
+            订单名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AAllPayReq.orderAmount">
+            <summary>
+            订单金额
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.outTradeNo">
+            <summary>
+            订单号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.UpdateId">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.orderName">
+            <summary>
+            订单名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.orderAmount">
+            <summary>
+            订单金额
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.PayType">
+            <summary>
+            支付类型（支付宝、微信）
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.BuyerLogonId">
+            <summary>
+            买家账号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.TradeNo">
+            <summary>
+            该交易在支付宝系统中的交易流水号，最长64位。
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.TotalAmount">
+            <summary>
+            订单总金额，单位为元，精确到小数点后两位，取值范围[0.01,100000000]
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.TerminalId">
+            <summary>
+            未定义
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.StoreName">
+            <summary>
+            /未定义
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.StoreId">
+            <summary>
+            商户门店编号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.SendPayDate">
+            <summary>
+            未定义
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.ReceiptAmount">
+            <summary>
+            未定义
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.PointAmount">
+            <summary>
+            未定义
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.TradeStatus">
+            <summary>
+            未定义
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.OutTradeNo">
+            <summary>
+            商户网站唯一订单号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.InvoiceAmount">
+            <summary>
+            发票金额
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.IndustrySepcDetail">
+            <summary>
+            未定义
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.FundBillList">
+            <summary>
+            未定义
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.DiscountGoodsDetail">
+            <summary>
+            未定义
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.BuyerUserId">
+            <summary>
+            商户Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.BuyerPayAmount">
+            <summary>
+            支付金额
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.AlipayStoreId">
+            <summary>
+            未定义
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.OpenId">
+            <summary>
+            未定义
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.VoucherDetailList">
+            <summary>
+            未定义
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.Msg">
+            <summary>
+            支付结果
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAllPayReq.ByUserType">
+            <summary>
+            未定义
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.QueryCategoryListReq.TypeId">
+            <summary>
+            TypeID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.QueryFlowInstanceHistoryReq.FlowInstanceId">
+            <summary>
+            流程实体名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.QueryOneReq.Id">
+            <summary>
+            数据id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.QueryCheckReq.Id">
+            <summary>
+            数据id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.QueryCheckReq.Check">
+            <summary>
+            审核（0：未审核   1：通过   2：不通过）
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.QueryResourcesReq.appId">
+            <summary>
+            TypeID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.QueryWmsInboundOrderDtblListReq.InboundOrderId">
+            <summary>
+            入库订单号
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.ARoleUsers">
+            <summary>
+            角色分配用户
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ARoleUsers.RoleId">
+            <summary>
+            角色id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ARoleUsers.UserIds">
+            <summary>
+            用户id列表
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.ARelevanceRoleToPropertyReq">
+            <summary>
+            为角色分配数据字段权限
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ARelevanceRoleToPropertyReq.RoleId">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ARelevanceRoleToPropertyReq.TableName">
+            <summary>
+            模块的Code,比如Category/Resource
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ARelevanceRoleToPropertyReq.Properties">
+            <summary>
+            字段名称列表
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.AOrgUsers">
+            <summary>
+            部门分配用户
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AOrgUsers.OrgId">
+            <summary>
+            部门id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AOrgUsers.UserIds">
+            <summary>
+            用户id列表
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.ARoleMenus">
+            <summary>
+            角色分配栏目
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ARoleMenus.RoleId">
+            <summary>
+            角色id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ARoleMenus.MenuIds">
+            <summary>
+            栏目id列表
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.ARoleElement">
+            <summary>
+            角色分配按钮
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ARoleElement.RoleId">
+            <summary>
+            角色id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ARoleElement.ElementIds">
+            <summary>
+            按钮id列表
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.AUserRoles">
+            <summary>
+            用户分配角色
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AUserRoles.UserId">
+            <summary>
+            角色id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AUserRoles.RoleIds">
+            <summary>
+            用户id列表
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.RoleAddReq.Name">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.RoleAddReq.CreateId">
+            <summary>
+            当前状态
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.RoleAddReq.IsEnable">
+            <summary>
+            是否启动
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.RoleAddReq.Description">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.RoleAddReq.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.RoleEditReq.Id">
+            <summary>
+            角色Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.RoleEditReq.Name">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.RoleEditReq.UpdateId">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.RoleEditReq.IsEnable">
+            <summary>
+            是否启动
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.RoleEditReq.Description">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.RoleEditReq.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ASysOrgReq.FatherId">
+            <summary>
+            父级Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ASysOrgReq.Name">
+            <summary>
+            组织名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ASysOrgReq.IconName">
+            <summary>
+            组织图标
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ESysOrgReq.FatherId">
+            <summary>
+            父级Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ESysOrgReq.Name">
+            <summary>
+            组织名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ESysOrgReq.IconName">
+            <summary>
+            组织图标
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AddSysUserRoleTopReq.RoleId">
+            <summary>
+            角色Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ASysUserReq.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ASysUserReq.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ASysUserReq.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ASysUserReq.HeadImageUrl">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.AdminRoleReq.RoleId">
+            <summary>
+            角色Id
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.ESysUserReq">
+            <summary>
+            修改管理员
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ESysUserReq.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ESysUserReq.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ESysUserReq.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ESysUserReq.HeadImageUrl">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.EAdminRoleReq.RoleId">
+            <summary>
+            角色Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.QuerySysUserListReq.Id">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.QuerySysUserListReq.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.QuerySysUserListReq.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.QuerySysUserListReq.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.QuerySysUserListReq.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.SysUserView.Id">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.SysUserView.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.SysUserView.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.SysUserView.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.SysUserView.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.SysUserView.RoleId">
+            <summary>
+            角色Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.SysUserView.RoleName">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.SysUserView.LoginCount">
+            <summary>
+            登录次数
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.SysUserView.LastLoginTime">
+            <summary>
+            最后登录时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.SysUserView.HeadImageUrl">
+            <summary>
+            用户头像
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.UpdateAdminReq.Id">
+            <summary>
+            数据Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.UpdateAdminReq.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.UpdateAdminReq.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.UpdateAdminReq.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.UpdateAdminReq.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.UpdateAdminReq.UpdateName">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.UpdateAdminReq.IsEnable">
+            <summary>
+            是否启动
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.UpdateAdminReq.Sort">
+            <summary>
+            排序 Description
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.UpdateAdminReq.Description">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Request.UpdateUserReq">
+            <summary>
+            添加或修改用户信息的请求
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.UpdateUserReq.Id">
+            <summary>
+            用户ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.Service.Request.UpdateUserReq.Account">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.Service.Request.UpdateUserReq.Password">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.Service.Request.UpdateUserReq.Name">
+            <summary>
+            组织名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.Service.Request.UpdateUserReq.Sex">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.Service.Request.UpdateUserReq.Status">
+            <summary>
+            当前状态
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.Service.Request.UpdateUserReq.OrganizationIds">
+            <summary>
+            所属组织Id，多个可用，分隔
+            </summary>
+            <value>The organizations.</value>
+        </member>
+        <member name="P:SysCommon.Service.Request.VerificationReq.VerificationFinally">
+            <summary>
+            1:同意；2：不同意；3：驳回
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.VerificationReq.VerificationOpinion">
+            <summary>
+            审核意见
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.VerificationReq.NodeRejectStep">
+            <summary>
+            驳回的步骤，即驳回到的节点ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.VerificationReq.NodeRejectType">
+            <summary>
+            驳回类型。null:使用节点配置的驳回类型/0:前一步/1:第一步/2：指定节点，使用NodeRejectStep
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ArticleTypeView.UpdateName">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ArticleTypeView.CreateId">
+            <summary>
+            创建人id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ArticleTypeView.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ArticleTypeView.CreateName">
+            <summary>
+            创建人名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Request.ArticleTypeView.Name">
+            <summary>
+            文章类型名称
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.ResourceApp">
+            <summary>
+            分类管理
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.FlowVerificationResp.FrmPreviewHtml">
+            <summary>
+            预览表单数据
+            </summary>
+            <value>The FRM data HTML.</value>
+        </member>
+        <member name="T:SysCommon.Service.Response.FormResp">
+            <summary>
+            表单模板表
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.FormResp.Id">
+            <summary>
+            表单名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.FormResp.Name">
+            <summary>
+            表单名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.FormResp.Fields">
+            <summary>
+            字段个数
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.FormResp.FrmType">
+            <summary>
+            表单类型，0：默认动态表单；1：Web自定义表单
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.FormResp.WebId">
+            <summary>
+            系统页面标识，当表单类型为用Web自定义的表单时，需要标识加载哪个页面
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.FormResp.ContentData">
+            <summary>
+            表单中的字段数据
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.FormResp.ContentParse">
+            <summary>
+            表单替换的模板 经过处理
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.FormResp.Content">
+            <summary>
+            表单原html模板未经处理的
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.FormResp.SortCode">
+            <summary>
+            排序码
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.FormResp.DbName">
+            <summary>
+            数据库名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.FormResp.Html">
+            <summary>
+            用户显示
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.MenuView.FatherId">
+            <summary>
+            父级栏目Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.MenuView.MenuName">
+            <summary>
+            栏目名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.MenuView.URL">
+            <summary>
+            URL
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.MenuView.TemplateURL">
+            <summary>
+            模板路径
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.MenuView.BackstageMenuUrl">
+            <summary>
+            后台栏目模板
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.MenuView.FrontMenuUrl">
+            <summary>
+            前台栏目模板
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.MenuView.FrontArticleUrl">
+            <summary>
+            前台文章模板
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.MenuView.IconName">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.MenuView.Elements">
+            <summary>
+            模块中的元素
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Response.ModuleElementVM">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.ModuleElementVM.Id">
+            <summary>
+            用户ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.Service.Response.ModuleElementVM.DomId">
+            <summary>
+            DOM ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.Service.Response.ModuleElementVM.Name">
+            <summary>
+            组织名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.Service.Response.ModuleElementVM.ModuleName">
+            <summary>
+            所属模块名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.ModuleElementVM.Accessed">
+            <summary>
+            授权状态
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.RoleView.Id">
+            <summary>
+            用户ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.Service.Response.RoleView.Name">
+            <summary>
+            名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.Service.Response.RoleView.Status">
+            <summary>
+            当前状态
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.RoleView.Type">
+            <summary>
+            角色类型
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.RoleView.Checked">
+             <summary>
+            是否属于某用户 
+             </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.SysOrgView.FatherId">
+            <summary>
+            父级Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.SysOrgView.Name">
+            <summary>
+            组织名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.SysOrgView.IconName">
+            <summary>
+            组织图标
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Response.TableData">
+            <summary>
+            table的返回数据
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.Response.TableData.Code">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.Response.TableData.message">
+            <summary>
+            操作消息
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.Response.TableData.count">
+            <summary>
+            总记录条数
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.Response.TableData.columnHeaders">
+            <summary>
+             返回的列表头信息
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.Response.TableData.data">
+            <summary>
+            数据内容
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.Response.CheckData.code">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.Response.CheckData.message">
+            <summary>
+            操作消息
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.Response.CheckData.data">
+            <summary>
+            数据内容
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.Response.CheckDataCommon">
+            <summary>
+            有关模板数据的字段
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.Response.CheckDataCommon.code">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.Response.CheckDataCommon.message">
+            <summary>
+            操作消息
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.Response.CheckDataCommon.data">
+            <summary>
+            数据内容
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.Response.UserView.Id">
+            <summary>
+            用户ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.Service.Response.UserView.Account">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.Service.Response.UserView.Name">
+            <summary>
+            组织名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.Service.Response.UserView.Sex">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.Service.Response.UserView.Status">
+            <summary>
+            当前状态
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.Service.Response.UserView.Type">
+            <summary>
+            组织类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.Service.Response.UserView.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.Service.Response.UserView.CreateUser">
+            <summary>
+            创建人名字
+            </summary>
+            <value>The create user.</value>
+        </member>
+        <member name="P:SysCommon.Service.Response.UserView.Organizations">
+            <summary>
+            所属组织名称，多个可用，分隔
+            </summary>
+            <value>The organizations.</value>
+        </member>
+        <member name="M:SysCommon.Service.RevelanceManagerApp.Assign(SysCommon.Service.Request.AssignReq)">
+            <summary>
+            添加关联
+            <para>比如给用户分配资源，那么firstId就是用户ID，secIds就是资源ID列表</para>
+            </summary>
+            <param name="type">关联的类型，如Define.USERRESOURCE</param>
+        </member>
+        <member name="M:SysCommon.Service.RevelanceManagerApp.Assign(System.String,System.Linq.ILookup{System.String,System.String})">
+            <summary>
+            添加关联，需要人工删除以前的关联
+            </summary>
+            <param name="key"></param>
+            <param name="idMaps"></param>
+        </member>
+        <member name="M:SysCommon.Service.RevelanceManagerApp.UnAssign(SysCommon.Service.Request.AssignReq)">
+            <summary>
+            取消关联
+            </summary>
+            <param name="type">关联的类型，如Define.USERRESOURCE</param>
+            <param name="firstId">The first identifier.</param>
+            <param name="secIds">The sec ids.</param>
+        </member>
+        <member name="M:SysCommon.Service.RevelanceManagerApp.DeleteBy(System.String,System.Linq.ILookup{System.String,System.String})">
+            <summary>
+            删除关联
+            </summary>
+            <param name="key">关联标识</param>
+            <param name="idMaps">关联的&lt;firstId, secondId&gt;数组</param>
+        </member>
+        <member name="M:SysCommon.Service.RevelanceManagerApp.Get(System.String,System.Boolean,System.String[])">
+            <summary>
+            根据关联表的一个键获取另外键的值
+            </summary>
+            <param name="key">映射标识</param>
+            <param name="returnSecondIds">返回的是否为映射表的第二列，如果不是则返回第一列</param>
+            <param name="ids">已知的ID列表</param>
+            <returns>List&lt;System.String&gt;.</returns>
+        </member>
+        <member name="M:SysCommon.Service.RevelanceManagerApp.Get(System.String,System.String,System.String)">
+            <summary>
+            根据key ,firstId,secondId获取thirdId
+            </summary>
+            <param name="key"></param>
+            <param name="firstId"></param>
+            <param name="secondId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.RevelanceManagerApp.AssignData(SysCommon.Service.Request.AssignDataReq)">
+            <summary>
+            分配数据字段权限
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:SysCommon.Service.RevelanceManagerApp.UnAssignData(SysCommon.Service.Request.AssignDataReq)">
+            <summary>
+            取消数据字段分配
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:SysCommon.Service.RevelanceManagerApp.AssignRoleUsers(SysCommon.Service.Request.AssignRoleUsers)">
+            <summary>
+            为角色分配用户，需要统一提交，会删除以前该角色的所有用户
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:SysCommon.Service.RevelanceManagerApp.AssignOrgUsers(SysCommon.Service.Request.AssignOrgUsers)">
+            <summary>
+            为部门分配用户，需要统一提交，会删除以前该部门的所有用户
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:SysCommon.Service.RoleApp.Load(SysCommon.Service.Request.QueryRoleListReq)">
+            <summary>
+            加载当前登录用户可访问的全部角色
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.AdminService.Delete(SysCommon.Service.Request.QueryOneReq)">
+            <summary>
+            删除（假删）
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.AdminService.Show(SysCommon.Service.Request.QuerySysUserListReq)">
+            <summary>
+            展示
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.AdminService.IsEnable(System.String[])">
+            <summary>
+            停用
+            </summary>
+            <param name="listId"></param>
+        </member>
+        <member name="M:SysCommon.Service.AdminService.Count(System.Int32,System.String)">
+            <summary>
+            记录登录次数
+            </summary>
+            <param name="eAdminReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.AdminService.GetDataOne(SysCommon.Service.Request.QueryOneReq)">
+            <summary>
+            展示单条数据
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="T:SysCommon.Service.ArticleDataService">
+            <summary>
+            文章服务
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.ArticleDataService.Add(SysCommon.Service.Request.AArticleDataReq)">
+            <summary>
+            添加文章
+            </summary>
+            <param name="aArticleTypeReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.ArticleDataService.Edit(SysCommon.Service.Request.EArticleDataReq)">
+            <summary>
+            修改文章
+            </summary>
+            <param name="eArticleTypeReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.ArticleDataService.Delete(SysCommon.Service.Request.QueryOneReq)">
+            <summary>
+            删除（假删）
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.ArticleDataService.Check(SysCommon.Service.Request.QueryCheckReq)">
+            <summary>
+            审核
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.ArticleDataService.Show(SysCommon.Service.Request.QueryArticleDataListReq)">
+            <summary>
+            展示
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.ArticleDataService.GetDataOne(SysCommon.Service.Request.QueryOneReq)">
+            <summary>
+            展示单条数据
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="T:SysCommon.Service.ArticleTypeService">
+            <summary>
+            文章分类服务
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.ArticleTypeService.Add(SysCommon.Service.Request.AArticleTypeReq)">
+            <summary>
+            添加文章类型
+            </summary>
+            <param name="aArticleTypeReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.ArticleTypeService.Delete(SysCommon.Service.Request.QueryOneReq)">
+            <summary>
+            删除（假删）
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.ArticleTypeService.Show(SysCommon.Service.Request.QueryArticleTypeListReq)">
+            <summary>
+            展示
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.ArticleTypeService.GetDataOne(SysCommon.Service.Request.QueryOneReq)">
+            <summary>
+            展示单条数据
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.ArticleTypeService.ShowAll">
+            <summary>
+            展示所有数据
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.ArticleTypeService.ShowTypeLabel">
+            <summary>
+            展示类型及对应标签
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="T:SysCommon.Service.DictionarieService">
+            <summary>
+            字典服务
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.DictionarieService.Add(SysCommon.Service.Request.AArticleDataReq,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="aArticleTypeReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.DictionarieService.Edit(SysCommon.Service.Request.EArticleDataReq,System.String)">
+            <summary>
+            修改关系
+            </summary>
+            <param name="aArticleTypeReq"></param>
+        </member>
+        <member name="T:SysCommon.Service.LabelService">
+            <summary>
+            文章分类服务
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.LabelService.Add(SysCommon.Service.Request.ALabelReq)">
+            <summary>
+            添加标签
+            </summary>
+            <param name="aArticleTypeReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.LabelService.Edit(SysCommon.Service.Request.ELabelReq)">
+            <summary>
+            修改标签
+            </summary>
+            <param name="eArticleTypeReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.LabelService.Delete(SysCommon.Service.Request.QueryOneReq)">
+            <summary>
+            删除（假删）
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.LabelService.Show(SysCommon.Service.Request.QueryLabelListReq)">
+            <summary>
+            展示
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.LabelService.GetDataOne(SysCommon.Service.Request.QueryOneReq)">
+            <summary>
+            展示单条数据
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:SysCommon.Service.BaseService`1" -->
+        <member name="F:SysCommon.Service.BaseService`1.Repository">
+            <summary>
+            用于普通的数据库操作
+            </summary>
+            <value>The repository.</value>
+        </member>
+        <member name="F:SysCommon.Service.BaseService`1.UnitWork">
+            <summary>
+            用于事务操作
+            </summary>
+            <value>The unit work.</value>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SysCommon.Service.BaseService`1.GetDataPrivilege(System.String)" -->
+        <member name="M:SysCommon.Service.BaseService`1.Delete(System.String[])">
+            <summary>
+            按id批量删除
+            </summary>
+            <param name="ids"></param>
+        </member>
+        <member name="M:SysCommon.Service.BaseService`1.ChangeModuleCascade``1(``0)">
+            <summary>
+            如果一个类有层级结构（树状），则修改该节点时，要修改该节点的所有子节点
+            //修改对象的级联ID，生成类似XXX.XXX.X.XX
+            </summary>
+            <typeparam name="U">U必须是一个继承TreeEntity的结构</typeparam>
+            <param name="entity"></param>
+        </member>
+        <member name="T:SysCommon.Service.CreateEditNameService">
+            <summary>
+            获取操作人信息
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.CreateEditNameService.LoadForAdmin(System.String)">
+            <summary>
+            加载操作人信息
+            </summary>
+            <param name="userId"></param>
+        </member>
+        <member name="M:SysCommon.Service.DatabaseService.GetProperties(SysCommon.Service.Request.GetTableNameReq)">
+            <summary>
+            获取数据库一个表的所有属性值及属性描述
+            </summary>
+            <param name="moduleName">模块名称/表名</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.DatabaseService.GetTableNames">
+            <summary>
+            获取数据库所有的表名
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.ElementServic.Delete(System.String[])">
+            <summary>
+            删除
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.ElementServic.Show(SysCommon.Service.Request.QueryElementListReq)">
+            <summary>
+            展示按钮
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="T:SysCommon.Service.Service.FileService">
+            <summary>
+            文件
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.MenuService">
+            <summary>
+            栏目操作
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.MenuService.Delete(SysCommon.Service.Request.QueryOneReq)">
+            <summary>
+            删除
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.MenuService.Show(SysCommon.Service.Request.MenuQueryListReq)">
+            <summary>
+            展示
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.MenuService.GetDataOne(SysCommon.Service.Request.QueryOneReq)">
+            <summary>
+            展示单条数据
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.OpenJobService.Load(SysCommon.Service.Request.QueryOpenJobListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.OpenJobService.QueryLocalHandlers">
+            <summary>
+            返回系统的job接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.OpenJobService.RecordRun(System.String)">
+            <summary>
+            记录任务运行结果
+            </summary>
+            <param name="jobId"></param>
+        </member>
+        <member name="M:SysCommon.Service.AlipayService.PagePay(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            电脑网站支付
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="subject"></param>
+            <param name="total_amount"></param>
+            <param name="body"></param>
+            <param name="product_code"></param>
+            <param name="notify_url"></param>
+            <param name="return_url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.AlipayService.WapPay(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            手机网站支付
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="subject"></param>
+            <param name="total_amount"></param>
+            <param name="body"></param>
+            <param name="product_code"></param>
+            <param name="notify_url"></param>
+            <param name="return_url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.AlipayService.PreCreate(SysCommon.Service.Request.AAllPayReq)">
+            <summary>
+            扫码支付 生成支付二维码
+            </summary>
+            <param name="orderName">订单名称</param>
+            <param name="orderAmount">订单金额</param>
+            <param name="outTradeNo">订单号</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.AlipayService.BuildPrecreateContent(System.String,System.String,System.String)">
+            <summary>
+            构造支付请求数据
+            </summary>
+            <param name="orderName">订单名称</param>
+            <param name="orderAmount">订单金额</param>
+            <param name="outTradeNo">订单编号</param>
+            <returns>请求结果集</returns>
+        </member>
+        <member name="M:SysCommon.Service.AlipayService.RenderQrCode(System.String)">
+            <summary>
+            渲染二维码
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.AlipayService.LoopQuery(System.Object)">
+            <summary>
+            轮询支付结果
+            </summary>
+            <param name="o">订单号</param>
+        </member>
+        <member name="M:SysCommon.Service.AlipayService.DoSuccessProcess(Alipay.AopSdk.F2FPay.Business.AlipayF2FQueryResult)">
+            <summary>
+            请添加支付成功后的处理
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.AlipayService.DoFailedProcess(Alipay.AopSdk.F2FPay.Business.AlipayF2FQueryResult)">
+            <summary>
+            请添加支付失败后的处理
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.AlipayService.Pay(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            条码支付
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="scene"></param>
+            <param name="auth_code"></param>
+            <param name="subject"></param>
+            <param name="total_amount"></param>
+            <param name="body"></param>
+            <param name="notify_url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.AlipayService.Query(System.String,System.String)">
+            <summary>
+            交易查询
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="trade_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.AlipayService.Refund(System.String,System.String,System.String,System.String)">
+            <summary>
+            交易退款
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="trade_no"></param>
+            <param name="refund_amount"></param>
+            <param name="refund_reason"></param>
+            <param name="out_request_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.AlipayService.RefundQuery(System.String,System.String,System.String)">
+            <summary>
+            退款查询
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="trade_no"></param>
+            <param name="out_request_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.AlipayService.Close(System.String,System.String)">
+            <summary>
+            关闭订单
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="trade_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.AlipayService.Trans(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            单笔转账
+            </summary>
+            <param name="out_biz_no"></param>
+            <param name="payee_account"></param>
+            <param name="payee_type"></param>
+            <param name="amount"></param>
+            <param name="remark"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.AlipayService.TransQuery(System.String,System.String)">
+            <summary>
+            转账查询
+            </summary>
+            <param name="out_biz_no"></param>
+            <param name="order_id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SysCommon.Service.RelevanceService">
+            <summary>
+            关联数据服务
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.RelevanceService.AddRoleUsers(SysCommon.Service.Request.ARoleUsers)">
+            <summary>
+            为角色分配用户，需要统一提交，会删除以前该角色的所有用户
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:SysCommon.Service.RelevanceService.AddUserRoles(SysCommon.Service.Request.AUserRoles)">
+            <summary>
+            为用户分配角色，需要统一提交，会删除以前该用户的所有角色
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:SysCommon.Service.RelevanceService.AddRoleToProperties(SysCommon.Service.Request.ARelevanceRoleToPropertyReq)">
+            <summary>
+            为角色分配数据字段权限
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:SysCommon.Service.RelevanceService.AddOrgUsers(SysCommon.Service.Request.AOrgUsers)">
+            <summary>
+            为部门分配用户，需要统一提交，会删除以前该部门的所有用户
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:SysCommon.Service.RelevanceService.AddRoleMenus(SysCommon.Service.Request.ARoleMenus)">
+            <summary>
+            为模块分配角色，需要统一提交，会删除以前该角色的所有模块
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:SysCommon.Service.RelevanceService.AddRoleElement(SysCommon.Service.Request.ARoleElement)">
+            <summary>
+            为角色分配按钮，需要统一提交，会删除以前该角色的所有按钮
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:SysCommon.Service.RoleMenuTopService.MenuToRole(SysCommon.Service.Request.ARoleMenuReq)">
+            <summary>
+            为角色分配栏目
+            </summary>
+            <param name="roleMenuAddOrEditReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.RoleMenuTopService.LoadAdminOfMenu(System.String)">
+            <summary>
+            展示用户拥有角色拥有的所有栏目
+            </summary>
+            <param name="adminid"></param>
+        </member>
+        <member name="T:SysCommon.Service.RoleService">
+            <summary>
+            角色服务
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.RoleService.Edit(SysCommon.Service.Request.RoleEditReq)">
+            <summary>
+            修改
+            </summary>
+            <param name="roleEditReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.RoleService.Delete(SysCommon.Service.Request.QueryOneReq)">
+            <summary>
+            删除
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.RoleService.Show(SysCommon.Service.Request.RoleQueryListReq)">
+            <summary>
+            展示角色
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.RoleService.GetDataOne(SysCommon.Service.Request.QueryOneReq)">
+            <summary>
+            展示单条数据
+            </summary>
+            <param name="updateAdminReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.RoleService.LoadForAdmin(System.String)">
+            <summary>
+            加载特定文章的属性
+            </summary>
+            <param name="userId"></param>
+        </member>
+        <member name="M:SysCommon.Service.RoleService.RoleIds(SysCommon.Service.Request.QueryOneReq)">
+            <summary>
+            获取指定用户角色id
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.SysOrgService.Add(SysCommon.Service.Request.ASysOrgReq)">
+            <summary>
+            添加组织
+            </summary>
+            <param name="aOrgReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.SysOrgService.Edit(SysCommon.Service.Request.ESysOrgReq)">
+            <summary>
+            修改组织
+            </summary>
+            <param name="eSysOrgReq"></param>
+        </member>
+        <member name="M:SysCommon.Service.SysOrgService.Delete(System.String[])">
+            <summary>
+            删除指定组织信息
+            </summary>
+            <param name="listId"></param>
+        </member>
+        <member name="M:SysCommon.Service.SysOrgService.Show(SysCommon.Service.Request.SysOrgQueryListReq)">
+            <summary>
+            展示组织信息
+            </summary>
+            <param name="sysOrgQueryListReq"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SysCommon.Service.SSO.ApiAuth">
+            <summary>
+            第三方网站登录验证类
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.SSO.ApiAuth.CheckLogin(System.String,System.String)">
+            <summary>
+            通过WebApi检验token是否有效
+            </summary>
+            <remarks>http://www.SysCommon.me</remarks>
+        </member>
+        <member name="M:SysCommon.Service.SSO.ApiAuth.GetCurrentUser">
+            <summary>
+            获取当前登录的用户信息
+            <para>通过URL中的Token参数或Cookie中的Token</para>
+            </summary>
+            <param name="account">The account.</param>
+            <returns>LoginUserVM.</returns>
+        </member>
+        <member name="M:SysCommon.Service.SSO.ApiAuth.GetUserName(System.String)">
+            <summary>
+            获取WebApi中当前登录的用户名
+            <para>通过URL中的Token参数或Cookie中的Token</para>
+            </summary>
+            <param name="otherInfo">The account.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:SysCommon.Service.SSO.ApiAuth.Login(SysCommon.Service.SSO.PassportLoginRequest)">
+            <summary>
+            通过WebApi登录，用户信息存放在webapi中
+            </summary>
+            <param name="appKey">应用程序key.</param>
+            <param name="username">用户名</param>
+            <param name="pwd">密码</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:SysCommon.Service.SSO.ApiAuth.Logout">
+            <summary>
+            注销
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.SSO.AppInfo">
+            <summary>
+            应用程序信息
+            </summary>
+        </member>
+        <member name="T:SysCommon.Service.SSO.LocalAuth">
+            <summary>
+            使用本地登录。这个注入IAuth时，只需要SysCommon.Mvc一个项目即可，无需webapi的支持
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.SSO.LocalAuth.GetToken">
+            <summary>
+            如果是Identity，则返回信息为用户账号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Service.SSO.LocalAuth.GetCurrentUser">
+            <summary>
+            获取当前登录的用户信息
+            <para>通过URL中的Token参数或Cookie中的Token</para>
+            </summary>
+            <param name="account">The account.</param>
+            <returns>LoginUserVM.</returns>
+        </member>
+        <member name="M:SysCommon.Service.SSO.LocalAuth.GetUserName(System.String)">
+            <summary>
+            获取当前登录的用户名
+            <para>通过URL中的Token参数或Cookie中的Token</para>
+            </summary>
+            <param name="otherInfo">The account.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:SysCommon.Service.SSO.LocalAuth.Login(SysCommon.Service.SSO.PassportLoginRequest)">
+            <summary>
+            登录接口
+            </summary>
+            <param name="appKey">应用程序key.</param>
+            <param name="username">用户名</param>
+            <param name="pwd">密码</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:SysCommon.Service.SSO.LocalAuth.Logout">
+            <summary>
+            注销，如果是Identity登录，需要在controller处理注销逻辑
+            </summary>
+        </member>
+        <member name="P:SysCommon.Service.SSO.UserAuthSession.Name">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.SSO.VierificationCodeResult.img">
+            <summary>
+            验证码图片
+            </summary>
+        </member>
+        <member name="F:SysCommon.Service.SSO.VierificationCodeResult.UUID">
+            <summary>
+            验证码key
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.SysLogApp.Load(SysCommon.Service.Request.QuerySysLogListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.SysMessageApp.Load(SysCommon.Service.Request.QuerySysMessageListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.Test.TestBase.GetService">
+            <summary>
+            测试框架默认只注入了缓存Cache，配置Option；
+            如果在测试的过程中需要模拟登录用户，cookie等信息，需要重写该方法，可以参考TestFlow的写法
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.UserManagerApp.Load(SysCommon.Service.Request.QueryUserListReq)">
+            <summary>
+            加载当前登录用户可访问的一个部门及子部门全部用户
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.UserManagerApp.ChangeProfile(SysCommon.Service.Request.ChangeProfileReq)">
+            <summary>
+            修改用户资料
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:SysCommon.Service.WmsInboundOrderDtblApp.Load(SysCommon.Service.Request.QueryWmsInboundOrderDtblListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.Service.WmsInboundOrderTblApp.Load(SysCommon.Service.Request.QueryWmsInboundOrderTblListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="T:SysCommon.Repository.Domain.AddOrUpdateResReq">
+            <summary>
+            资源表
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.CascadeId">
+            <summary>
+            节点语义ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.SortNo">
+            <summary>
+            排序号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.ParentName">
+            <summary>
+            父节点名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.ParentId">
+            <summary>
+            父节点流ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.AppId">
+            <summary>
+            资源所属应用ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.AppName">
+            <summary>
+            所属应用名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.TypeName">
+            <summary>
+            分类名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.TypeId">
+            <summary>
+            分类ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.Disable">
+            <summary>
+            是否可用
+            </summary>
+        </member>
+    </members>
+</doc>
