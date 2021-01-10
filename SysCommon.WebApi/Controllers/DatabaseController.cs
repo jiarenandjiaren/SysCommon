@@ -70,9 +70,9 @@ namespace SysCommon.WebApi.Controllers
         /// </summary>
         /// <param name="contentReplaceReq"></param>
         [HttpPost]
-        public WebResponseContent<string> ContentReplace(ContentReplaceReq contentReplaceReq)
+        public Response<string> ContentReplace(ContentReplaceReq contentReplaceReq)
         {
-            var result = new WebResponseContent<string>();
+            var result = new Response<string>();
             try
             {
                 _databaseService.ContentReplace(contentReplaceReq);

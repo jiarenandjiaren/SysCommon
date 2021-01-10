@@ -33,7 +33,7 @@
     },
     watch: {
       selectUsers(val) {
-        this.users = val.length > 0 && val.map(item => item.name || item.account) || []
+        this.users = val.length > 0 && val.map(item => item.name || item.UserName) || []
         if (this.users.length >= this.count || this.users.length === 0) {
           this.buttonVisible = false
         }
@@ -51,7 +51,7 @@
           _this.isLoading = false
           if (response.data.length > 0) {
             // var data = response.data.map(function(item, index, input) {
-            //   return item.name || item.account
+            //   return item.name || item.UserName
             // })
             // var ids = response.data.map(function(item, index, input) {
             //   return item.id

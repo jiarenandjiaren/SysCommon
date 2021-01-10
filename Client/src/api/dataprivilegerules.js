@@ -3,7 +3,7 @@
 export function getList(params) {
   return request({
     url: '/dataPrivilegeRules/load',
-    method: 'get',
+    method: 'post',
     params
   })
 }
@@ -11,7 +11,7 @@ export function getList(params) {
 export function loadForRole(roleId) {
   return request({
     url: '/dataPrivilegeRules/loadForRole',
-    method: 'get',
+    method: 'post',
     params: { appId: '', firstId: roleId }
   })
 }

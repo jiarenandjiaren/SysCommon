@@ -22,7 +22,7 @@ namespace SysCommon.Mvc.Controllers
         [HttpPost]
         public string Assign(AssignReq request)
         {
-            var result = new WebResponseContent();
+            var result = new Response();
             try
             {
                 _app.Assign(request);
@@ -62,7 +62,7 @@ namespace SysCommon.Mvc.Controllers
         [HttpPost]
         public string AssignDataProperty(AssignDataReq request)
         {
-            var result = new WebResponseContent();
+            var result = new Response();
             try
             {
                 _app.AssignData(request);
@@ -86,7 +86,7 @@ namespace SysCommon.Mvc.Controllers
         [HttpPost]
         public string UnAssignDataProperty(AssignDataReq request)
         {
-            var result = new WebResponseContent();
+            var result = new Response();
             try
             {
                 _app.UnAssignData(request);
@@ -107,7 +107,7 @@ namespace SysCommon.Mvc.Controllers
         [HttpPost]
         public string AssignRoleUsers(AssignRoleUsers request)
         {
-            var result = new WebResponseContent();
+            var result = new Response();
             try
             {
                 _app.AssignRoleUsers(request);
@@ -127,7 +127,7 @@ namespace SysCommon.Mvc.Controllers
         [HttpPost]
         public string AssignOrgUsers(AssignOrgUsers request)
         {
-            var result = new WebResponseContent();
+            var result = new Response();
             try
             {
                 _app.AssignOrgUsers(request);

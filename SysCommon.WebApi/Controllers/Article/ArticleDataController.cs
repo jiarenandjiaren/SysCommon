@@ -56,9 +56,9 @@ namespace SysCommon.WebApi.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost]
-        public WebResponseContent<AArticleDataReq> Add([FromBody] AArticleDataReq request)
+        public Response<AArticleDataReq> Add([FromBody] AArticleDataReq request)
         {
-            var result = new WebResponseContent<AArticleDataReq>();
+            var result = new Response<AArticleDataReq>();
             try
             {
                 _articleDataService.Add(request);
@@ -79,9 +79,9 @@ namespace SysCommon.WebApi.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost]
-        public WebResponseContent<EArticleDataReq> Update([FromBody] EArticleDataReq request)
+        public Response<EArticleDataReq> Update([FromBody] EArticleDataReq request)
         {
-            var result = new WebResponseContent<EArticleDataReq>();
+            var result = new Response<EArticleDataReq>();
             try
             {
                 _articleDataService.Edit(request);
@@ -102,9 +102,9 @@ namespace SysCommon.WebApi.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost]
-        public WebResponseContent Delete([FromBody] QueryOneReq request)
+        public Response Delete([FromBody] QueryOneReq request)
         {
-            var result = new WebResponseContent();
+            var result = new Response();
             try
             {
                 _articleDataService.Delete(request);
@@ -125,9 +125,9 @@ namespace SysCommon.WebApi.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost]
-        public WebResponseContent Check([FromBody] QueryCheckReq request)
+        public Response Check([FromBody] QueryCheckReq request)
         {
-            var result = new WebResponseContent();
+            var result = new Response();
             try
             {
                 _articleDataService.Check(request);

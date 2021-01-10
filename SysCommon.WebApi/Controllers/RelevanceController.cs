@@ -51,9 +51,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="addAdminReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<ARelevanceRoleToPropertyReq> AddRoleToProperties([FromBody] ARelevanceRoleToPropertyReq request)
+        public Response<ARelevanceRoleToPropertyReq> AddRoleToProperties([FromBody] ARelevanceRoleToPropertyReq request)
         {
-            var result = new WebResponseContent<ARelevanceRoleToPropertyReq>();
+            var result = new Response<ARelevanceRoleToPropertyReq>();
             try
             {
                 _relevanceService.AddRoleToProperties(request);
@@ -72,9 +72,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="addAdminReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<ARoleUsers> AddRoleUsers([FromBody] ARoleUsers request)
+        public Response<ARoleUsers> AddRoleUsers([FromBody] ARoleUsers request)
         {
-            var result = new WebResponseContent<ARoleUsers>();
+            var result = new Response<ARoleUsers>();
             try
             {
                 _relevanceService.AddRoleUsers(request);
@@ -94,9 +94,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="addAdminReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<AUserRoles> AddUserRoles([FromBody] AUserRoles request)
+        public Response<AUserRoles> AddUserRoles([FromBody] AUserRoles request)
         {
-            var result = new WebResponseContent<AUserRoles>();
+            var result = new Response<AUserRoles>();
             try
             {
                 _relevanceService.AddUserRoles(request);
@@ -115,9 +115,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="addAdminReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<AOrgUsers> AddOrgUsers([FromBody] AOrgUsers request)
+        public Response<AOrgUsers> AddOrgUsers([FromBody] AOrgUsers request)
         {
-            var result = new WebResponseContent<AOrgUsers>();
+            var result = new Response<AOrgUsers>();
             try
             {
                 _relevanceService.AddOrgUsers(request);
@@ -135,9 +135,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="addAdminReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<ARoleMenus> AddRoleMenus([FromBody] ARoleMenus request)
+        public Response<ARoleMenus> AddRoleMenus([FromBody] ARoleMenus request)
         {
-            var result = new WebResponseContent<ARoleMenus>();
+            var result = new Response<ARoleMenus>();
             try
             {
                 _relevanceService.AddRoleMenus(request);
@@ -155,9 +155,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="addAdminReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<ARoleElement> AddRoleElement([FromBody] ARoleElement request)
+        public Response<ARoleElement> AddRoleElement([FromBody] ARoleElement request)
         {
-            var result = new WebResponseContent<ARoleElement>();
+            var result = new Response<ARoleElement>();
             try
             {
                 _relevanceService.AddRoleElement(request);

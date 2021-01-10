@@ -38,7 +38,7 @@
 
           <el-table-column align="center" min-width="80px" :label="'账号'">
             <template slot-scope="scope">
-              <span class="link-type">{{scope.row.account}}</span>
+              <span class="link-type">{{scope.row.UserName}}</span>
             </template>
           </el-table-column>
 
@@ -159,7 +159,7 @@ export default {
     names() {
       let names = ''
       if (this.tableData.selectUsers.length > 0 || this.tableData.selectUsersC.length > 0) {
-        names = [...this.tableData.selectUsers, ...this.tableData.selectUsersC].map(item => item.name || item.account).join(',')
+        names = [...this.tableData.selectUsers, ...this.tableData.selectUsersC].map(item => item.name || item.UserName).join(',')
       }
       return names
     }
@@ -272,7 +272,7 @@ export default {
       roles.getList(this.listQuery).then(response => {
         this.tableData.datas = response.result
         this.tableData.loading = false
-        this.tableData.selectTextsC = [...this.tableData.datas].filter(x => this.tableData.selectTexts.indexOf(x.name || x.account) > -1).map(item => item.name || item.account)
+        this.tableData.selectTextsC = [...this.tableData.datas].filter(x => this.tableData.selectTexts.indexOf(x.name || x.UserName) > -1).map(item => item.name || item.UserName)
         this.tableData.selectIdsC = [...this.tableData.datas].filter(x => this.tableData.selectIds.indexOf(x.id) > -1).map(item => item.id)
         this.tableData.selectTexts = [...this.tableData.selectTexts].filter(x => !this.tableData.selectTextsC.some(y => x === y))
         this.tableData.selectIds = [...this.tableData.selectIds].filter(x => !this.tableData.selectIdsC.some(y => x === y))

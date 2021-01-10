@@ -3,7 +3,7 @@ import request from '@/utils/request'
 export function getList(params) {
   return request({
     url: '/flowschemes/load',
-    method: 'get',
+    method: 'post',
     params
   })
 }
@@ -11,7 +11,7 @@ export function getList(params) {
 export function get(params) {
   return request({
     url: '/flowschemes/get',
-    method: 'get',
+    method: 'post',
     params
   })
 }

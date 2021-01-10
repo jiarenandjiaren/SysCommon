@@ -41,7 +41,7 @@ namespace SysCommon.WebApi.Model
             if (!_authUtil.CheckLogin())
             {
                 context.HttpContext.Response.StatusCode = 401;
-                context.Result = new JsonResult(new WebResponseContent
+                context.Result = new JsonResult(new Response
                 {
                     Code = 101,
                     Message = ApiMessage.TokenLose

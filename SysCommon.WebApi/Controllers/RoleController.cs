@@ -48,9 +48,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="addAdminReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<RoleAddReq> Add([FromBody] RoleAddReq  roleAddReq)
+        public Response<RoleAddReq> Add([FromBody] RoleAddReq  roleAddReq)
         {
-            var result = new WebResponseContent<RoleAddReq>();
+            var result = new Response<RoleAddReq>();
             try
             {
                 _roleService.Add(roleAddReq);
@@ -70,9 +70,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="addAdminReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<RoleEditReq> Update([FromBody] RoleEditReq roleEditReq)
+        public Response<RoleEditReq> Update([FromBody] RoleEditReq roleEditReq)
         {
-            var result = new WebResponseContent<RoleEditReq>();
+            var result = new Response<RoleEditReq>();
             try
             {
                 _roleService.Edit(roleEditReq);
@@ -92,9 +92,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="addAdminReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<string> Delete([FromBody] QueryOneReq request)
+        public Response<string> Delete([FromBody] QueryOneReq request)
         {
-            var result = new WebResponseContent<string>();
+            var result = new Response<string>();
             try
             {
                 _roleService.Delete(request);
@@ -137,12 +137,12 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<List<string>> RoleIds([FromBody] QueryOneReq request)
+        public Response<List<string>> RoleIds([FromBody] QueryOneReq request)
         {
-            var result = new WebResponseContent<List<string>>();
+            var result = new Response<List<string>>();
             try
             {
-                result.Data = _roleService.RoleIds(request);
+                result.Result = _roleService.RoleIds(request);
             }
             catch (Exception ex)
             {

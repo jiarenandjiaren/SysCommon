@@ -3,7 +3,7 @@
 export function getList(params) {
   return request({
     url: '/categorys/load',
-    method: 'get',
+    method: 'post',
     params
   })
 }
@@ -11,7 +11,7 @@ export function getList(params) {
 export function loadForRole(roleId) {
   return request({
     url: '/categorys/loadForRole',
-    method: 'get',
+    method: 'post',
     params: { appId: '', firstId: roleId }
   })
 }
@@ -60,7 +60,7 @@ export function delType(data) {
 export function loadType(params) {
   return request({
     url: '/CategoryTypes/Load',
-    method: 'get',
+    method: 'post',
     params
   })
 }

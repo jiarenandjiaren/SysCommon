@@ -47,13 +47,13 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="aSysOrgReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<ASysOrgReq> Add([FromBody] ASysOrgReq  aSysOrgReq)
+        public Response<ASysOrgReq> Add([FromBody] ASysOrgReq  aSysOrgReq)
         {
-            var result = new WebResponseContent<ASysOrgReq>();
+            var result = new Response<ASysOrgReq>();
             try
             {
                 _sysOrgService.Add(aSysOrgReq);
-                result.Data = aSysOrgReq;
+                result.Result = aSysOrgReq;
             }
             catch (Exception ex)
             {
@@ -68,13 +68,13 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="eSysOrgReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<ESysOrgReq> Edit([FromBody] ESysOrgReq eSysOrgReq)
+        public Response<ESysOrgReq> Edit([FromBody] ESysOrgReq eSysOrgReq)
         {
-            var result = new WebResponseContent<ESysOrgReq>();
+            var result = new Response<ESysOrgReq>();
             try
             {
                 _sysOrgService.Edit(eSysOrgReq);
-                result.Data = eSysOrgReq;
+                result.Result = eSysOrgReq;
             }
             catch (Exception ex)
             {
@@ -89,9 +89,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="Id"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<string> Delete([FromBody]string[] Id)
+        public Response<string> Delete([FromBody]string[] Id)
         {
-            var result = new WebResponseContent<string>();
+            var result = new Response<string>();
             try
             {
                 _sysOrgService.Delete(Id);

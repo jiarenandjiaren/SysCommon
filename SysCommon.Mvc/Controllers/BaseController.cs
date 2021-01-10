@@ -21,7 +21,7 @@ namespace SysCommon.Mvc.Controllers
     /// </summary>
     public class BaseController : Controller
     {
-        protected WebResponseContent Result = new WebResponseContent();
+        protected Response Result = new Response();
         protected IAuth _authUtil;
 
         public BaseController(IAuth authUtil)

@@ -45,9 +45,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="obj"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent Add(AddOrUpdateOpenJobReq obj)
+        public Response Add(AddOrUpdateOpenJobReq obj)
         {
-            var result = new WebResponseContent();
+            var result = new Response();
             try
             {
                 _openJobService.Add(obj);
@@ -66,9 +66,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="obj"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent Edit(AddOrUpdateOpenJobReq obj)
+        public Response Edit(AddOrUpdateOpenJobReq obj)
         {
-            var result = new WebResponseContent();
+            var result = new Response();
             try
             {
                 _openJobService.Update(obj);
@@ -94,9 +94,9 @@ namespace SysCommon.WebApi.Controllers
         /// 批量删除
         /// </summary>
         [HttpPost]
-        public WebResponseContent Delete([FromBody] string[] ids)
+        public Response Delete([FromBody] string[] ids)
         {
-            var result = new WebResponseContent();
+            var result = new Response();
             try
             {
                 _openJobService.Delete(ids);
@@ -113,12 +113,12 @@ namespace SysCommon.WebApi.Controllers
         /// 获取本地可执行的任务列表
         /// </summary>
         [HttpPost]
-        public WebResponseContent<List<string>> QueryLocalHandlers()
+        public Response<List<string>> QueryLocalHandlers()
         {
-            var result = new WebResponseContent<List<string>>();
+            var result = new Response<List<string>>();
             try
             {
-                result.Data = _openJobService.QueryLocalHandlers();
+                result.Result = _openJobService.QueryLocalHandlers();
             }
             catch (Exception ex)
             {
@@ -132,9 +132,9 @@ namespace SysCommon.WebApi.Controllers
         /// 改变任务状态，启动/停止
         /// </summary>
         [HttpPost]
-        public WebResponseContent ChangeStatus(ChangeJobStatusReq req)
+        public Response ChangeStatus(ChangeJobStatusReq req)
         {
-            var result = new WebResponseContent();
+            var result = new Response();
             try
             {
                 _openJobService.ChangeJobStatus(req);

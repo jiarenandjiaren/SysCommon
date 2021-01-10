@@ -37,7 +37,7 @@
 
           <el-table-column align="center" min-width="80px" :label="'账号'">
             <template slot-scope="scope">
-              <span class="link-type">{{scope.row.account}}</span>
+              <span class="link-type">{{scope.row.UserName}}</span>
             </template>
           </el-table-column>
 
@@ -279,7 +279,7 @@ export default {
     },
     // 选择用户
     handleSelectionUser(val) {
-      this.tableData.selectTextsC = val.map(item => item.name || item.account)
+      this.tableData.selectTextsC = val.map(item => item.name || item.UserName)
       this.tableData.selectIdsC = val.map(item => item.id)
     },
     // 获取角色
@@ -289,7 +289,7 @@ export default {
       roles.getList(this.listQuery).then(response => {
         this.tableData.datas = response.result
         this.tableData.loading = false
-        this.tableData.selectTextsC = [...this.tableData.datas].filter(x => this.tableData.selectTexts.indexOf(x.name || x.account) > -1).map(item => item.name || item.account)
+        this.tableData.selectTextsC = [...this.tableData.datas].filter(x => this.tableData.selectTexts.indexOf(x.name || x.UserName) > -1).map(item => item.name || item.UserName)
         this.tableData.selectIdsC = [...this.tableData.datas].filter(x => this.tableData.selectIds.indexOf(x.id) > -1).map(item => item.id)
         this.setSelectTable()
       })

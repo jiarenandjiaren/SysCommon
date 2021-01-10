@@ -91,7 +91,7 @@
 
             <el-table-column align="center" min-width="80px" :label="'账号'">
               <template slot-scope="scope">
-                <span class="link-type">{{scope.row.account}}</span>
+                <span class="link-type">{{scope.row.UserName}}</span>
               </template>
             </el-table-column>
 

@@ -2,10 +2,9 @@ using Infrastructure;
 
 namespace SysCommon.Service.SSO
 {
-    public class LoginResult : WebResponseContent<object>
+    public class LoginResult : Response<object>
     {
-        //public string ReturnUrl;
-        //public string Token;
-        //public string Id;
+        public string ReturnUrl;
+        public string Token;
     }
 }

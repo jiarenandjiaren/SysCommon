@@ -45,7 +45,9 @@ router.beforeEach((to, from, next) => {
         })
       })
     } else { // 普通登录方式
+      
       if (getToken()) {
+        
         if (to.path === '/login') { // 登录后login自动跳转
           next({ path: '/' })
           return
@@ -76,6 +78,8 @@ router.beforeEach((to, from, next) => {
         next()
       } else {
         next('/login')
+        
+      console.log('开始登陆');
       }
     }
   }).catch((err) => {

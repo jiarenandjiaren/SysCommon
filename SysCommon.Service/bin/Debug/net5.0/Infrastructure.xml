@@ -1070,6 +1070,27 @@
             生成随机串，随机串包含字母或数字
             @return 随机串
         </member>
+        <member name="P:Infrastructure.Response.Message">
+            <summary>
+            操作消息【当Status不为 200时，显示详细的错误信息】
+            </summary>
+        </member>
+        <member name="P:Infrastructure.Response.Code">
+            <summary>
+            操作状态码，200为正常
+            </summary>
+        </member>
+        <member name="T:Infrastructure.Response`1">
+            <summary>
+            WEBAPI通用返回泛型基类
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Infrastructure.Response`1.Result">
+            <summary>
+            回传的结果
+            </summary>
+        </member>
         <member name="M:Infrastructure.StringExtension.GetTimeStamp(System.DateTime)">
             <summary>
             获取时间戳 
@@ -1208,32 +1229,6 @@
             <param name="key"></param>
             <param name="value"></param>
             <returns></returns>
-        </member>
-        <member name="P:Infrastructure.WebResponseContent.Message">
-            <summary>
-            操作结果消息【当Code不为 100时，显示详细的错误信息】
-            </summary>
-        </member>
-        <member name="P:Infrastructure.WebResponseContent.Code">
-            <summary>
-            操作状态码，100为正常
-            </summary>
-        </member>
-        <member name="M:Infrastructure.WebResponseContent.#ctor">
-            <summary>
-            是否成功
-            </summary>
-        </member>
-        <member name="T:Infrastructure.WebResponseContent`1">
-            <summary>
-            WEBAPI通用返回泛型基类
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="P:Infrastructure.WebResponseContent`1.Data">
-            <summary>
-            回传的结果
-            </summary>
         </member>
     </members>
 </doc>

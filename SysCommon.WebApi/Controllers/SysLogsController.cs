@@ -43,12 +43,12 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public WebResponseContent<SysLog> Get(string id)
+        public Response<SysLog> Get(string id)
         {
-            var result = new WebResponseContent<SysLog>();
+            var result = new Response<SysLog>();
             try
             {
-                result.Data = _app.Get(id);
+                result.Result = _app.Get(id);
             }
             catch (Exception ex)
             {
@@ -64,9 +64,9 @@ namespace SysCommon.WebApi.Controllers
         /// 添加
         /// </summary>
         [HttpPost]
-        public WebResponseContent Add(SysLog obj)
+        public Response Add(SysLog obj)
         {
-            var result = new WebResponseContent();
+            var result = new Response();
             try
             {
                 _app.Add(obj);
@@ -86,9 +86,9 @@ namespace SysCommon.WebApi.Controllers
         /// 修改日志（建议废弃）
         /// </summary>
         [HttpPost]
-        public WebResponseContent Update(SysLog obj)
+        public Response Update(SysLog obj)
         {
-            var result = new WebResponseContent();
+            var result = new Response();
             try
             {
                 _app.Update(obj);
@@ -118,9 +118,9 @@ namespace SysCommon.WebApi.Controllers
         /// 批量删除
         /// </summary>
         [HttpPost]
-        public WebResponseContent Delete([FromBody]string[] ids)
+        public Response Delete([FromBody]string[] ids)
         {
-            var result = new WebResponseContent();
+            var result = new Response();
             try
             {
                 _app.Delete(ids);

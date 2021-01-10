@@ -28,9 +28,9 @@ namespace SysCommon.Mvc.Controllers
         /// <param name="files"></param>
         /// <returns>服务器存储的文件信息</returns>
         [HttpPost]
-        public WebResponseContent<IList<UploadFile>> Upload(IFormFileCollection files)
+        public Response<IList<UploadFile>> Upload(IFormFileCollection files)
         {
-            var result = new WebResponseContent<IList<UploadFile>>();
+            var result = new Response<IList<UploadFile>>();
             try
             {
                 result.Data = _app.Add(files);

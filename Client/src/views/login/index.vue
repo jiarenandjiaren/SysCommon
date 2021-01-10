@@ -110,6 +110,7 @@
               })
             }).catch(() => {
               this.loading = false
+                 console.log('点击登陆')
             })
           } else {
             console.log('error submit!!')

@@ -1,12 +1,12 @@
 import request from '@/utils/request'
 import { getToken } from '@/utils/auth' // 验权
 
-export function login(username, password) {
+export function login(UserName, password) {
   return request({
     url: '/check/login',
     method: 'post',
     data: {
-      Account: username,
+      UserName: UserName,
       Password: password,
       AppKey: 'openauth'
     }
@@ -16,7 +16,7 @@ export function login(username, password) {
 export function getInfo(token) {
   return request({
     url: '/check/getusername',
-    method: 'get',
+    method: 'post',
     params: { token }
   })
 }
@@ -24,7 +24,7 @@ export function getInfo(token) {
 export function getUserProfile() {
   return request({
     url: '/check/getuserprofile',
-    method: 'get',
+    method: 'post',
     params: { token: getToken() }
   })
 }
@@ -32,7 +32,7 @@ export function getUserProfile() {
 export function getModules() {
   return request({
     url: '/check/getmodules',
-    method: 'get',
+    method: 'post',
     params: { token: getToken() }
   })
 }
@@ -40,7 +40,7 @@ export function getModules() {
 export function getModulesTree() {
   return request({
     url: '/Check/GetModulesTree',
-    method: 'get',
+    method: 'post',
     params: { token: getToken() }
   })
 }
@@ -48,7 +48,7 @@ export function getModulesTree() {
 export function getOrgs() {
   return request({
     url: '/check/getorgs',
-    method: 'get',
+    method: 'post',
     params: { token: getToken() }
   })
 }

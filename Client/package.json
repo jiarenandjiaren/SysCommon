@@ -1,8 +1,8 @@
 {
-  "name": "openauth-pro",
+  "name": "SysCommon",
   "version": "3.0.0",
-  "description": "OpenAuth.Pro--OpenAuth.Core企业版",
-  "author": "yubaolee <yubaolee@163.com>",
+  "description": "SysCommon",
+  "author": "SysCommon",
   "scripts": {
     "serve": "vue-cli-service serve",
     "dev": "vue-cli-service serve --mode dev",

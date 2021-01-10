@@ -3,7 +3,7 @@ import request from '@/utils/request'
 export function getList(params) {
   return request({
     url: '/flowinstances/load',
-    method: 'get',
+    method: 'post',
     params
   })
 }
@@ -11,7 +11,7 @@ export function getList(params) {
 export function get(params) {
   return request({
     url: '/flowinstances/get',
-    method: 'get',
+    method: 'post',
     params
   })
 }
@@ -19,7 +19,7 @@ export function get(params) {
 export function queryHistories(params) {
   return request({
     url: '/flowinstances/queryHistories',
-    method: 'get',
+    method: 'post',
     params
   })
 }

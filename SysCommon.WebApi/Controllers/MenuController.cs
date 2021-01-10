@@ -48,9 +48,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="addAdminReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<AMenuReq> Add([FromBody]AMenuReq menuAddOrEditReq)
+        public Response<AMenuReq> Add([FromBody]AMenuReq menuAddOrEditReq)
         {
-            var result = new WebResponseContent<AMenuReq>();
+            var result = new Response<AMenuReq>();
             try
             {
                 _menuService.Add(menuAddOrEditReq);
@@ -70,9 +70,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="addAdminReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<EMenuReq> Update([FromBody] EMenuReq menuAddOrEditReq)
+        public Response<EMenuReq> Update([FromBody] EMenuReq menuAddOrEditReq)
         {
-            var result = new WebResponseContent<EMenuReq>();
+            var result = new Response<EMenuReq>();
             try
             {
                 _menuService.Update(menuAddOrEditReq);
@@ -92,9 +92,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="addAdminReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<string> Delete([FromBody] QueryOneReq request)
+        public Response<string> Delete([FromBody] QueryOneReq request)
         {
-            var result = new WebResponseContent<string>();
+            var result = new Response<string>();
             try
             {
                 _menuService.Delete(request);

@@ -1,22 +1,20 @@
 ﻿namespace Infrastructure
 {
-    public class WebResponseContent
+    public class Response
     {
         /// <summary>
-        /// 操作结果消息【当Code不为 100时，显示详细的错误信息】
+        /// 操作消息【当Status不为 200时，显示详细的错误信息】
         /// </summary>
         public string Message { get; set; }
+
         /// <summary>
-        /// 操作状态码，100为正常
+        /// 操作状态码，200为正常
         /// </summary>
         public int Code { get; set; }
-        /// <summary>
-        /// 是否成功
-        /// </summary>
 
-        public WebResponseContent()
+        public Response()
         {
-            Code = 100;
+            Code = 200;
             Message = "操作成功";
         }
     }
@@ -26,11 +24,11 @@
     /// WEBAPI通用返回泛型基类
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class WebResponseContent<T> : WebResponseContent
+    public class Response<T> : Response
     {
         /// <summary>
         /// 回传的结果
         /// </summary>
-        public T Data { get; set; }
+        public T Result { get; set; }
     }
 }

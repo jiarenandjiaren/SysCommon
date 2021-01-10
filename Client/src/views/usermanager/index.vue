@@ -40,7 +40,7 @@
 
               <el-table-column min-width="80px" :label="'账号'">
                 <template slot-scope="scope">
-                  <span class="link-type" @click="handleUpdate(scope.row)">{{scope.row.account}}</span>
+                  <span class="link-type" @click="handleUpdate(scope.row)">{{scope.row.UserName}}</span>
                 </template>
               </el-table-column>
 
@@ -95,8 +95,8 @@
           <el-form-item size="small" :label="'Id'" prop="id" v-show="dialogStatus=='update'">
             <el-input v-model="temp.id" :disabled="true" size="small" placeholder="系统自动处理"></el-input>
           </el-form-item>
-          <el-form-item size="small" :label="'账号'" prop="account">
-            <el-input v-model="temp.account"></el-input>
+          <el-form-item size="small" :label="'账号'" prop="UserName">
+            <el-input v-model="temp.UserName"></el-input>
           </el-form-item>
           <el-form-item size="small" :label="'姓名'">
             <el-input v-model="temp.name"></el-input>
@@ -209,7 +209,7 @@
           description: '',
           organizations: '',
           organizationIds: '',
-          account: '',
+          UserName: '',
           name: '',
           password: '',
           status: 0
@@ -222,7 +222,7 @@
         },
         dialogRoleVisible: false, // 分配角色对话框
         rules: {
-          account: [{
+          UserName: [{
             required: true,
             message: '账号不能为空',
             trigger: 'blur'
@@ -371,7 +371,7 @@
           description: '',
           organizations: '',
           organizationIds: '',
-          account: '',
+          UserName: '',
           name: '',
           status: 0
         }

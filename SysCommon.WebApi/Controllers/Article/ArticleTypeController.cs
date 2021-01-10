@@ -56,9 +56,9 @@ namespace SysCommon.WebApi.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost]
-        public WebResponseContent<AArticleTypeReq> Add([FromBody] AArticleTypeReq request)
+        public Response<AArticleTypeReq> Add([FromBody] AArticleTypeReq request)
         {
-            var result = new WebResponseContent<AArticleTypeReq>();
+            var result = new Response<AArticleTypeReq>();
             try
             {
                 _articleTypeService.Add(request);
@@ -79,9 +79,9 @@ namespace SysCommon.WebApi.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost]
-        public WebResponseContent<EArticleTypeReq> Update([FromBody] EArticleTypeReq request)
+        public Response<EArticleTypeReq> Update([FromBody] EArticleTypeReq request)
         {
-            var result = new WebResponseContent<EArticleTypeReq>();
+            var result = new Response<EArticleTypeReq>();
             try
             {
                 _articleTypeService.Edit(request);
@@ -102,9 +102,9 @@ namespace SysCommon.WebApi.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost]
-        public WebResponseContent Delete([FromBody] QueryOneReq request)
+        public Response Delete([FromBody] QueryOneReq request)
         {
-            var result = new WebResponseContent();
+            var result = new Response();
             try
             {
                 _articleTypeService.Delete(request);

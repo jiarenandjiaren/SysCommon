@@ -3,7 +3,7 @@ import request from '@/utils/request'
 export function get(params) {
   return request({
     url: '/modules/get',
-    method: 'get',
+    method: 'post',
     params
   })
 }
@@ -11,7 +11,7 @@ export function get(params) {
 export function loadMenus(moduleId) {
   return request({
     url: '/modules/loadmenus',
-    method: 'get',
+    method: 'post',
     params: { moduleId: moduleId }
   })
 }
@@ -19,7 +19,7 @@ export function loadMenus(moduleId) {
 export function loadForRole(roleId) {
   return request({
     url: '/modules/loadforrole',
-    method: 'get',
+    method: 'post',
     params: { firstId: roleId }
   })
 }
@@ -75,7 +75,7 @@ export function delMenu(data) {
 export function loadMenusForRole(roleId) {
   return request({
     url: '/modules/loadmenusforrole',
-    method: 'get',
+    method: 'post',
     params: { moduleId: '', firstId: roleId }
   })
 }
@@ -83,7 +83,7 @@ export function loadMenusForRole(roleId) {
 export function getProperties(code) {
   return request({
     url: '/Check/GetProperties',
-    method: 'get',
+    method: 'post',
     params: { moduleCode: code }
   })
 }
@@ -91,7 +91,7 @@ export function getProperties(code) {
 export function getModules(code) {
   return request({
     url: '/Check/GetModules',
-    method: 'get',
+    method: 'post',
     params: { moduleCode: code }
   })
 }
@@ -99,7 +99,7 @@ export function getModules(code) {
 export function loadPropertiesForRole(code, roleId) {
   return request({
     url: '/Modules/LoadPropertiesForRole',
-    method: 'get',
+    method: 'post',
     params: { moduleCode: code, roleId: roleId }
   })
 }

@@ -50,18 +50,48 @@ namespace SysCommon.WebApi.Controllers
             _logger = logger;
             _authStrategyContext = _authUtil.GetCurrentUser();
         }
+
+        /// <summary>
+        /// 根据token获取用户名称
+        /// </summary>
+        [HttpPost]
+        public Response<string> GetUserName()
+        {
+            var result = new Response<string>();
+            try
+            {
+                result.Result = _authStrategyContext.User.UserName;
+            }
+            catch (CommonException ex)
+            {
+                if (ex.Code == Define.INVALID_TOKEN)
+                {
+                    result.Code = ex.Code;
+                    result.Message = ex.Message;
+                }
+                else
+                {
+                    result.Code = 500;
+                    result.Message = ex.InnerException != null
+                        ? ex.InnerException.Message : ex.Message;
+                }
+
+            }
+
+            return result;
+        }
         #region 获取登录用户资料
         /// <summary>
         /// 获取登录用户资料
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<SysUserView> GetUserProfile()
+        public Response<SysUserView> GetUserProfile()
         {
-            var resp = new WebResponseContent<SysUserView>();
+            var resp = new Response<SysUserView>();
             try
             {
-                resp.Data = _authStrategyContext.User.MapTo<SysUserView>();
+                resp.Result = _authStrategyContext.User.MapTo<SysUserView>();
             }
             catch (Exception e)
             {
@@ -80,12 +110,12 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="requestid">备用参数.</param>
         [HttpPost]
 
-        public WebResponseContent<bool> GetStatus()
+        public Response<bool> GetStatus()
         {
-            var result = new WebResponseContent<bool>();
+            var result = new Response<bool>();
             try
             {
-                result.Data = _authUtil.CheckLogin();
+                result.Result = _authUtil.CheckLogin();
             }
             catch (Exception ex)
             {
@@ -103,12 +133,12 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="tablename">实体名称（对应数据表名称）</param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<List<KeyDescription>> GetProperties(string tablename)
+        public Response<List<KeyDescription>> GetProperties(string tablename)
         {
-            var result = new WebResponseContent<List<KeyDescription>>();
+            var result = new Response<List<KeyDescription>>();
             try
             {
-                result.Data = _authStrategyContext.GetProperties(tablename);
+                result.Result = _authStrategyContext.GetProperties(tablename);
             }
             catch (Exception ex)
             {
@@ -124,12 +154,12 @@ namespace SysCommon.WebApi.Controllers
         /// 获取登录用户的所有可访问的组织信息
         /// </summary>
         [HttpPost]
-        public WebResponseContent<List<SysOrg>> GetOrgs()
+        public Response<List<SysOrg>> GetOrgs()
         {
-            var result = new WebResponseContent<List<SysOrg>>();
+            var result = new Response<List<SysOrg>>();
             try
             {
-                result.Data = _authStrategyContext.Orgs;
+                result.Result = _authStrategyContext.Orgs;
             }
             catch (CommonException ex)
             {
@@ -156,12 +186,12 @@ namespace SysCommon.WebApi.Controllers
         /// 获取登录用户的所有可访问的角色
         /// </summary>
         [HttpPost]
-        public WebResponseContent<List<SysRole>> GetRoles()
+        public Response<List<SysRole>> GetRoles()
         {
-            var result = new WebResponseContent<List<SysRole>>();
+            var result = new Response<List<SysRole>>();
             try
             {
-                result.Data = _authStrategyContext.Roles;
+                result.Result = _authStrategyContext.Roles;
             }
             catch (CommonException ex)
             {
@@ -189,12 +219,12 @@ namespace SysCommon.WebApi.Controllers
         /// </summary>
         [HttpPost]
         [AllowAnonymous]
-        public WebResponseContent<List<MenuView>> GetMenus()
+        public Response<List<MenuView>> GetMenus()
         {
-            var result = new WebResponseContent<List<MenuView>>();
+            var result = new Response<List<MenuView>>();
             try
             {
-                result.Data = _authStrategyContext.Menus;
+                result.Result = _authStrategyContext.Menus;
             }
             catch (CommonException ex)
             {
@@ -221,12 +251,12 @@ namespace SysCommon.WebApi.Controllers
         /// 获取登录用户的所有可访问的模块及菜单，以树状结构返回
         /// </summary>
         [HttpPost]
-        public WebResponseContent<IEnumerable<TreeItem<MenuView>>> GetModulesTree()
+        public Response<IEnumerable<TreeItem<MenuView>>> GetModulesTree()
         {
-            var result = new WebResponseContent<IEnumerable<TreeItem<MenuView>>>();
+            var result = new Response<IEnumerable<TreeItem<MenuView>>>();
             try
             {
-                result.Data = _authStrategyContext.Menus.GenerateTree(u => u.Id, u => u.FatherId);
+                result.Result = _authStrategyContext.Menus.GenerateTree(u => u.Id, u => u.FatherId);
             }
             catch (CommonException ex)
             {
@@ -311,16 +341,16 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="token"></param>
         /// <param name="requestid">备用参数.</param>
         [HttpPost]
-        public WebResponseContent<bool> Logout()
+        public Response<bool> Logout()
         {
-            var resp = new WebResponseContent<bool>();
+            var resp = new Response<bool>();
             try
             {
-                resp.Data = _authUtil.Logout();
+                resp.Result = _authUtil.Logout();
             }
             catch (Exception e)
             {
-                resp.Data = false;
+                resp.Result = false;
                 resp.Message = e.Message;
             }
 

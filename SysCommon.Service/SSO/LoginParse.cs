@@ -116,10 +116,9 @@ namespace SysCommon.Service.SSO
                 //创建Session
                 _cacheContext.Set(currentSession.Token, currentSession, DateTime.Now.AddHours(Define. ExpHours));
 
-                result.Code = 100;
-                //result.ReturnUrl = appInfo.ReturnUrl;
-                //result.Token = currentSession.Token;
-                result.Data = currentSession;
+                result.Code = 200;
+               // result.ReturnUrl = appInfo.ReturnUrl;
+                result.Token = currentSession.Token;
             }
             catch (Exception ex)
             {

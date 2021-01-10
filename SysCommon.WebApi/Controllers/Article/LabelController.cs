@@ -49,9 +49,9 @@ namespace SysCommon.WebApi.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost]
-        public WebResponseContent<ALabelReq> Add([FromBody] ALabelReq request)
+        public Response<ALabelReq> Add([FromBody] ALabelReq request)
         {
-            var result = new WebResponseContent<ALabelReq>();
+            var result = new Response<ALabelReq>();
             try
             {
                 _labelService.Add(request);
@@ -72,9 +72,9 @@ namespace SysCommon.WebApi.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost]
-        public WebResponseContent<ELabelReq> Update([FromBody] ELabelReq request)
+        public Response<ELabelReq> Update([FromBody] ELabelReq request)
         {
-            var result = new WebResponseContent<ELabelReq>();
+            var result = new Response<ELabelReq>();
             try
             {
                 _labelService.Edit(request);
@@ -95,9 +95,9 @@ namespace SysCommon.WebApi.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost]
-        public WebResponseContent Delete([FromBody] QueryOneReq request)
+        public Response Delete([FromBody] QueryOneReq request)
         {
-            var result = new WebResponseContent();
+            var result = new Response();
             try
             {
                 _labelService.Delete(request);

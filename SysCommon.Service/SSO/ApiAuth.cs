@@ -73,10 +73,10 @@ namespace SysCommon.Service.SSO
             try
             {
                 var value = _helper.Get(null, requestUri);
-                var result = JsonHelper.Instance.Deserialize<WebResponseContent<bool>>(value);
+                var result = JsonHelper.Instance.Deserialize<Response<bool>>(value);
                 if (result.Code == 200)
                 {
-                    return result.Data;
+                    return result.Result;
                 }
                 throw new Exception(result.Message);
             }
@@ -112,10 +112,10 @@ namespace SysCommon.Service.SSO
             try
             {
                 var value = _helper.Get(null, requestUri);
-                var result = JsonHelper.Instance.Deserialize<WebResponseContent<string>>(value);
+                var result = JsonHelper.Instance.Deserialize<Response<string>>(value);
                 if (result.Code == 200)
                 {
-                    return result.Data;
+                    return result.Result;
                 }
                 throw new Exception(result.Message);
             }

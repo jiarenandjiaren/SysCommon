@@ -36,12 +36,12 @@ namespace SysCommon.WebApi.Controllers.Pay
         /// <param name="return_url"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<WebResponseContent<string>> PagePayAsync(string subject, string total_amount, string body, string product_code, string notify_url, string return_url)
+        public async Task<Response<string>> PagePayAsync(string subject, string total_amount, string body, string product_code, string notify_url, string return_url)
         {
-            var result = new WebResponseContent<string>();
+            var result = new Response<string>();
             try
             {
-                result.Data = await _alipayService.PagePay(subject, total_amount, body, product_code, notify_url, return_url);
+                result.Result = await _alipayService.PagePay(subject, total_amount, body, product_code, notify_url, return_url);
             }
             catch (Exception ex)
             {
@@ -64,12 +64,12 @@ namespace SysCommon.WebApi.Controllers.Pay
         /// <param name="return_url"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<WebResponseContent<string>> WapPay(string subject, string total_amount, string body, string product_code, string notify_url, string return_url)
+        public async Task<Response<string>> WapPay(string subject, string total_amount, string body, string product_code, string notify_url, string return_url)
         {
-            var result = new WebResponseContent<string>();
+            var result = new Response<string>();
             try
             {
-                result.Data = await _alipayService.WapPay(subject, total_amount, body, product_code, notify_url, return_url);
+                result.Result = await _alipayService.WapPay(subject, total_amount, body, product_code, notify_url, return_url);
             }
             catch (Exception ex)
             {
@@ -119,12 +119,12 @@ namespace SysCommon.WebApi.Controllers.Pay
         /// <param name="trade_no"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<WebResponseContent<string>> Query(string out_trade_no, string trade_no)
+        public async Task<Response<string>> Query(string out_trade_no, string trade_no)
         {
-            var result = new WebResponseContent<string>();
+            var result = new Response<string>();
             try
             {
-                result.Data = await _alipayService.Query(out_trade_no, trade_no);
+                result.Result = await _alipayService.Query(out_trade_no, trade_no);
             }
             catch (Exception ex)
             {
@@ -144,12 +144,12 @@ namespace SysCommon.WebApi.Controllers.Pay
         /// <param name="refund_reason">退款原因</param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<WebResponseContent<string>> Refund(string out_trade_no, string trade_no, string refund_amount, string refund_reason)
+        public async Task<Response<string>> Refund(string out_trade_no, string trade_no, string refund_amount, string refund_reason)
         {
-            var result = new WebResponseContent<string>();
+            var result = new Response<string>();
             try
             {
-                result.Data = await _alipayService.Refund(out_trade_no, trade_no, refund_amount, refund_reason);
+                result.Result = await _alipayService.Refund(out_trade_no, trade_no, refund_amount, refund_reason);
             }
             catch (Exception ex)
             {
@@ -168,12 +168,12 @@ namespace SysCommon.WebApi.Controllers.Pay
         /// <param name="out_request_no">退款单号</param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<WebResponseContent<string>> RefundQuery(string out_trade_no, string trade_no, string out_request_no)
+        public async Task<Response<string>> RefundQuery(string out_trade_no, string trade_no, string out_request_no)
         {
-            var result = new WebResponseContent<string>();
+            var result = new Response<string>();
             try
             {
-                result.Data = await _alipayService.RefundQuery(out_trade_no, trade_no, out_request_no);
+                result.Result = await _alipayService.RefundQuery(out_trade_no, trade_no, out_request_no);
             }
             catch (Exception ex)
             {
@@ -191,12 +191,12 @@ namespace SysCommon.WebApi.Controllers.Pay
         /// <param name="trade_no"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<WebResponseContent<string>> Close(string out_trade_no, string trade_no)
+        public async Task<Response<string>> Close(string out_trade_no, string trade_no)
         {
-            var result = new WebResponseContent<string>();
+            var result = new Response<string>();
             try
             {
-                result.Data = await _alipayService.Close(out_trade_no, trade_no);
+                result.Result = await _alipayService.Close(out_trade_no, trade_no);
             }
             catch (Exception ex)
             {

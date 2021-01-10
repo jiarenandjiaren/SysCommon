@@ -1,4 +1,4 @@
-﻿using Infrastructure;
+﻿
 using Infrastructure.Enums;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -18,7 +18,7 @@ namespace SysCommon.Service.Filters
 
             if (!context.ModelState.IsValid)
             {
-                WebResponseContent result = new WebResponseContent();
+                Infrastructure.Response result = new Infrastructure.Response();
                 result.Message = string.Empty;
                 result.Code = (int)ResponseType.ParameterVerify;
                 foreach (var item in context.ModelState.Values)
@@ -35,7 +35,7 @@ namespace SysCommon.Service.Filters
             //else
             //{
             //    var result = context.Result as ObjectResult ?? null;
-            //    context.Result = new OkObjectResult(new WebResponseContent
+            //    context.Result = new OkObjectResult(new Response
             //    {
             //        Message = "成功",
             //        Data = result == null ? "{}" : result.Value

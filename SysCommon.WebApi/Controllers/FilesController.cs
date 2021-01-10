@@ -54,13 +54,13 @@ namespace SysCommon.WebApi.Controllers
         /// <returns>服务器存储的文件信息</returns>
         [HttpPost]
         [AllowAnonymous]
-        public WebResponseContent<IList<UploadFile>> Upload(IFormFileCollection files)
+        public Response<IList<UploadFile>> Upload(IFormFileCollection files)
         {
-            var result = new WebResponseContent<IList<UploadFile>>();
+            var result = new Response<IList<UploadFile>>();
             try
             {
                 //_app.Add(files);
-                result.Data = _fileService.Add(files);
+                result.Result = _fileService.Add(files);
             }
             catch (Exception ex)
             {
@@ -77,15 +77,15 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="testDir"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<ArrayList> Show([FromBody] string testDir)
+        public Response<ArrayList> Show([FromBody] string testDir)
         {
-            var result = new WebResponseContent<ArrayList>();
+            var result = new Response<ArrayList>();
             try
             {
                 string path = _hostingEnvironment.ContentRootPath + "/" + testDir;
                 ArrayList arrayList = FileHelper.getallfilesbyfolder(path, true);
                 // string testDir = "D:/IIS/ht/qiantaimoban";
-                result.Data = arrayList;
+                result.Result = arrayList;
             }
             catch (Exception ex)
             {
@@ -103,9 +103,9 @@ namespace SysCommon.WebApi.Controllers
         /// <returns>服务器存储的文件信息</returns>
         [HttpPost]
         [AllowAnonymous]
-        public WebResponseContent DeleteFile(string filePath)
+        public Response DeleteFile(string filePath)
         {
-            var result = new WebResponseContent();
+            var result = new Response();
             try
             {
                 _fileService.DeleteFile(filePath);

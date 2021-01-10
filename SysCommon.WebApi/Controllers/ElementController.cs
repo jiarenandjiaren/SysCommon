@@ -47,13 +47,13 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="addAdminReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<AElementReq> Add([FromBody] AElementReq aElementReq)
+        public Response<AElementReq> Add([FromBody] AElementReq aElementReq)
         {
-            var result = new WebResponseContent<AElementReq>();
+            var result = new Response<AElementReq>();
             try
             {
                 _elementServic.Add(aElementReq);
-                result.Data = aElementReq;
+                result.Result = aElementReq;
             }
             catch (Exception ex)
             {
@@ -68,13 +68,13 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="eElementReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<EElementReq> Edit([FromBody] EElementReq eElementReq)
+        public Response<EElementReq> Edit([FromBody] EElementReq eElementReq)
         {
-            var result = new WebResponseContent<EElementReq>();
+            var result = new Response<EElementReq>();
             try
             {
                 _elementServic.Edit(eElementReq);
-                result.Data = eElementReq;
+                result.Result = eElementReq;
             }
             catch (Exception ex)
             {
@@ -89,9 +89,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="addAdminReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<string> Delete([FromBody]string[] Id)
+        public Response<string> Delete([FromBody]string[] Id)
         {
-            var result = new WebResponseContent<string>();
+            var result = new Response<string>();
             try
             {
                 _elementServic.Delete(Id);

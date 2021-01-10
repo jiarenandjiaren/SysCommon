@@ -184,6 +184,11 @@
             登录相关及用户资源分配（权限分配）
             </summary>
         </member>
+        <member name="M:SysCommon.WebApi.Controllers.CheckController.GetUserName">
+            <summary>
+            根据token获取用户名称
+            </summary>
+        </member>
         <member name="M:SysCommon.WebApi.Controllers.CheckController.GetUserProfile">
             <summary>
             获取登录用户资料
@@ -604,6 +609,17 @@
             获取指定用户角色id
             </summary>
             <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SysCommon.WebApi.Controllers.SysConfController">
+            <summary>
+            系统配置信息（停用）
+            </summary>
+        </member>
+        <member name="M:SysCommon.WebApi.Controllers.SysConfController.IsIdentityAuth">
+            <summary>
+            是否Identity认证
+            </summary>
             <returns></returns>
         </member>
         <member name="T:SysCommon.WebApi.Controllers.SysLogsController">

@@ -46,9 +46,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="addAdminReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<ASysUserReq> Add([FromBody] ASysUserReq aSysUserReq)
+        public Response<ASysUserReq> Add([FromBody] ASysUserReq aSysUserReq)
         {
-            var result = new WebResponseContent<ASysUserReq>();
+            var result = new Response<ASysUserReq>();
             try
             {
                 _adminService.Add(aSysUserReq);
@@ -67,9 +67,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="addAdminReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<ESysUserReq> Update([FromBody] ESysUserReq eSysUserReq)
+        public Response<ESysUserReq> Update([FromBody] ESysUserReq eSysUserReq)
         {
-            var result = new WebResponseContent<ESysUserReq>();
+            var result = new Response<ESysUserReq>();
             try
             {
                 _adminService.Edit(eSysUserReq);
@@ -88,9 +88,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="addAdminReq"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<string> Delete([FromBody] QueryOneReq  queryOneReq)
+        public Response<string> Delete([FromBody] QueryOneReq  queryOneReq)
         {
-            var result = new WebResponseContent<string>();
+            var result = new Response<string>();
             try
             {
                 _adminService.Delete(queryOneReq);
@@ -119,9 +119,9 @@ namespace SysCommon.WebApi.Controllers
         /// <param name="Id"></param>
         /// <returns></returns>
         [HttpPost]
-        public WebResponseContent<string> IsEnable([FromBody] string[] Id)
+        public Response<string> IsEnable([FromBody] string[] Id)
         {
-            var result = new WebResponseContent<string>();
+            var result = new Response<string>();
             try
             {
                 _adminService.IsEnable(Id);

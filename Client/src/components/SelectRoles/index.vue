@@ -51,7 +51,7 @@
       },
       selectRoleList(val) {
         this.selectRoles = val && val.length > 0 && val.map(item => item.id) || []
-        this.names = val && val.length > 0 && val.map(item => item.name || item.account).join(',') || ''
+        this.names = val && val.length > 0 && val.map(item => item.name || item.UserName).join(',') || ''
       }
     },
     mounted() {
