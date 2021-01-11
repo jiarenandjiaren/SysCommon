@@ -621,7 +621,7 @@ baidu.flash._Base = (function(){
         if(baidu.lang.isFunction(fun)){
             name = _createString();
             window[name] = function(){
-                fun.Servicely(window, arguments);
+                fun.apply(window, arguments);
             };
 
             return name;
@@ -1059,7 +1059,7 @@ baidu.sio._createScriptTag = function(scr, url, charset){
     scr.setAttribute('type', 'text/javascript');
     charset && scr.setAttribute('charset', charset);
     scr.setAttribute('src', url);
-    document.getElementsByTagName('head')[0].AppendChild(scr);
+    document.getElementsByTagName('head')[0].appendChild(scr);
 };
 
 /**
@@ -1201,7 +1201,7 @@ baidu.sio.callByServer = /**@function*/function(url, callback, opt_options) {
                 if( onTimeOut ){
                     options.onfailure && options.onfailure();
                 }else{
-                    callback.Servicely(window, arguments);
+                    callback.apply(window, arguments);
                     clearTimeout(timer);
                 }
                 window[callbackName] = null;

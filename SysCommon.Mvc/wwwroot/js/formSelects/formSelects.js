@@ -144,14 +144,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	//一些简单的处理方法
 	var Common = function Common() {
-		this.Appender();
+		this.appender();
 		this.init();
 		this.on();
 		this.initVal();
 		this.onreset();
 	};
 
-	Common.prototype.Appender = function () {
+	Common.prototype.appender = function () {
 		//针对IE做的一些拓展
 		if (!Array.prototype.map) {
 			Array.prototype.map = function (callback, thisArg) {
@@ -959,7 +959,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		    $label = _ref[0],
 		    $close = _ref[1];
 
-		$label.Append($close);
+		$label.append($close);
 		//如果是radio模式
 		var fs = data[id];
 		if (fs.config.radio) {
@@ -969,7 +969,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		}
 		//如果是固定高度
 		if (fs.config.height) {
-			div.Append($label);
+			div.append($label);
 		} else {
 			div.find('input').css('width', '50px');
 			div.find('input').before($label);

@@ -1,122 +1,86 @@
-﻿/**  版本信息模板在安装目录下，可自行修改。
-*
-*
-* 功 能： 文件上传
-* 类 名： FilesController
-*
-* Ver    变更日期             负责人 GYJ  变更内容
-* ───────────────────────────────────
-* V0.01  2020/8/31 13:05   N/A    初版
-*
-* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
-*┌──────────────────────────────────┐
-*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
-*│　版权所有：九博科技有限公司　　　　　　　　　　　　　　            │
-*└──────────────────────────────────┘
-*/
+
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Infrastructure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using SysCommon.Service;
+using SysCommon.App;
+using SysCommon.App.Request;
+using SysCommon.App.Response;
 using SysCommon.Repository.Domain;
-using Microsoft.AspNetCore.Hosting;
 
 namespace SysCommon.WebApi.Controllers
 {
-    /// <summary>
-    /// 文件上传
-    /// </summary>
+    /// <summary>  文件上传</summary>
+    /// <remarks>   yubaolee, 2019-03-08. </remarks>
 
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class FilesController :ControllerBase
     {
-        private readonly IHostingEnvironment _hostingEnvironment;
-        private FileService _fileService;
-        private ILogger _logger;
 
-        public FilesController(FileService fileService,ILogger<FilesController> logger, IHostingEnvironment hostingEnvironment)
+        private FileApp _app;
+
+        public FilesController(FileApp app)
         {
-            _fileService = fileService;
-            _logger = logger;
-            _hostingEnvironment = hostingEnvironment;
+            _app = app;
         }
-        #region 批量上传文件接口
+        
+        /// <summary>
+        /// 加载附件列表
+        /// </summary>
+        [HttpGet]
+        public async Task<TableData> Load([FromQuery]QueryFileListReq request)
+        {
+            return await _app.Load(request);
+        }
+        
+        /// <summary>
+        /// 删除附件
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public Response Delete([FromBody]string[] ids)
+        {
+            var result = new Response();
+            try
+            {
+                _app.Delete(ids);
+
+            }
+            catch (Exception ex)
+            {
+                result.Code = 500;
+                result.Message = ex.InnerException?.Message ?? ex.Message;
+            }
+
+            return result;
+        }
+
         /// <summary>
         ///  批量上传文件接口
+        /// <para>客户端文本框需设置name='files'</para>
         /// </summary>
         /// <param name="files"></param>
         /// <returns>服务器存储的文件信息</returns>
         [HttpPost]
-        [AllowAnonymous]
         public Response<IList<UploadFile>> Upload(IFormFileCollection files)
         {
             var result = new Response<IList<UploadFile>>();
             try
             {
-                //_app.Add(files);
-                result.Result = _fileService.Add(files);
+                result.Result = _app.Add(files);
             }
             catch (Exception ex)
             {
-                result.Code = 102;
+                result.Code = 500;
                 result.Message = ex.Message;
             }
+
             return result;
         }
-        #endregion
-        #region 展示指定目录文件名称
-        /// <summary>
-        /// 展示指定目录文件名称
-        /// </summary>
-        /// <param name="testDir"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public Response<ArrayList> Show([FromBody] string testDir)
-        {
-            var result = new Response<ArrayList>();
-            try
-            {
-                string path = _hostingEnvironment.ContentRootPath + "/" + testDir;
-                ArrayList arrayList = FileHelper.getallfilesbyfolder(path, true);
-                // string testDir = "D:/IIS/ht/qiantaimoban";
-                result.Result = arrayList;
-            }
-            catch (Exception ex)
-            {
-                result.Code = 102;
-                result.Message = ex.Message;
-            }
-            return result;
-        }
-        #endregion 
-        #region 批量上传文件接口
-        /// <summary>
-        ///  删除文件
-        /// </summary>
-        /// <param name="files"></param>
-        /// <returns>服务器存储的文件信息</returns>
-        [HttpPost]
-        [AllowAnonymous]
-        public Response DeleteFile(string filePath)
-        {
-            var result = new Response();
-            try
-            {
-                _fileService.DeleteFile(filePath);
-            }
-            catch (Exception ex)
-            {
-                result.Code = 102;
-                result.Message = ex.Message;
-            }
-            return result;
-        }
-        #endregion
     }
 }

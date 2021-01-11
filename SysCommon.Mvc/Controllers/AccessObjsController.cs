@@ -1,9 +1,9 @@
 ﻿using System;
 using Infrastructure;
 using Microsoft.AspNetCore.Mvc;
-using SysCommon.Service;
-using SysCommon.Service.Interface;
-using SysCommon.Service.Request;
+using SysCommon.App;
+using SysCommon.App.Interface;
+using SysCommon.App.Request;
 
 namespace SysCommon.Mvc.Controllers
 {

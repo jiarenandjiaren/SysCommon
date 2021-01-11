@@ -19,7 +19,6 @@ namespace SysCommon.IdentityServer
             Console.Title = "IdentityServer4";
 
             CreateWebHostBuilder(args).Build().Run();
-
         }
 
         public static IHostBuilder CreateWebHostBuilder(string[] args)

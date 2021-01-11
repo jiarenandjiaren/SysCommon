@@ -259,7 +259,7 @@ var scrawl = function (options) {
                         picBoard.style.cssText = "position:relative;z-index:999;"+picBoard.style.cssText;
                         img.style.cssText = "position: absolute;top:" + (canvas.height - img.height) / 2 + "px;left:" + (canvas.width - img.width) / 2 + "px;";
                         var scale = new ScaleBoy();
-                        picBoard.AppendChild(scale.init());
+                        picBoard.appendChild(scale.init());
                         scale.startScale(img);
                     } else {
                         if (scaleCon.style.visibility == "visible") {
@@ -431,11 +431,11 @@ var ScaleBoy = function () {
         style.type = 'text/css';
 
         try {
-            style.AppendChild(doc.createTextNode(cssText));
+            style.appendChild(doc.createTextNode(cssText));
         } catch (e) {
             style.styleSheet.cssText = cssText;
         }
-        head.AppendChild(style);
+        head.appendChild(style);
     }
 
     function _getDom() {
@@ -599,7 +599,7 @@ function ue_callback(url, state) {
         picBorard.innerHTML = "";
         img.onload = function () {
             scale(this, 300);
-            picBorard.AppendChild(img);
+            picBorard.appendChild(img);
 
             var obj = new scrawl();
             obj.btn2Highlight("J_removeImg");

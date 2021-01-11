@@ -1,38 +1,24 @@
-﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
-using System;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace SysCommon.Repository.Core
+﻿namespace SysCommon.Repository.Core
 {
-    public abstract class BaseEntity:Entity
+    public abstract class BaseEntity
     {
+        /// <summary>
+        /// 判断主键是否为空，常用做判定操作是【添加】还是【编辑】
+        /// </summary>
+        /// <returns></returns>
+        public abstract bool KeyIsNull();
+
+        /// <summary>
+        /// 创建默认的主键值
+        /// </summary>
+        public abstract void GenerateDefaultKeyVal();
+
         public BaseEntity()
         {
-            this.CreateTime = DateTime.Now;
-            this.UpdateTime = DateTime.Now;
-            this.IsEnable = true;
-            this.Sort = 0;
-            this.Description = string.Empty;
-            this.CreateId = string.Empty; 
-            this.UpdateId = string.Empty;
+            if (KeyIsNull())
+            {
+                GenerateDefaultKeyVal();
+            }
         }
-        [Description("创建人Id")]
-        public string CreateId { get; set; }
-        [Description("创建时间")]
-        public DateTime? CreateTime { get; set; }
-        [Description("修改人Id")]
-        public string  UpdateId { get; set; }
-        [Description("修改时间")]
-        public DateTime? UpdateTime { get; set; }
-        [Description("是否启动")]
-        public bool IsEnable { get; set; }
-        [Description("是否删除")]
-        public bool IsDelete { get; set; }
-        [Description("排序")]
-        public int Sort { get; set; }
-        [Description("备注")]
-        public string Description { get; set; }
     }
 }

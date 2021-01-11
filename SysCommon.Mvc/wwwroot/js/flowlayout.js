@@ -169,7 +169,7 @@
                 $frmpreview.css('background', '#fff');
                 $('.ico').remove();
                 $('.GooFlow_item').css('border', '0px');
-                $frmpreview.Append(tipHtml);
+                $frmpreview.append(tipHtml);
                 $.each(options.nodeData,
                     function (i, item) {
                         $("#" + item.id).css("background", "#999");

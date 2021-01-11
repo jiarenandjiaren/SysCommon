@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using Infrastructure;
+﻿﻿using System;
+ using System.Collections.Generic;
+ using System.Threading.Tasks;
+ using Infrastructure;
 using Microsoft.AspNetCore.Mvc;
-using SysCommon.Service;
-using SysCommon.Service.Request;
-using SysCommon.Service.Response;
+using SysCommon.App;
+using SysCommon.App.Request;
+using SysCommon.App.Response;
+using SysCommon.Repository.Domain;
 
 namespace SysCommon.WebApi.Controllers
 {
@@ -16,47 +18,46 @@ namespace SysCommon.WebApi.Controllers
     [ApiController]
     public class OpenJobsController : ControllerBase
     {
-        private readonly OpenJobService _openJobService;
-        public OpenJobsController(OpenJobService openJobService)
+        private readonly OpenJobApp _app;
+        
+        //获取详情
+        [HttpGet]
+        public Response<OpenJob> Get(string id)
         {
-            _openJobService = openJobService;
-        }
-        ////获取详情
-        //[HttpGet]
-        //public Response<OpenJob> Get(string id)
-        //{
-        //    var result = new Response<OpenJob>();
-        //    try
-        //    {
-        //        result.Result = _openJobService.Get(id);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        result.Code = 500;
-        //        result.Message = ex.InnerException?.Message ?? ex.Message;
-        //    }
+            var result = new Response<OpenJob>();
+            try
+            {
+                result.Result = _app.Get(id);
+            }
+            catch (Exception ex)
+            {
+                result.Code = 500;
+                result.Message = ex.InnerException?.Message ?? ex.Message;
+            }
 
-        //    return result;
-        //}
+            return result;
+        }
 
         /// <summary>
         /// 添加
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        [HttpPost]
+       [HttpPost]
         public Response Add(AddOrUpdateOpenJobReq obj)
         {
             var result = new Response();
             try
             {
-                _openJobService.Add(obj);
+                _app.Add(obj);
+
             }
             catch (Exception ex)
             {
-                result.Code = 102;
+                result.Code = 500;
                 result.Message = ex.InnerException?.Message ?? ex.Message;
             }
+
             return result;
         }
 
@@ -65,50 +66,54 @@ namespace SysCommon.WebApi.Controllers
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        [HttpPost]
-        public Response Edit(AddOrUpdateOpenJobReq obj)
+       [HttpPost]
+        public Response Update(AddOrUpdateOpenJobReq obj)
         {
             var result = new Response();
             try
             {
-                _openJobService.Update(obj);
-            }
-            catch (Exception ex)
-            {
-                result.Code = 102;
-                result.Message = ex.InnerException?.Message ?? ex.Message;
-            }
-            return result;
-        }
+                _app.Update(obj);
 
-        /// <summary>
-        /// 加载列表
-        /// </summary>
-        [HttpPost]
-        public TableData Show([FromQuery] QueryOpenJobListReq request)
-        {
-            return _openJobService.Load(request);
-        }
-
-        /// <summary>
-        /// 批量删除
-        /// </summary>
-        [HttpPost]
-        public Response Delete([FromBody] string[] ids)
-        {
-            var result = new Response();
-            try
-            {
-                _openJobService.Delete(ids);
             }
             catch (Exception ex)
             {
                 result.Code = 500;
                 result.Message = ex.InnerException?.Message ?? ex.Message;
             }
+
             return result;
         }
 
+        /// <summary>
+        /// 加载列表
+        /// </summary>
+        [HttpGet]
+        public async Task<TableData> Load([FromQuery]QueryOpenJobListReq request)
+        {
+            return await _app.Load(request);
+        }
+
+        /// <summary>
+        /// 批量删除
+        /// </summary>
+       [HttpPost]
+        public Response Delete([FromBody]string[] ids)
+        {
+            var result = new Response();
+            try
+            {
+                _app.Delete(ids);
+
+            }
+            catch (Exception ex)
+            {
+                result.Code = 500;
+                result.Message = ex.InnerException?.Message ?? ex.Message;
+            }
+
+            return result;
+        }
+        
         /// <summary>
         /// 获取本地可执行的任务列表
         /// </summary>
@@ -118,16 +123,17 @@ namespace SysCommon.WebApi.Controllers
             var result = new Response<List<string>>();
             try
             {
-                result.Result = _openJobService.QueryLocalHandlers();
+                result.Result = _app.QueryLocalHandlers();
             }
             catch (Exception ex)
             {
                 result.Code = 500;
                 result.Message = ex.InnerException?.Message ?? ex.Message;
             }
+
             return result;
         }
-
+        
         /// <summary>
         /// 改变任务状态，启动/停止
         /// </summary>
@@ -137,15 +143,23 @@ namespace SysCommon.WebApi.Controllers
             var result = new Response();
             try
             {
-                _openJobService.ChangeJobStatus(req);
+                _app.ChangeJobStatus(req);
                 result.Message = "切换成功，可以在系统日志中查看运行结果";
+
             }
             catch (Exception ex)
             {
-                result.Code = 102;
+                result.Code = 500;
                 result.Message = ex.InnerException?.Message ?? ex.Message;
             }
+
             return result;
+        }
+        
+
+        public OpenJobsController(OpenJobApp app) 
+        {
+            _app = app;
         }
     }
 }

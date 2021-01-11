@@ -1,8 +1,8 @@
 ﻿using Infrastructure;
-using SysCommon.Service;
+using SysCommon.App;
 using System;
 using Microsoft.AspNetCore.Mvc;
-using SysCommon.Service.Interface;
+using SysCommon.App.Interface;
 using SysCommon.Repository.Domain;
 
 namespace SysCommon.Mvc.Controllers
@@ -34,7 +34,7 @@ namespace SysCommon.Mvc.Controllers
 
         //添加组织提交
         [HttpPost]
-        public string Add(SysOrg org)
+        public string Add(Org org)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace SysCommon.Mvc.Controllers
 
         //编辑
         [HttpPost]
-        public string Update(SysOrg org)
+        public string Update(Org org)
         {
             try
             {
@@ -73,7 +73,7 @@ namespace SysCommon.Mvc.Controllers
         {
             try
             {
-                _orgApp.DelOrg(ids);
+                _orgApp.DelOrgCascade(ids);
             }
             catch (Exception e)
             {

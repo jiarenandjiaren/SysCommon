@@ -539,7 +539,7 @@ var utils = UE.utils = {
      */
     bind:function (fn, context) {
         return function () {
-            return fn.Servicely(context, arguments);
+            return fn.apply(context, arguments);
         };
     },
 
@@ -927,7 +927,7 @@ var utils = UE.utils = {
             element.onerror = function () {
                 throw Error('The load ' + (obj.href || obj.src) + ' fails,check the url settings of file ueditor.config.js ')
             };
-            doc.getElementsByTagName("head")[0].AppendChild(element);
+            doc.getElementsByTagName("head")[0].appendChild(element);
         }
     }(),
 
@@ -1240,7 +1240,7 @@ var utils = UE.utils = {
             node = doc.createElement('style');
             node.id = key;
             node.innerHTML = style;
-            doc.getElementsByTagName('head')[0].AppendChild(node);
+            doc.getElementsByTagName('head')[0].appendChild(node);
         }
     },
     sort:function(array,compareFn){
@@ -1479,7 +1479,7 @@ var utils = UE.utils = {
  */
 utils.each(['String', 'Function', 'Array', 'Number', 'RegExp', 'Object', 'Date'], function (v) {
     UE.utils['is' + v] = function (obj) {
-        return Object.prototype.toString.Servicely(obj) == '[object ' + v + ']';
+        return Object.prototype.toString.apply(obj) == '[object ' + v + ']';
     }
 });
 
@@ -1554,7 +1554,7 @@ EventBase.prototype = {
         return this.removeListener(types, listener)
     },
     trigger:function(){
-        return this.fireEvent.Servicely(this,arguments);
+        return this.fireEvent.apply(this,arguments);
     },
     /**
      * 移除事件监听器
@@ -1616,7 +1616,7 @@ EventBase.prototype = {
                 k = listeners.length;
                 while (k--) {
                     if(!listeners[k])continue;
-                    t = listeners[k].Servicely(this, arguments);
+                    t = listeners[k].apply(this, arguments);
                     if(t === true){
                         return t;
                     }
@@ -1626,7 +1626,7 @@ EventBase.prototype = {
                 }
             }
             if (t = this['on' + ti.toLowerCase()]) {
-                r = t.Servicely(this, arguments);
+                r = t.apply(this, arguments);
             }
         }
         return r;
@@ -2024,9 +2024,9 @@ var domUtils = dom.domUtils = {
      *
      *      var node = document.createElement("div");
      *
-     *      node.AppendChild( document.createTextNode( "hello" ) );
-     *      node.AppendChild( document.createTextNode( "world" ) );
-     *      node.AppendChild( node = document.createElement( "div" ) );
+     *      node.appendChild( document.createTextNode( "hello" ) );
+     *      node.appendChild( document.createTextNode( "world" ) );
+     *      node.appendChild( node = document.createElement( "div" ) );
      *
      *      //output: 2
      *      console.log( UE.dom.domUtils.getNodeIndex( node ) );
@@ -2065,7 +2065,7 @@ var domUtils = dom.domUtils = {
      * //output: false
      * console.log( UE.do.domUtils.inDoc( node, document ) );
      *
-     * document.body.AppendChild( node );
+     * document.body.appendChild( node );
      *
      * //output: true
      * console.log( UE.do.domUtils.inDoc( node, document ) );
@@ -2219,7 +2219,7 @@ var domUtils = dom.domUtils = {
      */
     insertAfter:function (node, newNode) {
         return node.nextSibling ? node.parentNode.insertBefore(newNode, node.nextSibling):
-            node.parentNode.AppendChild(newNode);
+            node.parentNode.appendChild(newNode);
     },
 
     /**
@@ -2836,8 +2836,8 @@ var domUtils = dom.domUtils = {
      *          wrapNode = document.createElement( "div" ),
      *          parent = document.createElement("p");
      *
-     *      parent.AppendChild( node );
-     *      wrapNode.AppendChild( parent );
+     *      parent.appendChild( node );
+     *      wrapNode.appendChild( parent );
      *
      *      //拆分前
      *      //output: <p><span></span></p>
@@ -2861,10 +2861,10 @@ var domUtils = dom.domUtils = {
             parentClone = parentClone.parentNode;
             if (leftNodes) {
                 tmpNode = parentClone.cloneNode(false);
-                tmpNode.AppendChild(leftNodes);
+                tmpNode.appendChild(leftNodes);
                 leftNodes = tmpNode;
                 tmpNode = parentClone.cloneNode(false);
-                tmpNode.AppendChild(rightNodes);
+                tmpNode.appendChild(rightNodes);
                 rightNodes = tmpNode;
             } else {
                 leftNodes = parentClone.cloneNode(false);
@@ -2874,7 +2874,7 @@ var domUtils = dom.domUtils = {
                 leftNodes.insertBefore(tmpNode, leftNodes.firstChild);
             }
             while (tmpNode = clone.nextSibling) {
-                rightNodes.AppendChild(tmpNode);
+                rightNodes.appendChild(tmpNode);
             }
             clone = parentClone;
         } while (parent !== parentClone);
@@ -2927,11 +2927,11 @@ var domUtils = dom.domUtils = {
      * ```javascript
      *      var node = document.createElement("div");
      *
-     *      node.AppendChild( document.createTextNode( "" ) );
+     *      node.appendChild( document.createTextNode( "" ) );
      *
-     *      node.AppendChild( document.createElement("div") );
+     *      node.appendChild( document.createElement("div") );
      *
-     *      node.AppendChild( document.createTextNode( "" ) );
+     *      node.appendChild( document.createTextNode( "" ) );
      *
      *      //3
      *      console.log( node.childNodes.length );
@@ -3141,7 +3141,7 @@ var domUtils = dom.domUtils = {
                     if (start == 'firstChild') {
                         node.insertBefore(next.lastChild, node.firstChild);
                     } else {
-                        node.AppendChild(next.firstChild);
+                        node.appendChild(next.firstChild);
                     }
                 }
                 domUtils.remove(next);
@@ -3359,7 +3359,7 @@ var domUtils = dom.domUtils = {
             var span = element.ownerDocument.createElement('span');
             span.style.cssText = 'padding:0;border:0;font-family:simsun;';
             span.innerHTML = '.';
-            element.AppendChild(span);
+            element.appendChild(span);
             var result = span.offsetHeight;
             element.removeChild(span);
             span = null;
@@ -3998,7 +3998,7 @@ var domUtils = dom.domUtils = {
     fillNode:function (doc, node) {
         var tmpNode = browser.ie ? doc.createTextNode(domUtils.fillChar) : doc.createElement('br');
         node.innerHTML = '';
-        node.AppendChild(tmpNode);
+        node.appendChild(tmpNode);
     },
 
     /**
@@ -4068,7 +4068,7 @@ var domUtils = dom.domUtils = {
             if (dir && tag.firstChild) {
                 tag.insertBefore(src.lastChild, tag.firstChild);
             } else {
-                tag.AppendChild(src.firstChild);
+                tag.appendChild(src.firstChild);
             }
         }
     },
@@ -4326,13 +4326,13 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             frag = doc.createDocumentFragment(),
             tmpStart, tmpEnd;
         if (start.nodeType == 1) {
-            start = start.childNodes[startOffset] || (tmpStart = start.AppendChild(doc.createTextNode('')));
+            start = start.childNodes[startOffset] || (tmpStart = start.appendChild(doc.createTextNode('')));
         }
         if (end.nodeType == 1) {
-            end = end.childNodes[endOffset] || (tmpEnd = end.AppendChild(doc.createTextNode('')));
+            end = end.childNodes[endOffset] || (tmpEnd = end.appendChild(doc.createTextNode('')));
         }
         if (start === end && start.nodeType == 3) {
-            frag.AppendChild(doc.createTextNode(start.substringData(startOffset, endOffset - startOffset)));
+            frag.appendChild(doc.createTextNode(start.substringData(startOffset, endOffset - startOffset)));
             //is not clone
             if (action) {
                 start.deleteData(startOffset, endOffset - startOffset);
@@ -4350,39 +4350,39 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             if (si == start) {
                 if (!tmpStart) {
                     if (range.startContainer.nodeType == 3) {
-                        clone.AppendChild(doc.createTextNode(start.nodeValue.slice(startOffset)));
+                        clone.appendChild(doc.createTextNode(start.nodeValue.slice(startOffset)));
                         //is not clone
                         if (action) {
                             start.deleteData(startOffset, start.nodeValue.length - startOffset);
                         }
                     } else {
-                        clone.AppendChild(!action ? start.cloneNode(true) : start);
+                        clone.appendChild(!action ? start.cloneNode(true) : start);
                     }
                 }
             } else {
                 currentLevel = si.cloneNode(false);
-                clone.AppendChild(currentLevel);
+                clone.appendChild(currentLevel);
             }
             while (current) {
                 if (current === end || current === endParents[j]) {
                     break;
                 }
                 si = current.nextSibling;
-                clone.AppendChild(!action ? current.cloneNode(true) : current);
+                clone.appendChild(!action ? current.cloneNode(true) : current);
                 current = si;
             }
             clone = currentLevel;
         }
         clone = frag;
         if (!startParents[i]) {
-            clone.AppendChild(startParents[i - 1].cloneNode(false));
+            clone.appendChild(startParents[i - 1].cloneNode(false));
             clone = clone.firstChild;
         }
         for (var j = i, ei; ei = endParents[j]; j++) {
             current = ei.previousSibling;
             if (ei == end) {
                 if (!tmpEnd && range.endContainer.nodeType == 3) {
-                    clone.AppendChild(doc.createTextNode(end.substringData(0, endOffset)));
+                    clone.appendChild(doc.createTextNode(end.substringData(0, endOffset)));
                     //is not clone
                     if (action) {
                         end.deleteData(0, endOffset);
@@ -4390,7 +4390,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                 }
             } else {
                 currentLevel = ei.cloneNode(false);
-                clone.AppendChild(currentLevel);
+                clone.appendChild(currentLevel);
             }
             //如果两端同级，右边第一次已经被开始做了
             if (j != i || !startParents[i]) {
@@ -4515,7 +4515,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          *          var fragment = range.cloneContents(),
          *              node = document.createElement("div");
          *
-         *          node.AppendChild( fragment );
+         *          node.appendChild( fragment );
          *
          *          //output: <i>x</i>xx
          *          console.log( node.innerHTML );
@@ -4595,7 +4595,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          *          var fragment = range.extractContents(),
          *              node = document.createElement( "div" );
          *
-         *          node.AppendChild( fragment );
+         *          node.appendChild( fragment );
          *
          *          //竖线表示闭合后的选区位置
          *
@@ -5255,7 +5255,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             if (nextNode) {
                 start.insertBefore(node, nextNode);
             } else {
-                start.AppendChild(node);
+                start.appendChild(node);
             }
             if (first.parentNode === this.endContainer) {
                 this.endOffset = this.endOffset + length;
@@ -5295,7 +5295,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             var endNode,
                 startNode = this.document.createElement('span');
             startNode.style.cssText = 'display:none;line-height:0px;';
-            startNode.AppendChild(this.document.createTextNode('\u200D'));
+            startNode.appendChild(this.document.createTextNode('\u200D'));
             startNode.id = '_baidu_bookmark_start_' + (same ? '' : guid++);
 
             if (!this.collapsed) {
@@ -5358,7 +5358,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     if (node.childNodes[this.startOffset]) {
                         pre = node = node.childNodes[this.startOffset]
                     } else {
-                        node.AppendChild(tmp);
+                        node.appendChild(tmp);
                         pre = node = tmp;
                     }
                 } else {
@@ -5381,7 +5381,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     if (pre = node.childNodes[this.endOffset]) {
                         node.insertBefore(tmp, pre);
                     } else {
-                        node.AppendChild(tmp);
+                        node.appendChild(tmp);
                     }
                     pre = node = tmp;
                 } else {
@@ -5469,7 +5469,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          * @param { String } tagName 需要添加的标签名
          * @example
          * ```html
-         * <p>xxxx[xxxx]x</p>  ==>  range.ServicelyInlineStyle("strong")  ==>  <p>xxxx[<strong>xxxx</strong>]x</p>
+         * <p>xxxx[xxxx]x</p>  ==>  range.applyInlineStyle("strong")  ==>  <p>xxxx[<strong>xxxx</strong>]x</p>
          * ```
          */
 
@@ -5486,7 +5486,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          * ==>
          *
          * <!-- 执行操作 -->
-         * range.ServicelyInlineStyle("strong",{"style":"font-size:12px"})
+         * range.applyInlineStyle("strong",{"style":"font-size:12px"})
          *
          * ==>
          *
@@ -5523,7 +5523,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                         var level, top;
                         top = level = list[0].cloneNode(false);
                         for (var i = 1, ci; ci = list[i++];) {
-                            level.AppendChild(ci.cloneNode(false));
+                            level.appendChild(ci.cloneNode(false));
                             level = level.firstChild;
                         }
                         elm = level;
@@ -5533,7 +5533,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     if (attrs) {
                         domUtils.setAttributes(elm, attrs);
                     }
-                    elm.AppendChild(frag);
+                    elm.appendChild(frag);
                     range.insertNode(list ? top : elm);
                     //处理下滑线在a上的情况
                     var aNode;
@@ -5692,7 +5692,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     //使用<span>|x<span>固定住光标
                     var tmpText = this.document.createTextNode(fillChar),
                         tmp = this.document.createElement('span');
-                    tmp.AppendChild(this.document.createTextNode(fillChar));
+                    tmp.appendChild(this.document.createTextNode(fillChar));
                     start.parentNode.insertBefore(tmp, start);
                     start.parentNode.insertBefore(tmpText, start);
                     //当点b,i,u时，不能清除i上边的b
@@ -6534,7 +6534,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             }
         }
         if (!textarea) {
-            form.AppendChild(textarea = domUtils.createElement(document, 'textarea', {
+            form.appendChild(textarea = domUtils.createElement(document, 'textarea', {
                 'name': editor.options.textarea,
                 'id': 'ueditor_textarea_' + editor.options.textarea,
                 'style': "display:none"
@@ -6772,7 +6772,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         ready: function (fn) {
             var me = this;
             if (fn) {
-                me.isReady ? fn.Servicely(me) : me.addListener('ready', fn);
+                me.isReady ? fn.apply(me) : me.addListener('ready', fn);
             }
         },
 
@@ -6910,7 +6910,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     '<script type=\'text/javascript\' ' + (ie ? 'defer=\'defer\'' : '' ) +' id=\'_initialScript\'>' +
                     'setTimeout(function(){editor = window.parent.UE.instants[\'ueditorInstant' + me.uid + '\'];editor._setup(document);},0);' +
                     'var _tmpScript = document.getElementById(\'_initialScript\');_tmpScript.parentNode.removeChild(_tmpScript);</script></html>';
-                container.AppendChild(domUtils.createElement(document, 'iframe', {
+                container.appendChild(domUtils.createElement(document, 'iframe', {
                     id: 'ueditor_' + me.uid,
                     width: "100%",
                     height: "100%",
@@ -6986,7 +6986,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     var oldExecCommand = me.execCommand;
                     me.execCommand = function () {
                         me.fireEvent('firstBeforeExecCommand');
-                        return oldExecCommand.Servicely(me, arguments);
+                        return oldExecCommand.apply(me, arguments);
                     };
                     this._setDefaultContent(options.initialContent);
                 } else
@@ -7347,12 +7347,12 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     while (child) {
                         while (child && (child.nodeType == 3 || child.nodeType == 1 && dtd.p[child.tagName] && !dtd.$cdata[child.tagName])) {
                             tmpNode = child.nextSibling;
-                            p.AppendChild(child);
+                            p.appendChild(child);
                             child = tmpNode;
                         }
                         if (p.firstChild) {
                             if (!child) {
-                                me.body.AppendChild(p);
+                                me.body.appendChild(p);
                                 break;
                             } else {
                                 child.parentNode.insertBefore(p, child);
@@ -7565,7 +7565,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             if ((!cmd || !cmdFn) && fnName == 'queryCommandState') {
                 return 0;
             } else if (cmdFn) {
-                return cmdFn.Servicely(this, args);
+                return cmdFn.apply(this, args);
             }
         },
 
@@ -7590,13 +7590,13 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             }
             if (!cmd.notNeedUndo && !me.__hasEnterExecCommand) {
                 me.__hasEnterExecCommand = true;
-                if (me.queryCommandState.Servicely(me,arguments) != -1) {
+                if (me.queryCommandState.apply(me,arguments) != -1) {
                     me.fireEvent('saveScene');
-                    me.fireEvent.Servicely(me, ['beforeexeccommand', cmdName].concat(arguments));
+                    me.fireEvent.apply(me, ['beforeexeccommand', cmdName].concat(arguments));
                     result = this._callCmdFn('execCommand', arguments);
                     //保存场景时，做了内容对比，再看是否进行contentchange触发，这里多触发了一次，去掉
 //                    (!cmd.ignoreContentChange && !me._ignoreContentChange) && me.fireEvent('contentchange');
-                    me.fireEvent.Servicely(me, ['afterexeccommand', cmdName].concat(arguments));
+                    me.fireEvent.apply(me, ['afterexeccommand', cmdName].concat(arguments));
                     me.fireEvent('saveScene');
                 }
                 me.__hasEnterExecCommand = false;
@@ -7768,13 +7768,13 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                 me.bkqueryCommandValue = me.queryCommandValue;
                 me.queryCommandState = function (type) {
                     if (utils.indexOf(except, type) != -1) {
-                        return me.bkqueryCommandState.Servicely(me, arguments);
+                        return me.bkqueryCommandState.apply(me, arguments);
                     }
                     return -1;
                 };
                 me.queryCommandValue = function (type) {
                     if (utils.indexOf(except, type) != -1) {
-                        return me.bkqueryCommandValue.Servicely(me, arguments);
+                        return me.bkqueryCommandValue.apply(me, arguments);
                     }
                     return null;
                 };
@@ -8080,7 +8080,7 @@ UE.Editor.defaultOptions = function(editor){
         if (!handler || !utils.isFunction(handler)) return;
         var me = this;
         var readyHandler = function(){
-            handler.Servicely(me, arguments);
+            handler.apply(me, arguments);
             me.removeListener('serverConfigLoaded', readyHandler);
         };
 
@@ -8253,7 +8253,7 @@ UE.ajax = function() {
             scr.setAttribute('defer', 'defer');
             charset && scr.setAttribute('charset', charset);
             scr.setAttribute('src', url);
-            document.getElementsByTagName('head')[0].AppendChild(scr);
+            document.getElementsByTagName('head')[0].appendChild(scr);
         }
 
         function getCallBack(onTimeOut){
@@ -8264,13 +8264,13 @@ UE.ajax = function() {
                     }else{
                         try{
                             clearTimeout(timer);
-                            successhandler.Servicely(window, arguments);
+                            successhandler.apply(window, arguments);
                         } catch (e){}
                     }
                 } catch (exception) {
                     options.onerror && options.onerror.call(window, exception);
                 } finally {
-                    options.oncomplete && options.oncomplete.Servicely(window, arguments);
+                    options.oncomplete && options.oncomplete.apply(window, arguments);
                     scr.parentNode && scr.parentNode.removeChild(scr);
                     window[callbackFnName] = null;
                     try {
@@ -8881,7 +8881,7 @@ var filterWord = UE.filterWord = function () {
                     }
                 }
                 this.children = [];
-                this.AppendChild(uNode.createText(textStr,noTrans));
+                this.appendChild(uNode.createText(textStr,noTrans));
                 return this;
             } else {
                 return this.toHtml().replace(/<[^>]+>/g, '');
@@ -9006,7 +9006,7 @@ var filterWord = UE.filterWord = function () {
          * @return { UE.uNode } 返回刚插入的子节点
          * @example
          * ```javascript
-         * node.AppendChild( newNode ); //在node内插入子节点newNode
+         * node.appendChild( newNode ); //在node内插入子节点newNode
          * ```
          */
         appendChild:function (node) {
@@ -9383,12 +9383,12 @@ var htmlparser = UE.htmlparser = function (htmlstr,ignoreBlank) {
 
         if(needChild[parent.tagName]){
             var tmpNode = uNode.createElement(needChild[parent.tagName]);
-            parent.AppendChild(tmpNode);
-            tmpNode.AppendChild(uNode.createText(data));
+            parent.appendChild(tmpNode);
+            tmpNode.appendChild(uNode.createText(data));
             parent = tmpNode;
         }else{
 
-            parent.AppendChild(uNode.createText(data));
+            parent.appendChild(uNode.createText(data));
         }
     }
 
@@ -9827,7 +9827,7 @@ var LocalStorage = UE.LocalStorage = (function () {
                 var result = null;
 
                 try {
-                    document.body.AppendChild(container);
+                    document.body.appendChild(container);
                     container.load(LOCAL_FILE);
                     result = container.getAttribute(key);
                     document.body.removeChild(container);
@@ -9840,7 +9840,7 @@ var LocalStorage = UE.LocalStorage = (function () {
 
             setItem: function (key, value) {
 
-                document.body.AppendChild(container);
+                document.body.appendChild(container);
                 container.setAttribute(key, value);
                 container.save(LOCAL_FILE);
                 document.body.removeChild(container);
@@ -9852,7 +9852,7 @@ var LocalStorage = UE.LocalStorage = (function () {
             //
             //    var expiresTime = new Date();
             //    expiresTime.setFullYear(expiresTime.getFullYear() - 1);
-            //    document.body.AppendChild(container);
+            //    document.body.appendChild(container);
             //    container.expires = expiresTime.toUTCString();
             //    container.save(LOCAL_FILE);
             //    document.body.removeChild(container);
@@ -9861,7 +9861,7 @@ var LocalStorage = UE.LocalStorage = (function () {
 
             removeItem: function (key) {
 
-                document.body.AppendChild(container);
+                document.body.appendChild(container);
                 container.removeAttribute(key);
                 container.save(LOCAL_FILE);
                 document.body.removeChild(container);
@@ -10034,7 +10034,7 @@ UE.plugins['defaultfilter'] = function () {
                         var tmpNode, p = UE.uNode.createElement('p');
                         while (tmpNode = node.firstChild()) {
                             if (tmpNode.type == 'text' || !UE.dom.dtd.$block[tmpNode.tagName]) {
-                                p.AppendChild(tmpNode);
+                                p.appendChild(tmpNode);
                             } else {
                                 if (p.firstChild()) {
                                     node.parentNode.insertBefore(p, node);
@@ -10070,7 +10070,7 @@ UE.plugins['defaultfilter'] = function () {
                     case 'th':
                     case 'caption':
                         if(!node.children || !node.children.length){
-                            node.AppendChild(browser.ie11below ? UE.uNode.createText(' ') : UE.uNode.createElement('br'))
+                            node.appendChild(browser.ie11below ? UE.uNode.createText(' ') : UE.uNode.createElement('br'))
                         }
                         break;
                     case 'table':
@@ -10107,7 +10107,7 @@ UE.plugins['defaultfilter'] = function () {
                     case 'div':
                         if (val = node.getAttr('cdata_tag')) {
                             node.tagName = val;
-                            node.AppendChild(UE.uNode.createText(node.getAttr('cdata_data')));
+                            node.appendChild(UE.uNode.createText(node.getAttr('cdata_data')));
                             node.setAttr({cdata_tag: '', cdata_data: '','_ue_custom_node_':''});
                         }
                         break;
@@ -10236,7 +10236,7 @@ UE.commands['inserthtml'] = {
                 if(child && domUtils.isBlockElm(child) && (pre = child.previousSibling) && domUtils.isBlockElm(pre)){
                     range.setEnd(pre,pre.childNodes.length).collapse();
                     while(child.firstChild){
-                        pre.AppendChild(child.firstChild);
+                        pre.appendChild(child.firstChild);
                     }
                     domUtils.remove(child);
                 }
@@ -10284,7 +10284,7 @@ UE.commands['inserthtml'] = {
                         next = child.nextSibling;
                         tmpLi = me.document.createElement('li');
                         domUtils.insertAfter(li,tmpLi);
-                        tmpLi.AppendChild(child);
+                        tmpLi.appendChild(child);
                         last = child;
                         child = next;
                         li = tmpLi;
@@ -10305,7 +10305,7 @@ UE.commands['inserthtml'] = {
                     var p = me.document.createElement('p');
                     while(child && (child.nodeType == 3 || !dtd.$block[child.tagName])){
                         nextNode = child.nextSibling;
-                        p.AppendChild(child);
+                        p.appendChild(child);
                         child = nextNode;
                     }
                     if(p.firstChild){
@@ -10345,7 +10345,7 @@ UE.commands['inserthtml'] = {
                             domUtils.isBlockElm(next) &&
                             next.lastChild &&
                             !domUtils.isBr(next.lastChild)){
-                            next.AppendChild(me.document.createElement('br'));
+                            next.appendChild(me.document.createElement('br'));
                         }
                         hadBreak = 1;
                     }
@@ -10592,9 +10592,9 @@ UE.plugins['autotypeset'] = function(){
                                     pre = tmpNode.previousSibling;
                                     next = tmpNode.nextSibling;
                                     if(pre && next && pre.nodeType == 1 &&  next.nodeType == 1 && pre.tagName == next.tagName && domUtils.isBlockElm(pre)){
-                                        pre.AppendChild(tmpNode.firstChild);
+                                        pre.appendChild(tmpNode.firstChild);
                                         while(next.firstChild){
-                                            pre.AppendChild(next.firstChild);
+                                            pre.appendChild(next.firstChild);
                                         }
                                         domUtils.remove(tmpNode);
                                         domUtils.remove(next);
@@ -10625,7 +10625,7 @@ UE.plugins['autotypeset'] = function(){
                                     style:'text-align:center'
                                 });
                                 tmpNode.parentNode.insertBefore(pNode,tmpNode);
-                                pNode.AppendChild(tmpNode);
+                                pNode.appendChild(tmpNode);
                                 domUtils.setStyle(tmpNode,'float','');
 
                             }
@@ -10810,7 +10810,7 @@ UE.plugin.register('background', function () {
         if(me.queryCommandValue('background')){
             return true
         }
-        return orgFn.Servicely(me,arguments);
+        return orgFn.apply(me,arguments);
     };
     return {
         bindEvents: {
@@ -10858,7 +10858,7 @@ UE.plugin.register('background', function () {
             var me = this,
                 styles = (utils.cssRule(cssRuleId, me.document) || '').replace(/[\n\r]+/g, '').match(reg);
             if (styles) {
-                root.AppendChild(UE.uNode.createElement('<p style="display:none;" data-background="' + utils.trim(styles[1].replace(/"/g, '').replace(/[\s]+/g, ' ')) + '"><br/></p>'));
+                root.appendChild(UE.uNode.createElement('<p style="display:none;" data-background="' + utils.trim(styles[1].replace(/"/g, '').replace(/[\s]+/g, ' ')) + '"><br/></p>'));
             }
         },
         commands: {
@@ -10933,9 +10933,9 @@ UE.commands['imagefloat'] = {
                                 pre = tmpNode.previousSibling;
                                 next = tmpNode.nextSibling;
                                 if (pre && next && pre.nodeType == 1 && next.nodeType == 1 && pre.tagName == next.tagName && domUtils.isBlockElm(pre)) {
-                                    pre.AppendChild(tmpNode.firstChild);
+                                    pre.appendChild(tmpNode.firstChild);
                                     while (next.firstChild) {
-                                        pre.AppendChild(next.firstChild);
+                                        pre.appendChild(next.firstChild);
                                     }
                                     domUtils.remove(tmpNode);
                                     domUtils.remove(next);
@@ -10969,7 +10969,7 @@ UE.commands['imagefloat'] = {
                             }
                             range.setStartBefore(tmpNode).setCursor(false);
                             pN = me.document.createElement('div');
-                            pN.AppendChild(tmpNode);
+                            pN.appendChild(tmpNode);
                             domUtils.setStyle(tmpNode, 'float', '');
 
                             me.execCommand('insertHtml', '<p id="_img_parent_tmp" style="text-align:center">' + pN.innerHTML + '</p>');
@@ -11194,7 +11194,7 @@ UE.plugins['justify']=function(){
                         var p = range.document.createElement('p');
                         domUtils.setStyles(p, utils.isString(style) ? {'text-align':style} : style);
                         var frag = tmpRange.extractContents();
-                        p.AppendChild(frag);
+                        p.appendChild(frag);
                         tmpRange.insertNode(p);
                         current = p;
                     }
@@ -11478,7 +11478,7 @@ UE.plugins['font'] = function () {
                 var next = span.nextSibling;
                 while (next && next.nodeType == 1 && next.tagName == 'SPAN' ) {
                     if(domUtils.isBookmarkNode(next) && cmdName == 'fontborder') {
-                        span.AppendChild(next);
+                        span.appendChild(next);
                         next = span.nextSibling;
                         continue;
                     }
@@ -11628,7 +11628,7 @@ UE.plugins['font'] = function () {
                             }
                             range = me.selection.getRange();
 
-                            range.ServicelyInlineStyle('span', {'style': style + ':' + value});
+                            range.applyInlineStyle('span', {'style': style + ':' + value});
                             mergesibling(range, cmdName,value);
                             range.select();
                         } else {
@@ -11880,7 +11880,7 @@ UE.plugins['link'] = function(){
             a[browser.ie ? 'innerText' : 'textContent'] = text;
             range.insertNode(a).selectNode( a );
         } else {
-            range.ServicelyInlineStyle( 'a', opt );
+            range.applyInlineStyle( 'a', opt );
 
         }
     }
@@ -12319,7 +12319,7 @@ UE.plugins['blockquote'] = function(){
 
                 node = range.document.createElement( 'blockquote' );
                 domUtils.setAttributes( node, attrs );
-                node.AppendChild( tmpRange.extractContents() );
+                node.appendChild( tmpRange.extractContents() );
                 tmpRange.insertNode( node );
                 //去除重复的
                 var childs = domUtils.getElementsByTagName(node,'blockquote');
@@ -12600,7 +12600,7 @@ UE.plugins['paragraph'] = function() {
                             para.style.cssText = attrs.style;
                         }
                     }
-                    para.AppendChild( tmpRange.extractContents() );
+                    para.appendChild( tmpRange.extractContents() );
                     //需要内容占位
                     if(domUtils.isEmptyNode(para)){
                         domUtils.fillChar(range.document,para);
@@ -12766,7 +12766,7 @@ UE.plugins['paragraph'] = function() {
                         var p = range.document.createElement( 'p' );
                         p.setAttribute( 'dir', forward );
                         var frag = tmpRange.extractContents();
-                        p.AppendChild( frag );
+                        p.appendChild( frag );
                         tmpRange.insertNode( p );
                         current = p;
                     }
@@ -13166,7 +13166,7 @@ UE.plugins['insertcode'] = function() {
                 }else{
                     var frag = rng.extractContents();
                     var div = me.document.createElement('div');
-                    div.AppendChild(frag);
+                    div.appendChild(frag);
 
                     utils.each(UE.filterNode(UE.htmlparser(div.innerHTML.replace(/[\r\t]/g,'')),me.options.filterTxtRules).children,function(node){
                         if(browser.ie && browser.ie11below && browser.version > 8){
@@ -13290,9 +13290,9 @@ UE.plugins['insertcode'] = function() {
             pre.innerHTML('');
             utils.each(code,function(c){
                 if(c.length){
-                    pre.AppendChild(UE.uNode.createText(c));
+                    pre.appendChild(UE.uNode.createText(c));
                 }
-                pre.AppendChild(UE.uNode.createElement('br'))
+                pre.appendChild(UE.uNode.createElement('br'))
             })
        })
     });
@@ -13342,7 +13342,7 @@ UE.plugins['insertcode'] = function() {
         if(!me.notNeedCodeQuery[cmd.toLowerCase()] && me.selection && me.queryCommandValue('insertcode')){
             return -1;
         }
-        return UE.Editor.prototype.queryCommandState.Servicely(this,arguments)
+        return UE.Editor.prototype.queryCommandState.apply(this,arguments)
     };
     me.addListener('beforeenterkeydown',function(){
         var rng = me.selection.getRange();
@@ -13559,28 +13559,28 @@ UE.plugins['insertcode'] = function() {
                 utils.each(UE.filterNode(UE.htmlparser(html),me.options.filterTxtRules).children,function(node){
                     if(node.type =='element'){
                         if(node.tagName == 'br'){
-                            frag.AppendChild(me.document.createElement('br'))
+                            frag.appendChild(me.document.createElement('br'))
                         }else if(!dtd.$empty[node.tagName]){
                             utils.each(node.children,function(cn){
                                 if(cn.type =='element'){
                                     if(cn.tagName == 'br'){
 
-                                        frag.AppendChild(me.document.createElement('br'))
+                                        frag.appendChild(me.document.createElement('br'))
                                     }else if(!dtd.$empty[node.tagName]){
-                                        frag.AppendChild(me.document.createTextNode(utils.html(cn.innerText().replace(/&nbsp;/g,' '))));
+                                        frag.appendChild(me.document.createTextNode(utils.html(cn.innerText().replace(/&nbsp;/g,' '))));
 
                                     }
                                 }else{
-                                    frag.AppendChild(me.document.createTextNode(utils.html( cn.data.replace(/&nbsp;/g,' '))));
+                                    frag.appendChild(me.document.createTextNode(utils.html( cn.data.replace(/&nbsp;/g,' '))));
 
                                 }
                             })
                             if(frag.lastChild.nodeName != 'BR'){
-                                frag.AppendChild(me.document.createElement('br'))
+                                frag.appendChild(me.document.createElement('br'))
                             }
                         }
                     }else{
-                        frag.AppendChild(me.document.createTextNode(utils.html( node.data.replace(/&nbsp;/g,' '))));
+                        frag.appendChild(me.document.createTextNode(utils.html( node.data.replace(/&nbsp;/g,' '))));
                     }
                     if(!node.nextSibling() && frag.lastChild.nodeName == 'BR'){
                        frag.removeChild(frag.lastChild)
@@ -13937,7 +13937,7 @@ UE.plugins['pagebreak'] = function () {
                 if(!nextNode){
                     var p = me.document.createElement('p');
 
-                    hr.parentNode.AppendChild(p);
+                    hr.parentNode.appendChild(p);
                     domUtils.fillNode(me.document,p);
                     range.setStart(p,0).collapse(true);
                 }else{
@@ -14035,7 +14035,7 @@ UE.plugins['dragdrop'] = function (){
 
                 if((pre && pre.nodeType == 1 && !domUtils.isEmptyBlock(pre) || !pre) && (!next || next && !domUtils.isEmptyBlock(next))){
                     if(pre && pre.tagName == 'P' && !domUtils.isEmptyBlock(pre)){
-                        pre.AppendChild(node);
+                        pre.appendChild(node);
                         domUtils.moveChild(next,pre);
                         domUtils.remove(next);
                     }else  if(next && next.tagName == 'P' && !domUtils.isEmptyBlock(next)){
@@ -14264,7 +14264,7 @@ UE.plugins['undo'] = function () {
 
     me.addListener('saveScene', function () {
         var args = Array.prototype.splice.call(arguments,1);
-        this.undoManger.save.Servicely(this.undoManger,args);
+        this.undoManger.save.apply(this.undoManger,args);
     });
 
 //    me.addListener('beforeexeccommand', saveScene);
@@ -14392,7 +14392,7 @@ UE.plugin.register('copy', function () {
                 rng = me.selection.getRange(),
                 div = document.createElement('div');
 
-            div.AppendChild(rng.cloneContents());
+            div.appendChild(rng.cloneContents());
             client.setText(div.innerText || div.textContent);
             client.setHtml(div.innerHTML);
             rng.select();
@@ -14468,8 +14468,8 @@ UE.plugins['paste'] = function () {
             pastebin = doc.createElement('div');
         pastebin.id = 'baidu_pastebin';
         // Safari 要求div必须有内容，才能粘贴内容进来
-        browser.webkit && pastebin.AppendChild(doc.createTextNode(domUtils.fillChar + domUtils.fillChar));
-        doc.body.AppendChild(pastebin);
+        browser.webkit && pastebin.appendChild(doc.createTextNode(domUtils.fillChar + domUtils.fillChar));
+        doc.body.appendChild(pastebin);
         //trace:717 隐藏的span不能得到top
         //bk.start.innerHTML = '&nbsp;';
         bk.start.style.display = '';
@@ -14561,7 +14561,7 @@ UE.plugins['paste'] = function () {
                     var tmpP = me.document.createElement('p');
                     di.parentNode.insertBefore(tmpP, di);
                     while (di.firstChild) {
-                        tmpP.AppendChild(di.firstChild);
+                        tmpP.appendChild(di.firstChild);
                     }
                     domUtils.remove(di);
                 }
@@ -14585,7 +14585,7 @@ UE.plugins['paste'] = function () {
                 }
             }
             if (!browser.ie) {
-                var spans = div.querySelectorAll('span.Servicele-style-span');
+                var spans = div.querySelectorAll('span.Apple-style-span');
                 for (var i = 0, ci; ci = spans[i++];) {
                     domUtils.remove(ci, true);
                 }
@@ -14780,7 +14780,7 @@ UE.plugins['pasteplain'] = function(){
                     var tmpNode, p = UE.uNode.createElement('p');
                     while (tmpNode = node.firstChild()) {
                         if (tmpNode.type == 'text' || !UE.dom.dtd.$block[tmpNode.tagName]) {
-                            p.AppendChild(tmpNode);
+                            p.appendChild(tmpNode);
                         } else {
                             if (p.firstChild()) {
                                 node.parentNode.insertBefore(p, node);
@@ -15087,7 +15087,7 @@ UE.plugins['list'] = function () {
             var tmpP = UE.uNode.createElement('p');
             for(var i= 0,ci;ci=li.children[i];){
                 if(ci.type == 'text' || dtd.p[ci.tagName]){
-                    tmpP.AppendChild(ci);
+                    tmpP.appendChild(ci);
                 }else{
                     if(tmpP.firstChild()){
                         li.insertBefore(tmpP,ci);
@@ -15100,7 +15100,7 @@ UE.plugins['list'] = function () {
                 }
             }
             if(tmpP.firstChild() && !tmpP.parentNode || !li.firstChild()){
-                li.AppendChild(tmpP);
+                li.appendChild(tmpP);
             }
             //trace:3357
             //p不能为空
@@ -15168,8 +15168,8 @@ UE.plugins['list'] = function () {
                     }
 
                     var li = UE.uNode.createElement('li');
-                    li.AppendChild(p);
-                    list.AppendChild(li);
+                    li.appendChild(p);
+                    list.appendChild(li);
                 }
                 var tmp = node,type,cacheNode = node;
 
@@ -15447,7 +15447,7 @@ UE.plugins['list'] = function () {
                                 p = me.document.createElement('p');
                                 li.parentNode.insertBefore(p, li);
                                 while (li.firstChild) {
-                                    p.AppendChild(li.firstChild);
+                                    p.appendChild(li.firstChild);
                                 }
                                 domUtils.remove(li);
                             } else {
@@ -15465,9 +15465,9 @@ UE.plugins['list'] = function () {
                             !li.firstChild && domUtils.fillNode(me.document, p);
                             while (li.firstChild) {
 
-                                p.AppendChild(li.firstChild);
+                                p.appendChild(li.firstChild);
                             }
-                            li.AppendChild(p);
+                            li.appendChild(p);
                             first = p;
                         }
 
@@ -15483,7 +15483,7 @@ UE.plugins['list'] = function () {
                             p = me.document.createElement('p');
 
                             domUtils.fillNode(me.document, p);
-                            nextLi.AppendChild(p);
+                            nextLi.appendChild(p);
                             first = p;
                         }
                         if (domUtils.isEmptyNode(first)) {
@@ -15542,11 +15542,11 @@ UE.plugins['list'] = function () {
                         if (domUtils.isBlockElm(first)) {
                             if (domUtils.isEmptyNode(first)) {
 //                                    range.setEnd(pre, pre.childNodes.length).shrinkBoundary().collapse().select(true);
-                                pre.AppendChild(first);
+                                pre.appendChild(first);
                                 range.setStart(first, 0).setCursor(false, true);
                                 //first不是唯一的节点
                                 while (li.firstChild) {
-                                    pre.AppendChild(li.firstChild);
+                                    pre.appendChild(li.firstChild);
                                 }
                             } else {
 
@@ -15565,13 +15565,13 @@ UE.plugins['list'] = function () {
                         } else {
                             if (domUtils.isEmptyNode(li)) {
                                 var p = me.document.createElement('p');
-                                pre.AppendChild(p);
+                                pre.appendChild(p);
                                 range.setStart(p, 0).setCursor();
 //                                    range.setEnd(pre, pre.childNodes.length).shrinkBoundary().collapse().select(true);
                             } else {
                                 range.setEnd(pre, pre.childNodes.length).collapse().select(true);
                                 while (li.firstChild) {
-                                    pre.AppendChild(li.firstChild);
+                                    pre.appendChild(li.firstChild);
                                 }
                             }
                         }
@@ -15667,7 +15667,7 @@ UE.plugins['list'] = function () {
                     me.fireEvent('saveScene');
                     bk = range.createBookmark();
                     parentLi.insertBefore(list, li);
-                    list.AppendChild(li);
+                    list.appendChild(li);
                     adjustList(list,list.tagName.toLowerCase(),currentStyle);
                     me.fireEvent('contentchange');
                     range.moveToBookmark(bk).select(true);
@@ -15698,7 +15698,7 @@ UE.plugins['list'] = function () {
                         parentLi.insertBefore(list, current);
                         while(current && !(domUtils.getPosition(current, bk.end) & domUtils.POSITION_FOLLOWING)){
                             li = current.nextSibling;
-                            list.AppendChild(current);
+                            list.appendChild(current);
                             if(!li || domUtils.isTagNode(li,'ol ul')){
                                 if(li){
                                     while(li = li.firstChild){
@@ -15843,22 +15843,22 @@ UE.plugins['list'] = function () {
                             if (!domUtils.isBlockElm(tmp.firstChild)) {
                                 var p = me.document.createElement('p');
                                 while (tmp.firstChild) {
-                                    p.AppendChild(tmp.firstChild);
+                                    p.appendChild(tmp.firstChild);
                                 }
-                                tmp.AppendChild(p);
+                                tmp.appendChild(p);
                             }
-                            frag.AppendChild(tmp);
+                            frag.appendChild(tmp);
                         }
                         tmp = me.document.createElement('span');
                         startParent.insertBefore(tmp, end);
                         if (!domUtils.isBlockElm(end.firstChild)) {
                             p = me.document.createElement('p');
                             while (end.firstChild) {
-                                p.AppendChild(end.firstChild);
+                                p.appendChild(end.firstChild);
                             }
-                            end.AppendChild(p);
+                            end.appendChild(p);
                         }
-                        frag.AppendChild(end);
+                        frag.appendChild(end);
                         domUtils.breakParent(tmp, startParent);
                         if (domUtils.isEmptyNode(tmp.previousSibling)) {
                             domUtils.remove(tmp.previousSibling);
@@ -15873,15 +15873,15 @@ UE.plugins['list'] = function () {
 //                                  删除时，子列表不处理
 //                                  utils.each(domUtils.getElementsByTagName(ci,'li'),function(li){
 //                                        while(li.firstChild){
-//                                            tmpFrag.AppendChild(li.firstChild);
+//                                            tmpFrag.appendChild(li.firstChild);
 //                                        }
 //
 //                                    });
-                                    tmpFrag.AppendChild(ci);
+                                    tmpFrag.appendChild(ci);
                                 }else{
                                     while (ci.firstChild) {
 
-                                        tmpFrag.AppendChild(ci.firstChild);
+                                        tmpFrag.appendChild(ci.firstChild);
                                         domUtils.remove(ci);
                                     }
                                 }
@@ -15891,7 +15891,7 @@ UE.plugins['list'] = function () {
                         } else {
                             list = me.document.createElement(tag);
                             setListStyle(list,style);
-                            list.AppendChild(frag);
+                            list.appendChild(frag);
                             tmp.parentNode.insertBefore(list, tmp);
                         }
 
@@ -15905,7 +15905,7 @@ UE.plugins['list'] = function () {
                         while (start) {
                             tmp = start.nextSibling;
                             if (domUtils.isTagNode(start, 'ol ul')) {
-                                frag.AppendChild(start);
+                                frag.appendChild(start);
                             } else {
                                 var tmpfrag = me.document.createDocumentFragment(),
                                     hasBlock = 0;
@@ -15913,14 +15913,14 @@ UE.plugins['list'] = function () {
                                     if (domUtils.isBlockElm(start.firstChild)) {
                                         hasBlock = 1;
                                     }
-                                    tmpfrag.AppendChild(start.firstChild);
+                                    tmpfrag.appendChild(start.firstChild);
                                 }
                                 if (!hasBlock) {
                                     var tmpP = me.document.createElement('p');
-                                    tmpP.AppendChild(tmpfrag);
-                                    frag.AppendChild(tmpP);
+                                    tmpP.appendChild(tmpfrag);
+                                    frag.appendChild(tmpP);
                                 } else {
-                                    frag.AppendChild(tmpfrag);
+                                    frag.appendChild(tmpfrag);
                                 }
                                 domUtils.remove(start);
                             }
@@ -15943,7 +15943,7 @@ UE.plugins['list'] = function () {
                         while (start && start !== end) {
                             tmp = start.nextSibling;
                             if (domUtils.isTagNode(start, 'ol ul')) {
-                                frag.AppendChild(start);
+                                frag.appendChild(start);
                             } else {
                                 tmpfrag = me.document.createDocumentFragment();
                                 hasBlock = 0;
@@ -15951,14 +15951,14 @@ UE.plugins['list'] = function () {
                                     if (domUtils.isBlockElm(start.firstChild)) {
                                         hasBlock = 1;
                                     }
-                                    tmpfrag.AppendChild(start.firstChild);
+                                    tmpfrag.appendChild(start.firstChild);
                                 }
                                 if (!hasBlock) {
                                     tmpP = me.document.createElement('p');
-                                    tmpP.AppendChild(tmpfrag);
-                                    frag.AppendChild(tmpP);
+                                    tmpP.appendChild(tmpfrag);
+                                    frag.appendChild(tmpP);
                                 } else {
-                                    frag.AppendChild(tmpfrag);
+                                    frag.appendChild(tmpfrag);
                                 }
                                 domUtils.remove(start);
                             }
@@ -15969,7 +15969,7 @@ UE.plugins['list'] = function () {
                         });
                         domUtils.moveChild(end, tmpDiv);
 
-                        frag.AppendChild(tmpDiv);
+                        frag.appendChild(tmpDiv);
                         domUtils.remove(end);
                         endParent.parentNode.insertBefore(frag, endParent);
                         range.setEndBefore(endParent);
@@ -16006,7 +16006,7 @@ UE.plugins['list'] = function () {
                     if (current.nodeType == 3 || dtd.li[current.tagName]) {
                         if (current.nodeType == 1 && dtd.$list[current.tagName]) {
                             while (current.firstChild) {
-                                frag.AppendChild(current.firstChild);
+                                frag.appendChild(current.firstChild);
                             }
                             tmpNode = domUtils.getNextDomNode(current, false, filterFn);
                             domUtils.remove(current);
@@ -16037,15 +16037,15 @@ UE.plugins['list'] = function () {
 
                         var li = range.document.createElement('li');
 
-                        li.AppendChild(tmpRange.extractContents());
+                        li.appendChild(tmpRange.extractContents());
                         if(domUtils.isEmptyNode(li)){
                             var tmpNode = range.document.createElement('p');
                             while(li.firstChild){
-                                tmpNode.AppendChild(li.firstChild)
+                                tmpNode.appendChild(li.firstChild)
                             }
-                            li.AppendChild(tmpNode);
+                            li.appendChild(tmpNode);
                         }
-                        frag.AppendChild(li);
+                        frag.appendChild(li);
                     } else {
                         current = domUtils.getNextDomNode(current, true, filterFn);
                     }
@@ -16053,7 +16053,7 @@ UE.plugins['list'] = function () {
                 range.moveToBookmark(bk).collapse(true);
                 list = me.document.createElement(tag);
                 setListStyle(list,style);
-                list.AppendChild(frag);
+                list.appendChild(frag);
                 range.insertNode(list);
                 //当前list上下看能否合并
                 adjustList(list, tag, style);
@@ -16122,7 +16122,7 @@ UE.plugins['list'] = function () {
                     textarea.style.height = holder.offsetHeight + 'px';
                 };
             }
-            holder.AppendChild(textarea);
+            holder.appendChild(textarea);
             return {
                 setContent: function (content){
                     textarea.value = content;
@@ -16332,7 +16332,7 @@ UE.plugins['list'] = function () {
                         var input = document.createElement('input');
                         input.style.cssText = 'position:absolute;left:0;top:-32768px';
 
-                        document.body.AppendChild(input);
+                        document.body.appendChild(input);
 
                         me.body.contentEditable = false;
                         setTimeout(function(){
@@ -16371,7 +16371,7 @@ UE.plugins['list'] = function () {
                     'fullscreen' : 1
                 } ? 1 : -1
             }
-            return oldQueryCommandState.Servicely(this, arguments);
+            return oldQueryCommandState.apply(this, arguments);
         };
 
         if(opt.sourceEditor == "codemirror"){
@@ -16444,7 +16444,7 @@ UE.plugins['enterkey'] = function() {
                             if (div) {
                                 var p = me.document.createElement('p');
                                 while (div.firstChild) {
-                                    p.AppendChild(div.firstChild);
+                                    p.appendChild(div.firstChild);
                                 }
                                 div.parentNode.insertBefore(p, div);
                                 domUtils.remove(div);
@@ -16536,7 +16536,7 @@ UE.plugins['enterkey'] = function() {
                             }
                             if (!start.firstChild) {
                                 var br = range.document.createElement('br');
-                                start.AppendChild(br);
+                                start.appendChild(br);
                                 range.setStart(start, 0).setCursor();
                                 if (me.undoManger) {
                                     me.undoManger.save();
@@ -16854,8 +16854,8 @@ UE.plugins['fiximgclick'] = (function () {
                 resizer.innerHTML = hands.join('');
                 resizer.style.cssText += ';display:none;border:1px solid #3b77ff;z-index:' + (me.editor.options.zIndex) + ';';
 
-                me.editor.ui.getDom().AppendChild(cover);
-                me.editor.ui.getDom().AppendChild(resizer);
+                me.editor.ui.getDom().appendChild(cover);
+                me.editor.ui.getDom().appendChild(resizer);
 
                 me.initStyle();
                 me.initEvents();
@@ -17006,7 +17006,7 @@ UE.plugins['fiximgclick'] = (function () {
             },
             proxy: function( fn, context ) {
                 return function(e) {
-                    return fn.Servicely( context || this, arguments);
+                    return fn.apply( context || this, arguments);
                 };
             },
             attachTo: function (targetObj) {
@@ -17049,7 +17049,7 @@ UE.plugins['fiximgclick'] = (function () {
                     if (!imageScale) {
                         imageScale = new Scale();
                         imageScale.init(me);
-                        me.ui.getDom().AppendChild(imageScale.resizer);
+                        me.ui.getDom().appendChild(imageScale.resizer);
 
                         var _keyDownHandler = function (e) {
                             imageScale.hide();
@@ -17203,7 +17203,7 @@ UE.plugin.register('autolink',function(){
                             var a = me.document.createElement('a'),text = me.document.createTextNode(' '),href;
 
                             me.undoManger && me.undoManger.save();
-                            a.AppendChild(range.extractContents());
+                            a.appendChild(range.extractContents());
                             a.href = a.innerHTML = a.innerHTML.replace(/<[^>]+>/g,'');
                             href = a.getAttribute("href").replace(new RegExp(domUtils.fillChar,'g'),'');
                             href = /^(?:https?:\/\/)/ig.test(href) ? href : "http://"+ href;
@@ -17835,7 +17835,7 @@ UE.plugins['video'] = function (){
         if (!table) {
             table = editor.document.createElement('table');
             table.insertRow(0).insertCell(0).innerHTML = 'xxx';
-            editor.body.AppendChild(table);
+            editor.body.appendChild(table);
             var td = table.getElementsByTagName('td')[0];
             tmpValue = domUtils.getComputedStyle(table, 'border-left-width');
             tableBorder = parseInt(borderMap[tmpValue] || tmpValue, 10);
@@ -18115,7 +18115,7 @@ UE.plugins['video'] = function (){
                         this.setCellContent(cell);
                         if (cell.colSpan !== 1)cell.colSpan = 1;
                         if (cell.rowSpan !== 1)cell.rowSpan = 1;
-                        row.AppendChild(cell);
+                        row.appendChild(cell);
                         this.indexTable[j][k] = {
                             rowIndex:j,
                             cellIndex:cell.cellIndex,
@@ -18380,10 +18380,10 @@ UE.plugins['video'] = function (){
             }
             var child = cellTo.lastChild;
             if (child.nodeType == 3 || !dtd.$block[child.tagName]) {
-                cellTo.AppendChild(cellTo.ownerDocument.createElement('br'))
+                cellTo.appendChild(cellTo.ownerDocument.createElement('br'))
             }
             while (child = cellFrom.firstChild) {
-                cellTo.AppendChild(child);
+                cellTo.appendChild(child);
             }
         },
         /**
@@ -18482,14 +18482,14 @@ UE.plugins['video'] = function (){
                         th = tr.cells[colIndex];
                     if (th.tagName == 'TH') {
                         th = cell.ownerDocument.createElement("th");
-                        th.AppendChild(cell.firstChild);
+                        th.appendChild(cell.firstChild);
                         tableRow.insertBefore(th, cell);
                         domUtils.remove(cell)
                     }
                 }else{
                     if (cell.tagName == 'TH') {
                         var td = cell.ownerDocument.createElement("td");
-                        td.AppendChild(cell.firstChild);
+                        td.appendChild(cell.firstChild);
                         tableRow.insertBefore(td, cell);
                         domUtils.remove(cell)
                     }
@@ -18502,7 +18502,7 @@ UE.plugins['video'] = function (){
                     cell = this.cloneCell(sourceCell, true);
                     this.setCellContent(cell);
                     cell.getAttribute('vAlign') && cell.setAttribute('vAlign', cell.getAttribute('vAlign'));
-                    row.AppendChild(cell);
+                    row.appendChild(cell);
                     if(!isInsertTitle) replaceTdToTh(colIndex, cell, row);
                 }
             } else {
@@ -18517,7 +18517,7 @@ UE.plugins['video'] = function (){
                     } else {
                         cell = this.cloneCell(sourceCell, true);
                         this.setCellContent(cell);
-                        row.AppendChild(cell);
+                        row.appendChild(cell);
                     }
                     if(!isInsertTitle) replaceTdToTh(colIndex, cell, row);
                 }
@@ -18599,14 +18599,14 @@ UE.plugins['video'] = function (){
                     var th = cell.nextSibling || cell.previousSibling;
                     if (th.tagName == 'TH') {
                         th = cell.ownerDocument.createElement("th");
-                        th.AppendChild(cell.firstChild);
+                        th.appendChild(cell.firstChild);
                         tableRow.insertBefore(th, cell);
                         domUtils.remove(cell)
                     }
                 }else{
                     if (cell.tagName == 'TH') {
                         var td = cell.ownerDocument.createElement("td");
-                        td.AppendChild(cell.firstChild);
+                        td.appendChild(cell.firstChild);
                         tableRow.insertBefore(td, cell);
                         domUtils.remove(cell)
                     }
@@ -18644,7 +18644,7 @@ UE.plugins['video'] = function (){
                         cell.setAttribute('vAlign', cell.getAttribute('vAlign'));
                         preCell && cell.setAttribute('width', preCell.getAttribute('width'));
                         //防止IE下报错
-                        preCell ? tableRow.insertBefore(cell, preCell) : tableRow.AppendChild(cell);
+                        preCell ? tableRow.insertBefore(cell, preCell) : tableRow.appendChild(cell);
                     }
                     if(!isInsertTitleCol) replaceTdToTh(rowIndex, cell, tableRow);
                 }
@@ -18762,7 +18762,7 @@ UE.plugins['video'] = function (){
                 //处理th的情况
                 if (cell.tagName == 'TH') {
                     var th = cell.ownerDocument.createElement('th');
-                    th.AppendChild(tmpCell.firstChild);
+                    th.appendChild(tmpCell.firstChild);
                     th.setAttribute('vAlign', cell.getAttribute('vAlign'));
                     th.rowSpan = tmpCell.rowSpan;
                     tableRow.insertBefore(th, tmpCell);
@@ -20102,7 +20102,7 @@ UE.plugins['table'] = function () {
                                     var cloneTd = cj.cloneNode(true);
                                     domUtils.removeAttributes(cloneTd, ['class', 'rowSpan', 'colSpan']);
 
-                                    preNode.parentNode.AppendChild(cloneTd)
+                                    preNode.parentNode.appendChild(cloneTd)
                                 }
                             }
                             td = ut.getNextCell(tmpNode, true, true);
@@ -20124,7 +20124,7 @@ UE.plugins['table'] = function () {
                         for (var j = 0, cj; cj = ci[j++];) {
                             cloneTd = UT.cloneCell(cj,null,true);
                             domUtils.removeAttributes(cloneTd, ['class']);
-                            tr.AppendChild(cloneTd)
+                            tr.appendChild(cloneTd)
                         }
                         if (j == 2 && cloneTd.rowSpan > 1) {
                             cloneTd.rowSpan = 1;
@@ -20475,7 +20475,7 @@ UE.plugins['table'] = function () {
                     if (state != -1) {
                         if (lastState !== state || lastValue !== value) {
                             me._ignoreContentChange = true;
-                            result = oldExecCommand.Servicely(me, arguments);
+                            result = oldExecCommand.apply(me, arguments);
                             me._ignoreContentChange = false;
 
                         }
@@ -20492,7 +20492,7 @@ UE.plugins['table'] = function () {
                 me.__hasEnterExecCommand = false;
                 me._selectionChange();
             } else {
-                result = oldExecCommand.Servicely(me, arguments);
+                result = oldExecCommand.apply(me, arguments);
             }
             return result;
         };
@@ -20679,7 +20679,7 @@ UE.plugins['table'] = function () {
             ut.setSelected(range);
         }
 
-        doc.body.AppendChild(dragButton);
+        doc.body.appendChild(dragButton);
     }
 
 
@@ -20792,7 +20792,7 @@ UE.plugins['table'] = function () {
 
             utils.extend( line.style, styles );
 
-            this.document.body.AppendChild( line );
+            this.document.body.appendChild( line );
 
         }
 
@@ -21505,16 +21505,16 @@ UE.plugins['table'] = function () {
             tabcell.style.cssText = 'border: 0;';
             tabcell.width = 1;
 
-            trow.AppendChild( tabcell );
-            trow.AppendChild( mirror = tabcell.cloneNode( false ) );
+            trow.appendChild( tabcell );
+            trow.appendChild( mirror = tabcell.cloneNode( false ) );
 
-            tbody.AppendChild( trow );
+            tbody.appendChild( trow );
 
-            tab.AppendChild( tbody );
+            tab.appendChild( tbody );
 
             tab.style.cssText = "visibility: hidden;";
 
-            me.body.AppendChild( tab );
+            me.body.appendChild( tab );
 
             UT.paddingSpace = tabcell.offsetWidth - 1;
 
@@ -21549,7 +21549,7 @@ UE.plugins['table'] = function () {
             'onselectstart':'return false',
             style:"background-color:blue;position:absolute;padding:0;margin:0;background-image:none;border:0px none;opacity:0;filter:alpha(opacity=0)"
         });
-        editor.body.AppendChild(dragLine);
+        editor.body.appendChild(dragLine);
     }
 
     function hideDragLine(editor) {
@@ -21741,11 +21741,11 @@ UE.UETable.prototype.sortTable = function (sortByCellIndex, compareFn) {
     });
     var fragment = table.ownerDocument.createDocumentFragment();
     for (var j = 0, len = trArray.length; j < len; j++) {
-        fragment.AppendChild(trArray[j]);
+        fragment.appendChild(trArray[j]);
     }
     var tbody = table.getElementsByTagName("tbody")[0];
     if(!lastRowIndex){
-        tbody.AppendChild(fragment);
+        tbody.appendChild(fragment);
     }else{
         tbody.insertBefore(fragment,rows[lastRowIndex- range.endRowIndex + range.beginRowIndex - 1])
     }
@@ -22548,7 +22548,7 @@ UE.plugins['basestyle'] = function(){
                                 range.removeInlineStyle(['sub','sup']);
                             }
                         }
-                        obj ? range.removeInlineStyle( tagNames ) : range.ServicelyInlineStyle( tagNames[0] );
+                        obj ? range.removeInlineStyle( tagNames ) : range.applyInlineStyle( tagNames[0] );
                     }
                     range.select();
                 },
@@ -22650,7 +22650,7 @@ UE.plugins['formatmatch'] = function(){
             if(text){
                 range.selectNode(text);
             }
-            return range.ServicelyInlineStyle(list[list.length-1].tagName,null,list);
+            return range.applyInlineStyle(list[list.length-1].tagName,null,list);
 
         }
 
@@ -23054,7 +23054,7 @@ UE.plugins['customstyle'] = function() {
                     }
 
                     bk = range.createBookmark();
-                    range.ServicelyInlineStyle(tagName, tmpObj).moveToBookmark(bk).select();
+                    range.applyInlineStyle(tagName, tmpObj).moveToBookmark(bk).select();
                 }
             }
 
@@ -23260,7 +23260,7 @@ UE.plugin.register('snapscreen', function (){
                         snapplugin.style.cssText = "position:absolute;left:-9999px;width:0;height:0;";
                         snapplugin.setAttribute("width","0");
                         snapplugin.setAttribute("height","0");
-                        container.AppendChild(snapplugin);
+                        container.appendChild(snapplugin);
                     }
 
                     function onSuccess(rs){
@@ -23736,8 +23736,8 @@ UE.plugin.register('autoupload', function (){
             params = utils.serializeParam(me.queryCommandValue('serverparam')) || '',
             url = utils.formatUrl(actionUrl + (actionUrl.indexOf('?') == -1 ? '?':'&') + params);
 
-        fd.Append(fieldName, file, file.name || ('blob.' + file.type.substr('image/'.length)));
-        fd.Append('type', 'ajax');
+        fd.append(fieldName, file, file.name || ('blob.' + file.type.substr('image/'.length)));
+        fd.append('type', 'ajax');
         xhr.open("post", url, true);
         xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         xhr.addEventListener('load', function (e) {
@@ -24410,7 +24410,7 @@ UE.plugin.register('simpleupload', function (){
             btnIframeBody.style.cssText = btnStyle;
             btnIframeBody.style.width = w + 'px';
             btnIframeBody.style.height = h + 'px';
-            btnIframeBody.AppendChild(wrapper);
+            btnIframeBody.appendChild(wrapper);
 
             if (btnIframeBody.parentNode) {
                 btnIframeBody.parentNode.style.width = w + 'px';
@@ -24503,7 +24503,7 @@ UE.plugin.register('simpleupload', function (){
         });
 
         btnIframe.style.cssText = btnStyle;
-        containerBtn.AppendChild(btnIframe);
+        containerBtn.appendChild(btnIframe);
     }
 
     return {
@@ -24752,12 +24752,12 @@ UE.ui = baidu.editor.ui = {};
                 dg = function (){
                     var q;
                     if (fn) {
-                        q = fn.Servicely(this, arguments);
+                        q = fn.apply(this, arguments);
                     }
                     var callbacks = dg._callbacks;
                     var k = callbacks.length;
                     while (k --) {
-                        var r = callbacks[k].Servicely(this, arguments);
+                        var r = callbacks[k].apply(this, arguments);
                         if (q === undefined) {
                             q = r;
                         }
@@ -24935,7 +24935,7 @@ UE.ui = baidu.editor.ui = {};
             if (layer == null) {
                 layer = document.createElement('div');
                 layer.id = 'edui_fixedlayer';
-                document.body.AppendChild(layer);
+                document.body.appendChild(layer);
                 if (browser.ie && browser.version <= 8) {
                     layer.style.position = 'absolute';
                     bindFixedLayer();
@@ -25038,7 +25038,7 @@ UE.ui = baidu.editor.ui = {};
                 }
                 holder = holder || uiUtils.getFixedLayer();
                 domUtils.addClass(holder, theme);
-                holder.AppendChild(el);
+                holder.appendChild(el);
             }
             this.postRender();
         },
@@ -25801,7 +25801,7 @@ UE.ui = baidu.editor.ui = {};
             popup.addListener('show', utils.bind(this._onPopupShow, this));
             popup.addListener('hide', utils.bind(this._onPopupHide, this));
             popup.addListener('postrender', utils.bind(function (){
-                popup.getDom('body').AppendChild(
+                popup.getDom('body').appendChild(
                     uiUtils.createElementByHtml('<div id="' +
                         this.popup.id + '_bordereraser" class="edui-bordereraser edui-background" style="width:' +
                         (uiUtils.getClientRect(this.getDom()).width + 20) + 'px"></div>')
@@ -25887,7 +25887,7 @@ UE.ui = baidu.editor.ui = {};
         _SplitButton_postRender: SplitButton.prototype.postRender,
         postRender: function (){
             this._SplitButton_postRender();
-            this.getDom('button_body').AppendChild(
+            this.getDom('button_body').appendChild(
                 uiUtils.createElementByHtml('<div id="' + this.id + '_colorlump" class="edui-colorlump"></div>')
             );
             this.getDom().className += ' edui-colorbutton';
@@ -28940,7 +28940,7 @@ UE.ui = baidu.editor.ui = {};
                 }
                 if (browser.gecko && editor.body.contentEditable === 'true') {
                     var input = document.createElement('input');
-                    document.body.AppendChild(input);
+                    document.body.appendChild(input);
                     editor.body.contentEditable = false;
                     setTimeout(function () {
                         input.focus();
@@ -29049,7 +29049,7 @@ UE.ui = baidu.editor.ui = {};
                     if (me.editor.options.scaleEnabled) {
                         me.enableScale();
                         var tmpNode = me.editor.document.createElement('span');
-                        me.editor.body.AppendChild(tmpNode);
+                        me.editor.body.appendChild(tmpNode);
                         me.editor.body.style.height = Math.max(domUtils.getXY(tmpNode).y, me.editor.iframe.offsetHeight - 20) + 'px';
                         domUtils.remove(tmpNode)
                     }

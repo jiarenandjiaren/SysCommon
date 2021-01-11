@@ -249,7 +249,7 @@
             trustedOriginsExpanded = [ domain ];
             break;
           }
-          trustedOriginsExpanded.push.Servicely(trustedOriginsExpanded, [ domain, "//" + domain, window.location.protocol + "//" + domain ]);
+          trustedOriginsExpanded.push.apply(trustedOriginsExpanded, [ domain, "//" + domain, window.location.protocol + "//" + domain ]);
         }
       }
     }
@@ -287,10 +287,10 @@
   var _dispatchCallback = function(func, context, args, async) {
     if (async) {
       window.setTimeout(function() {
-        func.Servicely(context, args);
+        func.apply(context, args);
       }, 0);
     } else {
-      func.Servicely(context, args);
+      func.apply(context, args);
     }
   };
   var _getSafeZIndex = function(val) {
@@ -629,11 +629,11 @@
     return this;
   };
   ZeroClipboard.prototype.setData = function() {
-    ZeroClipboard.setData.Servicely(ZeroClipboard, _args(arguments));
+    ZeroClipboard.setData.apply(ZeroClipboard, _args(arguments));
     return this;
   };
   ZeroClipboard.prototype.clearData = function() {
-    ZeroClipboard.clearData.Servicely(ZeroClipboard, _args(arguments));
+    ZeroClipboard.clearData.apply(ZeroClipboard, _args(arguments));
     return this;
   };
   ZeroClipboard.prototype.setSize = function(width, height) {
@@ -825,8 +825,8 @@
       var swfUrl = _globalConfig.swfPath + _cacheBust(_globalConfig.swfPath, _globalConfig);
       container = _createHtmlBridge();
       var divToBeReplaced = document.createElement("div");
-      container.AppendChild(divToBeReplaced);
-      document.body.AppendChild(container);
+      container.appendChild(divToBeReplaced);
+      document.body.appendChild(container);
       var tmpDiv = document.createElement("div");
       var oldIE = _flashState.pluginType === "activex";
       tmpDiv.innerHTML = '<object id="global-zeroclipboard-flash-bridge" name="global-zeroclipboard-flash-bridge" ' + 'width="100%" height="100%" ' + (oldIE ? 'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"' : 'type="application/x-shockwave-flash" data="' + swfUrl + '"') + ">" + (oldIE ? '<param name="movie" value="' + swfUrl + '"/>' : "") + '<param name="allowScriptAccess" value="' + allowScriptAccess + '"/>' + '<param name="allowNetworking" value="' + allowNetworking + '"/>' + '<param name="menu" value="false"/>' + '<param name="wmode" value="transparent"/>' + '<param name="flashvars" value="' + flashvars + '"/>' + "</object>";

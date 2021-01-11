@@ -3,7 +3,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
-using SysCommon.Service;
+using SysCommon.App;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace SysCommon.WebApi.Model

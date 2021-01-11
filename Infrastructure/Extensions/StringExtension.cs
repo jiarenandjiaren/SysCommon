@@ -1,14 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using Infrastructure.Const;
 
 namespace Infrastructure.Extensions
 {
     public static class StringExtension
     {
         public static bool _windows = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+        /// <summary>
+        /// 自动调整windows/linux下面文件目录斜杠的处理
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public static string ReplacePath(this string path)
         {
             if (string.IsNullOrEmpty(path))
@@ -18,6 +24,21 @@ namespace Infrastructure.Extensions
             return path.Replace("\\", "/");
 
         }
+        
+        /// <summary>
+        /// 把一个字符串转成驼峰规则的字符串
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string ToCamelCase(this string str)
+        {                    
+            if(!string.IsNullOrEmpty(str) && str.Length > 1)
+            {
+                return Char.ToLowerInvariant(str[0]) + str.Substring(1);
+            }
+            return str;
+        }
+        
         private static DateTime dateStart = new DateTime(1970, 1, 1, 8, 0, 0);
 
         private static long longTime = 621355968000000000;
@@ -43,14 +64,7 @@ namespace Infrastructure.Extensions
             DateTime dateTime = new DateTime(longTime + Convert.ToInt64(timeStamp) * samllTime, DateTimeKind.Utc).ToLocalTime();
             return dateTime;
         }
-        //public static string CreateHtmlParas(this string urlPath, int? userId = null)
-        //{
-        //    if (string.IsNullOrEmpty(urlPath))
-        //        return null;
-        //    userId = userId ?? UserContext.Current.UserInfo.User_Id;
-        //    return $"{urlPath}{(urlPath.IndexOf("?token") > 0 ? "&" : "?")}uid={userId}&rt_v={DateTime.Now.ToString("HHmmss")}";
-        //    //  return urlPath + ((urlPath.IndexOf("?token") > 0 ? "&" : "?") + "uid=" + userId);
-        //}
+        
 
         public static bool IsUrl(this string str)
         {
@@ -80,68 +94,68 @@ namespace Infrastructure.Extensions
             return false;
         }
 
-        //public static string GetDBCondition(this string stringType)
-        //{
-        //    string reslut = "";
-        //    switch (stringType?.ToLower())
-        //    {
-        //        case HtmlElementType.droplist:
-        //        case HtmlElementType.selectlist:
-        //        case HtmlElementType.textarea:
-        //        case HtmlElementType.checkbox:
-        //            reslut = HtmlElementType.Contains;
-        //            break;
-        //        case HtmlElementType.thanorequal:
-        //            reslut = HtmlElementType.ThanOrEqual;
-        //            break;
-        //        case HtmlElementType.lessorequal:
-        //            reslut = HtmlElementType.LessOrequal;
-        //            break;
-        //        case HtmlElementType.gt:
-        //            reslut = HtmlElementType.GT;
-        //            break;
-        //        case HtmlElementType.lt:
-        //            reslut = HtmlElementType.lt;
-        //            break;
-        //        case HtmlElementType.like:
-        //            reslut = HtmlElementType.like;
-        //            break;
-        //        default:
-        //            reslut = HtmlElementType.Equal;
-        //            break;
-        //    }
-        //    return reslut;
-        //}
+        public static string GetDBCondition(this string stringType)
+        {
+            string reslut = "";
+            switch (stringType?.ToLower())
+            {
+                case HtmlElementType.droplist:
+                case HtmlElementType.selectlist:
+                case HtmlElementType.textarea:
+                case HtmlElementType.checkbox:
+                    reslut = HtmlElementType.Contains;
+                    break;
+                case HtmlElementType.thanorequal:
+                    reslut = HtmlElementType.ThanOrEqual;
+                    break;
+                case HtmlElementType.lessorequal:
+                    reslut = HtmlElementType.LessOrequal;
+                    break;
+                case HtmlElementType.gt:
+                    reslut = HtmlElementType.GT;
+                    break;
+                case HtmlElementType.lt:
+                    reslut = HtmlElementType.lt;
+                    break;
+                case HtmlElementType.like:
+                    reslut = HtmlElementType.like;
+                    break;
+                default:
+                    reslut = HtmlElementType.Equal;
+                    break;
+            }
+            return reslut;
+        }
 
-        //public static LinqExpressionType GetLinqCondition(this string stringType)
-        //{
-        //    LinqExpressionType linqExpression;
-        //    switch (stringType)
-        //    {
-        //        case HtmlElementType.Contains:
-        //            linqExpression = LinqExpressionType.In;
-        //            break;
-        //        case HtmlElementType.ThanOrEqual:
-        //            linqExpression = LinqExpressionType.ThanOrEqual;
-        //            break;
-        //        case HtmlElementType.LessOrequal:
-        //            linqExpression = LinqExpressionType.LessThanOrEqual;
-        //            break;
-        //        case HtmlElementType.GT:
-        //            linqExpression = LinqExpressionType.GreaterThan;
-        //            break;
-        //        case HtmlElementType.lt:
-        //            linqExpression = LinqExpressionType.LessThan;
-        //            break;
-        //        case HtmlElementType.like:
-        //            linqExpression = LinqExpressionType.Contains;
-        //            break;
-        //        default:
-        //            linqExpression = LinqExpressionType.Equal;
-        //            break;
-        //    }
-        //    return linqExpression;
-        //}
+        public static LinqExpressionType GetLinqCondition(this string stringType)
+        {
+            LinqExpressionType linqExpression;
+            switch (stringType)
+            {
+                case HtmlElementType.Contains:
+                    linqExpression = LinqExpressionType.In;
+                    break;
+                case HtmlElementType.ThanOrEqual:
+                    linqExpression = LinqExpressionType.ThanOrEqual;
+                    break;
+                case HtmlElementType.LessOrequal:
+                    linqExpression = LinqExpressionType.LessThanOrEqual;
+                    break;
+                case HtmlElementType.GT:
+                    linqExpression = LinqExpressionType.GreaterThan;
+                    break;
+                case HtmlElementType.lt:
+                    linqExpression = LinqExpressionType.LessThan;
+                    break;
+                case HtmlElementType.like:
+                    linqExpression = LinqExpressionType.Contains;
+                    break;
+                default:
+                    linqExpression = LinqExpressionType.Equal;
+                    break;
+            }
+            return linqExpression;
+        }
 
         public static bool GetGuid(this string guid, out Guid outId)
         {
@@ -152,7 +166,7 @@ namespace Infrastructure.Extensions
         public static bool IsGuid(this string guid)
         {
             Guid newId;
-            return guid.GetGuid(out newId);
+            return GetGuid(guid, out newId);
         }
 
         public static bool IsInt(this object obj)
@@ -165,7 +179,7 @@ namespace Infrastructure.Extensions
         }
         public static bool IsDate(this object str)
         {
-            return str.IsDate(out _);
+            return IsDate(str, out _);
         }
         public static bool IsDate(this object str, out DateTime dateTime)
         {
@@ -337,7 +351,7 @@ namespace Infrastructure.Extensions
             try
             {
                 string str = obj.ToString();
-                if (str.IsNumber(25, 15)) return Convert.ToDecimal(obj);
+                if (IsNumber(str, 25, 15)) return Convert.ToDecimal(obj);
                 else return str;
             }
             catch
@@ -375,7 +389,7 @@ namespace Infrastructure.Extensions
                 case "System.uInt32":
                     return ToUInt32(str);
                 case "System.Int32":
-                    return str.ToInt32();
+                    return ToInt32(str);
                 case "System.UInt64":
                     return ToUInt64(str);
                 case "System.Int64":
@@ -570,6 +584,27 @@ namespace Infrastructure.Extensions
             }
             return newRandom.ToString();
         }
+        public static string MaxSubstring(this string origin, int maxLength)
+        {
+            return origin.Length >= maxLength ? origin.Substring(0, maxLength) : origin;
+        }
 
+        public static string ToMd5(this string origin)
+        {
+            if (string.IsNullOrWhiteSpace(origin))
+            {
+                return string.Empty;
+            }
+
+            var md5Algorithm = MD5.Create();
+            var utf8Bytes = Encoding.UTF8.GetBytes(origin);
+            var md5Hash = md5Algorithm.ComputeHash(utf8Bytes);
+            var hexString = new StringBuilder();
+            foreach (var hexByte in md5Hash)
+            {
+                hexString.Append(hexByte.ToString("x2"));
+            }
+            return hexString.ToString();
+        }
     }
 }

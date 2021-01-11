@@ -11,13 +11,13 @@
 
 using Infrastructure;
 using Microsoft.AspNetCore.Mvc;
-using SysCommon.Service.Interface;
+using SysCommon.App.Interface;
 
 namespace SysCommon.Mvc.Controllers
 {
     /// <summary>
     /// 基础控制器
-    /// <para>新增于2016-07-19 11:12:09</para>
+    /// <para>李玉宝新增于2016-07-19 11:12:09</para>
     /// </summary>
     public class BaseController : Controller
     {

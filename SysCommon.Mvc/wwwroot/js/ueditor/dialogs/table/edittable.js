@@ -107,9 +107,9 @@
                 for (var i = 0, node; i < colCount; i++) {
                     node = document.createElement("th");
                     node.innerHTML = lang.titleName;
-                    frg.AppendChild(node);
+                    frg.appendChild(node);
                 }
-                example.rows[0].AppendChild(frg);
+                example.rows[0].appendChild(frg);
 
             } else {
                 domUtils.remove(example.rows[0]);
@@ -174,7 +174,7 @@
                 utils.each(row.cells, function(cell, i){
                     var span = document.createElement("span");
                     span.innerHTML = "^";
-                    cell.AppendChild(span);
+                    cell.appendChild(span);
                 });
             }
         },

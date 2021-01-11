@@ -18,7 +18,7 @@ namespace SysCommon.Repository.Domain
 	/// 系统日志
 	/// </summary>
       [Table("SysLog")]
-    public partial class SysLog : BaseEntity
+    public partial class SysLog : Entity
     {
         public SysLog()
         {
@@ -26,8 +26,8 @@ namespace SysCommon.Repository.Domain
           this.TypeName= string.Empty;
           this.TypeId= string.Empty;
           this.Href= string.Empty;
-          //this.CreateTime= DateTime.Now;
-          //this.CreateId= string.Empty;
+          this.CreateTime= DateTime.Now;
+          this.CreateId= string.Empty;
           this.CreateName= string.Empty;
           this.Ip= string.Empty;
           this.Application = string.Empty;
@@ -54,25 +54,25 @@ namespace SysCommon.Repository.Domain
 	    /// </summary>
          [Description("操作所属模块地址")]
         public string Href { get; set; }
-        //   /// <summary>
-        ///// 记录时间
-        ///// </summary>
-        //    [Description("记录时间")]
-        //   public System.DateTime CreateTime { get; set; }
-        //   /// <summary>
-        ///// 操作人ID
-        ///// </summary>
-        //    [Description("操作人ID")]
-        //   public string CreateId { get; set; }
         /// <summary>
-        /// 操作人
-        /// </summary>
-        [Description("操作人")]
+	    /// 记录时间
+	    /// </summary>
+         [Description("记录时间")]
+        public System.DateTime CreateTime { get; set; }
+        /// <summary>
+	    /// 操作人ID
+	    /// </summary>
+         [Description("操作人ID")]
+        public string CreateId { get; set; }
+        /// <summary>
+	    /// 操作人
+	    /// </summary>
+         [Description("操作人")]
         public string CreateName { get; set; }
         /// <summary>
-        /// 操作机器的IP地址
-        /// </summary>
-        [Description("操作机器的IP地址")]
+	    /// 操作机器的IP地址
+	    /// </summary>
+         [Description("操作机器的IP地址")]
         public string Ip { get; set; }
         /// <summary>
 	    /// 操作的结果：0：成功；1：失败；

@@ -63,10 +63,140 @@
             <para>超级管理员使用guid.empty为ID，可以根据需要修改</para>
             </summary>
         </member>
+        <member name="M:OpenAuth.App.AutofacExt.InitDependency(Autofac.ContainerBuilder)">
+            <summary>
+            注入所有继承了IDependency接口
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:OpenAuth.App.BaseApp`2" -->
+        <member name="F:OpenAuth.App.BaseApp`2.Repository">
+            <summary>
+            用于普通的数据库操作
+            </summary>
+        </member>
+        <member name="F:OpenAuth.App.BaseApp`2.UnitWork">
+            <summary>
+            用于事务操作
+            <para>使用详见：http://doc.openauth.me/core/unitwork.html</para>
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:OpenAuth.App.BaseApp`2.GetDataPrivilege(System.String)" -->
+        <member name="M:OpenAuth.App.BaseApp`2.Delete(System.String[])">
+            <summary>
+            按id批量删除
+            </summary>
+            <param name="ids"></param>
+        </member>
+        <member name="M:OpenAuth.App.BaseApp`2.CaculateCascade``1(``0)">
+            <summary>
+            计算实体更新的层级信息
+            </summary>
+            <typeparam name="U">U必须是一个继承TreeEntity的结构</typeparam>
+            <param name="entity"></param>
+        </member>
+        <member name="T:OpenAuth.App.BaseTreeApp`2">
+            <summary>
+            树状结构处理
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:OpenAuth.App.BaseTreeApp`2.UpdateTreeObj``1(``0)">
+            <summary>
+            更新树状结构实体
+            </summary>
+            <param name="obj"></param>
+            <typeparam name="U"></typeparam>
+        </member>
+        <member name="M:OpenAuth.App.BuilderTableApp.Load(OpenAuth.App.Request.QueryBuilderTableListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:OpenAuth.App.BuilderTableApp.DelTableAndcolumns(System.String[])">
+            <summary>
+            删除头和字段明细
+            </summary>
+            <param name="ids"></param>
+        </member>
+        <member name="M:OpenAuth.App.BuilderTableApp.CreateEntity(OpenAuth.App.Request.CreateEntityReq)">
+            <summary>
+            生成实体Model
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenAuth.App.BuilderTableApp.CreateBusiness(OpenAuth.App.Request.CreateBusiReq)">
+            <summary>
+            创建业务逻辑层
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenAuth.App.BuilderTableApp.GenerateApp(OpenAuth.Repository.Domain.BuilderTable)">
+            <summary>
+            创建应用层
+            </summary>
+            <param name="sysTableInfo"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:OpenAuth.App.BuilderTableApp.GenerateAppReq(OpenAuth.Repository.Domain.BuilderTable,System.Collections.Generic.List{OpenAuth.Repository.Domain.BuilderTableColumn})">
+            <summary>
+            生成APP层的请求参数
+            </summary>
+            <param name="sysTableInfo"></param>
+            <param name="tableColumns"></param>
+        </member>
+        <member name="M:OpenAuth.App.BuilderTableApp.GenerateWebApi(OpenAuth.Repository.Domain.BuilderTable)">
+            <summary>
+            创建WebAPI接口
+            </summary>
+            <param name="sysTableInfo"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:OpenAuth.App.BuilderTableApp.CreateEntityModel(System.Collections.Generic.List{OpenAuth.Repository.Domain.BuilderTableColumn},OpenAuth.Repository.Domain.BuilderTable)">
+            <summary>
+            创建实体
+            </summary>
+            <param name="tableColumns"></param>
+            <param name="sysTableInfo"></param>
+        </member>
+        <member name="M:OpenAuth.App.BuilderTableApp.CheckExistsModule(System.String)">
+            <summary>
+            校验模块是否已经存在
+            </summary>
+            <param name="moduleName"></param>
+            <param name="moduleCode"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:OpenAuth.App.BuilderTableApp.CreateVue(OpenAuth.App.Request.CreateVueReq)">
+            <summary>
+            创建vue界面
+            </summary>
+            <param name="req"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:OpenAuth.App.BuilderTableApp.CreateVueApi(OpenAuth.App.Request.CreateVueReq)">
+            <summary>
+            创建vue接口
+            </summary>
+            <param name="req"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:OpenAuth.App.BuilderTableColumnApp.Load(OpenAuth.App.Request.QueryBuilderTableColumnListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
         <member name="M:OpenAuth.App.CategoryApp.Load(OpenAuth.App.Request.QueryCategoryListReq)">
             <summary>
             加载列表
             </summary>
+        </member>
+        <member name="M:OpenAuth.App.CategoryApp.LoadByTypeId(System.String)">
+            <summary>
+            加载一个分类类型里面的所有值，即字典的所有值
+            </summary>
+            <param name="typeId"></param>
+            <returns></returns>
         </member>
         <member name="M:OpenAuth.App.CategoryTypeApp.Load(OpenAuth.App.Request.QueryCategoryTypeListReq)">
             <summary>
@@ -85,19 +215,125 @@
             <param name="moduleName">模块名称/表名</param>
             <returns></returns>
         </member>
-        <member name="M:OpenAuth.App.DbExtension.GetTableNames">
+        <member name="M:OpenAuth.App.DbExtension.GetDbEntityNames">
             <summary>
-            获取数据库所有的表名
+            获取数据库DbContext中所有的实体名称。
+            <para>注意！并不能获取数据库中的所有表</para>
             </summary>
+        </member>
+        <member name="M:OpenAuth.App.DbExtension.GetDbTableStructure(System.String)">
+            <summary>
+            获取数据库表结构信息
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenAuth.App.DbExtension.GetMySqlStructure(System.String)">
+            <summary>
+            获取Mysql表结构信息
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenAuth.App.DbExtension.GetMysqlTableSchema">
+            <summary>
+            获取mysql当前的数据库名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenAuth.App.DbExtension.GetSqlServerStructure(System.String)">
+            <summary>
+            获取SqlServer表结构信息
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
         </member>
         <member name="T:OpenAuth.App.FileApp">
             <summary>
-            文件
+            文件管理
             </summary>
         </member>
-        <member name="T:OpenAuth.App.FileService">
+        <member name="M:OpenAuth.App.FileApp.Load(OpenAuth.App.Request.QueryFileListReq)">
             <summary>
-            文件
+            加载附件列表
+            </summary>
+        </member>
+        <member name="M:OpenAuth.App.FileApp.Add(Microsoft.AspNetCore.Http.IFormFileCollection)">
+            <summary>
+            批量添加附件
+            </summary>
+            <param name="files"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenAuth.App.FileApp.Delete(System.String[])">
+            <summary>
+            删除附件
+            </summary>
+            <param name="ids"></param>
+        </member>
+        <member name="M:OpenAuth.App.FileApp.SaveFile(System.String,System.Byte[])">
+            <summary>
+            存储文件，如果是图片文件则生成缩略图
+            </summary>
+            <param name="fileName"></param>
+            <param name="fileBuffers"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="T:OpenAuth.App.FlowInstanceApp">
+            <summary>
+            工作流实例表操作
+            </summary>
+        </member>
+        <member name="M:OpenAuth.App.FlowInstanceApp.CreateInstance(OpenAuth.App.Request.AddFlowInstanceReq)">
+            <summary>
+            创建一个实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenAuth.App.FlowInstanceApp.NodeVerification(System.String,OpenAuth.App.Flow.Tag)">
+            <summary>
+            节点审核
+            </summary>
+            <param name="instanceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenAuth.App.FlowInstanceApp.NodeReject(OpenAuth.App.Request.VerificationReq)">
+            <summary>
+            驳回
+            如果NodeRejectStep不为空，优先使用；否则按照NodeRejectType驳回
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenAuth.App.FlowInstanceApp.GetNextMakers(OpenAuth.App.Flow.FlowRuntime)">
+            <summary>
+            寻找下一步的执行人
+            一般用于本节点审核完成后，修改流程实例的当前执行人，可以做到通知等功能
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenAuth.App.FlowInstanceApp.GetForkNodeMakers(OpenAuth.App.Flow.FlowRuntime,System.String)">
+            <summary>
+            获取会签开始节点的所有可执行者
+            </summary>
+            <param name="forkNodeId">会签开始节点</param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenAuth.App.FlowInstanceApp.GetNodeMarkers(OpenAuth.App.Flow.FlowNode)">
+            <summary>
+            寻找该节点执行人
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenAuth.App.FlowInstanceApp.Verification(OpenAuth.App.Request.VerificationReq)">
+            <summary>
+            审核流程
+            <para>李玉宝于2017-01-20 15:44:45</para>
+            </summary>
+        </member>
+        <member name="M:OpenAuth.App.FlowInstanceApp.AddTransHistory(OpenAuth.App.Flow.FlowRuntime)">
+            <summary>
+            添加扭转记录
             </summary>
         </member>
         <member name="T:OpenAuth.App.Flow.FlowLine">
@@ -312,6 +548,11 @@
             表单数据
             </summary>
         </member>
+        <member name="M:OpenAuth.App.FormApp.Load(OpenAuth.App.Request.QueryFormListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
         <member name="M:OpenAuth.App.FormUtil.GetHtml(OpenAuth.App.Response.FormResp)">
             <summary>
             只显示编辑框
@@ -328,7 +569,7 @@
             <param name="frmData">The FRM data.</param>
             <returns>System.String.</returns>
         </member>
-        <member name="M:OpenAuth.App.FormUtil.field_type_sql(System.String)">
+        <member name="M:OpenAuth.App.FormUtil.GetSql(OpenAuth.Repository.Domain.Form,System.String)">
             功能:  创建表单数据表格（基于sql server）
         </member>
         <member name="M:OpenAuth.App.FrmLeaveReqApp.Load(OpenAuth.App.Request.QueryFrmLeaveReqListReq)">
@@ -344,7 +585,7 @@
             <param name="otherInfo"></param>
             <returns></returns>
         </member>
-        <member name="M:OpenAuth.App.Interface.IAuth.Login(System.String,System.String)">
+        <member name="M:OpenAuth.App.Interface.IAuth.Login(System.String,System.String,System.String)">
             <summary>
             登录接口
             </summary>
@@ -372,11 +613,39 @@
             </summary>
             <param name="roleId">The role unique identifier.</param>
         </member>
+        <member name="M:OpenAuth.App.ModuleManagerApp.LoadMenusForRole(System.String,System.String)">
+            <summary>
+            根据某角色ID获取可访问某模块的菜单项
+            </summary>
+        </member>
         <member name="M:OpenAuth.App.ModuleManagerApp.DelMenu(System.String[])">
             <summary>
             删除指定的菜单
             </summary>
             <param name="ids"></param>
+        </member>
+        <member name="M:OpenAuth.App.ModuleManagerApp.AddMenu(OpenAuth.Repository.Domain.ModuleElement)">
+            <summary>
+            新增菜单
+            <para>当前登录用户的所有角色会自动分配菜单</para>
+            </summary>
+        </member>
+        <member name="M:OpenAuth.App.OpenJobApp.Load(OpenAuth.App.Request.QueryOpenJobListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:OpenAuth.App.OpenJobApp.QueryLocalHandlers">
+            <summary>
+            返回系统的job接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenAuth.App.OpenJobApp.RecordRun(System.String)">
+            <summary>
+            记录任务运行结果
+            </summary>
+            <param name="jobId"></param>
         </member>
         <member name="M:OpenAuth.App.OrgManagerApp.Add(OpenAuth.Repository.Domain.Org)">
             <summary>
@@ -386,7 +655,7 @@
             <returns>System.Int32.</returns>
             <exception cref="T:System.Exception">未能找到该组织的父节点信息</exception>
         </member>
-        <member name="M:OpenAuth.App.OrgManagerApp.DelOrg(System.String[])">
+        <member name="M:OpenAuth.App.OrgManagerApp.DelOrgCascade(System.String[])">
             <summary>
             删除指定ID的部门及其所有子部门
             </summary>
@@ -475,6 +744,226 @@
         <member name="P:OpenAuth.App.Request.AddFlowInstanceReq.Description">
             <summary>
             实例备注
+            </summary>
+        </member>
+        <member name="T:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq">
+            <summary>
+            代码生成器的字段信息
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.Id">
+            <summary>
+            编号
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.TableId">
+            <summary>
+            归属表编号
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.TableName">
+            <summary>
+            表名称
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.ColumnName">
+            <summary>
+            列名称
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.Comment">
+            <summary>
+            列描述
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.ColumnType">
+            <summary>
+            列类型
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.EntityType">
+            <summary>
+            实体类型
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.EntityName">
+            <summary>
+            实体名称
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.IsKey">
+            <summary>
+            是否主键
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.IsIncrement">
+            <summary>
+            是否自增
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.IsRequired">
+            <summary>
+            是否必填
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.IsInsert">
+            <summary>
+            是否为插入字段
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.IsEdit">
+            <summary>
+            是否编辑字段
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.IsList">
+            <summary>
+            是否列表字段
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.IsQuery">
+            <summary>
+            是否查询字段
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.QueryType">
+            <summary>
+            查询方式（等于、不等于、大于、小于、范围）
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.HtmlType">
+            <summary>
+            显示类型（文本框、文本域、下拉框、复选框、单选框、日期控件）
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.EditType">
+            <summary>
+            编辑类型（文本框、文本域、下拉框、复选框、单选框、日期控件）
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.CreateUserId">
+            <summary>
+            创建人ID
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.UpdateTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.UpdateUserId">
+            <summary>
+            修改人ID
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.EditRow">
+            <summary>
+            修改时的行位置
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.EditCol">
+            <summary>
+            修改时的列位置
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.UpdateUserName">
+            <summary>
+            修改人姓名
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.CreateUserName">
+            <summary>
+            创建人姓名
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.MaxLength">
+            <summary>
+            最大长度
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableColumnReq.DataSource">
+            <summary>
+            数据源（用于下拉框、复选框等取值）
+            </summary>
+        </member>
+        <member name="T:OpenAuth.App.Request.AddOrUpdateBuilderTableReq">
+            <summary>
+            代码生成器的表信息
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableReq.Id">
+            <summary>
+            Id为空则为添加
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableReq.TableName">
+            <summary>
+            表英文全称
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableReq.Comment">
+            <summary>
+            表描述、中文名称
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableReq.DetailTableName">
+            <summary>
+            子表英文全称
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableReq.DetailComment">
+            <summary>
+            子表描述、中文名称
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableReq.ClassName">
+            <summary>
+            实体类名称
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableReq.Namespace">
+            <summary>
+            命名空间
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableReq.ModuleCode">
+            <summary>
+            模块标识
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableReq.ModuleName">
+            <summary>
+            模块名称
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableReq.Folder">
+            <summary>
+            代码相对文件夹路径
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableReq.Options">
+            <summary>
+            其它生成选项
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableReq.TypeId">
+            <summary>
+            分类ID
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Request.AddOrUpdateBuilderTableReq.TypeName">
+            <summary>
+            分类名称
             </summary>
         </member>
         <member name="T:OpenAuth.App.Request.AddOrUpdateCategoryReq">
@@ -602,7 +1091,7 @@
             任务运行状态（0：停止，1：正在运行，2：暂停）
             </summary>
         </member>
-        <member name="P:OpenAuth.App.Request.AddOrUpdateOpenJobReq.Description">
+        <member name="P:OpenAuth.App.Request.AddOrUpdateOpenJobReq.Remark">
             <summary>
             备注
             </summary>
@@ -797,501 +1286,6 @@
             所属部门
             </summary>
         </member>
-        <member name="P:OpenAuth.App.Request.AAdminReq.UserName">
-            <summary>
-            用户名
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AAdminReq.Password">
-            <summary>
-            密码
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AAdminReq.Phone">
-            <summary>
-            电话
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AAdminReq.Email">
-            <summary>
-            邮箱
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AAdminReq.CreateId">
-            <summary>
-            创建人
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AAdminReq.IsEnable">
-            <summary>
-            是否启动
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AAdminReq.Sort">
-            <summary>
-            排序
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AAdminReq.Description">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AdminRoleReq.RoleId">
-            <summary>
-            角色Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AddAdminRoleTopReq.RoleId">
-            <summary>
-            角色Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AdminView.Id">
-            <summary>
-            用户ID
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AdminView.UserName">
-            <summary>
-            用户名
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AdminView.Password">
-            <summary>
-            密码
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AdminView.Phone">
-            <summary>
-            电话
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AdminView.Email">
-            <summary>
-            邮箱
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AdminView.IsEnable">
-            <summary>
-            是否启动
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AdminView.Sort">
-            <summary>
-            排序
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AdminView.Description">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AdminView.RoleId">
-            <summary>
-            角色Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AdminView.RoleName">
-            <summary>
-            角色名称
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AdminView.CreateName">
-            <summary>
-            创建人
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AdminView.UpdateName">
-            <summary>
-            创建人
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AdminView.CreateDate">
-            <summary>
-            创建时间
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AdminView.LoginCount">
-            <summary>
-            登录次数
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AdminView.IsDelete">
-            <summary>
-            是否删除
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AdminView.UpdateDate">
-            <summary>
-            修改时间
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AdminView.LastLoginDate">
-            <summary>
-            最后登录时间
-            </summary>
-        </member>
-        <member name="T:OpenAuth.App.Request.EAdminReq">
-            <summary>
-            修改管理员
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAdminReq.Id">
-            <summary>
-            用户Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAdminReq.UserName">
-            <summary>
-            用户名
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAdminReq.Password">
-            <summary>
-            密码
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAdminReq.Phone">
-            <summary>
-            电话
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAdminReq.Email">
-            <summary>
-            邮箱
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAdminReq.UpdateId">
-            <summary>
-            修改人
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAdminReq.IsEnable">
-            <summary>
-            是否启动
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAdminReq.Sort">
-            <summary>
-            排序
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAdminReq.Description">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAdminRoleReq.RoleId">
-            <summary>
-            角色Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AOECommonFieldReq.Id">
-            <summary>
-            字段Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AOECommonFieldReq.Placeholder">
-            <summary>
-            占位符
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AOECommonFieldReq.IsRequired">
-            <summary>
-            是否为必填
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AOECommonFieldReq.RequiredMessage">
-            <summary>
-            必填说明
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AOECommonFieldReq.Size">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AOECommonFieldReq.Columns">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AOECommonFieldReq.RegexPattern">
-            <summary>
-            正则表达
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AOECommonFieldReq.RegexMessage">
-            <summary>
-            正则说明
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AOECommonFieldReq.FieldOptions">
-            <summary>
-            可选择字段
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AOECommonFieldReq.AdditionalSettings">
-            <summary>
-            附加设置
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AOECommonFieldReq.IsConfigAble">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AOECommonFieldReq.Name">
-            <summary>
-            字段名称
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AOECommonFieldReq.PropertyName">
-            <summary>
-            属性名称，即前台提交时设置的字段名称"
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AOECommonFieldReq.DisplayName">
-            <summary>
-            前台显示名称
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AOECommonFieldReq.Value">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AOECommonFieldReq.ValueArray">
-            <summary>
-            前台显示名称
-            </summary>
-        </member>
-        <member name="T:OpenAuth.App.Request.AArticleAttributeReq">
-            <summary>
-            添加文章属性
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AArticleAttributeReq.Name">
-            <summary>
-            文章属性名称
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AArticleAttributeReq.CreateId">
-            <summary>
-            创建人Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AArticleAttributeReq.IsEnable">
-            <summary>
-            是否启动
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AArticleAttributeReq.Sort">
-            <summary>
-            排序
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AArticleAttributeReq.Description">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AArticleReq.CreateId">
-            <summary>
-            创建人Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AArticleReq.IsEnable">
-            <summary>
-            是否启动
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AArticleReq.Sort">
-            <summary>
-            是否启动
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AArticleReq.Description">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AArticleReq.Title">
-            <summary>
-            文章主题
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AArticleReq.PictureUrl">
-            <summary>
-            缩略图
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AArticleReq.FatherId">
-            <summary>
-            所属上级
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AArticleReq.KeyWord">
-            <summary>
-            关键字
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AArticleReq.Synopsis">
-            <summary>
-            文章摘要
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AArticleReq.ArticleContent">
-            <summary>
-            文章内容
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AArticleReq.articleAttributeTopReqs">
-            <summary>
-            文章属性
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.ArticleAttributeTopReq.ArticleAttributeId">
-            <summary>
-            文章属性Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EArticleAttributeReq.Id">
-            <summary>
-            数据Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EArticleAttributeReq.Name">
-            <summary>
-            文章属性名称
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EArticleAttributeReq.UpdateId">
-            <summary>
-            修改人Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EArticleAttributeReq.IsEnable">
-            <summary>
-            是否启动
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EArticleAttributeReq.Sort">
-            <summary>
-            排序
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EArticleAttributeReq.Description">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EArticleReq.Id">
-            <summary>
-            文章Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EArticleReq.UpdateId">
-            <summary>
-            修改人Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EArticleReq.IsEnable">
-            <summary>
-            是否启动
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EArticleReq.Sort">
-            <summary>
-            是否启动
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EArticleReq.Description">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EArticleReq.Title">
-            <summary>
-            文章主题
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EArticleReq.PictureUrl">
-            <summary>
-            缩略图
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EArticleReq.FatherId">
-            <summary>
-            所属上级
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EArticleReq.KeyWord">
-            <summary>
-            关键字
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EArticleReq.Synopsis">
-            <summary>
-            文章摘要
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EArticleReq.ArticleContent">
-            <summary>
-            文章内容
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EArticleReq.articleAttributeTopReqs">
-            <summary>
-            文章内容
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.ECommonFeildReq.Placeholder">
-            <summary>
-            占位符
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.ECommonFeildReq.IsRequired">
-            <summary>
-            是否为必填
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.ECommonFeildReq.RequiredMessage">
-            <summary>
-            必填说明
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.ECommonFeildReq.FieldOptions">
-            <summary>
-            可选择字段
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.ECommonFeildReq.Name">
-            <summary>
-            字段名称（重复要区别）
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.ECommonFeildReq.PropertyName">
-             <summary>
-            属性名称（控件类型判断）
-             </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.ECommonFeildReq.DisplayName">
-            <summary>
-            前台显示名称
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.ECommonFeildReq.Value">
-            <summary>
-            所存储的内容
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EFieldOption.DisplayText">
-            <summary>
-            可选择字段
-            </summary>
-        </member>
         <member name="T:OpenAuth.App.Request.AssignDataReq">
             <summary>
             为角色分配数据字段权限
@@ -1357,106 +1351,6 @@
             用户id列表
             </summary>
         </member>
-        <member name="P:OpenAuth.App.Request.AttributeView.Id">
-            <summary>
-            文章Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AttributeView.CreateName">
-            <summary>
-            创建人
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AttributeView.UpdateName">
-            <summary>
-            修改人
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AttributeView.IsEnable">
-            <summary>
-            是否启动
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AttributeView.Sort">
-            <summary>
-            是否启动
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AttributeView.Description">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AttributeView.Title">
-            <summary>
-            文章主题
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AttributeView.PictureUrl">
-            <summary>
-            缩略图
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AttributeView.FatherId">
-            <summary>
-            所属上级
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AttributeView.KeyWord">
-            <summary>
-            关键字
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AttributeView.Synopsis">
-            <summary>
-            文章摘要
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AttributeView.ArticleContent">
-            <summary>
-            文章内容
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AttributeView.AttributeName">
-            <summary>
-            属性名称
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AttributeView.AttributeId">
-            <summary>
-            属性Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.BaseAEntityReq.CreateId">
-            <summary>
-            创建人Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.BaseEEntityReq.Id">
-            <summary>
-            数据对应Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.BaseEEntityReq.UpdateId">
-            <summary>
-            修改人Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.BaseEntityReq.IsEnable">
-            <summary>
-            是否启动
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.BaseEntityReq.Sort">
-            <summary>
-            排序标识
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.BaseEntityReq.Description">
-            <summary>
-            备注说明
-            </summary>
-        </member>
         <member name="P:OpenAuth.App.Request.ChangeJobStatusReq.Id">
             <summary>
             任务ID
@@ -1478,359 +1372,44 @@
             性别
             </summary>
         </member>
-        <member name="P:OpenAuth.App.Request.ContentReplaceReq.TableName">
+        <member name="T:OpenAuth.App.Request.CreateBusiReq">
             <summary>
-            数据表名称
+            代码生成器的表信息
             </summary>
         </member>
-        <member name="P:OpenAuth.App.Request.ContentReplaceReq.FieldName">
+        <member name="P:OpenAuth.App.Request.CreateBusiReq.Id">
             <summary>
-            字段名称
+            代码生成模版Id
             </summary>
         </member>
-        <member name="P:OpenAuth.App.Request.ContentReplaceReq.OldContent">
+        <member name="T:OpenAuth.App.Request.CreateEntityReq">
             <summary>
-            被替换数据
+            代码生成器的表信息
             </summary>
         </member>
-        <member name="P:OpenAuth.App.Request.ContentReplaceReq.NewContent">
+        <member name="P:OpenAuth.App.Request.CreateEntityReq.Id">
             <summary>
-            替换数据
+            代码生成模版Id
             </summary>
         </member>
-        <member name="P:OpenAuth.App.Request.ContentReplaceReq.CreateId">
+        <member name="T:OpenAuth.App.Request.CreateVueReq">
             <summary>
-            创建人Id
+            代码生成器的表信息
             </summary>
         </member>
-        <member name="P:OpenAuth.App.Request.ContentReplaceReq.Description">
+        <member name="P:OpenAuth.App.Request.CreateVueReq.Id">
             <summary>
-            备注
+            代码生成模版Id
             </summary>
         </member>
-        <member name="P:OpenAuth.App.Request.AExtendFieldReq.Title">
+        <member name="P:OpenAuth.App.Request.CreateVueReq.VueProjRootPath">
             <summary>
-            字段标题
+            vue项目所在的根目录，如：D:\OpenAuth.Pro\Client
             </summary>
         </member>
-        <member name="P:OpenAuth.App.Request.AExtendFieldReq.FieldName">
+        <member name="P:OpenAuth.App.Request.QueryBuilderTableColumnListReq.BuilderTableId">
             <summary>
-            字段名稱
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AExtendFieldReq.FatherId">
-            <summary>
-            归属
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AExtendFieldReq.Value">
-            <summary>
-            内容
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AFormReq.FatherId">
-            <summary>
-            所属栏目（页面）
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AFormReq.commonFeildReqs">
-            <summary>
-            页面所有字段内容
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.CommonFeildReq.Placeholder">
-            <summary>
-            占位符
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.CommonFeildReq.IsRequired">
-            <summary>
-            是否为必填
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.CommonFeildReq.RequiredMessage">
-            <summary>
-            必填说明
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.CommonFeildReq.FieldOptions">
-            <summary>
-            可选择字段
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.CommonFeildReq.Name">
-            <summary>
-            字段名称（重复要区别）
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.CommonFeildReq.PropertyName">
-             <summary>
-            属性名称（控件类型判断）
-             </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.CommonFeildReq.DisplayName">
-            <summary>
-            前台显示名称
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.CommonFeildReq.Value">
-            <summary>
-            所存储的内容
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.FieldOption.DisplayText">
-            <summary>
-            可选择字段
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EFormReq.FatherId">
-            <summary>
-            所属栏目（页面）
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EFormReq.commonFeildReqs">
-            <summary>
-            页面所有字段内容
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.GetTableNameReq.TableName">
-            <summary>
-            数据表名称
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AMenuReq.FatherId">
-            <summary>
-            上级Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AMenuReq.MenuName">
-            <summary>
-            栏目名称
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AMenuReq.URL">
-            <summary>
-            URL 
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AMenuReq.TemplateURL">
-            <summary>
-            模板Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AMenuReq.BackstageMenuUrl">
-            <summary>
-            后面栏目URL
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AMenuReq.FrontMenuUrl">
-            <summary>
-            前台栏目URL
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AMenuReq.FrontArticleUrl">
-            <summary>
-            前台文章URL
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.ARoleMenuReq.RoleId">
-            <summary>
-            角色Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.ARoleMenuReq.MenuId">
-            <summary>
-            角色Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EMenuReq.FatherId">
-            <summary>
-            上级栏目Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EMenuReq.MenuName">
-            <summary>
-            栏目名称
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EMenuReq.URL">
-            <summary>
-            URL
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EMenuReq.TemplateURL">
-            <summary>
-            模板URL
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EMenuReq.BackstageMenuUrl">
-             <summary>
-            后台栏目URL
-             </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EMenuReq.FrontMenuUrl">
-            <summary>
-            前台栏目URL
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EMenuReq.FrontArticleUrl">
-            <summary>
-            前台文章URL
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AAllPayReq.OutTradeNo">
-            <summary>
-            订单号
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AAllPayReq.CreateId">
-            <summary>
-            创建人
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AAllPayReq.orderName">
-            <summary>
-            订单名称
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.AAllPayReq.orderAmount">
-            <summary>
-            订单金额
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.outTradeNo">
-            <summary>
-            订单号
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.UpdateId">
-            <summary>
-            创建人
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.orderName">
-            <summary>
-            订单名称
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.orderAmount">
-            <summary>
-            订单金额
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.PayType">
-            <summary>
-            支付类型（支付宝、微信）
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.BuyerLogonId">
-            <summary>
-            买家账号
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.TradeNo">
-            <summary>
-            该交易在支付宝系统中的交易流水号，最长64位。
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.TotalAmount">
-            <summary>
-            订单总金额，单位为元，精确到小数点后两位，取值范围[0.01,100000000]
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.TerminalId">
-            <summary>
-            未定义
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.StoreName">
-            <summary>
-            /未定义
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.StoreId">
-            <summary>
-            商户门店编号
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.SendPayDate">
-            <summary>
-            未定义
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.ReceiptAmount">
-            <summary>
-            未定义
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.PointAmount">
-            <summary>
-            未定义
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.TradeStatus">
-            <summary>
-            未定义
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.OutTradeNo">
-            <summary>
-            商户网站唯一订单号
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.InvoiceAmount">
-            <summary>
-            发票金额
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.IndustrySepcDetail">
-            <summary>
-            未定义
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.FundBillList">
-            <summary>
-            未定义
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.DiscountGoodsDetail">
-            <summary>
-            未定义
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.BuyerUserId">
-            <summary>
-            商户Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.BuyerPayAmount">
-            <summary>
-            支付金额
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.AlipayStoreId">
-            <summary>
-            未定义
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.OpenId">
-            <summary>
-            未定义
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.VoucherDetailList">
-            <summary>
-            未定义
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.Msg">
-            <summary>
-            支付结果
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.EAllPayReq.ByUserType">
-            <summary>
-            未定义
+            头表ID
             </summary>
         </member>
         <member name="P:OpenAuth.App.Request.QueryCategoryListReq.TypeId">
@@ -1851,106 +1430,6 @@
         <member name="P:OpenAuth.App.Request.QueryWmsInboundOrderDtblListReq.InboundOrderId">
             <summary>
             入库订单号
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.RoleAddReq.Name">
-            <summary>
-            角色名称
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.RoleAddReq.CreateId">
-            <summary>
-            当前状态
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.RoleAddReq.IsEnable">
-            <summary>
-            是否启动
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.RoleAddReq.Description">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.RoleAddReq.Sort">
-            <summary>
-            排序
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.RoleEditReq.Id">
-            <summary>
-            角色Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.RoleEditReq.Name">
-            <summary>
-            角色名称
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.RoleEditReq.UpdateId">
-            <summary>
-            修改人
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.RoleEditReq.IsEnable">
-            <summary>
-            是否启动
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.RoleEditReq.Description">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.RoleEditReq.Sort">
-            <summary>
-            排序
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.UpdateAdminReq.Id">
-            <summary>
-            数据Id
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.UpdateAdminReq.UserName">
-            <summary>
-            用户名
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.UpdateAdminReq.Password">
-            <summary>
-            密码
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.UpdateAdminReq.Phone">
-            <summary>
-            电话
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.UpdateAdminReq.Email">
-            <summary>
-            邮箱
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.UpdateAdminReq.UpdateName">
-            <summary>
-            修改人
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.UpdateAdminReq.IsEnable">
-            <summary>
-            是否启动
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.UpdateAdminReq.Sort">
-            <summary>
-            排序 Description
-            </summary>
-        </member>
-        <member name="P:OpenAuth.App.Request.UpdateAdminReq.Description">
-            <summary>
-            备注
             </summary>
         </member>
         <member name="T:OpenAuth.App.Request.UpdateUserReq">
@@ -1976,7 +1455,7 @@
         </member>
         <member name="P:OpenAuth.App.Request.UpdateUserReq.Name">
             <summary>
-            组织名称
+            用户姓名
             </summary>
             <returns></returns>
         </member>
@@ -2209,17 +1688,17 @@
             table的返回数据
             </summary>
         </member>
-        <member name="F:OpenAuth.App.Response.TableData.code">
+        <member name="P:OpenAuth.App.Response.TableData.code">
             <summary>
             状态码
             </summary>
         </member>
-        <member name="F:OpenAuth.App.Response.TableData.message">
+        <member name="P:OpenAuth.App.Response.TableData.msg">
             <summary>
             操作消息
             </summary>
         </member>
-        <member name="F:OpenAuth.App.Response.TableData.count">
+        <member name="P:OpenAuth.App.Response.TableData.count">
             <summary>
             总记录条数
             </summary>
@@ -2229,44 +1708,39 @@
              返回的列表头信息
             </summary>
         </member>
-        <member name="F:OpenAuth.App.Response.TableData.data">
+        <member name="P:OpenAuth.App.Response.TableData.data">
             <summary>
             数据内容
             </summary>
         </member>
-        <member name="F:OpenAuth.App.Response.CheckData.code">
+        <member name="T:OpenAuth.App.Response.TableResp`1">
+            <summary>
+            返回确定类型的表格数据，可以为swagger提供精准的注释
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Response.TableResp`1.code">
             <summary>
             状态码
             </summary>
         </member>
-        <member name="F:OpenAuth.App.Response.CheckData.message">
+        <member name="P:OpenAuth.App.Response.TableResp`1.msg">
             <summary>
             操作消息
             </summary>
         </member>
-        <member name="F:OpenAuth.App.Response.CheckData.data">
+        <member name="P:OpenAuth.App.Response.TableResp`1.count">
+            <summary>
+            总记录条数
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.Response.TableResp`1.data">
             <summary>
             数据内容
             </summary>
         </member>
-        <member name="T:OpenAuth.App.Response.CheckDataCommon">
+        <member name="P:OpenAuth.App.Response.TableResp`1.columnHeaders">
             <summary>
-            有关模板数据的字段
-            </summary>
-        </member>
-        <member name="F:OpenAuth.App.Response.CheckDataCommon.code">
-            <summary>
-            状态码
-            </summary>
-        </member>
-        <member name="F:OpenAuth.App.Response.CheckDataCommon.message">
-            <summary>
-            操作消息
-            </summary>
-        </member>
-        <member name="F:OpenAuth.App.Response.CheckDataCommon.data">
-            <summary>
-            数据内容
+             返回的列表头信息
             </summary>
         </member>
         <member name="P:OpenAuth.App.Response.UserView.Id">
@@ -2397,452 +1871,16 @@
             加载当前登录用户可访问的全部角色
             </summary>
         </member>
-        <member name="M:OpenAuth.App.AdminService.Delete(System.String[])">
+        <member name="M:OpenAuth.App.RoleApp.Add(OpenAuth.App.Response.RoleView)">
             <summary>
-            删除
-            </summary>
-            <param name="updateAdminReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.AdminService.Show(OpenAuth.App.Request.QueryAdminListReq)">
-            <summary>
-            展示
-            </summary>
-            <param name="updateAdminReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.AdminService.Count(System.Int32,System.String)">
-            <summary>
-            记录登录次数
-            </summary>
-            <param name="eAdminReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.ArticleAttributeTopService.Add(OpenAuth.App.Request.AArticleReq,System.String)">
-            <summary>
-            文章属性添加到文章
-            </summary>
-            <param name="aOEArticleAttributeReq">文章与文章属性关系表</param>
-            <param name="AttributeId">文章属性Id</param>
-        </member>
-        <member name="T:OpenAuth.App.ArticleService">
-            <summary>
-            文章操作
+            添加角色，如果当前登录用户不是System，则直接把新角色分配给当前登录用户
             </summary>
         </member>
-        <member name="M:OpenAuth.App.ArticleService.Add(OpenAuth.App.Request.AArticleReq)">
-             <summary>
-            添加原有字段內容
-             </summary>
-             <param name="aArticleReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.ArticleService.Edit(OpenAuth.App.Request.EArticleReq)">
+        <member name="M:OpenAuth.App.RoleApp.Update(OpenAuth.App.Response.RoleView)">
             <summary>
-            修改
+            更新角色属性
             </summary>
-            <param name="aOEArticleReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.ArticleService.Delete(System.String[])">
-            <summary>
-            删除
-            </summary>
-            <param name="updateAdminReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.ArticleService.Show(OpenAuth.App.Request.QueryArticleListReq)">
-            <summary>
-            展示
-            </summary>
-            <param name="updateAdminReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.ArticleService.ShowOne(System.String)">
-            <summary>
-             展示一条数据(编辑)
-            </summary>
-            <param name="Id">编辑数据条目Id</param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenAuth.App.ArticleService.ShowCommonField(System.String)">
-            <summary>
-            获取模板对应的新添字段
-            </summary>
-            <param name="FatherId">新添字段归属</param>
-            <returns></returns>
-        </member>
-        <member name="T:OpenAuth.App.AttributeService">
-            <summary>
-            文章自动定义属性操作
-            </summary>
-        </member>
-        <member name="M:OpenAuth.App.AttributeService.Edit(OpenAuth.App.Request.EArticleAttributeReq)">
-            <summary>
-            修改
-            </summary>
-            <param name="aOEArticleAttributeReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.AttributeService.Delete(System.String[])">
-            <summary>
-            删除
-            </summary>
-            <param name="updateAdminReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.AttributeService.Show(OpenAuth.App.Request.QueryArticleAttributeListReq)">
-            <summary>
-            展示
-            </summary>
-            <param name="updateAdminReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.AttributeService.LoadForArticle(System.String)">
-            <summary>
-            加载特定文章的属性
-            </summary>
-            <param name="userId"></param>
-        </member>
-        <!-- Badly formed XML comment ignored for member "T:OpenAuth.App.BaseService`1" -->
-        <member name="F:OpenAuth.App.BaseService`1.Repository">
-            <summary>
-            用于普通的数据库操作
-            </summary>
-            <value>The repository.</value>
-        </member>
-        <member name="F:OpenAuth.App.BaseService`1.UnitWork">
-            <summary>
-            用于事务操作
-            </summary>
-            <value>The unit work.</value>
-        </member>
-        <!-- Badly formed XML comment ignored for member "M:OpenAuth.App.BaseService`1.GetDataPrivilege(System.String)" -->
-        <member name="M:OpenAuth.App.BaseService`1.Delete(System.String[])">
-            <summary>
-            按id批量删除
-            </summary>
-            <param name="ids"></param>
-        </member>
-        <member name="M:OpenAuth.App.BaseService`1.ChangeModuleCascade``1(``0)">
-            <summary>
-            如果一个类有层级结构（树状），则修改该节点时，要修改该节点的所有子节点
-            //修改对象的级联ID，生成类似XXX.XXX.X.XX
-            </summary>
-            <typeparam name="U">U必须是一个继承TreeEntity的结构</typeparam>
-            <param name="entity"></param>
-        </member>
-        <member name="T:OpenAuth.App.CreateEditNameService">
-            <summary>
-            获取操作人信息
-            </summary>
-        </member>
-        <member name="M:OpenAuth.App.CreateEditNameService.LoadForAdmin(System.String)">
-            <summary>
-            加载操作人信息
-            </summary>
-            <param name="userId"></param>
-        </member>
-        <member name="M:OpenAuth.App.DatabaseService.GetProperties(OpenAuth.App.Request.GetTableNameReq)">
-            <summary>
-            获取数据库一个表的所有属性值及属性描述
-            </summary>
-            <param name="moduleName">模块名称/表名</param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenAuth.App.DatabaseService.GetTableNames">
-            <summary>
-            获取数据库所有的表名
-            </summary>
-        </member>
-        <member name="M:OpenAuth.App.ExtendFieldService.AddNew(System.Collections.Generic.List{OpenAuth.App.Request.CommonFeildReq},System.String)">
-             <summary>
-            添加新加字段內容
-             </summary>
-             <param name="aArticleReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.ExtendFieldService.EditNew(System.Collections.Generic.List{OpenAuth.App.Request.ECommonFeildReq},System.String)">
-             <summary>
-            添加新加字段內容
-             </summary>
-             <param name="aArticleReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.ExtendFieldService.ShowOnes(System.String)">
-             <summary>
-            展示指定归属的所有字段
-             </summary>
-             <param name="aArticleReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.FormService.Add(OpenAuth.App.Request.AFormReq)">
-            <summary>
-            添加公共字段
-            </summary>
-            <param name="aCommonFieldReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.FormService.Edit(OpenAuth.App.Request.EFormReq)">
-            <summary>
-            修改
-            </summary>
-            <param name="aCommonFieldReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.FormService.Delete(System.String[])">
-            <summary>
-            删除
-            </summary>
-            <param name="updateAdminReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.FormService.Show(OpenAuth.App.Request.QueryFormListReq)">
-            <summary>
-            展示
-            </summary>
-            <param name="updateAdminReq"></param>
-        </member>
-        <member name="T:OpenAuth.App.MenuService">
-            <summary>
-            栏目操作
-            </summary>
-        </member>
-        <member name="M:OpenAuth.App.MenuService.Delete(System.String[])">
-            <summary>
-            删除
-            </summary>
-            <param name="updateAdminReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.MenuService.Show(OpenAuth.App.Request.MenuQueryListReq)">
-            <summary>
-            展示
-            </summary>
-            <param name="updateAdminReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.OpenJobService.Load(OpenAuth.App.Request.QueryOpenJobListReq)">
-            <summary>
-            加载列表
-            </summary>
-        </member>
-        <member name="M:OpenAuth.App.OpenJobService.QueryLocalHandlers">
-            <summary>
-            返回系统的job接口
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:OpenAuth.App.OpenJobService.RecordRun(System.String)">
-            <summary>
-            记录任务运行结果
-            </summary>
-            <param name="jobId"></param>
-        </member>
-        <member name="M:OpenAuth.App.AlipayService.PagePay(System.String,System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            电脑网站支付
-            </summary>
-            <param name="out_trade_no"></param>
-            <param name="subject"></param>
-            <param name="total_amount"></param>
-            <param name="body"></param>
-            <param name="product_code"></param>
-            <param name="notify_url"></param>
-            <param name="return_url"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenAuth.App.AlipayService.WapPay(System.String,System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            手机网站支付
-            </summary>
-            <param name="out_trade_no"></param>
-            <param name="subject"></param>
-            <param name="total_amount"></param>
-            <param name="body"></param>
-            <param name="product_code"></param>
-            <param name="notify_url"></param>
-            <param name="return_url"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenAuth.App.AlipayService.PreCreate(OpenAuth.App.Request.AAllPayReq)">
-            <summary>
-            扫码支付 生成支付二维码
-            </summary>
-            <param name="orderName">订单名称</param>
-            <param name="orderAmount">订单金额</param>
-            <param name="outTradeNo">订单号</param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenAuth.App.AlipayService.BuildPrecreateContent(System.String,System.String,System.String)">
-            <summary>
-            构造支付请求数据
-            </summary>
-            <param name="orderName">订单名称</param>
-            <param name="orderAmount">订单金额</param>
-            <param name="outTradeNo">订单编号</param>
-            <returns>请求结果集</returns>
-        </member>
-        <member name="M:OpenAuth.App.AlipayService.RenderQrCode(System.String)">
-            <summary>
-            渲染二维码
-            </summary>
-            <param name="str"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenAuth.App.AlipayService.LoopQuery(System.Object)">
-            <summary>
-            轮询支付结果
-            </summary>
-            <param name="o">订单号</param>
-        </member>
-        <member name="M:OpenAuth.App.AlipayService.DoSuccessProcess(Alipay.AopSdk.F2FPay.Business.AlipayF2FQueryResult)">
-            <summary>
-            请添加支付成功后的处理
-            </summary>
-        </member>
-        <member name="M:OpenAuth.App.AlipayService.DoFailedProcess(Alipay.AopSdk.F2FPay.Business.AlipayF2FQueryResult)">
-            <summary>
-            请添加支付失败后的处理
-            </summary>
-        </member>
-        <member name="M:OpenAuth.App.AlipayService.Pay(System.String,System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            条码支付
-            </summary>
-            <param name="out_trade_no"></param>
-            <param name="scene"></param>
-            <param name="auth_code"></param>
-            <param name="subject"></param>
-            <param name="total_amount"></param>
-            <param name="body"></param>
-            <param name="notify_url"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenAuth.App.AlipayService.Query(System.String,System.String)">
-            <summary>
-            交易查询
-            </summary>
-            <param name="out_trade_no"></param>
-            <param name="trade_no"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenAuth.App.AlipayService.Refund(System.String,System.String,System.String,System.String)">
-            <summary>
-            交易退款
-            </summary>
-            <param name="out_trade_no"></param>
-            <param name="trade_no"></param>
-            <param name="refund_amount"></param>
-            <param name="refund_reason"></param>
-            <param name="out_request_no"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenAuth.App.AlipayService.RefundQuery(System.String,System.String,System.String)">
-            <summary>
-            退款查询
-            </summary>
-            <param name="out_trade_no"></param>
-            <param name="trade_no"></param>
-            <param name="out_request_no"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenAuth.App.AlipayService.Close(System.String,System.String)">
-            <summary>
-            关闭订单
-            </summary>
-            <param name="out_trade_no"></param>
-            <param name="trade_no"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenAuth.App.AlipayService.Trans(System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            单笔转账
-            </summary>
-            <param name="out_biz_no"></param>
-            <param name="payee_account"></param>
-            <param name="payee_type"></param>
-            <param name="amount"></param>
-            <param name="remark"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenAuth.App.AlipayService.TransQuery(System.String,System.String)">
-            <summary>
-            转账查询
-            </summary>
-            <param name="out_biz_no"></param>
-            <param name="order_id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenAuth.App.RoleMenuTopService.MenuToRole(OpenAuth.App.Request.ARoleMenuReq)">
-            <summary>
-            为角色分配栏目
-            </summary>
-            <param name="roleMenuAddOrEditReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.RoleMenuTopService.LoadAdminOfMenu(System.String)">
-            <summary>
-            展示用户拥有角色拥有的所有栏目
-            </summary>
-            <param name="adminid"></param>
-        </member>
-        <member name="T:OpenAuth.App.RoleService">
-            <summary>
-            角色服务
-            </summary>
-        </member>
-        <member name="M:OpenAuth.App.RoleService.Edit(OpenAuth.App.Request.RoleEditReq)">
-            <summary>
-            修改
-            </summary>
-            <param name="roleEditReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.RoleService.Delete(System.String[])">
-            <summary>
-            删除
-            </summary>
-            <param name="updateAdminReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.RoleService.Show(OpenAuth.App.Request.RoleQueryListReq)">
-            <summary>
-            展示角色
-            </summary>
-            <param name="updateAdminReq"></param>
-        </member>
-        <member name="M:OpenAuth.App.RoleService.LoadForAdmin(System.String)">
-            <summary>
-            加载特定文章的属性
-            </summary>
-            <param name="userId"></param>
-        </member>
-        <member name="T:OpenAuth.App.SSO.ApiAuth">
-            <summary>
-            第三方网站登录验证类
-            <para>登录时：</para>
-            <code>
-             var result = IAuth.Login(AppKey, username, password);
-             if (result.Success)
-                  return Redirect("/home/index?Token=" + result.Token);
-            </code>
-            </summary>
-        </member>
-        <member name="M:OpenAuth.App.SSO.ApiAuth.CheckLogin(System.String,System.String)">
-            <summary>
-            通过WebApi检验token是否有效
-            </summary>
-            <remarks>http://www.openauth.me</remarks>
-        </member>
-        <member name="M:OpenAuth.App.SSO.ApiAuth.GetCurrentUser">
-            <summary>
-            获取当前登录的用户信息
-            <para>通过URL中的Token参数或Cookie中的Token</para>
-            </summary>
-            <param name="account">The account.</param>
-            <returns>LoginUserVM.</returns>
-        </member>
-        <member name="M:OpenAuth.App.SSO.ApiAuth.GetUserName(System.String)">
-            <summary>
-            获取WebApi中当前登录的用户名
-            <para>通过URL中的Token参数或Cookie中的Token</para>
-            </summary>
-            <param name="otherInfo">The account.</param>
-            <returns>System.String.</returns>
-        </member>
-        <member name="M:OpenAuth.App.SSO.ApiAuth.Login(System.String,System.String)">
-            <summary>
-            通过WebApi登录，用户信息存放在webapi中
-            </summary>
-            <param name="appKey">应用程序key.</param>
-            <param name="username">用户名</param>
-            <param name="pwd">密码</param>
-            <returns>System.String.</returns>
-        </member>
-        <member name="M:OpenAuth.App.SSO.ApiAuth.Logout">
-            <summary>
-            注销
-            </summary>
+            <param name="obj"></param>
         </member>
         <member name="T:OpenAuth.App.SSO.AppInfo">
             <summary>
@@ -2876,7 +1914,7 @@
             <param name="otherInfo">The account.</param>
             <returns>System.String.</returns>
         </member>
-        <member name="M:OpenAuth.App.SSO.LocalAuth.Login(System.String,System.String)">
+        <member name="M:OpenAuth.App.SSO.LocalAuth.Login(System.String,System.String,System.String)">
             <summary>
             登录接口
             </summary>
@@ -2888,6 +1926,11 @@
         <member name="M:OpenAuth.App.SSO.LocalAuth.Logout">
             <summary>
             注销，如果是Identity登录，需要在controller处理注销逻辑
+            </summary>
+        </member>
+        <member name="P:OpenAuth.App.SSO.UserAuthSession.Account">
+            <summary>
+            用户账号
             </summary>
         </member>
         <member name="P:OpenAuth.App.SSO.UserAuthSession.Name">
@@ -2921,10 +1964,48 @@
             测试资源列表的权限控制
             </summary>
         </member>
+        <member name="M:OpenAuth.App.Test.TestOrgApp.TestDel">
+            <summary>
+            测试删除华东、中部片区
+            </summary>
+        </member>
+        <member name="M:OpenAuth.App.Test.TestUserApp.TestValidation">
+            <summary>
+            测试添加用户时，数据校验。
+            因为请求数据没有Account，Name等，该测试会提示异常
+            </summary>
+        </member>
         <member name="M:OpenAuth.App.UserManagerApp.Load(OpenAuth.App.Request.QueryUserListReq)">
             <summary>
             加载当前登录用户可访问的一个部门及子部门全部用户
+            如果请求的request.OrgId为空，则可以获取到已被删除机构的用户（即：没有分配任何机构的用户）
             </summary>
+        </member>
+        <member name="M:OpenAuth.App.UserManagerApp.Delete(System.String[])">
+            <summary>
+            删除用户,包含用户与组织关系、用户与角色关系
+            </summary>
+            <param name="ids"></param>
+        </member>
+        <member name="M:OpenAuth.App.UserManagerApp.ChangePassword(OpenAuth.App.Request.ChangePasswordReq)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:OpenAuth.App.UserManagerApp.LoadByRole(OpenAuth.App.Request.QueryUserListByRoleReq)">
+            <summary>
+            获取指定角色包含的用户列表
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenAuth.App.UserManagerApp.LoadByOrg(OpenAuth.App.Request.QueryUserListByOrgReq)">
+            <summary>
+            获取指定机构包含的用户列表
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
         </member>
         <member name="M:OpenAuth.App.UserManagerApp.ChangeProfile(OpenAuth.App.Request.ChangeProfileReq)">
             <summary>

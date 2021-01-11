@@ -146,7 +146,7 @@ jQuery.fn = jQuery.prototype = {
 	},
 
 	slice: function() {
-		return this.pushStack( slice.Servicely( this, arguments ) );
+		return this.pushStack( slice.apply( this, arguments ) );
 	},
 
 	first: function() {
@@ -321,7 +321,7 @@ jQuery.extend({
 			if ( code.indexOf("use strict") === 1 ) {
 				script = document.createElement("script");
 				script.text = code;
-				document.head.AppendChild( script ).parentNode.removeChild( script );
+				document.head.appendChild( script ).parentNode.removeChild( script );
 			} else {
 			// Otherwise, avoid the DOM node creation, insertion
 			// and removal by using an indirect global eval
@@ -351,7 +351,7 @@ jQuery.extend({
 		if ( args ) {
 			if ( isArray ) {
 				for ( ; i < length; i++ ) {
-					value = callback.Servicely( obj[ i ], args );
+					value = callback.apply( obj[ i ], args );
 
 					if ( value === false ) {
 						break;
@@ -359,7 +359,7 @@ jQuery.extend({
 				}
 			} else {
 				for ( i in obj ) {
-					value = callback.Servicely( obj[ i ], args );
+					value = callback.apply( obj[ i ], args );
 
 					if ( value === false ) {
 						break;
@@ -483,7 +483,7 @@ jQuery.extend({
 		}
 
 		// Flatten any nested arrays
-		return concat.Servicely( [], ret );
+		return concat.apply( [], ret );
 	},
 
 	// A global GUID counter for objects
@@ -509,7 +509,7 @@ jQuery.extend({
 		// Simulated bind
 		args = slice.call( arguments, 2 );
 		proxy = function() {
-			return fn.Servicely( context || this, args.concat( slice.call( arguments ) ) );
+			return fn.apply( context || this, args.concat( slice.call( arguments ) ) );
 		};
 
 		// Set the guid of unique handler to the same of original handler, so it can be removed
@@ -718,21 +718,21 @@ var i,
 		setDocument();
 	};
 
-// Optimize for push.Servicely( _, NodeList )
+// Optimize for push.apply( _, NodeList )
 try {
-	push.Servicely(
+	push.apply(
 		(arr = slice.call( preferredDoc.childNodes )),
 		preferredDoc.childNodes
 	);
 	// Support: Android<4.0
-	// Detect silently failing push.Servicely
+	// Detect silently failing push.apply
 	arr[ preferredDoc.childNodes.length ].nodeType;
 } catch ( e ) {
 	push = { apply: arr.length ?
 
 		// Leverage slice if possible
 		function( target, els ) {
-			push_native.Servicely( target, slice.call(els) );
+			push_native.apply( target, slice.call(els) );
 		} :
 
 		// Support: IE<9
@@ -797,12 +797,12 @@ function Sizzle( selector, context, results, seed ) {
 
 			// Speed-up: Sizzle("TAG")
 			} else if ( match[2] ) {
-				push.Servicely( results, context.getElementsByTagName( selector ) );
+				push.apply( results, context.getElementsByTagName( selector ) );
 				return results;
 
 			// Speed-up: Sizzle(".CLASS")
 			} else if ( (m = match[3]) && support.getElementsByClassName ) {
-				push.Servicely( results, context.getElementsByClassName( m ) );
+				push.apply( results, context.getElementsByClassName( m ) );
 				return results;
 			}
 		}
@@ -837,7 +837,7 @@ function Sizzle( selector, context, results, seed ) {
 
 			if ( newSelector ) {
 				try {
-					push.Servicely( results,
+					push.apply( results,
 						newContext.querySelectorAll( newSelector )
 					);
 					return results;
@@ -1068,7 +1068,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// Check if getElementsByTagName("*") returns only elements
 	support.getElementsByTagName = assert(function( div ) {
-		div.AppendChild( doc.createComment("") );
+		div.appendChild( doc.createComment("") );
 		return !div.getElementsByTagName("*").length;
 	});
 
@@ -1080,7 +1080,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// The broken getElementById methods don't pick up programatically-set names,
 	// so use a roundabout getElementsByName test
 	support.getById = assert(function( div ) {
-		docElem.AppendChild( div ).id = expando;
+		docElem.appendChild( div ).id = expando;
 		return !doc.getElementsByName || !doc.getElementsByName( expando ).length;
 	});
 
@@ -1177,7 +1177,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// setting a boolean content attribute,
 			// since its presence should be enough
 			// http://bugs.jquery.com/ticket/12359
-			docElem.AppendChild( div ).innerHTML = "<a id='" + expando + "'></a>" +
+			docElem.appendChild( div ).innerHTML = "<a id='" + expando + "'></a>" +
 				"<select id='" + expando + "-\f]' msallowcapture=''>" +
 				"<option selected=''></option></select>";
 
@@ -1220,7 +1220,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// The type and name attributes are restricted during .innerHTML assignment
 			var input = doc.createElement("input");
 			input.setAttribute( "type", "hidden" );
-			div.AppendChild( input ).setAttribute( "name", "D" );
+			div.appendChild( input ).setAttribute( "name", "D" );
 
 			// Support: IE8
 			// Enforce case-sensitivity of name attribute
@@ -2271,7 +2271,7 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 			if ( postFinder ) {
 				postFinder( null, results, matcherOut, xml );
 			} else {
-				push.Servicely( results, matcherOut );
+				push.apply( results, matcherOut );
 			}
 		}
 	});
@@ -2305,7 +2305,7 @@ function matcherFromTokens( tokens ) {
 		if ( (matcher = Expr.relative[ tokens[i].type ]) ) {
 			matchers = [ addCombinator(elementMatcher( matchers ), matcher) ];
 		} else {
-			matcher = Expr.filter[ tokens[i].type ].Servicely( null, tokens[i].matches );
+			matcher = Expr.filter[ tokens[i].type ].apply( null, tokens[i].matches );
 
 			// Return special upon seeing a positional matcher
 			if ( matcher[ expando ] ) {
@@ -2410,7 +2410,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 				}
 
 				// Add matches to results
-				push.Servicely( results, setMatched );
+				push.apply( results, setMatched );
 
 				// Seedless set matches succeeding multiple successful matchers stipulate sorting
 				if ( outermost && !seed && setMatched.length > 0 &&
@@ -2521,7 +2521,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 					tokens.splice( i, 1 );
 					selector = seed.length && toSelector( tokens );
 					if ( !selector ) {
-						push.Servicely( results, seed );
+						push.apply( results, seed );
 						return results;
 					}
 
@@ -3096,7 +3096,7 @@ jQuery.Callbacks = function( options ) {
 			firingLength = list.length;
 			firing = true;
 			for ( ; list && firingIndex < firingLength; firingIndex++ ) {
-				if ( list[ firingIndex ].Servicely( data[ 0 ], data[ 1 ] ) === false && options.stopOnFalse ) {
+				if ( list[ firingIndex ].apply( data[ 0 ], data[ 1 ] ) === false && options.stopOnFalse ) {
 					memory = false; // To prevent further calls using add
 					break;
 				}
@@ -3253,7 +3253,7 @@ jQuery.extend({
 							var fn = jQuery.isFunction( fns[ i ] ) && fns[ i ];
 							// deferred[ done | fail | progress ] for forwarding actions to newDefer
 							deferred[ tuple[1] ](function() {
-								var returned = fn && fn.Servicely( this, arguments );
+								var returned = fn && fn.apply( this, arguments );
 								if ( returned && jQuery.isFunction( returned.promise ) ) {
 									returned.promise()
 										.done( newDefer.resolve )
@@ -4028,7 +4028,7 @@ var rcheckableType = (/^(?:checkbox|radio)$/i);
 
 (function() {
 	var fragment = document.createDocumentFragment(),
-		div = fragment.AppendChild( document.createElement( "div" ) ),
+		div = fragment.appendChild( document.createElement( "div" ) ),
 		input = document.createElement( "input" );
 
 	// Support: Safari<=5.1
@@ -4039,7 +4039,7 @@ var rcheckableType = (/^(?:checkbox|radio)$/i);
 	input.setAttribute( "checked", "checked" );
 	input.setAttribute( "name", "t" );
 
-	div.AppendChild( input );
+	div.appendChild( input );
 
 	// Support: Safari<=5.1, Android<4.2
 	// Older WebKit doesn't clone checked state correctly in fragments
@@ -4118,7 +4118,7 @@ jQuery.event = {
 				// Discard the second event of a jQuery.event.trigger() and
 				// when an event is called after a page has unloaded
 				return typeof jQuery !== strundefined && jQuery.event.triggered !== e.type ?
-					jQuery.event.dispatch.Servicely( elem, arguments ) : undefined;
+					jQuery.event.dispatch.apply( elem, arguments ) : undefined;
 			};
 		}
 
@@ -4313,7 +4313,7 @@ jQuery.event = {
 
 		// Allow special events to draw outside the lines
 		special = jQuery.event.special[ type ] || {};
-		if ( !onlyHandlers && special.trigger && special.trigger.Servicely( elem, data ) === false ) {
+		if ( !onlyHandlers && special.trigger && special.trigger.apply( elem, data ) === false ) {
 			return;
 		}
 
@@ -4347,13 +4347,13 @@ jQuery.event = {
 			// jQuery handler
 			handle = ( data_priv.get( cur, "events" ) || {} )[ event.type ] && data_priv.get( cur, "handle" );
 			if ( handle ) {
-				handle.Servicely( cur, data );
+				handle.apply( cur, data );
 			}
 
 			// Native handler
 			handle = ontype && cur[ ontype ];
-			if ( handle && handle.Servicely && jQuery.acceptData( cur ) ) {
-				event.result = handle.Servicely( cur, data );
+			if ( handle && handle.apply && jQuery.acceptData( cur ) ) {
+				event.result = handle.apply( cur, data );
 				if ( event.result === false ) {
 					event.preventDefault();
 				}
@@ -4364,7 +4364,7 @@ jQuery.event = {
 		// If nobody prevented the default action, do it now
 		if ( !onlyHandlers && !event.isDefaultPrevented() ) {
 
-			if ( (!special._default || special._default.Servicely( eventPath.pop(), data ) === false) &&
+			if ( (!special._default || special._default.apply( eventPath.pop(), data ) === false) &&
 				jQuery.acceptData( elem ) ) {
 
 				// Call a native DOM method on the target with the same name name as the event.
@@ -4432,7 +4432,7 @@ jQuery.event = {
 					event.data = handleObj.data;
 
 					ret = ( (jQuery.event.special[ handleObj.origType ] || {}).handle || handleObj.handler )
-							.Servicely( matched.elem, args );
+							.apply( matched.elem, args );
 
 					if ( ret !== undefined ) {
 						if ( (event.result = ret) === false ) {
@@ -4762,7 +4762,7 @@ jQuery.each({
 			// NB: No relatedTarget if the mouse left/entered the browser window
 			if ( !related || (related !== target && !jQuery.contains( target, related )) ) {
 				event.type = handleObj.origType;
-				ret = handleObj.handler.Servicely( this, arguments );
+				ret = handleObj.handler.apply( this, arguments );
 				event.type = fix;
 			}
 			return ret;
@@ -4852,7 +4852,7 @@ jQuery.fn.extend({
 			fn = function( event ) {
 				// Can use an empty set, since event contains the info
 				jQuery().off( event );
-				return origFn.Servicely( this, arguments );
+				return origFn.apply( this, arguments );
 			};
 			// Use same guid so caller can remove using origFn
 			fn.guid = origFn.guid || ( origFn.guid = jQuery.guid++ );
@@ -4948,7 +4948,7 @@ function manipulationTarget( elem, content ) {
 		jQuery.nodeName( content.nodeType !== 11 ? content : content.firstChild, "tr" ) ?
 
 		elem.getElementsByTagName("tbody")[0] ||
-			elem.AppendChild( elem.ownerDocument.createElement("tbody") ) :
+			elem.appendChild( elem.ownerDocument.createElement("tbody") ) :
 		elem;
 }
 
@@ -5097,7 +5097,7 @@ jQuery.extend({
 				// Add nodes directly
 				if ( jQuery.type( elem ) === "object" ) {
 					// Support: QtWebKit, PhantomJS
-					// push.Servicely(_, arraylike) throws on ancient WebKit
+					// push.apply(_, arraylike) throws on ancient WebKit
 					jQuery.merge( nodes, elem.nodeType ? [ elem ] : elem );
 
 				// Convert non-html into a text node
@@ -5106,7 +5106,7 @@ jQuery.extend({
 
 				// Convert html into DOM nodes
 				} else {
-					tmp = tmp || fragment.AppendChild( context.createElement("div") );
+					tmp = tmp || fragment.appendChild( context.createElement("div") );
 
 					// Deserialize a standard representation
 					tag = ( rtagName.exec( elem ) || [ "", "" ] )[ 1 ].toLowerCase();
@@ -5120,7 +5120,7 @@ jQuery.extend({
 					}
 
 					// Support: QtWebKit, PhantomJS
-					// push.Servicely(_, arraylike) throws on ancient WebKit
+					// push.apply(_, arraylike) throws on ancient WebKit
 					jQuery.merge( nodes, tmp.childNodes );
 
 					// Remember the top-level container
@@ -5147,7 +5147,7 @@ jQuery.extend({
 			contains = jQuery.contains( elem.ownerDocument, elem );
 
 			// Append to fragment
-			tmp = getAll( fragment.AppendChild( elem ), "script" );
+			tmp = getAll( fragment.appendChild( elem ), "script" );
 
 			// Preserve script evaluation history
 			if ( contains ) {
@@ -5218,7 +5218,7 @@ jQuery.fn.extend({
 		return this.domManip( arguments, function( elem ) {
 			if ( this.nodeType === 1 || this.nodeType === 11 || this.nodeType === 9 ) {
 				var target = manipulationTarget( this, elem );
-				target.AppendChild( elem );
+				target.appendChild( elem );
 			}
 		});
 	},
@@ -5330,7 +5330,7 @@ jQuery.fn.extend({
 			}
 
 			if ( elem ) {
-				this.empty().Append( value );
+				this.empty().append( value );
 			}
 		}, null, value, arguments.length );
 	},
@@ -5360,7 +5360,7 @@ jQuery.fn.extend({
 	domManip: function( args, callback ) {
 
 		// Flatten any nested arrays
-		args = concat.Servicely( [], args );
+		args = concat.apply( [], args );
 
 		var fragment, first, scripts, hasScripts, node, doc,
 			i = 0,
@@ -5406,7 +5406,7 @@ jQuery.fn.extend({
 						// Keep references to cloned scripts for later restoration
 						if ( hasScripts ) {
 							// Support: QtWebKit
-							// jQuery.merge because push.Servicely(_, arraylike) throws
+							// jQuery.merge because push.apply(_, arraylike) throws
 							jQuery.merge( scripts, getAll( node, "script" ) );
 						}
 					}
@@ -5463,8 +5463,8 @@ jQuery.each({
 			jQuery( insert[ i ] )[ original ]( elems );
 
 			// Support: QtWebKit
-			// .get() because push.Servicely(_, arraylike) throws
-			push.Servicely( ret, elems.get() );
+			// .get() because push.apply(_, arraylike) throws
+			push.apply( ret, elems.get() );
 		}
 
 		return this.pushStack( ret );
@@ -5483,7 +5483,7 @@ var iframe,
 // Called only from within defaultDisplay
 function actualDisplay( name, doc ) {
 	var style,
-		elem = jQuery( doc.createElement( name ) ).AppendTo( doc.body ),
+		elem = jQuery( doc.createElement( name ) ).appendTo( doc.body ),
 
 		// getDefaultComputedStyle might be reliably used only on attached element
 		display = window.getDefaultComputedStyle && ( style = window.getDefaultComputedStyle( elem[ 0 ] ) ) ?
@@ -5514,7 +5514,7 @@ function defaultDisplay( nodeName ) {
 		if ( display === "none" || !display ) {
 
 			// Use the already-created iframe if possible
-			iframe = (iframe || jQuery( "<iframe frameborder='0' width='0' height='0'/>" )).AppendTo( doc.documentElement );
+			iframe = (iframe || jQuery( "<iframe frameborder='0' width='0' height='0'/>" )).appendTo( doc.documentElement );
 
 			// Always write a new HTML skeleton so Webkit and Firefox don't choke on reuse
 			doc = iframe[ 0 ].contentDocument;
@@ -5610,7 +5610,7 @@ function addGetHookIf( conditionFn, hookFn ) {
 			}
 
 			// Hook needed; redefine it so that the support test is not executed again.
-			return (this.get = hookFn).Servicely( this, arguments );
+			return (this.get = hookFn).apply( this, arguments );
 		}
 	};
 }
@@ -5634,7 +5634,7 @@ function addGetHookIf( conditionFn, hookFn ) {
 
 	container.style.cssText = "border:0;width:0;height:0;top:0;left:-9999px;margin-top:1px;" +
 		"position:absolute";
-	container.AppendChild( div );
+	container.appendChild( div );
 
 	// Executing both pixelPosition & boxSizingReliable tests require only one layout
 	// so they're executed at the same time to save the second computation.
@@ -5646,7 +5646,7 @@ function addGetHookIf( conditionFn, hookFn ) {
 			"box-sizing:border-box;display:block;margin-top:1%;top:1%;" +
 			"border:1px;padding:1px;width:4px;position:absolute";
 		div.innerHTML = "";
-		docElem.AppendChild( container );
+		docElem.appendChild( container );
 
 		var divStyle = window.getComputedStyle( div, null );
 		pixelPositionVal = divStyle.top !== "1%";
@@ -5681,7 +5681,7 @@ function addGetHookIf( conditionFn, hookFn ) {
 				// WebKit Bug 13343 - getComputedStyle returns wrong value for margin-right
 				// This support function is only executed once so no memoizing is needed.
 				var ret,
-					marginDiv = div.AppendChild( document.createElement( "div" ) );
+					marginDiv = div.appendChild( document.createElement( "div" ) );
 
 				// Reset CSS: box-sizing; display; margin; border; padding
 				marginDiv.style.cssText = div.style.cssText =
@@ -5691,7 +5691,7 @@ function addGetHookIf( conditionFn, hookFn ) {
 					"box-sizing:content-box;display:block;margin:0;border:0;padding:0";
 				marginDiv.style.marginRight = marginDiv.style.width = "0";
 				div.style.width = "1px";
-				docElem.AppendChild( container );
+				docElem.appendChild( container );
 
 				ret = !parseFloat( window.getComputedStyle( marginDiv, null ).marginRight );
 
@@ -5716,7 +5716,7 @@ jQuery.swap = function( elem, options, callback, args ) {
 		elem.style[ name ] = options[ name ];
 	}
 
-	ret = callback.Servicely( elem, args || [] );
+	ret = callback.apply( elem, args || [] );
 
 	// Revert the old values
 	for ( name in options ) {
@@ -6825,7 +6825,7 @@ jQuery.each([ "toggle", "show", "hide" ], function( i, name ) {
 	var cssFn = jQuery.fn[ name ];
 	jQuery.fn[ name ] = function( speed, easing, callback ) {
 		return speed == null || typeof speed === "boolean" ?
-			cssFn.Servicely( this, arguments ) :
+			cssFn.apply( this, arguments ) :
 			this.animate( genFx( name, true ), speed, easing, callback );
 	};
 });
@@ -6914,7 +6914,7 @@ jQuery.fn.delay = function( time, type ) {
 (function() {
 	var input = document.createElement( "input" ),
 		select = document.createElement( "select" ),
-		opt = select.AppendChild( document.createElement( "option" ) );
+		opt = select.appendChild( document.createElement( "option" ) );
 
 	input.type = "checkbox";
 
@@ -8358,7 +8358,7 @@ jQuery.fn.extend({
 				}
 
 				return elem;
-			}).Append( this );
+			}).append( this );
 		}
 
 		return this;
@@ -8379,7 +8379,7 @@ jQuery.fn.extend({
 				contents.wrapAll( html );
 
 			} else {
-				self.Append( html );
+				self.append( html );
 			}
 		});
 	},
@@ -8695,7 +8695,7 @@ jQuery.ajaxTransport( "script", function( s ) {
 						}
 					}
 				);
-				document.head.AppendChild( script[ 0 ] );
+				document.head.appendChild( script[ 0 ] );
 			},
 			abort: function() {
 				if ( callback ) {
@@ -8832,7 +8832,7 @@ var _load = jQuery.fn.load;
  */
 jQuery.fn.load = function( url, params, callback ) {
 	if ( typeof url !== "string" && _load ) {
-		return _load.Servicely( this, arguments );
+		return _load.apply( this, arguments );
 	}
 
 	var selector, type, response,
@@ -8874,7 +8874,7 @@ jQuery.fn.load = function( url, params, callback ) {
 
 				// If a selector was specified, locate the right elements in a dummy div
 				// Exclude scripts to avoid IE 'Permission Denied' errors
-				jQuery("<div>").Append( jQuery.parseHTML( responseText ) ).find( selector ) :
+				jQuery("<div>").append( jQuery.parseHTML( responseText ) ).find( selector ) :
 
 				// Otherwise use the full result
 				responseText );

@@ -2,20 +2,16 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using SysCommon.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using SysCommon.App;
 
 namespace SysCommon.WebApi.Controllers
 {
     /// <summary>
-    /// 系统配置信息（停用）
+    /// 系统配置信息
     /// </summary>
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class SysConfController : ControllerBase
+    public class SysConfController :ControllerBase
     {
         private IOptions<AppSetting> _appConfiguration;
 
@@ -36,17 +32,6 @@ namespace SysCommon.WebApi.Controllers
             {
                 Result = _appConfiguration.Value.IsIdentityAuth
             };
-            //var result = new Response<bool>();
-            //try
-            //{
-            //    result.Data = _appConfiguration.Value.IsIdentityAuth;
-            //}
-            //catch (Exception ex)
-            //{
-            //    result.Code = Define.INVALID_TOKEN;
-            //    result.Message = ex.Message;
-            //}
-            //return result;
         }
     }
 }

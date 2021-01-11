@@ -222,7 +222,7 @@
                  if ( j == "none" ) div.className="focus";
                  div.style.cssText = "background:url(images/" + j + "_focus.jpg);";
                  div.setAttribute( "title", nameMaps[j] );
-                 floatContainer.AppendChild( div );
+                 floatContainer.appendChild( div );
              }
              switchSelect( ci );
          }
@@ -417,10 +417,10 @@
                     $btns = $('<div class="file-panel">' +
                         '<span class="cancel">' + lang.uploadDelete + '</span>' +
                         '<span class="rotateRight">' + lang.uploadTurnRight + '</span>' +
-                        '<span class="rotateLeft">' + lang.uploadTurnLeft + '</span></div>').AppendTo($li),
+                        '<span class="rotateLeft">' + lang.uploadTurnLeft + '</span></div>').appendTo($li),
                     $prgress = $li.find('p.progress span'),
                     $wrap = $li.find('p.imgWrap'),
-                    $info = $('<p class="error"></p>').hide().AppendTo($li),
+                    $info = $('<p class="error"></p>').hide().appendTo($li),
 
                     showError = function (code) {
                         switch (code) {
@@ -448,7 +448,7 @@
                 } else {
                     $wrap.text(lang.uploadPreview);
                     if ('|png|jpg|jpeg|bmp|gif|'.indexOf('|'+file.ext.toLowerCase()+'|') == -1) {
-                        $wrap.empty().addClass('notimage').Append('<i class="file-preview file-type-' + file.ext.toLowerCase() + '"></i>' +
+                        $wrap.empty().addClass('notimage').append('<i class="file-preview file-type-' + file.ext.toLowerCase() + '"></i>' +
                             '<span class="file-title">' + file.name + '</span>');
                     } else {
                         if (browser.ie && browser.version <= 7) {
@@ -459,7 +459,7 @@
                                     $wrap.text(lang.uploadNoPreview);
                                 } else {
                                     var $img = $('<img src="' + src + '">');
-                                    $wrap.empty().Append($img);
+                                    $wrap.empty().append($img);
                                     $img.on('error', function () {
                                         $wrap.text(lang.uploadNoPreview);
                                     });
@@ -737,7 +737,7 @@
                             'type': json.type,
                             'original':json.original
                         });
-                        $file.Append('<span class="success"></span>');
+                        $file.append('<span class="success"></span>');
                     } else {
                         $file.find('.error').text(json.state).show();
                     }

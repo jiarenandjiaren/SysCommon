@@ -1,0 +1,784 @@
+2021-01-11 15:35:06,702 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2021-01-11 15:35:07,053 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2021-01-11 15:35:07,114 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2021-01-11 15:35:07,116 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2021-01-11 15:35:07,117 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2021-01-11 15:35:07,120 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-01-11 15:35:07,121 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2021-01-11 15:35:07,121 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2021-01-11 15:35:07,464 [1] INFO  OpenAuth.App.HostedService.QuartzService [(null)] - 启动定时job，可以在这里配置读取数据库需要启动的任务，然后启动他们
+2021-01-11 15:35:07,473 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2021-01-11 15:35:15,424 [11] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - api doc basepath:E:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\
+2021-01-11 15:35:15,608 [11] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\Infrastructure.xml
+2021-01-11 15:35:15,614 [11] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.App.xml
+2021-01-11 15:35:15,620 [11] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.Repository.xml
+2021-01-11 15:35:15,626 [11] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.WebApi.xml
+2021-01-11 15:35:48,530 [9] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (243ms) [Parameters=[@p0='36cc6d1b-5126-4f09-af78-706f82e38b60' (Nullable = false) (Size = 450), @p1='OpenAuth.WebApi' (Size = 4000), @p2='用户登录,结果：操作成功' (Size = 4000), @p3='System' (Size = 4000), @p4='System' (Size = 4000), @p5='2021-01-11T15:35:47', @p6='' (Size = 4000), @p7='' (Size = 4000), @p8='0', @p9='' (Size = 4000), @p10='登录日志' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 15:35:48,532 [9] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (243ms) [Parameters=[@p0='36cc6d1b-5126-4f09-af78-706f82e38b60' (Nullable = false) (Size = 450), @p1='OpenAuth.WebApi' (Size = 4000), @p2='用户登录,结果：操作成功' (Size = 4000), @p3='System' (Size = 4000), @p4='System' (Size = 4000), @p5='2021-01-11T15:35:47', @p6='' (Size = 4000), @p7='' (Size = 4000), @p8='0', @p9='' (Size = 4000), @p10='登录日志' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 15:48:19,938 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2021-01-11 15:48:20,070 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2021-01-11 15:48:20,090 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2021-01-11 15:48:20,091 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2021-01-11 15:48:20,092 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2021-01-11 15:48:20,096 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-01-11 15:48:20,096 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2021-01-11 15:48:20,096 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2021-01-11 15:48:20,186 [1] INFO  OpenAuth.App.HostedService.QuartzService [(null)] - 启动定时job，可以在这里配置读取数据库需要启动的任务，然后启动他们
+2021-01-11 15:48:20,194 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2021-01-11 15:48:23,925 [10] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - api doc basepath:E:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\
+2021-01-11 15:48:23,940 [10] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\Infrastructure.xml
+2021-01-11 15:48:23,942 [10] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.App.xml
+2021-01-11 15:48:23,943 [10] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.Repository.xml
+2021-01-11 15:48:23,945 [10] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.WebApi.xml
+2021-01-11 15:48:44,828 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (186ms) [Parameters=[@p0='284c8e64-143b-4d87-8987-7d276f151b27' (Nullable = false) (Size = 450), @p1='OpenAuth.WebApi' (Size = 4000), @p2='用户登录,结果：操作成功' (Size = 4000), @p3='System' (Size = 4000), @p4='System' (Size = 4000), @p5='2021-01-11T15:48:43', @p6='' (Size = 4000), @p7='' (Size = 4000), @p8='0', @p9='' (Size = 4000), @p10='登录日志' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 15:48:44,834 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (186ms) [Parameters=[@p0='284c8e64-143b-4d87-8987-7d276f151b27' (Nullable = false) (Size = 450), @p1='OpenAuth.WebApi' (Size = 4000), @p2='用户登录,结果：操作成功' (Size = 4000), @p3='System' (Size = 4000), @p4='System' (Size = 4000), @p5='2021-01-11T15:48:43', @p6='' (Size = 4000), @p7='' (Size = 4000), @p8='0', @p9='' (Size = 4000), @p10='登录日志' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 15:49:22,646 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2021-01-11 15:49:22,764 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2021-01-11 15:49:22,785 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2021-01-11 15:49:22,786 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2021-01-11 15:49:22,787 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2021-01-11 15:49:22,790 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-01-11 15:49:22,791 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2021-01-11 15:49:22,791 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2021-01-11 15:49:22,862 [1] INFO  OpenAuth.App.HostedService.QuartzService [(null)] - 启动定时job，可以在这里配置读取数据库需要启动的任务，然后启动他们
+2021-01-11 15:49:22,868 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2021-01-11 15:49:27,603 [9] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - api doc basepath:E:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\
+2021-01-11 15:49:27,630 [9] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\Infrastructure.xml
+2021-01-11 15:49:27,633 [9] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.App.xml
+2021-01-11 15:49:27,635 [9] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.Repository.xml
+2021-01-11 15:49:27,636 [9] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.WebApi.xml
+2021-01-11 15:49:51,524 [8] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (189ms) [Parameters=[@p0='ec8e0a32-1ac7-4981-ab4a-3d20a8a164a4' (Nullable = false) (Size = 450), @p1='OpenAuth.WebApi' (Size = 4000), @p2='用户登录,结果：操作成功' (Size = 4000), @p3='System' (Size = 4000), @p4='System' (Size = 4000), @p5='2021-01-11T15:49:50', @p6='' (Size = 4000), @p7='' (Size = 4000), @p8='0', @p9='' (Size = 4000), @p10='登录日志' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 15:49:51,528 [8] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (189ms) [Parameters=[@p0='ec8e0a32-1ac7-4981-ab4a-3d20a8a164a4' (Nullable = false) (Size = 450), @p1='OpenAuth.WebApi' (Size = 4000), @p2='用户登录,结果：操作成功' (Size = 4000), @p3='System' (Size = 4000), @p4='System' (Size = 4000), @p5='2021-01-11T15:49:50', @p6='' (Size = 4000), @p7='' (Size = 4000), @p8='0', @p9='' (Size = 4000), @p10='登录日志' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 16:50:06,763 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2021-01-11 16:50:07,037 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2021-01-11 16:50:07,058 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2021-01-11 16:50:07,059 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2021-01-11 16:50:07,060 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2021-01-11 16:50:07,065 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-01-11 16:50:07,066 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2021-01-11 16:50:07,066 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2021-01-11 16:50:07,175 [1] INFO  OpenAuth.App.HostedService.QuartzService [(null)] - 启动定时job，可以在这里配置读取数据库需要启动的任务，然后启动他们
+2021-01-11 16:50:07,182 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2021-01-11 16:50:13,673 [11] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - api doc basepath:E:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\
+2021-01-11 16:50:13,918 [11] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\Infrastructure.xml
+2021-01-11 16:50:13,921 [11] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.App.xml
+2021-01-11 16:50:13,923 [11] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.Repository.xml
+2021-01-11 16:50:13,924 [11] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.WebApi.xml
+2021-01-11 16:50:39,606 [8] ERROR Microsoft.EntityFrameworkCore.Database.Command [(null)] - Failed executing DbCommand (135ms) [Parameters=[@p0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Entity] ([Id])
+VALUES (@p0);
+2021-01-11 16:50:39,608 [8] ERROR Microsoft.EntityFrameworkCore.Database.Command [(null)] - Failed executing DbCommand (135ms) [Parameters=[@p0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Entity] ([Id])
+VALUES (@p0);
+2021-01-11 16:50:39,817 [8] ERROR Microsoft.EntityFrameworkCore.Update [(null)] - An exception occurred in the database while saving changes for context type 'OpenAuth.Repository.OpenAuthDBContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): 对象名 'Entity' 无效。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+ClientConnectionId:40c73cd4-fbdb-4a77-b5d2-f399b7a3f31e
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): 对象名 'Entity' 无效。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+ClientConnectionId:40c73cd4-fbdb-4a77-b5d2-f399b7a3f31e
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+2021-01-11 16:50:39,840 [8] ERROR Microsoft.EntityFrameworkCore.Update [(null)] - An exception occurred in the database while saving changes for context type 'OpenAuth.Repository.OpenAuthDBContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): 对象名 'Entity' 无效。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+ClientConnectionId:40c73cd4-fbdb-4a77-b5d2-f399b7a3f31e
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): 对象名 'Entity' 无效。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+ClientConnectionId:40c73cd4-fbdb-4a77-b5d2-f399b7a3f31e
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+2021-01-11 16:50:55,827 [5] ERROR Microsoft.EntityFrameworkCore.Database.Command [(null)] - Failed executing DbCommand (2ms) [Parameters=[@p0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Entity] ([Id])
+VALUES (@p0);
+2021-01-11 16:50:55,827 [5] ERROR Microsoft.EntityFrameworkCore.Database.Command [(null)] - Failed executing DbCommand (2ms) [Parameters=[@p0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Entity] ([Id])
+VALUES (@p0);
+2021-01-11 16:50:55,831 [5] ERROR Microsoft.EntityFrameworkCore.Update [(null)] - An exception occurred in the database while saving changes for context type 'OpenAuth.Repository.OpenAuthDBContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): 对象名 'Entity' 无效。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+ClientConnectionId:40c73cd4-fbdb-4a77-b5d2-f399b7a3f31e
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): 对象名 'Entity' 无效。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+ClientConnectionId:40c73cd4-fbdb-4a77-b5d2-f399b7a3f31e
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+2021-01-11 16:50:55,855 [5] ERROR Microsoft.EntityFrameworkCore.Update [(null)] - An exception occurred in the database while saving changes for context type 'OpenAuth.Repository.OpenAuthDBContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): 对象名 'Entity' 无效。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+ClientConnectionId:40c73cd4-fbdb-4a77-b5d2-f399b7a3f31e
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): 对象名 'Entity' 无效。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+ClientConnectionId:40c73cd4-fbdb-4a77-b5d2-f399b7a3f31e
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+2021-01-11 16:51:16,837 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2021-01-11 16:51:16,955 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2021-01-11 16:51:16,972 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2021-01-11 16:51:16,973 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2021-01-11 16:51:16,973 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2021-01-11 16:51:16,976 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-01-11 16:51:16,976 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2021-01-11 16:51:16,977 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2021-01-11 16:51:17,059 [1] INFO  OpenAuth.App.HostedService.QuartzService [(null)] - 启动定时job，可以在这里配置读取数据库需要启动的任务，然后启动他们
+2021-01-11 16:51:17,066 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2021-01-11 16:51:19,799 [11] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - api doc basepath:E:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\
+2021-01-11 16:51:19,821 [11] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\Infrastructure.xml
+2021-01-11 16:51:19,824 [11] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.App.xml
+2021-01-11 16:51:19,826 [11] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.Repository.xml
+2021-01-11 16:51:19,827 [11] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.WebApi.xml
+2021-01-11 16:57:52,153 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2021-01-11 16:57:52,328 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2021-01-11 16:57:52,346 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2021-01-11 16:57:52,347 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2021-01-11 16:57:52,348 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2021-01-11 16:57:52,351 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-01-11 16:57:52,351 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2021-01-11 16:57:52,351 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2021-01-11 16:57:52,439 [1] INFO  OpenAuth.App.HostedService.QuartzService [(null)] - 启动定时job，可以在这里配置读取数据库需要启动的任务，然后启动他们
+2021-01-11 16:57:52,449 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2021-01-11 16:57:55,217 [7] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - api doc basepath:E:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\
+2021-01-11 16:57:55,240 [7] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\Infrastructure.xml
+2021-01-11 16:57:55,244 [7] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.App.xml
+2021-01-11 16:57:55,247 [7] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.Repository.xml
+2021-01-11 16:57:55,249 [7] INFO  OpenAuth.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\OpenAuth.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.WebApi.xml
+2021-01-11 16:58:49,313 [8] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (146ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 16:58:49,316 [8] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (146ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 17:18:17,553 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2021-01-11 17:18:17,737 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2021-01-11 17:18:17,802 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2021-01-11 17:18:17,820 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2021-01-11 17:18:17,838 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2021-01-11 17:18:17,855 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-01-11 17:18:17,858 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2021-01-11 17:18:17,860 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2021-01-11 17:18:18,029 [1] INFO  SysCommon.App.HostedService.QuartzService [(null)] - 启动定时job，可以在这里配置读取数据库需要启动的任务，然后启动他们
+2021-01-11 17:18:18,066 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2021-01-11 17:18:22,186 [5] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - api doc basepath:E:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\
+2021-01-11 17:18:22,207 [5] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\Infrastructure.xml
+2021-01-11 17:18:22,209 [5] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.App.xml
+2021-01-11 17:18:22,212 [5] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.Repository.xml
+2021-01-11 17:18:22,213 [5] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.WebApi.xml
+2021-01-11 17:18:22,215 [5] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.App.xml
+2021-01-11 17:18:22,218 [5] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.Repository.xml
+2021-01-11 17:18:22,222 [5] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.WebApi.xml
+2021-01-11 17:19:11,861 [5] ERROR Microsoft.EntityFrameworkCore.Database.Connection [(null)] - An error occurred using the connection to database 'SysCommonPro' on server '172.16.66.215'.
+2021-01-11 17:19:11,861 [5] ERROR Microsoft.EntityFrameworkCore.Database.Connection [(null)] - An error occurred using the connection to database 'SysCommonPro' on server '172.16.66.215'.
+2021-01-11 17:19:11,896 [5] ERROR Microsoft.EntityFrameworkCore.Update [(null)] - An exception occurred in the database while saving changes for context type 'SysCommon.Repository.SysCommonDBContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "SysCommonPro"。登录失败。
+用户 'sa' 登录失败。
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction()
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+ClientConnectionId:1005185c-bc5f-484f-a1fc-f0775b9949ed
+Error Number:4060,State:1,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "SysCommonPro"。登录失败。
+用户 'sa' 登录失败。
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction()
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+ClientConnectionId:1005185c-bc5f-484f-a1fc-f0775b9949ed
+Error Number:4060,State:1,Class:11
+2021-01-11 17:19:11,943 [5] ERROR Microsoft.EntityFrameworkCore.Update [(null)] - An exception occurred in the database while saving changes for context type 'SysCommon.Repository.SysCommonDBContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "SysCommonPro"。登录失败。
+用户 'sa' 登录失败。
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction()
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+ClientConnectionId:1005185c-bc5f-484f-a1fc-f0775b9949ed
+Error Number:4060,State:1,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): 无法打开登录所请求的数据库 "SysCommonPro"。登录失败。
+用户 'sa' 登录失败。
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction()
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+ClientConnectionId:1005185c-bc5f-484f-a1fc-f0775b9949ed
+Error Number:4060,State:1,Class:11
+2021-01-11 17:19:43,430 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (130ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 17:19:43,435 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (130ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 17:20:26,107 [5] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (47ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 17:20:26,110 [5] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (47ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 17:21:26,591 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2021-01-11 17:21:26,769 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2021-01-11 17:21:26,793 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2021-01-11 17:21:26,794 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2021-01-11 17:21:26,797 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2021-01-11 17:21:26,803 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-01-11 17:21:26,804 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2021-01-11 17:21:26,804 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2021-01-11 17:21:26,909 [1] INFO  SysCommon.App.HostedService.QuartzService [(null)] - 启动定时job，可以在这里配置读取数据库需要启动的任务，然后启动他们
+2021-01-11 17:21:26,919 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2021-01-11 17:21:29,985 [8] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - api doc basepath:E:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\
+2021-01-11 17:21:30,008 [8] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\Infrastructure.xml
+2021-01-11 17:21:30,011 [8] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.App.xml
+2021-01-11 17:21:30,014 [8] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.Repository.xml
+2021-01-11 17:21:30,015 [8] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.WebApi.xml
+2021-01-11 17:21:30,019 [8] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.App.xml
+2021-01-11 17:21:30,022 [8] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.Repository.xml
+2021-01-11 17:21:30,023 [8] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.WebApi.xml
+2021-01-11 17:21:56,347 [7] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (90ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 17:21:56,349 [7] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (90ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 17:27:51,765 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2021-01-11 17:27:52,159 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2021-01-11 17:27:52,183 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2021-01-11 17:27:52,194 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2021-01-11 17:27:52,197 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2021-01-11 17:27:52,202 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-01-11 17:27:52,206 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2021-01-11 17:27:52,211 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2021-01-11 17:27:52,339 [1] INFO  SysCommon.App.HostedService.QuartzService [(null)] - 启动定时job，可以在这里配置读取数据库需要启动的任务，然后启动他们
+2021-01-11 17:27:52,349 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2021-01-11 17:27:55,707 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - api doc basepath:E:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\
+2021-01-11 17:27:55,729 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\Infrastructure.xml
+2021-01-11 17:27:55,731 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.App.xml
+2021-01-11 17:27:55,735 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.Repository.xml
+2021-01-11 17:27:55,737 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.WebApi.xml
+2021-01-11 17:27:55,740 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.App.xml
+2021-01-11 17:27:55,743 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.Repository.xml
+2021-01-11 17:27:55,744 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.WebApi.xml
+2021-01-11 17:29:17,620 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2021-01-11 17:29:17,751 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2021-01-11 17:29:17,773 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2021-01-11 17:29:17,774 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2021-01-11 17:29:17,775 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2021-01-11 17:29:17,779 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-01-11 17:29:17,781 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2021-01-11 17:29:17,781 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2021-01-11 17:29:17,868 [1] INFO  SysCommon.App.HostedService.QuartzService [(null)] - 启动定时job，可以在这里配置读取数据库需要启动的任务，然后启动他们
+2021-01-11 17:29:17,878 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2021-01-11 17:29:22,602 [12] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - api doc basepath:E:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\
+2021-01-11 17:29:22,629 [12] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\Infrastructure.xml
+2021-01-11 17:29:22,631 [12] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.App.xml
+2021-01-11 17:29:22,634 [12] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.Repository.xml
+2021-01-11 17:29:22,636 [12] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.WebApi.xml
+2021-01-11 17:29:22,639 [12] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.App.xml
+2021-01-11 17:29:22,642 [12] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.Repository.xml
+2021-01-11 17:29:22,642 [12] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.WebApi.xml
+2021-01-11 17:29:48,086 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (70ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 17:29:48,089 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (70ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 17:31:57,024 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2021-01-11 17:31:57,155 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2021-01-11 17:31:57,176 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2021-01-11 17:31:57,177 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2021-01-11 17:31:57,178 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2021-01-11 17:31:57,182 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-01-11 17:31:57,183 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2021-01-11 17:31:57,184 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2021-01-11 17:31:57,261 [1] INFO  SysCommon.App.HostedService.QuartzService [(null)] - 启动定时job，可以在这里配置读取数据库需要启动的任务，然后启动他们
+2021-01-11 17:31:57,267 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2021-01-11 17:31:59,594 [10] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - api doc basepath:E:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\
+2021-01-11 17:31:59,610 [10] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\Infrastructure.xml
+2021-01-11 17:31:59,612 [10] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.App.xml
+2021-01-11 17:31:59,613 [10] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.Repository.xml
+2021-01-11 17:31:59,614 [10] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.WebApi.xml
+2021-01-11 17:31:59,617 [10] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.App.xml
+2021-01-11 17:31:59,619 [10] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.Repository.xml
+2021-01-11 17:31:59,620 [10] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.WebApi.xml
+2021-01-11 17:32:23,308 [7] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (66ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 17:32:23,310 [7] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (66ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 17:35:39,590 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2021-01-11 17:35:39,711 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2021-01-11 17:35:39,727 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2021-01-11 17:35:39,728 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2021-01-11 17:35:39,729 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2021-01-11 17:35:39,731 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-01-11 17:35:39,732 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2021-01-11 17:35:39,732 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2021-01-11 17:35:39,809 [1] INFO  SysCommon.App.HostedService.QuartzService [(null)] - 启动定时job，可以在这里配置读取数据库需要启动的任务，然后启动他们
+2021-01-11 17:35:39,815 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2021-01-11 17:35:42,503 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - api doc basepath:E:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\
+2021-01-11 17:35:42,523 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\Infrastructure.xml
+2021-01-11 17:35:42,525 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.App.xml
+2021-01-11 17:35:42,528 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.Repository.xml
+2021-01-11 17:35:42,529 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.WebApi.xml
+2021-01-11 17:35:42,536 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.App.xml
+2021-01-11 17:35:42,538 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.Repository.xml
+2021-01-11 17:35:42,539 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.WebApi.xml
+2021-01-11 17:37:17,364 [8] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (87ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 17:37:17,367 [8] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (87ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 17:44:38,789 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2021-01-11 17:44:38,925 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2021-01-11 17:44:38,945 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2021-01-11 17:44:38,946 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2021-01-11 17:44:38,946 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2021-01-11 17:44:38,950 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-01-11 17:44:38,951 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2021-01-11 17:44:38,951 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2021-01-11 17:44:39,054 [1] INFO  SysCommon.App.HostedService.QuartzService [(null)] - 启动定时job，可以在这里配置读取数据库需要启动的任务，然后启动他们
+2021-01-11 17:44:39,061 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2021-01-11 17:44:43,818 [8] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - api doc basepath:E:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\
+2021-01-11 17:44:43,835 [8] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\Infrastructure.xml
+2021-01-11 17:44:43,838 [8] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.App.xml
+2021-01-11 17:44:43,840 [8] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.Repository.xml
+2021-01-11 17:44:43,841 [8] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.WebApi.xml
+2021-01-11 17:44:43,844 [8] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.App.xml
+2021-01-11 17:44:43,846 [8] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.Repository.xml
+2021-01-11 17:44:43,847 [8] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.WebApi.xml
+2021-01-11 17:45:11,596 [9] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (100ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 17:45:11,599 [9] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (100ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 17:47:19,506 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Default Quartz.NET properties loaded from embedded resource file
+2021-01-11 17:47:19,643 [1] INFO  Quartz.Core.SchedulerSignalerImpl [(null)] - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2021-01-11 17:47:19,666 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Quartz Scheduler v.3.0.7.0 created.
+2021-01-11 17:47:19,667 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - JobFactory set to: Autofac.Extras.Quartz.AutofacJobFactory
+2021-01-11 17:47:19,668 [1] INFO  Quartz.Simpl.RAMJobStore [(null)] - RAMJobStore initialized.
+2021-01-11 17:47:19,670 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler meta-data: Quartz Scheduler (v3.0.7.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.DefaultThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-01-11 17:47:19,671 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2021-01-11 17:47:19,671 [1] INFO  Quartz.Impl.StdSchedulerFactory [(null)] - Quartz scheduler version: 3.0.7.0
+2021-01-11 17:47:19,752 [1] INFO  SysCommon.App.HostedService.QuartzService [(null)] - 启动定时job，可以在这里配置读取数据库需要启动的任务，然后启动他们
+2021-01-11 17:47:19,759 [1] INFO  Quartz.Core.QuartzScheduler [(null)] - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2021-01-11 17:47:24,906 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - api doc basepath:E:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\
+2021-01-11 17:47:24,922 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\Infrastructure.xml
+2021-01-11 17:47:24,925 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.App.xml
+2021-01-11 17:47:24,926 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.Repository.xml
+2021-01-11 17:47:24,927 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\OpenAuth.WebApi.xml
+2021-01-11 17:47:24,929 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.App.xml
+2021-01-11 17:47:24,930 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.Repository.xml
+2021-01-11 17:47:24,931 [7] INFO  SysCommon.WebApi.Model.StartupLogger [(null)] - find api fileE:\Work\Project\SysCommon\SysCommon.WebApi\bin\Debug\netcoreapp3.1\SysCommon.WebApi.xml
+2021-01-11 17:49:49,817 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (85ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2021-01-11 17:49:49,819 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command [(null)] - Executed DbCommand (85ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [SysLog] ([Id], [Application], [Content], [CreateId], [CreateName], [CreateTime], [Href], [Ip], [Result], [TypeId], [TypeName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);

@@ -715,7 +715,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 				var childListData = _this.queryListTreeByPid(parseData.treeId(), listData); // 根据已知数据的id判断该条数据是否还有子数据
 
 				// 3. 页面元素加载数据
-				$ul.Append(_this.getLiItemDom(parseData.treeId(), parseData.parentId(), parseData.title(), parseData.isLast(childListData.length), parseData.iconClass(), parseData.checkArr(), level, parseData.spread(level), parseData.disabled(), parseData.basicData(), parseData.recordData(), ($ul.hasClass(UL_ROOT) ? "root" : "item")));
+				$ul.append(_this.getLiItemDom(parseData.treeId(), parseData.parentId(), parseData.title(), parseData.isLast(childListData.length), parseData.iconClass(), parseData.checkArr(), level, parseData.spread(level), parseData.disabled(), parseData.basicData(), parseData.recordData(), ($ul.hasClass(UL_ROOT) ? "root" : "item")));
 				// 4.有子数据的元素加载子节点
 				if(childListData.length > 0){
 					var cLevel = parseInt(level)+1;
@@ -757,7 +757,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 				if(typeof data !== "object") continue;
 				var parseData = _this.parseData(data);
 				var children = parseData.children();
-				$ul.Append(_this.getLiItemDom(parseData.treeId(), parseData.parentId(), parseData.title(), parseData.isLast(children.length), parseData.iconClass(), parseData.checkArr(), level, parseData.spread(level), parseData.disabled(), parseData.basicData(), parseData.recordData(), ($ul.hasClass(UL_ROOT) ? "root" : "item")));
+				$ul.append(_this.getLiItemDom(parseData.treeId(), parseData.parentId(), parseData.title(), parseData.isLast(children.length), parseData.iconClass(), parseData.checkArr(), level, parseData.spread(level), parseData.disabled(), parseData.basicData(), parseData.recordData(), ($ul.hasClass(UL_ROOT) ? "root" : "item")));
 				if (children.length != 0) {
 					var cLevel = parseInt(level)+1;
 					_this.loadTree(children, cLevel, _this.obj.find("ul[data-id='"+parseData.treeId()+"']"));
@@ -1102,7 +1102,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 						ggMenu.push(_this.getExtMenubarDom(gg));
 					}
 				}
-				_this.obj.prevAll('div#dtree_menubar_'+_this.obj[0].id).children('div.layui-btn-group').Append(ggMenu.join(""));
+				_this.obj.prevAll('div#dtree_menubar_'+_this.obj[0].id).children('div.layui-btn-group').append(ggMenu.join(""));
 
 			}
 		}
@@ -1396,7 +1396,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 			_this.obj.html("");
 			// 2.遍历所有cite节点，展开当前cite节点
 			for(var i=0; i<$lis.length; i++){
-				_this.obj.Append($lis[i]);
+				_this.obj.append($lis[i]);
 			}
 		}
 		return b;
@@ -1440,7 +1440,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 		if(toolbarMenu){
 			_this.obj.prevAll('div#dtree_toolbar_'+_this.obj[0].id).find('div.layui-nav-item>dl.layui-nav-child').html("");
 			for(var key in toolbarMenu){
-				_this.obj.prevAll('div#dtree_toolbar_'+_this.obj[0].id).find('div.layui-nav-item>dl.layui-nav-child').Append(toolbarMenu[key]);
+				_this.obj.prevAll('div#dtree_toolbar_'+_this.obj[0].id).find('div.layui-nav-item>dl.layui-nav-child').append(toolbarMenu[key]);
 			}
 		}
 	}
@@ -1626,7 +1626,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 				var parseData = _this.parseData(returnID);
 
 				if(parseData.treeId()){
-					$ul.Append(_this.getLiItemDom(parseData.treeId(), parseData.parentId(), parseData.title(), parseData.isLast(0), parseData.iconClass(), parseData.checkArr(), level, parseData.spread(), parseData.disabled(), parseData.basicData(), parseData.recordData(), "item"));
+					$ul.append(_this.getLiItemDom(parseData.treeId(), parseData.parentId(), parseData.title(), parseData.isLast(0), parseData.iconClass(), parseData.checkArr(), level, parseData.spread(), parseData.disabled(), parseData.basicData(), parseData.recordData(), "item"));
 
 					// 建造完毕后，选中该DIV
 					var $addDiv = $ul.find("div[data-id='"+returnID.id+"']");
@@ -2518,7 +2518,7 @@ layui.define(['jquery','layer','form'], function(exports) {
 									}
 								}
 								
-								$ul.Append(_this.getLiItemDom(id, parentId, data.addNodeName, true, "", checkArr, level, false, false, "", "", "item"));
+								$ul.append(_this.getLiItemDom(id, parentId, data.addNodeName, true, "", checkArr, level, false, false, "", "", "item"));
 								// 先将li节点隐藏
 								$ul.find("li[data-id='"+id+"']").hide();
 								// 重新赋值

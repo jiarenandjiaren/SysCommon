@@ -1,40 +1,34 @@
-﻿/**  版本信息模板在安装目录下，可自行修改。
-*
-*
-* 功 能： 登录及与登录信息获取相关的接口（权限分配）
-* 类 名： CheckController
-*
-* Ver    变更日期             负责人 GYJ  变更内容
-* ───────────────────────────────────
-* V0.01  2020/8/31 11:51   N/A    初版
-*
-* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
-*┌──────────────────────────────────┐
-*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
-*│　版权所有：九博科技有限公司　　　　　　　　　　　　　　            │
-*└──────────────────────────────────┘
-*/
+﻿// ***********************************************************************
+// Assembly         : SysCommon.WebApi
+// Author           : yubaolee
+// Created          : 07-11-2016
+//
+// Last Modified By : yubaolee
+// Last Modified On : 07-11-2016
+// Contact :
+// File: CheckController.cs
+// 登录相关的操作
+// ***********************************************************************
 
 using Infrastructure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SysCommon.Service;
-using SysCommon.Service.Interface;
-using SysCommon.Service.Response;
-using SysCommon.Service.SSO;
-using System;
-using Microsoft.Extensions.Logging;
-using SysCommon.Service.Request;
-using System.Collections.Generic;
+using SysCommon.App;
+using SysCommon.App.Interface;
+using SysCommon.App.Response;
+using SysCommon.App.SSO;
 using SysCommon.Repository.Domain;
-using Infrastructure.Utilities;
-using Microsoft.Extensions.Caching.Memory;
-using Infrastructure.Extensions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Infrastructure.Helpers;
+using Microsoft.Extensions.Logging;
 
 namespace SysCommon.WebApi.Controllers
 {
+    /// <inheritdoc />
     /// <summary>
-    /// 登录相关及用户资源分配（权限分配）
+    /// 登录及与登录信息获取相关的接口
     /// </summary>
     [Route("api/[controller]/[action]")]
     [ApiController]
@@ -50,48 +44,18 @@ namespace SysCommon.WebApi.Controllers
             _logger = logger;
             _authStrategyContext = _authUtil.GetCurrentUser();
         }
-
-        /// <summary>
-        /// 根据token获取用户名称
-        /// </summary>
-        [HttpPost]
-        public Response<string> GetUserName()
-        {
-            var result = new Response<string>();
-            try
-            {
-                result.Result = _authStrategyContext.User.UserName;
-            }
-            catch (CommonException ex)
-            {
-                if (ex.Code == Define.INVALID_TOKEN)
-                {
-                    result.Code = ex.Code;
-                    result.Message = ex.Message;
-                }
-                else
-                {
-                    result.Code = 500;
-                    result.Message = ex.InnerException != null
-                        ? ex.InnerException.Message : ex.Message;
-                }
-
-            }
-
-            return result;
-        }
-        #region 获取登录用户资料
+        
         /// <summary>
         /// 获取登录用户资料
         /// </summary>
         /// <returns></returns>
-        [HttpPost]
-        public Response<SysUserView> GetUserProfile()
+        [HttpGet]
+        public Response<UserView> GetUserProfile()
         {
-            var resp = new Response<SysUserView>();
+            var resp = new Response<UserView>();
             try
             {
-                resp.Result = _authStrategyContext.User.MapTo<SysUserView>();
+                resp.Result = _authStrategyContext.User.MapTo<UserView>();
             }
             catch (Exception e)
             {
@@ -101,15 +65,14 @@ namespace SysCommon.WebApi.Controllers
 
             return resp;
         }
-        #endregion
-        #region 检验token是否有效
+
         /// <summary>
         /// 检验token是否有效
         /// </summary>
         /// <param name="token">The token.</param>
         /// <param name="requestid">备用参数.</param>
-        [HttpPost]
-
+        [HttpGet]
+       
         public Response<bool> GetStatus()
         {
             var result = new Response<bool>();
@@ -125,70 +88,13 @@ namespace SysCommon.WebApi.Controllers
 
             return result;
         }
-        #endregion
-        #region 获取当前登录用户可访问的字段
-        /// <summary>
-        /// 获取当前登录用户可访问的字段
-        /// </summary>
-        /// <param name="tablename">实体名称（对应数据表名称）</param>
-        /// <returns></returns>
-        [HttpPost]
-        public Response<List<KeyDescription>> GetProperties(string tablename)
-        {
-            var result = new Response<List<KeyDescription>>();
-            try
-            {
-                result.Result = _authStrategyContext.GetProperties(tablename);
-            }
-            catch (Exception ex)
-            {
-                result.Code = 500;
-                result.Message = ex.InnerException?.Message ?? ex.Message;
-            }
-
-            return result;
-        }
-        #endregion
-        #region 获取登录用户的所有可访问的组织信息
-        /// <summary>
-        /// 获取登录用户的所有可访问的组织信息
-        /// </summary>
-        [HttpPost]
-        public Response<List<SysOrg>> GetOrgs()
-        {
-            var result = new Response<List<SysOrg>>();
-            try
-            {
-                result.Result = _authStrategyContext.Orgs;
-            }
-            catch (CommonException ex)
-            {
-                if (ex.Code == Define.INVALID_TOKEN)
-                {
-                    result.Code = ex.Code;
-                    result.Message = ex.Message;
-                }
-                else
-                {
-                    result.Code = 500;
-                    result.Message = ex.InnerException != null
-                        ? "SysCommon.WebAPI数据库访问失败:" + ex.InnerException.Message
-                        : "SysCommon.WebAPI数据库访问失败:" + ex.Message;
-                }
-
-            }
-
-            return result;
-        }
-        #endregion
-        #region  获取登录用户的所有可访问的角色
         /// <summary>
         /// 获取登录用户的所有可访问的角色
         /// </summary>
-        [HttpPost]
-        public Response<List<SysRole>> GetRoles()
+        [HttpGet]
+        public Response<List<Role>> GetRoles()
         {
-            var result = new Response<List<SysRole>>();
+            var result = new Response<List<Role>>();
             try
             {
                 result.Result = _authStrategyContext.Roles;
@@ -212,19 +118,38 @@ namespace SysCommon.WebApi.Controllers
 
             return result;
         }
-        #endregion
-        #region 获取登录用户的所有可访问的模块(栏目)及按钮，以列表形式返回结果
+
         /// <summary>
-        /// 获取登录用户的所有可访问的模块(栏目)及按钮，以列表形式返回结果
+        /// 获取当前登录用户可访问的字段
         /// </summary>
-        [HttpPost]
-        [AllowAnonymous]
-        public Response<List<MenuView>> GetMenus()
+        /// <param name="moduleCode">模块的Code，如Category</param>
+        /// <returns></returns>
+        [HttpGet]
+        public Response<List<KeyDescription>> GetProperties(string moduleCode)
         {
-            var result = new Response<List<MenuView>>();
+            var result = new Response<List<KeyDescription>>();
             try
             {
-                result.Result = _authStrategyContext.Menus;
+                result.Result = _authStrategyContext.GetProperties(moduleCode);
+            }
+            catch (Exception ex)
+            {
+                result.Code = 500;
+                result.Message = ex.InnerException?.Message ?? ex.Message;
+            }
+
+            return result;
+        }
+        /// <summary>
+        /// 获取登录用户的所有可访问的组织信息
+        /// </summary>
+        [HttpGet]
+        public Response<List<Org>> GetOrgs()
+        {
+            var result = new Response<List<Org>>();
+            try
+            {
+                result.Result = _authStrategyContext.Orgs;
             }
             catch (CommonException ex)
             {
@@ -245,18 +170,51 @@ namespace SysCommon.WebApi.Controllers
 
             return result;
         }
-        #endregion
-        #region 获取登录用户的所有可访问的模块及菜单，以树状结构返回
+
         /// <summary>
-        /// 获取登录用户的所有可访问的模块及菜单，以树状结构返回
+        /// 加载机构的全部下级机构
         /// </summary>
-        [HttpPost]
-        public Response<IEnumerable<TreeItem<MenuView>>> GetModulesTree()
+        /// <param name="orgId">机构ID</param>
+        /// <returns></returns>
+        [HttpGet]
+        public TableData GetSubOrgs(string orgId)
         {
-            var result = new Response<IEnumerable<TreeItem<MenuView>>>();
+            string cascadeId = ".0.";
+            if (!string.IsNullOrEmpty(orgId))
+            {
+                var org = _authStrategyContext.Orgs.SingleOrDefault(u => u.Id == orgId);
+                if (org == null)
+                {
+                    return new TableData
+                    {
+                        msg = "未找到指定的节点",
+                        code = 500,
+                    };
+                }
+                cascadeId = org.CascadeId;
+            }
+
+            var query = _authStrategyContext.Orgs
+                .Where(u => u.CascadeId.Contains(cascadeId))
+                .OrderBy(u =>u.CascadeId);
+
+            return new TableData
+            {
+                data = query.ToList(),
+                count = query.Count(),
+            };
+        }
+
+        /// <summary>
+        /// 获取登录用户的所有可访问的模块及菜单，以列表形式返回结果
+        /// </summary>
+        [HttpGet]
+        public Response<List<ModuleView>> GetModules()
+        {
+            var result = new Response<List<ModuleView>>();
             try
             {
-                result.Result = _authStrategyContext.Menus.GenerateTree(u => u.Id, u => u.FatherId);
+                result.Result = _authStrategyContext.Modules;
             }
             catch (CommonException ex)
             {
@@ -269,72 +227,130 @@ namespace SysCommon.WebApi.Controllers
                 {
                     result.Code = 500;
                     result.Message = ex.InnerException != null
-                        ? "OpenAuth.WebAPI数据库访问失败:" + ex.InnerException.Message
-                        : "OpenAuth.WebAPI数据库访问失败:" + ex.Message;
+                        ? "SysCommon.WebAPI数据库访问失败:" + ex.InnerException.Message
+                        : "SysCommon.WebAPI数据库访问失败:" + ex.Message;
                 }
 
             }
 
             return result;
         }
-        #endregion
-        #region 登录接口
+
+        /// <summary>
+        /// 获取登录用户的所有可访问的模块及菜单，以树状结构返回
+        /// </summary>
+        [HttpGet]
+        public Response<IEnumerable<TreeItem<ModuleView>>> GetModulesTree()
+        {
+            var result = new Response<IEnumerable<TreeItem<ModuleView>>>();
+            try
+            {
+                result.Result = _authStrategyContext.Modules.GenerateTree(u => u.Id, u => u.ParentId);
+            }
+            catch (CommonException ex)
+            {
+                if (ex.Code == Define.INVALID_TOKEN)
+                {
+                    result.Code = ex.Code;
+                    result.Message = ex.Message;
+                }
+                else
+                {
+                    result.Code = 500;
+                    result.Message = ex.InnerException != null
+                        ? "SysCommon.WebAPI数据库访问失败:" + ex.InnerException.Message
+                        : "SysCommon.WebAPI数据库访问失败:" + ex.Message;
+                }
+
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 获取登录用户的所有可访问的资源
+        /// </summary>
+        [HttpGet]
+        public Response<List<Resource>> GetResources()
+        {
+            var result = new Response<List<Resource>>();
+            try
+            {
+                result.Result = _authStrategyContext.Resources;
+            }
+            catch (CommonException ex)
+            {
+                if (ex.Code == Define.INVALID_TOKEN)
+                {
+                    result.Code = ex.Code;
+                    result.Message = ex.Message;
+                }
+                else
+                {
+                    result.Code = 500;
+                    result.Message = ex.InnerException != null
+                        ? "SysCommon.WebAPI数据库访问失败:" + ex.InnerException.Message
+                        : "SysCommon.WebAPI数据库访问失败:" + ex.Message;
+                }
+               
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 根据token获取用户名称
+        /// </summary>
+        [HttpGet]
+        public Response<string> GetUserName()
+        {
+            var result = new Response<string>();
+            try
+            {
+                result.Result = _authStrategyContext.User.Account;
+            }
+            catch (CommonException ex)
+            {
+                if (ex.Code == Define.INVALID_TOKEN)
+                {
+                    result.Code = ex.Code;
+                    result.Message = ex.Message;
+                }
+                else
+                {
+                    result.Code = 500;
+                    result.Message = ex.InnerException != null
+                        ?  ex.InnerException.Message :  ex.Message;
+                }
+
+            }
+
+            return result;
+        }
+        
         /// <summary>
         /// 登录接口
         /// </summary>
         /// <param name="request">登录参数</param>
         /// <returns></returns>
         [HttpPost]
-       //[CustomAuthorize(Roles ="0999")]
         [AllowAnonymous]
-        public LoginResult Login([FromBody] PassportLoginRequest request)
+        public LoginResult Login([FromBody]PassportLoginRequest request)
         {
-            _logger.LogInformation("Login enter");
             var result = new LoginResult();
             try
             {
-                result = _authUtil.Login(request);
+                result = _authUtil.Login(request.AppKey, request.Account, request.Password);
             }
             catch (Exception ex)
             {
-                result.Code = 102;
+                result.Code = 500;
                 result.Message = ex.Message;
             }
-            return result;
-        }
-        #endregion
-        #region 获取验证码
-        /// <summary>
-        /// 生成验证码
-        /// </summary>
-        /// <returns></returns>
-        [HttpPost]
-        [AllowAnonymous]
-        public VierificationCodeResult GetVierificationCode()
-        {
-            var result = new VierificationCodeResult();
-            try
-            {
-                string code = VierificationCode.RandomText();
-                var data = new
-                {
-                    img = @"data:image/jpg;base64," + VierificationCode.CreateBase64Imgage(code),
-                    uuid = Guid.NewGuid()
-                };
-               // HttpContext.GetService<IMemoryCache>().Set(data.uuid.ToString(), code, new TimeSpan(0, 5, 0));//5分钟 -- 设置验证码的有效时间（TimeSpan(int hours, int minutes, int seconds);）
 
-                result.data = data;
-            }
-            catch (CommonException ex)
-            {
-                result.Code = 102;
-                result.message = ex.Message;
-                    
-            }
             return result;
         }
-        #endregion 
-        #region 注销登录
+
         /// <summary>
         /// 注销登录
         /// </summary>
@@ -356,6 +372,5 @@ namespace SysCommon.WebApi.Controllers
 
             return resp;
         }
-        #endregion
     }
 }

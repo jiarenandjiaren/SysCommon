@@ -3,8 +3,8 @@ using System.Reflection;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using SysCommon.Service;
-using SysCommon.Service.Interface;
+using SysCommon.App;
+using SysCommon.App.Interface;
 using SysCommon.Repository.Domain;
 
 namespace SysCommon.Mvc.Models
@@ -64,7 +64,7 @@ namespace SysCommon.Mvc.Models
                 return;
             }
 
-            var currentModule = _authUtil.GetCurrentUser().Menus.FirstOrDefault(u => u.FatherId.ToLower().Contains(Controllername));
+            var currentModule = _authUtil.GetCurrentUser().Modules.FirstOrDefault(u => u.Url.ToLower().Contains(Controllername));
             //当前登录用户没有Action记录
             if (currentModule == null)
             {

@@ -7,7 +7,7 @@ using IdentityServer4.Models;
 using IdentityServer4.Services;
 using IdentityServer4.Test;
 using Microsoft.Extensions.Logging;
-using SysCommon.Service;
+using SysCommon.App;
 using SysCommon.Repository.Domain;
 
 namespace SysCommon.IdentityServer
@@ -50,8 +50,8 @@ namespace SysCommon.IdentityServer
                     //调用此方法以后内部会进行过滤，只将用户请求的Claim加入到 context.IssuedClaims 集合中 这样我们的请求方便能正常获取到所需Claim
                     var claims = new[]
                     {
-                        new Claim(ClaimTypes.Name, user.UserName),  //请求用户的账号，这个可以保证User.Identity.Name有值
-                        new Claim(JwtClaimTypes.Name, user.UserName),  //请求用户的姓名
+                        new Claim(ClaimTypes.Name, user.Account),  //请求用户的账号，这个可以保证User.Identity.Name有值
+                        new Claim(JwtClaimTypes.Name, user.Name),  //请求用户的姓名
                     };
                     //返回apiresource中定义的claims   
                     context.AddRequestedClaims(claims);
@@ -73,21 +73,20 @@ namespace SysCommon.IdentityServer
             Logger.LogDebug("IsActive called from: {caller}", context.Caller);
 
               var user = GetUserById(context.Subject.GetSubjectId());
-            //context.IsActive = user?.Status == 0;
-            context.IsActive = user?.IsDelete == true;
+            context.IsActive = user?.Status == 0;
             return Task.CompletedTask;
         }
 
-        private SysUser GetUserById(string id)
+        private User GetUserById(string id)
         {
-            SysUser user;
+            User user;
             if (id == Define.SYSTEM_USERNAME)
             {
-                user = new SysUser
+                user = new User
                 {
-                    UserName = Define.SYSTEM_USERNAME,
+                    Account = Define.SYSTEM_USERNAME,
                     Id = Define.SYSTEM_USERNAME,
-                    //Name = Define.SYSTEM_USERNAME
+                    Name = Define.SYSTEM_USERNAME
                 };
             }
             else

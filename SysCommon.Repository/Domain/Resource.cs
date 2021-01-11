@@ -18,10 +18,11 @@ namespace SysCommon.Repository.Domain
 	/// 资源表
 	/// </summary>
     [Table("Resource")]
-    public partial class Resource : BaseEntity
+    public partial class Resource : TreeEntity
     {
         public Resource()
         {
+          this.Name= string.Empty;
           this.SortNo= 0;
           this.Description= string.Empty;
           this.AppId= string.Empty;

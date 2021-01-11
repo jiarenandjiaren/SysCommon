@@ -69,7 +69,7 @@ if (typeof jQuery === 'undefined') {
       bindType: $.support.transition.end,
       delegateType: $.support.transition.end,
       handle: function (e) {
-        if ($(e.target).is(this)) return e.handleObj.handler.Servicely(this, arguments)
+        if ($(e.target).is(this)) return e.handleObj.handler.apply(this, arguments)
       }
     }
   })
@@ -987,7 +987,7 @@ if (typeof jQuery === 'undefined') {
       var transition = $.support.transition && that.$element.hasClass('fade')
 
       if (!that.$element.parent().length) {
-        that.$element.AppendTo(that.$body) // don't move modals dom position
+        that.$element.appendTo(that.$body) // don't move modals dom position
       }
 
       that.$element
@@ -1099,7 +1099,7 @@ if (typeof jQuery === 'undefined') {
 
       this.$backdrop = $(document.createElement('div'))
         .addClass('modal-backdrop ' + animate)
-        .AppendTo(this.$body)
+        .appendTo(this.$body)
 
       this.$element.on('click.dismiss.bs.modal', $.proxy(function (e) {
         if (this.ignoreBackdropClick) {
@@ -1187,7 +1187,7 @@ if (typeof jQuery === 'undefined') {
   Modal.prototype.measureScrollbar = function () { // thx walsh
     var scrollDiv = document.createElement('div')
     scrollDiv.className = 'modal-scrollbar-measure'
-    this.$body.Append(scrollDiv)
+    this.$body.append(scrollDiv)
     var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth
     this.$body[0].removeChild(scrollDiv)
     return scrollbarWidth
@@ -1452,7 +1452,7 @@ if (typeof jQuery === 'undefined') {
         .addClass(placement)
         .data('bs.' + this.type, this)
 
-      this.options.container ? $tip.AppendTo(this.options.container) : $tip.insertAfter(this.$element)
+      this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)
       this.$element.trigger('inserted.bs.' + this.type)
 
       var pos          = this.getPosition()
@@ -1476,7 +1476,7 @@ if (typeof jQuery === 'undefined') {
 
       var calculatedOffset = this.getCalculatedOffset(placement, pos, actualWidth, actualHeight)
 
-      this.ServicelyPlacement(calculatedOffset, placement)
+      this.applyPlacement(calculatedOffset, placement)
 
       var complete = function () {
         var prevHoverState = that.hoverState
@@ -1494,7 +1494,7 @@ if (typeof jQuery === 'undefined') {
     }
   }
 
-  Tooltip.prototype.ServicelyPlacement = function (offset, placement) {
+  Tooltip.prototype.applyPlacement = function (offset, placement) {
     var $tip   = this.tip()
     var width  = $tip[0].offsetWidth
     var height = $tip[0].offsetHeight

@@ -15,6 +15,7 @@ using System.Xml.Linq;
 
 namespace Infrastructure.Extensions
 {
+
     public static class ObjectExtension
     {
 
@@ -118,7 +119,7 @@ namespace Infrastructure.Extensions
                         | BindingFlags.Instance))
                     {
                         if (!objectField.Contains(property.Name.ToLower())) { continue; }
-                        if (Reader[property.Name].IsNullOrEmpty()) { continue; }
+                        if (StringExtension.IsNullOrEmpty(Reader[property.Name])) { continue; }
                         property.SetValue(model, Reader[property.Name].ToString().ChangeType(property.PropertyType), null);
                     }
                     objectList.Add(model);
@@ -1182,7 +1183,7 @@ namespace Infrastructure.Extensions
         {
             return MobileRegex.IsMatch(mobile);
         }
-
+ 
         /// <summary>
         /// 判断当前字符串是否为邮箱
         /// </summary>

@@ -200,8 +200,8 @@
             domUtils.addClass(this.clearFloat, 'clearFloat');
 
             this.list.id = 'imageListUl';
-            this.list.AppendChild(this.clearFloat);
-            this.container.AppendChild(this.list);
+            this.list.appendChild(this.clearFloat);
+            this.container.appendChild(this.list);
         },
         /* 初始化滚动事件,滚动到地步自动拉取数据 */
         initEvents: function () {
@@ -314,8 +314,8 @@
                     img.setAttribute('_src', urlPrefix + list[i].url);
                     domUtils.addClass(icon, 'icon');
 
-                    item.AppendChild(img);
-                    item.AppendChild(icon);
+                    item.appendChild(img);
+                    item.appendChild(icon);
                     this.list.insertBefore(item, this.clearFloat);
                 }
             }

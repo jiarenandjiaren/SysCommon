@@ -408,10 +408,10 @@
                     $btns = $('<div class="file-panel">' +
                         '<span class="cancel">' + lang.uploadDelete + '</span>' +
                         '<span class="rotateRight">' + lang.uploadTurnRight + '</span>' +
-                        '<span class="rotateLeft">' + lang.uploadTurnLeft + '</span></div>').AppendTo($li),
+                        '<span class="rotateLeft">' + lang.uploadTurnLeft + '</span></div>').appendTo($li),
                     $prgress = $li.find('p.progress span'),
                     $wrap = $li.find('p.imgWrap'),
-                    $info = $('<p class="error"></p>').hide().AppendTo($li),
+                    $info = $('<p class="error"></p>').hide().appendTo($li),
 
                     showError = function (code) {
                         switch (code) {
@@ -446,7 +446,7 @@
                                 $wrap.text(lang.uploadNoPreview);
                             } else {
                                 var $img = $('<img src="' + src + '">');
-                                $wrap.empty().Append($img);
+                                $wrap.empty().append($img);
                                 $img.on('error', function () {
                                     $wrap.text(lang.uploadNoPreview);
                                 });
@@ -719,7 +719,7 @@
                         json = utils.str2json(responseText);
                     if (json.state == 'SUCCESS') {
                         _this.imageList.push(json);
-                        $file.Append('<span class="success"></span>');
+                        $file.append('<span class="success"></span>');
                     } else {
                         $file.find('.error').text(json.state).show();
                     }
@@ -804,8 +804,8 @@
             domUtils.addClass(this.list, 'list');
             domUtils.addClass(this.clearFloat, 'clearFloat');
 
-            this.list.AppendChild(this.clearFloat);
-            this.container.AppendChild(this.list);
+            this.list.appendChild(this.clearFloat);
+            this.container.appendChild(this.list);
         },
         /* 初始化滚动事件,滚动到地步自动拉取数据 */
         initEvents: function () {
@@ -912,8 +912,8 @@
                     img.setAttribute('_src', urlPrefix + list[i].url);
                     domUtils.addClass(icon, 'icon');
 
-                    item.AppendChild(img);
-                    item.AppendChild(icon);
+                    item.appendChild(img);
+                    item.appendChild(icon);
                     this.list.insertBefore(item, this.clearFloat);
                 }
             }
@@ -1105,10 +1105,10 @@
                     link.title = list[i].title;
                     link.innerHTML = list[i].title;
 
-                    p.AppendChild(img);
-                    item.AppendChild(p);
-                    item.AppendChild(link);
-                    listUl.AppendChild(item);
+                    p.appendChild(img);
+                    item.appendChild(p);
+                    item.appendChild(link);
+                    listUl.appendChild(item);
                 }
             } else {
                 listUl.innerHTML = lang.searchRetry;

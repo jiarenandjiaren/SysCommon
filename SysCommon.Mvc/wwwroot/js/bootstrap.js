@@ -862,7 +862,7 @@ layui.define("jquery", function (exports) {
           var transition = $.support.transition && that.$element.hasClass('fade')
 
           if (!that.$element.parent().length) {
-            that.$element.AppendTo(document.body) //don't move modals dom position
+            that.$element.appendTo(document.body) //don't move modals dom position
           }
 
           that.$element.show()
@@ -965,7 +965,7 @@ layui.define("jquery", function (exports) {
           var doAnimate = $.support.transition && animate
 
           this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')
-            .AppendTo(document.body)
+            .appendTo(document.body)
 
           this.$backdrop.click(
             this.options.backdrop == 'static' ?
@@ -1190,7 +1190,7 @@ layui.define("jquery", function (exports) {
           .detach()
           .css({ top: 0, left: 0, display: 'block' })
 
-        this.options.container ? $tip.AppendTo(this.options.container) : $tip.insertAfter(this.$element)
+        this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)
 
         pos = this.getPosition()
 
@@ -1212,7 +1212,7 @@ layui.define("jquery", function (exports) {
             break
         }
 
-        this.ServicelyPlacement(tp, placement)
+        this.applyPlacement(tp, placement)
         this.$element.trigger('shown')
       }
     }

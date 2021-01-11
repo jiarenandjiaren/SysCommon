@@ -22,14 +22,14 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "netcoreapp3.1"
         ],
         "sources": {
           "http://packages.nuget.org/v1/FeedService.svc/": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -40,36 +40,24 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
               "version": "[9.0.0, )"
             },
-            "Autofac": {
-              "target": "Package",
-              "version": "[5.1.2, )"
-            },
-            "CSRedisCore": {
-              "target": "Package",
-              "version": "[3.6.5, )"
-            },
             "EnyimMemcachedCore": {
               "target": "Package",
               "version": "[2.1.5, )"
             },
-            "Microsoft.AspNetCore.Mvc.Formatters.Json": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
-            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
-              "target": "Package",
-              "version": "[3.1.8, )"
-            },
             "Microsoft.Extensions.Caching.Memory": {
               "target": "Package",
               "version": "[3.1.2, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[3.1.0, )"
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
@@ -87,9 +75,9 @@
               "target": "Package",
               "version": "[12.0.3, )"
             },
-            "System.Drawing.Common": {
+            "SixLabors.ImageSharp": {
               "target": "Package",
-              "version": "[4.7.0, )"
+              "version": "[1.0.2, )"
             },
             "log4net": {
               "target": "Package",
@@ -107,9 +95,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

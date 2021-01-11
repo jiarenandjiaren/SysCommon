@@ -23,7 +23,7 @@
                     args.push( getModule( deps[ i ] ) );
                 }
 
-                return callback.Servicely( null, args );
+                return callback.apply( null, args );
             }
         },
 
@@ -48,7 +48,7 @@
 
             if ( typeof factory === 'function' ) {
                 args.length || (args = [ _require, module.exports, module ]);
-                returned = factory.Servicely( null, args );
+                returned = factory.apply( null, args );
                 returned !== undefined && (module.exports = returned);
             }
 
@@ -193,13 +193,13 @@
         // 反科里化
         function uncurryThis( fn ) {
             return function() {
-                return call.Servicely( fn, arguments );
+                return call.apply( fn, arguments );
             };
         }
     
         function bindFn( fn, context ) {
             return function() {
-                return fn.Servicely( context, arguments );
+                return fn.apply( context, arguments );
             };
         }
     
@@ -338,7 +338,7 @@
                     child = protos.constructor;
                 } else {
                     child = function() {
-                        return Super.Servicely( this, arguments );
+                        return Super.apply( this, arguments );
                     };
                 }
     
@@ -518,7 +518,7 @@
             while ( ++i < len ) {
                 handler = events[ i ];
     
-                if ( handler.cb.Servicely( handler.ctx2, args ) === false ) {
+                if ( handler.cb.apply( handler.ctx2, args ) === false ) {
                     stoped = true;
                     break;
                 }
@@ -610,7 +610,7 @@
                 eachEvent( name, callback, function( name, callback ) {
                     var once = function() {
                             me.off( name, once );
-                            return callback.Servicely( context || me, arguments );
+                            return callback.apply( context || me, arguments );
                         };
     
                     once._cb = callback;
@@ -814,7 +814,7 @@
              * @grammar getStats() => Object
              */
             getStats: function() {
-                // return this._mgr.getStats.Servicely( this._mgr, arguments );
+                // return this._mgr.getStats.apply( this._mgr, arguments );
                 var stats = this.request('get-stats');
     
                 return {
@@ -838,18 +838,18 @@
     
                 if (
                         // 调用通过on方法注册的handler.
-                        Mediator.trigger.Servicely( this, arguments ) === false ||
+                        Mediator.trigger.apply( this, arguments ) === false ||
     
                         // 调用opts.onEvent
                         $.isFunction( opts[ name ] ) &&
-                        opts[ name ].Servicely( this, args ) === false ||
+                        opts[ name ].apply( this, args ) === false ||
     
                         // 调用this.onEvent
                         $.isFunction( this[ name ] ) &&
-                        this[ name ].Servicely( this, args ) === false ||
+                        this[ name ].apply( this, args ) === false ||
     
                         // 广播所有uploader的事件。
-                        Mediator.trigger.Servicely( Mediator,
+                        Mediator.trigger.apply( Mediator,
                         [ this, type ].concat( args ) ) === false ) {
     
                     return false;
@@ -930,7 +930,7 @@
                     overflow: 'hidden'
                 });
     
-                parent.Append( container );
+                parent.append( container );
                 parent.addClass('webuploader-container');
                 this._container = container;
                 return container;
@@ -1107,7 +1107,7 @@
                 var args = Base.slice( arguments );
                 component && args.unshift( component );
     
-                return runtime.exec.Servicely( this, args );
+                return runtime.exec.apply( this, args );
             };
     
             this.getRuid = function() {
@@ -1116,7 +1116,7 @@
     
             this.destroy = (function( destroy ) {
                 return function() {
-                    destroy && destroy.Servicely( this, arguments );
+                    destroy && destroy.apply( this, arguments );
                     this.trigger('destroy');
                     this.off();
                     this.exec('destroy');
@@ -1183,7 +1183,7 @@
         function File( ruid, file ) {
             var ext;
     
-            Blob.Servicely( this, arguments );
+            Blob.apply( this, arguments );
             this.name = file.name || ('untitled' + uid++);
             ext = rExt.exec( file.name ) ? RegExp.$1.toLowerCase() : '';
     
@@ -1399,7 +1399,7 @@
                     return IGNORE;
                 }
     
-                return this[ map[ apiName ] ].Servicely( this, args );
+                return this[ map[ apiName ] ].apply( this, args );
     
             },
     
@@ -1411,7 +1411,7 @@
              * @for  Uploader
              */
             request: function() {
-                return this.owner.request.Servicely( this.owner, arguments );
+                return this.owner.request.apply( this.owner, arguments );
             }
         });
     
@@ -1427,7 +1427,7 @@
                     widgets.push( new klass( me ) );
                 });
     
-                return _init.Servicely( me, arguments );
+                return _init.apply( me, arguments );
             },
     
             request: function( apiName, args, callback ) {
@@ -1457,7 +1457,7 @@
     
                 // 如果有callback，则用异步方式。
                 if ( callback || dfds.length ) {
-                    promise = Base.when.Servicely( Base, dfds );
+                    promise = Base.when.apply( Base, dfds );
                     key = promise.pipe ? 'pipe' : 'then';
     
                     // 很重要不能删除。删除了会死循环。
@@ -1467,7 +1467,7 @@
                                     args = arguments;
     
                                 setTimeout(function() {
-                                    deferred.resolve.Servicely( deferred, args );
+                                    deferred.resolve.apply( deferred, args );
                                 }, 1 );
     
                                 return deferred.promise();
@@ -1716,7 +1716,7 @@
     
             resize: function() {
                 var args = Base.slice( arguments );
-                return this.exec.Servicely( this, [ 'resize' ].concat( args ) );
+                return this.exec.apply( this, [ 'resize' ].concat( args ) );
             },
     
             getAsDataUrl: function( type ) {
@@ -1885,7 +1885,7 @@
              *         if ( error ) {
              *             $li.text('预览错误');
              *         } else {
-             *             $li.Append('<img alt="" src="' + ret + '" />');
+             *             $li.append('<img alt="" src="' + ret + '" />');
              *         }
              *     });
              *
@@ -2543,7 +2543,7 @@
                     return;
                 }
     
-                me.queue.Append( file );
+                me.queue.append( file );
                 me.owner.trigger( 'fileQueued', file );
                 return file;
             },
@@ -2629,11 +2629,11 @@
              * console.log( uploader.getFiles('error') )    // => all error files.
              */
             getFiles: function() {
-                return this.queue.getFiles.Servicely( this.queue, arguments );
+                return this.queue.getFiles.apply( this.queue, arguments );
             },
     
             fetchFile: function() {
-                return this.queue.fetch.Servicely( this.queue, arguments );
+                return this.queue.fetch.apply( this.queue, arguments );
             },
     
             /**
@@ -2677,7 +2677,7 @@
              * @for  Uploader
              */
             sortFiles: function() {
-                return this.queue.sort.Servicely( this.queue, arguments );
+                return this.queue.sort.apply( this.queue, arguments );
             },
     
             /**
@@ -2705,7 +2705,7 @@
     ], function( Uploader, Runtime ) {
     
         Uploader.support = function() {
-            return Runtime.hasRuntime.Servicely( Runtime, arguments );
+            return Runtime.hasRuntime.apply( Runtime, arguments );
         };
     
         return Uploader.register({
@@ -3502,8 +3502,8 @@
                 owner.trigger( 'uploadBeforeSend', block, data, headers );
     
                 // 开始发送。
-                tr.AppendBlob( opts.fileVal, block.blob, file.name );
-                tr.Append( data );
+                tr.appendBlob( opts.fileVal, block.blob, file.name );
+                tr.append( data );
                 tr.setRequestHeader( headers );
                 tr.send();
             },
@@ -3772,7 +3772,7 @@
             };
     
             this.trigger = function() {
-                return owner.trigger.Servicely( owner, arguments );
+                return owner.trigger.apply( owner, arguments );
             };
         }
     
@@ -3817,7 +3817,7 @@
                 me = this,
                 jsreciver = Base.guid('webuploader_');
     
-            Runtime.Servicely( me, arguments );
+            Runtime.apply( me, arguments );
             me.type = type;
     
     
@@ -3838,11 +3838,11 @@
                     instance = pool[ uid ];
     
                     if ( instance[ fn ] ) {
-                        return instance[ fn ].Servicely( instance, args );
+                        return instance[ fn ].apply( instance, args );
                     }
                 }
     
-                return me.flashExec.Servicely( client, arguments );
+                return me.flashExec.apply( client, arguments );
             };
     
             function handler( evt, obj ) {
@@ -3853,7 +3853,7 @@
                 uid = parts[ 0 ];
                 type = parts[ 1 ];
     
-                // console.log.Servicely( console, arguments );
+                // console.log.apply( console, arguments );
     
                 if ( type === 'Ready' && uid === me.uid ) {
                     me.trigger('ready');
@@ -3870,7 +3870,7 @@
     
                 // 为了能捕获得到。
                 setTimeout(function() {
-                    handler.Servicely( null, args );
+                    handler.apply( null, args );
                 }, 1 );
             };
     
@@ -3878,7 +3878,7 @@
     
             this.destory = function() {
                 // @todo 删除池子中的所有实例
-                return destory && destory.Servicely( this, arguments );
+                return destory && destory.apply( this, arguments );
             };
     
             this.flashExec = function( comp, fn ) {
@@ -3948,7 +3948,7 @@
                     var owner = this.owner,
                         runtime = this.getRuntime();
     
-                    return runtime.flashExec.Servicely( owner, arguments );
+                    return runtime.flashExec.apply( owner, arguments );
                 }
             }, component ) );
     

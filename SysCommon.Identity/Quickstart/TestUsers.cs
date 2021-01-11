@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using IdentityModel;
 using IdentityServer4.Test;
+using SysCommon.App;
 
 namespace SysCommon.IdentityServer.Quickstart
 {
@@ -13,7 +14,7 @@ namespace SysCommon.IdentityServer.Quickstart
     {
         public static List<TestUser> Users = new List<TestUser>
         {
-            new TestUser{SubjectId = "System", Username = "System", Password = "123456", 
+            new TestUser{SubjectId = "System", Username = Define.SYSTEM_USERNAME, Password = Define.SYSTEM_USERPWD, 
                 Claims = 
                 {
                     new Claim(JwtClaimTypes.Name, "System"),

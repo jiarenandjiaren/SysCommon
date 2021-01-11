@@ -15,7 +15,7 @@ namespace SysCommon.Repository.Domain
 	/// 文件
 	/// </summary>
     [Table("UploadFile")]
-    public partial class UploadFile : BaseEntity
+    public partial class UploadFile : Entity
     {
         public UploadFile()
         {
@@ -24,6 +24,8 @@ namespace SysCommon.Repository.Domain
           this.Description= string.Empty;
           this.FileType= string.Empty;
           this.Extension= string.Empty;
+          this.SortCode= 0;
+          this.CreateUserName= string.Empty;
           this.CreateTime= DateTime.Now;
           this.Thumbnail= string.Empty;
           this.BelongApp= string.Empty;
@@ -39,17 +41,45 @@ namespace SysCommon.Repository.Domain
 	    /// </summary>
         public string FilePath { get; set; }
         /// <summary>
+	    /// 描述
+	    /// </summary>
+        public string Description { get; set; }
+        /// <summary>
 	    /// 文件类型
 	    /// </summary>
         public string FileType { get; set; }
         /// <summary>
 	    /// 文件大小
 	    /// </summary>
-        public long FileSize { get; set; }
+        public int? FileSize { get; set; }
         /// <summary>
 	    /// 扩展名称
 	    /// </summary>
         public string Extension { get; set; }
+        /// <summary>
+	    /// 是否可用
+	    /// </summary>
+        public bool Enable { get; set; }
+        /// <summary>
+	    /// 排序
+	    /// </summary>
+        public int SortCode { get; set; }
+        /// <summary>
+	    /// 删除标识
+	    /// </summary>
+        public bool DeleteMark { get; set; }
+        /// <summary>
+	    /// 上传人
+	    /// </summary>
+        public System.Guid? CreateUserId { get; set; }
+        /// <summary>
+	    /// 上传人姓名
+	    /// </summary>
+        public string CreateUserName { get; set; }
+        /// <summary>
+	    /// 上传时间
+	    /// </summary>
+        public System.DateTime CreateTime { get; set; }
         /// <summary>
 	    /// 缩略图
 	    /// </summary>

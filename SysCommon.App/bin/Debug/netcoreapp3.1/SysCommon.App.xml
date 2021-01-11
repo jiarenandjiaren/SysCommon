@@ -1,0 +1,2087 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SysCommon.App</name>
+    </assembly>
+    <members>
+        <member name="T:SysCommon.App.AppManager">
+            <summary>
+            分类管理
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.AppSetting">
+            <summary>
+            配置项
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.AppSetting.SSOPassport">
+            <summary>
+            SSO地址
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.AppSetting.Version">
+            <summary>
+            版本信息
+            如果为demo,则屏蔽Post请求
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.AppSetting.DbType">
+            <summary>
+            数据库类型 SqlServer、MySql
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.AppSetting.UploadPath">
+            <summary> 附件上传路径</summary>
+        </member>
+        <member name="T:SysCommon.App.AuthContextFactory">
+            <summary>
+             加载用户所有可访问的资源/机构/模块
+            <para>李玉宝新增于2016-07-19 10:53:30</para>
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.AuthStrategyContext">
+            <summary>
+             授权策略上下文，一个典型的策略模式
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.NormalAuthStrategy">
+            <summary>
+            普通用户授权策略
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.NormalAuthStrategy.GetProperties(System.String)">
+            <summary>
+            获取用户可访问的字段列表
+            </summary>
+            <param name="moduleCode">模块的code</param>
+            <returns></returns>
+        </member>
+        <member name="T:SysCommon.App.SystemAuthStrategy">
+            <summary>
+            领域服务
+            <para>超级管理员权限</para>
+            <para>超级管理员使用guid.empty为ID，可以根据需要修改</para>
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.AutofacExt.InitDependency(Autofac.ContainerBuilder)">
+            <summary>
+            注入所有继承了IDependency接口
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:SysCommon.App.BaseApp`2" -->
+        <member name="F:SysCommon.App.BaseApp`2.Repository">
+            <summary>
+            用于普通的数据库操作
+            </summary>
+        </member>
+        <member name="F:SysCommon.App.BaseApp`2.UnitWork">
+            <summary>
+            用于事务操作
+            <para>使用详见：http://doc.SysCommon.me/core/unitwork.html</para>
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SysCommon.App.BaseApp`2.GetDataPrivilege(System.String)" -->
+        <member name="M:SysCommon.App.BaseApp`2.Delete(System.String[])">
+            <summary>
+            按id批量删除
+            </summary>
+            <param name="ids"></param>
+        </member>
+        <member name="M:SysCommon.App.BaseApp`2.CaculateCascade``1(``0)">
+            <summary>
+            计算实体更新的层级信息
+            </summary>
+            <typeparam name="U">U必须是一个继承TreeEntity的结构</typeparam>
+            <param name="entity"></param>
+        </member>
+        <member name="T:SysCommon.App.BaseTreeApp`2">
+            <summary>
+            树状结构处理
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:SysCommon.App.BaseTreeApp`2.UpdateTreeObj``1(``0)">
+            <summary>
+            更新树状结构实体
+            </summary>
+            <param name="obj"></param>
+            <typeparam name="U"></typeparam>
+        </member>
+        <member name="M:SysCommon.App.BuilderTableApp.Load(SysCommon.App.Request.QueryBuilderTableListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.BuilderTableApp.DelTableAndcolumns(System.String[])">
+            <summary>
+            删除头和字段明细
+            </summary>
+            <param name="ids"></param>
+        </member>
+        <member name="M:SysCommon.App.BuilderTableApp.CreateEntity(SysCommon.App.Request.CreateEntityReq)">
+            <summary>
+            生成实体Model
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.BuilderTableApp.CreateBusiness(SysCommon.App.Request.CreateBusiReq)">
+            <summary>
+            创建业务逻辑层
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.BuilderTableApp.GenerateApp(SysCommon.Repository.Domain.BuilderTable)">
+            <summary>
+            创建应用层
+            </summary>
+            <param name="sysTableInfo"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:SysCommon.App.BuilderTableApp.GenerateAppReq(SysCommon.Repository.Domain.BuilderTable,System.Collections.Generic.List{SysCommon.Repository.Domain.BuilderTableColumn})">
+            <summary>
+            生成APP层的请求参数
+            </summary>
+            <param name="sysTableInfo"></param>
+            <param name="tableColumns"></param>
+        </member>
+        <member name="M:SysCommon.App.BuilderTableApp.GenerateWebApi(SysCommon.Repository.Domain.BuilderTable)">
+            <summary>
+            创建WebAPI接口
+            </summary>
+            <param name="sysTableInfo"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:SysCommon.App.BuilderTableApp.CreateEntityModel(System.Collections.Generic.List{SysCommon.Repository.Domain.BuilderTableColumn},SysCommon.Repository.Domain.BuilderTable)">
+            <summary>
+            创建实体
+            </summary>
+            <param name="tableColumns"></param>
+            <param name="sysTableInfo"></param>
+        </member>
+        <member name="M:SysCommon.App.BuilderTableApp.CheckExistsModule(System.String)">
+            <summary>
+            校验模块是否已经存在
+            </summary>
+            <param name="moduleName"></param>
+            <param name="moduleCode"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:SysCommon.App.BuilderTableApp.CreateVue(SysCommon.App.Request.CreateVueReq)">
+            <summary>
+            创建vue界面
+            </summary>
+            <param name="req"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:SysCommon.App.BuilderTableApp.CreateVueApi(SysCommon.App.Request.CreateVueReq)">
+            <summary>
+            创建vue接口
+            </summary>
+            <param name="req"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:SysCommon.App.BuilderTableColumnApp.Load(SysCommon.App.Request.QueryBuilderTableColumnListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.CategoryApp.Load(SysCommon.App.Request.QueryCategoryListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.CategoryApp.LoadByTypeId(System.String)">
+            <summary>
+            加载一个分类类型里面的所有值，即字典的所有值
+            </summary>
+            <param name="typeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.CategoryTypeApp.Load(SysCommon.App.Request.QueryCategoryTypeListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.DataPrivilegeRuleApp.Load(SysCommon.App.Request.QueryDataPrivilegeRuleListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.DbExtension.GetProperties(System.String)">
+            <summary>
+            获取数据库一个表的所有属性值及属性描述
+            </summary>
+            <param name="moduleName">模块名称/表名</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.DbExtension.GetDbEntityNames">
+            <summary>
+            获取数据库DbContext中所有的实体名称。
+            <para>注意！并不能获取数据库中的所有表</para>
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.DbExtension.GetDbTableStructure(System.String)">
+            <summary>
+            获取数据库表结构信息
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.DbExtension.GetMySqlStructure(System.String)">
+            <summary>
+            获取Mysql表结构信息
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.DbExtension.GetMysqlTableSchema">
+            <summary>
+            获取mysql当前的数据库名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.DbExtension.GetSqlServerStructure(System.String)">
+            <summary>
+            获取SqlServer表结构信息
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SysCommon.App.FileApp">
+            <summary>
+            文件管理
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.FileApp.Load(SysCommon.App.Request.QueryFileListReq)">
+            <summary>
+            加载附件列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.FileApp.Add(Microsoft.AspNetCore.Http.IFormFileCollection)">
+            <summary>
+            批量添加附件
+            </summary>
+            <param name="files"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.FileApp.Delete(System.String[])">
+            <summary>
+            删除附件
+            </summary>
+            <param name="ids"></param>
+        </member>
+        <member name="M:SysCommon.App.FileApp.SaveFile(System.String,System.Byte[])">
+            <summary>
+            存储文件，如果是图片文件则生成缩略图
+            </summary>
+            <param name="fileName"></param>
+            <param name="fileBuffers"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="T:SysCommon.App.FlowInstanceApp">
+            <summary>
+            工作流实例表操作
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.FlowInstanceApp.CreateInstance(SysCommon.App.Request.AddFlowInstanceReq)">
+            <summary>
+            创建一个实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.FlowInstanceApp.NodeVerification(System.String,SysCommon.App.Flow.Tag)">
+            <summary>
+            节点审核
+            </summary>
+            <param name="instanceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.FlowInstanceApp.NodeReject(SysCommon.App.Request.VerificationReq)">
+            <summary>
+            驳回
+            如果NodeRejectStep不为空，优先使用；否则按照NodeRejectType驳回
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.FlowInstanceApp.GetNextMakers(SysCommon.App.Flow.FlowRuntime)">
+            <summary>
+            寻找下一步的执行人
+            一般用于本节点审核完成后，修改流程实例的当前执行人，可以做到通知等功能
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.FlowInstanceApp.GetForkNodeMakers(SysCommon.App.Flow.FlowRuntime,System.String)">
+            <summary>
+            获取会签开始节点的所有可执行者
+            </summary>
+            <param name="forkNodeId">会签开始节点</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.FlowInstanceApp.GetNodeMarkers(SysCommon.App.Flow.FlowNode)">
+            <summary>
+            寻找该节点执行人
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.FlowInstanceApp.Verification(SysCommon.App.Request.VerificationReq)">
+            <summary>
+            审核流程
+            <para>李玉宝于2017-01-20 15:44:45</para>
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.FlowInstanceApp.AddTransHistory(SysCommon.App.Flow.FlowRuntime)">
+            <summary>
+            添加扭转记录
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Flow.FlowLine">
+            <summary>
+            流程连线
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.FlowLine.Compares">
+            <summary> 分支条件 </summary>
+        </member>
+        <member name="T:SysCommon.App.Flow.DataCompare">
+            <summary>
+             分支条件
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.DataCompare.Operation">
+            <summary>操作类型比如大于/等于/小于</summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.DataCompare.FieldName">
+            <summary> form种的字段名称 </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.DataCompare.FieldType">
+            <summary> 字段类型："form"：为表单中的字段，后期扩展系统表等. </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.DataCompare.Value">
+            <summary>比较的值</summary>
+        </member>
+        <member name="T:SysCommon.App.Flow.FlowNode">
+            <summary>
+            流程节点
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.FlowNode.setInfo">
+            <summary>
+            节点的附加数据项
+            </summary>
+            <value>The set information.</value>
+        </member>
+        <member name="P:SysCommon.App.Flow.Setinfo.NodeDesignate">
+            <summary>
+            节点执行权限类型
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.Setinfo.ThirdPartyUrl">
+            <summary>
+             流程执行时，三方回调的URL地址
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.Setinfo.NodeRejectType">
+            <summary>
+            驳回节点0"前一步"1"第一步"2"某一步" 3"不处理"
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.Setinfo.ConfluenceOk">
+            <summary>
+            会签通过的个数
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.Setinfo.ConfluenceNo">
+            <summary>
+            会签拒绝的个数
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Flow.Nodedesignatedata">
+            <summary>
+            节点执行人
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Flow.Tag">
+            <summary>
+            节点执行结果标签
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.Tag.Taged">
+            <summary>
+             1: 通过
+             2：不通过
+             3：驳回
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Flow.TagState">
+            <summary>
+             1: 通过
+             2：不通过
+             3：驳回
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.Flow.FlowRuntime.#ctor(SysCommon.Repository.Domain.FlowInstance)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.Flow.FlowRuntime.InitNodes(System.Object)">
+            <summary>
+            获取工作流节点的字典列表:key节点id
+            </summary>
+            <param name="schemeContentJson"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.Flow.FlowRuntime.GetNextNodeId(System.String)">
+            <summary>
+            获取下一个节点
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.Flow.FlowRuntime.GetNextNodeType">
+            <summary>
+            获取实例接下来运行的状态
+            </summary>
+            <returns>-1无法运行,0会签开始,1会签结束,2一般节点,4流程运行结束</returns>
+        </member>
+        <member name="M:SysCommon.App.Flow.FlowRuntime.GetNodeType(System.String)">
+            <summary>
+            获取节点类型 0会签开始,1会签结束,2一般节点,开始节点,4流程运行结束
+            </summary>
+            <param name="nodeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.Flow.FlowRuntime.NodeConfluence(System.String,SysCommon.App.Flow.Tag)">
+            <summary>
+            节点会签审核
+            </summary>
+            <param name="nodeId">会签时，currentNodeId是会签开始节点。这个表示当前正在处理的节点</param>
+            <param name="tag"></param>
+            <returns>-1不通过,1等待,其它通过</returns>
+        </member>
+        <member name="M:SysCommon.App.Flow.FlowRuntime.RejectNode(System.String)">
+            <summary>
+            驳回
+            </summary>
+            <param name="rejectType">驳回类型。null:使用节点配置的驳回类型/0:前一步/1:第一步/2：指定节点，使用NodeRejectStep</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.Flow.FlowRuntime.MakeTagNode(System.String,SysCommon.App.Flow.Tag)">
+            <summary>
+             标记节点1通过，-1不通过，0驳回
+             </summary>
+             <param name="nodeId"></param>
+        </member>
+        <member name="M:SysCommon.App.Flow.FlowRuntime.NotifyThirdParty(System.Net.Http.HttpClient,SysCommon.App.Flow.Tag)">
+            <summary>
+            通知三方系统，节点执行情况
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.FlowRuntime.flowInstanceId">
+            <summary>
+            运行实例的Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.FlowRuntime.startNodeId">
+            <summary>
+            开始节点的ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.FlowRuntime.currentNodeId">
+            <summary>
+            当前节点的ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.FlowRuntime.currentNodeType">
+            <summary>
+            当前节点类型 0会签开始,1会签结束,2一般节点,开始节点,4流程运行结束
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.FlowRuntime.currentNode">
+            <summary>
+            当前节点的对象
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.FlowRuntime.nextNodeId">
+            <summary>
+            下一个节点
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.FlowRuntime.nextNodeType">
+            <summary>
+            下一个节点类型 -1无法运行,0会签开始,1会签结束,2一般节点,4流程运行结束
+            </summary>
+            <value>The type of the next node.</value>
+        </member>
+        <member name="P:SysCommon.App.Flow.FlowRuntime.nextNode">
+            <summary>
+            下一个节点对象
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.FlowRuntime.previousId">
+            <summary>
+            上一个节点
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.FlowRuntime.Nodes">
+            <summary>
+            实例节点集合
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.FlowRuntime.Lines">
+            <summary>
+            流程实例中所有的线段
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.FlowRuntime.FromNodeLines">
+            <summary>
+            从节点发出的线段集合
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.FlowRuntime.ToNodeLines">
+            <summary>
+            到达节点的线段集合
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Flow.FlowRuntime.FrmData">
+            <summary>
+            表单数据
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.FormApp.Load(SysCommon.App.Request.QueryFormListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.FormUtil.GetHtml(SysCommon.App.Response.FormResp)">
+            <summary>
+            只显示编辑框
+            </summary>
+            <param name="form">The form.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:SysCommon.App.FormUtil.Preview(SysCommon.Repository.Domain.FlowInstance)">
+            <summary>
+            显示编辑框和里面的用户数据
+            </summary>
+            <param name="contentdata">The contentdata.</param>
+            <param name="contentParse">The content parse.</param>
+            <param name="frmData">The FRM data.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:SysCommon.App.FormUtil.GetSql(SysCommon.Repository.Domain.Form,System.String)">
+            功能:  创建表单数据表格（基于sql server）
+        </member>
+        <member name="M:SysCommon.App.FrmLeaveReqApp.Load(SysCommon.App.Request.QueryFrmLeaveReqListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.Interface.IAuth.CheckLogin(System.String,System.String)">
+            <summary>
+            检验token是否有效
+            </summary>
+            <param name="token">token值</param>
+            <param name="otherInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.Interface.IAuth.Login(System.String,System.String,System.String)">
+            <summary>
+            登录接口
+            </summary>
+            <param name="appKey">登录的应用appkey</param>
+            <param name="username">用户名</param>
+            <param name="pwd">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.Interface.IAuth.Logout">
+            <summary>
+            退出登录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.IAuthStrategy.GetProperties(System.String)">
+            <summary>
+            根据模块id获取可访问的模块字段
+            </summary>
+            <param name="moduleCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.ModuleManagerApp.LoadForRole(System.String)">
+            <summary>
+            加载特定角色的模块
+            </summary>
+            <param name="roleId">The role unique identifier.</param>
+        </member>
+        <member name="M:SysCommon.App.ModuleManagerApp.LoadMenusForRole(System.String,System.String)">
+            <summary>
+            根据某角色ID获取可访问某模块的菜单项
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.ModuleManagerApp.DelMenu(System.String[])">
+            <summary>
+            删除指定的菜单
+            </summary>
+            <param name="ids"></param>
+        </member>
+        <member name="M:SysCommon.App.ModuleManagerApp.AddMenu(SysCommon.Repository.Domain.ModuleElement)">
+            <summary>
+            新增菜单
+            <para>当前登录用户的所有角色会自动分配菜单</para>
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.OpenJobApp.Load(SysCommon.App.Request.QueryOpenJobListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.OpenJobApp.QueryLocalHandlers">
+            <summary>
+            返回系统的job接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.OpenJobApp.RecordRun(System.String)">
+            <summary>
+            记录任务运行结果
+            </summary>
+            <param name="jobId"></param>
+        </member>
+        <member name="M:SysCommon.App.OrgManagerApp.Add(SysCommon.Repository.Domain.Org)">
+            <summary>
+            添加部门
+            </summary>
+            <param name="org">The org.</param>
+            <returns>System.Int32.</returns>
+            <exception cref="T:System.Exception">未能找到该组织的父节点信息</exception>
+        </member>
+        <member name="M:SysCommon.App.OrgManagerApp.DelOrgCascade(System.String[])">
+            <summary>
+            删除指定ID的部门及其所有子部门
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.OrgManagerApp.LoadForUser(System.String)">
+            <summary>
+            加载特定用户的部门
+            </summary>
+            <param name="userId">The user unique identifier.</param>
+        </member>
+        <member name="T:SysCommon.App.Request.AddFlowInstanceReq">
+            <summary>
+            创建工作流请求
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddFlowInstanceReq.Code">
+            <summary>
+            实例编号
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddFlowInstanceReq.CustomName">
+            <summary>
+            自定义名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddFlowInstanceReq.SchemeContent">
+            <summary>
+            流程模板内容
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddFlowInstanceReq.SchemeId">
+            <summary>
+            流程模板ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddFlowInstanceReq.SchemeCode">
+            <summary>
+            流程模板自定义编号
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddFlowInstanceReq.DbName">
+            <summary>
+            数据库名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddFlowInstanceReq.FrmData">
+            <summary>
+            表单数据
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddFlowInstanceReq.FrmType">
+            <summary>
+            表单类型
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddFlowInstanceReq.FrmContentData">
+            <summary>
+            表单中的控件属性描述
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddFlowInstanceReq.FrmContentParse">
+            <summary>
+            表单控件位置模板
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddFlowInstanceReq.FrmId">
+            <summary>
+            表单ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddFlowInstanceReq.OrgId">
+            <summary>
+            所属部门
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddFlowInstanceReq.CreateUserId">
+            <summary>
+            创建用户主键
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddFlowInstanceReq.CreateUserName">
+            <summary>
+            创建用户
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddFlowInstanceReq.Description">
+            <summary>
+            实例备注
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq">
+            <summary>
+            代码生成器的字段信息
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.Id">
+            <summary>
+            编号
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.TableId">
+            <summary>
+            归属表编号
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.TableName">
+            <summary>
+            表名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.ColumnName">
+            <summary>
+            列名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.Comment">
+            <summary>
+            列描述
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.ColumnType">
+            <summary>
+            列类型
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.EntityType">
+            <summary>
+            实体类型
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.EntityName">
+            <summary>
+            实体名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.IsKey">
+            <summary>
+            是否主键
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.IsIncrement">
+            <summary>
+            是否自增
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.IsRequired">
+            <summary>
+            是否必填
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.IsInsert">
+            <summary>
+            是否为插入字段
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.IsEdit">
+            <summary>
+            是否编辑字段
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.IsList">
+            <summary>
+            是否列表字段
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.IsQuery">
+            <summary>
+            是否查询字段
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.QueryType">
+            <summary>
+            查询方式（等于、不等于、大于、小于、范围）
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.HtmlType">
+            <summary>
+            显示类型（文本框、文本域、下拉框、复选框、单选框、日期控件）
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.EditType">
+            <summary>
+            编辑类型（文本框、文本域、下拉框、复选框、单选框、日期控件）
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.CreateUserId">
+            <summary>
+            创建人ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.UpdateTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.UpdateUserId">
+            <summary>
+            修改人ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.EditRow">
+            <summary>
+            修改时的行位置
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.EditCol">
+            <summary>
+            修改时的列位置
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.UpdateUserName">
+            <summary>
+            修改人姓名
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.CreateUserName">
+            <summary>
+            创建人姓名
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.MaxLength">
+            <summary>
+            最大长度
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableColumnReq.DataSource">
+            <summary>
+            数据源（用于下拉框、复选框等取值）
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Request.AddOrUpdateBuilderTableReq">
+            <summary>
+            代码生成器的表信息
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableReq.Id">
+            <summary>
+            Id为空则为添加
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableReq.TableName">
+            <summary>
+            表英文全称
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableReq.Comment">
+            <summary>
+            表描述、中文名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableReq.DetailTableName">
+            <summary>
+            子表英文全称
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableReq.DetailComment">
+            <summary>
+            子表描述、中文名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableReq.ClassName">
+            <summary>
+            实体类名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableReq.Namespace">
+            <summary>
+            命名空间
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableReq.ModuleCode">
+            <summary>
+            模块标识
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableReq.ModuleName">
+            <summary>
+            模块名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableReq.Folder">
+            <summary>
+            代码相对文件夹路径
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableReq.Options">
+            <summary>
+            其它生成选项
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableReq.TypeId">
+            <summary>
+            分类ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateBuilderTableReq.TypeName">
+            <summary>
+            分类名称
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Request.AddOrUpdateCategoryReq">
+            <summary>
+            分类表，也可用作数据字典。表示一个全集，比如：男、女、未知。关联的分类类型表示按什么进行的分类，如：按照性别对人类对象集
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateCategoryReq.Name">
+            <summary>
+            分类名称或描述
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateCategoryReq.DtCode">
+            <summary>
+            分类标识
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateCategoryReq.DtValue">
+            <summary>
+            通常与分类标识一致，但万一有不一样的情况呢？
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateCategoryReq.Enable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateCategoryReq.SortNo">
+            <summary>
+            排序号
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateCategoryReq.Description">
+            <summary>
+            详细说明，基本没啥用
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateCategoryReq.TypeId">
+            <summary>
+            分类的ID
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Request.AddOrUpdateCategoryTypeReq">
+            <summary>
+            分类类型
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateCategoryTypeReq.Id">
+            <summary>
+            分类表ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateCategoryTypeReq.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateDataPriviReq.SourceCode">
+            <summary>
+            资源标识（模块编号）
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateDataPriviReq.SubSourceCode">
+            <summary>
+            二级资源标识
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateDataPriviReq.Description">
+            <summary>
+            权限描述
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateDataPriviReq.SortNo">
+            <summary>
+            排序号
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateDataPriviReq.PrivilegeRules">
+            <summary>
+            权限规则
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateDataPriviReq.Enable">
+            <summary>
+            是否可用
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Request.AddOrUpdateOpenJobReq">
+            <summary>
+            定时任务
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateOpenJobReq.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateOpenJobReq.JobName">
+            <summary>
+            任务名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateOpenJobReq.JobType">
+            <summary>
+            任务执行方式0：本地任务；1：外部接口任务
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateOpenJobReq.JobCall">
+            <summary>
+            任务地址
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateOpenJobReq.JobCallParams">
+            <summary>
+            任务参数，JSON格式
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateOpenJobReq.Cron">
+            <summary>
+            CRON表达式
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateOpenJobReq.Status">
+            <summary>
+            任务运行状态（0：停止，1：正在运行，2：暂停）
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateOpenJobReq.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Request.AddOrUpdateWmsInboundOrderDtblReq">
+            <summary>
+            入库通知单明细
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderDtblReq.Id">
+            <summary>
+            入库通知单明细号
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderDtblReq.OrderId">
+            <summary>
+            入库通知单号
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderDtblReq.Price">
+            <summary>
+            含税单价
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderDtblReq.PriceNoTax">
+            <summary>
+            无税单价
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderDtblReq.InStockStatus">
+            <summary>
+            是否收货中(0:非收货中,1:收货中)
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderDtblReq.AsnStatus">
+            <summary>
+            到货状况(SYS_GOODSARRIVESTATUS)
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderDtblReq.GoodsId">
+            <summary>
+            商品编号
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderDtblReq.GoodsBatch">
+            <summary>
+            商品批号
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderDtblReq.QualityFlg">
+            <summary>
+            品质(SYS_QUALITYFLAG)
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderDtblReq.OrderNum">
+            <summary>
+            通知数量
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderDtblReq.InNum">
+            <summary>
+            到货数量
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderDtblReq.LeaveNum">
+            <summary>
+            剩余数量
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderDtblReq.HoldNum">
+            <summary>
+            占用数量
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderDtblReq.ProdDate">
+            <summary>
+            生产日期
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderDtblReq.ExpireDate">
+            <summary>
+            失效日期
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderDtblReq.TaxRate">
+            <summary>
+            税率
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderDtblReq.OwnerId">
+            <summary>
+            货主编号
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderDtblReq.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Request.AddOrUpdateWmsInboundOrderTblReq">
+            <summary>
+            入库通知单（入库订单）
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderTblReq.Id">
+            <summary>
+            入库通知单号
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderTblReq.ExternalNo">
+            <summary>
+            相关单据号
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderTblReq.ExternalType">
+            <summary>
+            相关单据类型
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderTblReq.Status">
+            <summary>
+            入库通知单状态(SYS_INSTCINFORMSTATUS)
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderTblReq.OrderType">
+            <summary>
+            入库类型(SYS_INSTCTYPE)
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderTblReq.GoodsType">
+            <summary>
+            商品类别
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderTblReq.PurchaseNo">
+            <summary>
+            采购单号
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderTblReq.StockId">
+            <summary>
+            仓库编号
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderTblReq.OwnerId">
+            <summary>
+            货主编号(固定值CQM)
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderTblReq.ShipperId">
+            <summary>
+            承运人编号
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderTblReq.SupplierId">
+            <summary>
+            供应商编号
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderTblReq.ScheduledInboundTime">
+            <summary>
+            预定入库时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderTblReq.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderTblReq.Enable">
+            <summary>
+            有效标志
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderTblReq.TransferType">
+            <summary>
+            承运方式
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderTblReq.InBondedArea">
+            <summary>
+            是否入保税库(0:否,1:是)
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderTblReq.ReturnBoxNum">
+            <summary>
+            销退箱数
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AddOrUpdateWmsInboundOrderTblReq.OrgId">
+            <summary>
+            所属部门
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Request.AssignDataReq">
+            <summary>
+            为角色分配数据字段权限
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AssignDataReq.RoleId">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AssignDataReq.ModuleCode">
+            <summary>
+            模块的Code,比如Category/Resource
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AssignDataReq.Properties">
+            <summary>
+            字段名称列表
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Request.AssignOrgUsers">
+            <summary>
+            部门分配用户
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AssignOrgUsers.OrgId">
+            <summary>
+            部门id
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AssignOrgUsers.UserIds">
+            <summary>
+            用户id列表
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Request.AssignReq">
+            <summary>
+            比如给用户分配资源，那么firstId就是用户ID，secIds就是资源ID列表
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AssignReq.type">
+            <summary>
+            分配的关键字，比如：UserRole
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AssignReq.firstId">
+            <summary>
+            比如给用户分配角色，那么firstId就是用户ID，secIds就是角色ID列表
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Request.AssignRoleUsers">
+            <summary>
+            角色分配用户
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AssignRoleUsers.RoleId">
+            <summary>
+            角色id
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.AssignRoleUsers.UserIds">
+            <summary>
+            用户id列表
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.ChangeJobStatusReq.Id">
+            <summary>
+            任务ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.ChangeJobStatusReq.Status">
+            <summary>
+            改变任务状态
+            0：停止；1：启动（任务变成正在运行）
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.ChangeProfileReq.Name">
+            <summary>
+            用户姓名
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.ChangeProfileReq.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Request.CreateBusiReq">
+            <summary>
+            代码生成器的表信息
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.CreateBusiReq.Id">
+            <summary>
+            代码生成模版Id
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Request.CreateEntityReq">
+            <summary>
+            代码生成器的表信息
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.CreateEntityReq.Id">
+            <summary>
+            代码生成模版Id
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Request.CreateVueReq">
+            <summary>
+            代码生成器的表信息
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.CreateVueReq.Id">
+            <summary>
+            代码生成模版Id
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.CreateVueReq.VueProjRootPath">
+            <summary>
+            vue项目所在的根目录，如：D:\SysCommon.Pro\Client
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.QueryBuilderTableColumnListReq.BuilderTableId">
+            <summary>
+            头表ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.QueryCategoryListReq.TypeId">
+            <summary>
+            TypeID
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.QueryFlowInstanceHistoryReq.FlowInstanceId">
+            <summary>
+            流程实体名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.QueryResourcesReq.appId">
+            <summary>
+            TypeID
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.QueryWmsInboundOrderDtblListReq.InboundOrderId">
+            <summary>
+            入库订单号
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Request.UpdateUserReq">
+            <summary>
+            添加或修改用户信息的请求
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.UpdateUserReq.Id">
+            <summary>
+            用户ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Request.UpdateUserReq.Account">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Request.UpdateUserReq.Password">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Request.UpdateUserReq.Name">
+            <summary>
+            用户姓名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Request.UpdateUserReq.Sex">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Request.UpdateUserReq.Status">
+            <summary>
+            当前状态
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Request.UpdateUserReq.OrganizationIds">
+            <summary>
+            所属组织Id，多个可用，分隔
+            </summary>
+            <value>The organizations.</value>
+        </member>
+        <member name="P:SysCommon.App.Request.VerificationReq.VerificationFinally">
+            <summary>
+            1:同意；2：不同意；3：驳回
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.VerificationReq.VerificationOpinion">
+            <summary>
+            审核意见
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.VerificationReq.NodeRejectStep">
+            <summary>
+            驳回的步骤，即驳回到的节点ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Request.VerificationReq.NodeRejectType">
+            <summary>
+            驳回类型。null:使用节点配置的驳回类型/0:前一步/1:第一步/2：指定节点，使用NodeRejectStep
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.ResourceApp">
+            <summary>
+            分类管理
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.FlowVerificationResp.FrmPreviewHtml">
+            <summary>
+            预览表单数据
+            </summary>
+            <value>The FRM data HTML.</value>
+        </member>
+        <member name="T:SysCommon.App.Response.FormResp">
+            <summary>
+            表单模板表
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.FormResp.Id">
+            <summary>
+            表单名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.FormResp.Name">
+            <summary>
+            表单名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.FormResp.Fields">
+            <summary>
+            字段个数
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.FormResp.FrmType">
+            <summary>
+            表单类型，0：默认动态表单；1：Web自定义表单
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.FormResp.WebId">
+            <summary>
+            系统页面标识，当表单类型为用Web自定义的表单时，需要标识加载哪个页面
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.FormResp.ContentData">
+            <summary>
+            表单中的字段数据
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.FormResp.ContentParse">
+            <summary>
+            表单替换的模板 经过处理
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.FormResp.Content">
+            <summary>
+            表单原html模板未经处理的
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.FormResp.SortCode">
+            <summary>
+            排序码
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.FormResp.DbName">
+            <summary>
+            数据库名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.FormResp.Html">
+            <summary>
+            用户显示
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Response.ModuleElementVM">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.ModuleElementVM.Id">
+            <summary>
+            用户ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Response.ModuleElementVM.DomId">
+            <summary>
+            DOM ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Response.ModuleElementVM.Name">
+            <summary>
+            组织名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Response.ModuleElementVM.ModuleName">
+            <summary>
+            所属模块名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.ModuleElementVM.Accessed">
+            <summary>
+            授权状态
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.ModuleView.Id">
+            <summary>
+            ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Response.ModuleView.CascadeId">
+            <summary>
+            节点语义ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.ModuleView.Name">
+            <summary>
+            名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Response.ModuleView.Url">
+            <summary>
+            主页面URL
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Response.ModuleView.ParentId">
+            <summary>
+            父节点流水号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Response.ModuleView.ParentName">
+            <summary>
+            父节点流水号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Response.ModuleView.IconName">
+            <summary>
+            节点图标文件名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Response.ModuleView.Status">
+            <summary>
+            当前状态，0：正常，-1：隐藏，不在导航列表中显示
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.ModuleView.SortNo">
+            <summary>
+            排序号
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.ModuleView.Elements">
+            <summary>
+            模块中的元素
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.RoleView.Id">
+            <summary>
+            用户ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Response.RoleView.Name">
+            <summary>
+            名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Response.RoleView.Status">
+            <summary>
+            当前状态
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.RoleView.Type">
+            <summary>
+            角色类型
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.RoleView.Checked">
+             <summary>
+            是否属于某用户 
+             </summary>
+        </member>
+        <member name="T:SysCommon.App.Response.TableData">
+            <summary>
+            table的返回数据
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.TableData.code">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.TableData.msg">
+            <summary>
+            操作消息
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.TableData.count">
+            <summary>
+            总记录条数
+            </summary>
+        </member>
+        <member name="F:SysCommon.App.Response.TableData.columnHeaders">
+            <summary>
+             返回的列表头信息
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.TableData.data">
+            <summary>
+            数据内容
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Response.TableResp`1">
+            <summary>
+            返回确定类型的表格数据，可以为swagger提供精准的注释
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.TableResp`1.code">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.TableResp`1.msg">
+            <summary>
+            操作消息
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.TableResp`1.count">
+            <summary>
+            总记录条数
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.TableResp`1.data">
+            <summary>
+            数据内容
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.TableResp`1.columnHeaders">
+            <summary>
+             返回的列表头信息
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.Response.UserView.Id">
+            <summary>
+            用户ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Response.UserView.Account">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Response.UserView.Name">
+            <summary>
+            组织名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Response.UserView.Sex">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Response.UserView.Status">
+            <summary>
+            当前状态
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Response.UserView.Type">
+            <summary>
+            组织类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Response.UserView.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SysCommon.App.Response.UserView.CreateUser">
+            <summary>
+            创建人名字
+            </summary>
+            <value>The create user.</value>
+        </member>
+        <member name="P:SysCommon.App.Response.UserView.Organizations">
+            <summary>
+            所属组织名称，多个可用，分隔
+            </summary>
+            <value>The organizations.</value>
+        </member>
+        <member name="M:SysCommon.App.RevelanceManagerApp.Assign(SysCommon.App.Request.AssignReq)">
+            <summary>
+            添加关联
+            <para>比如给用户分配资源，那么firstId就是用户ID，secIds就是资源ID列表</para>
+            </summary>
+            <param name="type">关联的类型，如Define.USERRESOURCE</param>
+        </member>
+        <member name="M:SysCommon.App.RevelanceManagerApp.Assign(System.String,System.Linq.ILookup{System.String,System.String})">
+            <summary>
+            添加关联，需要人工删除以前的关联
+            </summary>
+            <param name="key"></param>
+            <param name="idMaps"></param>
+        </member>
+        <member name="M:SysCommon.App.RevelanceManagerApp.UnAssign(SysCommon.App.Request.AssignReq)">
+            <summary>
+            取消关联
+            </summary>
+            <param name="type">关联的类型，如Define.USERRESOURCE</param>
+            <param name="firstId">The first identifier.</param>
+            <param name="secIds">The sec ids.</param>
+        </member>
+        <member name="M:SysCommon.App.RevelanceManagerApp.DeleteBy(System.String,System.Linq.ILookup{System.String,System.String})">
+            <summary>
+            删除关联
+            </summary>
+            <param name="key">关联标识</param>
+            <param name="idMaps">关联的&lt;firstId, secondId&gt;数组</param>
+        </member>
+        <member name="M:SysCommon.App.RevelanceManagerApp.Get(System.String,System.Boolean,System.String[])">
+            <summary>
+            根据关联表的一个键获取另外键的值
+            </summary>
+            <param name="key">映射标识</param>
+            <param name="returnSecondIds">返回的是否为映射表的第二列，如果不是则返回第一列</param>
+            <param name="ids">已知的ID列表</param>
+            <returns>List&lt;System.String&gt;.</returns>
+        </member>
+        <member name="M:SysCommon.App.RevelanceManagerApp.Get(System.String,System.String,System.String)">
+            <summary>
+            根据key ,firstId,secondId获取thirdId
+            </summary>
+            <param name="key"></param>
+            <param name="firstId"></param>
+            <param name="secondId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.RevelanceManagerApp.AssignData(SysCommon.App.Request.AssignDataReq)">
+            <summary>
+            分配数据字段权限
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:SysCommon.App.RevelanceManagerApp.UnAssignData(SysCommon.App.Request.AssignDataReq)">
+            <summary>
+            取消数据字段分配
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:SysCommon.App.RevelanceManagerApp.AssignRoleUsers(SysCommon.App.Request.AssignRoleUsers)">
+            <summary>
+            为角色分配用户，需要统一提交，会删除以前该角色的所有用户
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:SysCommon.App.RevelanceManagerApp.AssignOrgUsers(SysCommon.App.Request.AssignOrgUsers)">
+            <summary>
+            为部门分配用户，需要统一提交，会删除以前该部门的所有用户
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:SysCommon.App.RoleApp.Load(SysCommon.App.Request.QueryRoleListReq)">
+            <summary>
+            加载当前登录用户可访问的全部角色
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.RoleApp.Add(SysCommon.App.Response.RoleView)">
+            <summary>
+            添加角色，如果当前登录用户不是System，则直接把新角色分配给当前登录用户
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.RoleApp.Update(SysCommon.App.Response.RoleView)">
+            <summary>
+            更新角色属性
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="T:SysCommon.App.SSO.AppInfo">
+            <summary>
+            应用程序信息
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.SSO.LocalAuth">
+            <summary>
+            使用本地登录。这个注入IAuth时，只需要SysCommon.Mvc一个项目即可，无需webapi的支持
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.SSO.LocalAuth.GetToken">
+            <summary>
+            如果是Identity，则返回信息为用户账号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.SSO.LocalAuth.GetCurrentUser">
+            <summary>
+            获取当前登录的用户信息
+            <para>通过URL中的Token参数或Cookie中的Token</para>
+            </summary>
+            <param name="account">The account.</param>
+            <returns>LoginUserVM.</returns>
+        </member>
+        <member name="M:SysCommon.App.SSO.LocalAuth.GetUserName(System.String)">
+            <summary>
+            获取当前登录的用户名
+            <para>通过URL中的Token参数或Cookie中的Token</para>
+            </summary>
+            <param name="otherInfo">The account.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:SysCommon.App.SSO.LocalAuth.Login(System.String,System.String,System.String)">
+            <summary>
+            登录接口
+            </summary>
+            <param name="appKey">应用程序key.</param>
+            <param name="username">用户名</param>
+            <param name="pwd">密码</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:SysCommon.App.SSO.LocalAuth.Logout">
+            <summary>
+            注销，如果是Identity登录，需要在controller处理注销逻辑
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.SSO.UserAuthSession.Account">
+            <summary>
+            用户账号
+            </summary>
+        </member>
+        <member name="P:SysCommon.App.SSO.UserAuthSession.Name">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.SysLogApp.Load(SysCommon.App.Request.QuerySysLogListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.SysMessageApp.Load(SysCommon.App.Request.QuerySysMessageListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="T:SysCommon.App.Test.TestAccessObjs">
+            <summary>
+            测试分配权限
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.Test.TestBase.GetService">
+            <summary>
+            测试框架默认只注入了缓存Cache，配置Option；
+            如果在测试的过程中需要模拟登录用户，cookie等信息，需要重写该方法，可以参考TestFlow的写法
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.Test.TestDataPrivilege.LoadData">
+            <summary>
+            测试资源列表的权限控制
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.Test.TestOrgApp.TestDel">
+            <summary>
+            测试删除华东、中部片区
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.Test.TestUserApp.TestValidation">
+            <summary>
+            测试添加用户时，数据校验。
+            因为请求数据没有Account，Name等，该测试会提示异常
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.UserManagerApp.Load(SysCommon.App.Request.QueryUserListReq)">
+            <summary>
+            加载当前登录用户可访问的一个部门及子部门全部用户
+            如果请求的request.OrgId为空，则可以获取到已被删除机构的用户（即：没有分配任何机构的用户）
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.UserManagerApp.Delete(System.String[])">
+            <summary>
+            删除用户,包含用户与组织关系、用户与角色关系
+            </summary>
+            <param name="ids"></param>
+        </member>
+        <member name="M:SysCommon.App.UserManagerApp.ChangePassword(SysCommon.App.Request.ChangePasswordReq)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:SysCommon.App.UserManagerApp.LoadByRole(SysCommon.App.Request.QueryUserListByRoleReq)">
+            <summary>
+            获取指定角色包含的用户列表
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.UserManagerApp.LoadByOrg(SysCommon.App.Request.QueryUserListByOrgReq)">
+            <summary>
+            获取指定机构包含的用户列表
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.App.UserManagerApp.ChangeProfile(SysCommon.App.Request.ChangeProfileReq)">
+            <summary>
+            修改用户资料
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:SysCommon.App.WmsInboundOrderDtblApp.Load(SysCommon.App.Request.QueryWmsInboundOrderDtblListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="M:SysCommon.App.WmsInboundOrderTblApp.Load(SysCommon.App.Request.QueryWmsInboundOrderTblListReq)">
+            <summary>
+            加载列表
+            </summary>
+        </member>
+        <member name="T:SysCommon.Repository.Domain.AddOrUpdateResReq">
+            <summary>
+            资源表
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.CascadeId">
+            <summary>
+            节点语义ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.SortNo">
+            <summary>
+            排序号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.ParentName">
+            <summary>
+            父节点名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.ParentId">
+            <summary>
+            父节点流ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.AppId">
+            <summary>
+            资源所属应用ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.AppName">
+            <summary>
+            所属应用名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.TypeName">
+            <summary>
+            分类名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.TypeId">
+            <summary>
+            分类ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.AddOrUpdateResReq.Disable">
+            <summary>
+            是否可用
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,10 +1,10 @@
 ﻿using Infrastructure;
-using SysCommon.Service;
+using SysCommon.App;
 using System;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using SysCommon.Service.Interface;
-using SysCommon.Service.Response;
+using SysCommon.App.Interface;
+using SysCommon.App.Response;
 using SysCommon.Repository.Domain;
 using System.Collections.Generic;
 

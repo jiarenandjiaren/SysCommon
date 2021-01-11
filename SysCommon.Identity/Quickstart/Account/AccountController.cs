@@ -15,7 +15,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SysCommon.Service;
+using SysCommon.App;
 using SysCommon.Repository.Domain;
 
 namespace SysCommon.IdentityServer.Quickstart.Account
@@ -106,12 +106,12 @@ namespace SysCommon.IdentityServer.Quickstart.Account
 
             if (ModelState.IsValid)
             {
-                SysUser user;
+                User user;
                 if (model.Username == Define.SYSTEM_USERNAME && model.Password == Define.SYSTEM_USERPWD)
                 {
-                    user = new SysUser
+                    user = new User
                     {
-                        UserName = Define.SYSTEM_USERNAME,
+                        Account = Define.SYSTEM_USERNAME,
                         Password = Define.SYSTEM_USERPWD,
                         Id = Define.SYSTEM_USERNAME
                     };
@@ -123,7 +123,7 @@ namespace SysCommon.IdentityServer.Quickstart.Account
 
                 if (user != null &&(user.Password ==model.Password))
                 {
-                    if (user.IsDelete)   //判断用户状态
+                    if (user.Status != 0)   //判断用户状态
                     {
                         await _events.RaiseAsync(new UserLoginFailureEvent(model.Username, "invalid user status"));
                         ModelState.AddModelError(string.Empty, "user.status must be 0");
@@ -131,7 +131,7 @@ namespace SysCommon.IdentityServer.Quickstart.Account
                         return View(err);
                     }
 
-                    await _events.RaiseAsync(new UserLoginSuccessEvent(user.UserName, user.Id, user.UserName));
+                    await _events.RaiseAsync(new UserLoginSuccessEvent(user.Account, user.Id, user.Account));
 
                     // only set explicit expiration here if user chooses "remember me". 
                     // otherwise we rely upon expiration configured in cookie middleware.
@@ -146,7 +146,7 @@ namespace SysCommon.IdentityServer.Quickstart.Account
                     };
 
                     // issue authentication cookie with subject ID and username
-                    await HttpContext.SignInAsync(user.Id, user.UserName, props);
+                    await HttpContext.SignInAsync(user.Id, user.Account, props);
 
                     if (context != null)
                     {

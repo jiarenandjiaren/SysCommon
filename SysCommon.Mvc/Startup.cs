@@ -1,5 +1,7 @@
 ﻿using System.IO;
 using Autofac;
+using Infrastructure.Extensions;
+using Infrastructure.Extensions.AutofacManager;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http;
@@ -8,8 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
-using SysCommon.Service;
-using SysCommon.Service.HostedService;
+using SysCommon.App;
+using SysCommon.App.HostedService;
 using SysCommon.Mvc.Models;
 using SysCommon.Repository;
 
@@ -49,6 +51,9 @@ namespace SysCommon.Mvc
                             NameClaimType = "name",
                             RoleClaimType = "role",
                         };
+                        
+                        options.NonceCookie.SameSite = SameSiteMode.Unspecified;
+                        options.CorrelationCookie.SameSite = SameSiteMode.Unspecified;
                     });
             }
 
@@ -118,6 +123,9 @@ namespace SysCommon.Mvc
             }
 
             app.UseStaticFiles();
+            
+            //配置ServiceProvider
+            AutofacContainerModule.ConfigServiceProvider(app.ApplicationServices);
 
             app.UseRouting();
 

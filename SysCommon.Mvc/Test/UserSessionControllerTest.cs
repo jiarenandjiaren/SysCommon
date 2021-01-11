@@ -23,9 +23,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using NUnit.Framework;
-using SysCommon.Service;
-using SysCommon.Service.SSO;
-using SysCommon.Service.Test;
+using SysCommon.App;
+using SysCommon.App.SSO;
+using SysCommon.App.Test;
 using SysCommon.Mvc.Controllers;
 
 namespace SysCommon.Mvc.Test

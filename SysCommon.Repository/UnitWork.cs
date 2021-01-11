@@ -1,23 +1,51 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using SysCommon.Repository.Core;
 using SysCommon.Repository.Interface;
 using Z.EntityFramework.Plus;
 
 namespace SysCommon.Repository
 {
-   public  class UnitWork: IUnitWork
+   public  class UnitWork<TDbContext>: IUnitWork<TDbContext> where TDbContext: DbContext
    {
-       private SysCommonDBContext _context;
+       private TDbContext _context;
 
-       public UnitWork(SysCommonDBContext context)
+       public UnitWork(TDbContext context)
        {
            _context = context;
        }
-       public SysCommonDBContext GetDbContext()
+
+       /// <summary>
+       /// EF默认情况下，每调用一次SaveChanges()都会执行一个单独的事务
+       /// 本接口实现在一个事务中可以多次执行SaveChanges()方法
+       /// </summary>
+       public void ExecuteWithTransaction(Action action)
+       {
+           using (IDbContextTransaction transaction = _context.Database.BeginTransaction())
+           {
+               try
+               {
+                   action();
+                   transaction.Commit();
+               }
+               catch (Exception ex)
+               {
+                   transaction.Rollback();
+                   throw ex;
+               }
+           }
+       }
+
+       /// <summary>
+       /// 返回DbContext,用于多线程等极端情况
+       /// </summary>
+       public DbContext GetDbContext()
        {
            return _context;
        }
@@ -31,7 +59,7 @@ namespace SysCommon.Repository
             return Filter(exp);
         }
 
-        public bool IsExist<T>(Expression<Func<T, bool>> exp) where T : class
+        public bool Any<T>(Expression<Func<T, bool>> exp) where T : class
         {
             return _context.Set<T>().Any(exp);
         }
@@ -39,7 +67,7 @@ namespace SysCommon.Repository
         /// <summary>
         /// 查找单个
         /// </summary>
-        public T FindSingle<T>(Expression<Func<T, bool>> exp) where T:class 
+        public T FirstOrDefault<T>(Expression<Func<T, bool>> exp) where T:class 
         {
             return _context.Set<T>().AsNoTracking().FirstOrDefault(exp);
         }
@@ -62,29 +90,34 @@ namespace SysCommon.Repository
         /// <summary>
         /// 根据过滤条件获取记录数
         /// </summary>
-        public int GetCount<T>(Expression<Func<T, bool>> exp = null) where T : class
+        public int Count<T>(Expression<Func<T, bool>> exp = null) where T : class
         {
             return Filter(exp).Count();
         }
 
-        public void Add<T>(T entity) where T : Entity
+        /// <summary>
+        /// 新增对象，如果Id为空，则会自动创建默认Id
+        /// </summary>
+        public void Add<T>(T entity) where T : BaseEntity
         {
-            if (string.IsNullOrEmpty(entity.Id))
+            if (entity.KeyIsNull())
             {
-                entity.Id = Guid.NewGuid().ToString();
+                entity.GenerateDefaultKeyVal();
             }
             _context.Set<T>().Add(entity);
         }
 
         /// <summary>
-        /// 批量添加
+        /// 批量新增对象，如果对象Id为空，则会自动创建默认Id
         /// </summary>
-        /// <param name="entities">The entities.</param>
-        public void BatchAdd<T>(T[] entities) where T : Entity
+        public void BatchAdd<T>(T[] entities) where T : BaseEntity
         {
             foreach (var entity in entities)
             {
-                entity.Id = Guid.NewGuid().ToString();
+                if (entity.KeyIsNull())
+                {
+                    entity.GenerateDefaultKeyVal();
+                }
             }
             _context.Set<T>().AddRange(entities);
         }
@@ -101,6 +134,7 @@ namespace SysCommon.Repository
             }
 
         }
+
         public void Delete<T>(T entity) where T:class
         {
             _context.Set<T>().Remove(entity);
@@ -108,30 +142,51 @@ namespace SysCommon.Repository
 
         /// <summary>
         /// 实现按需要只更新部分更新
-        /// <para>如：Update(u =>u.Id==1,u =>new User{Name="ok"});</para>
+        /// <para>如：Update&lt;User&gt;(u =>u.Id==1,u =>new User{Name="ok"})</para>
+        /// <para>该方法内部自动调用了SaveChanges()，需要ExecuteWithTransaction配合才能实现事务控制</para>
         /// </summary>
-        /// <param name="where">The where.</param>
-        /// <param name="entity">The entity.</param>
+        /// <param name="where">更新条件</param>
+        /// <param name="entity">更新后的实体</param>
         public void Update<T>(Expression<Func<T, bool>> where, Expression<Func<T, T>> entity) where T:class
         {
             _context.Set<T>().Where(where).Update(entity);
         }
 
+        /// <summary>
+        /// 批量删除
+        /// <para>该方法内部自动调用了SaveChanges()，需要ExecuteWithTransaction配合才能实现事务控制</para>
+        /// </summary>
         public virtual void Delete<T>(Expression<Func<T, bool>> exp) where T : class
         {
-            _context.Set<T>().RemoveRange(Filter(exp));
+            _context.Set<T>().Where(exp).Delete();
         }
 
         public void Save()
         {
-            //try
-            //{
+            try
+            {
+                var entities = _context.ChangeTracker.Entries()
+                    .Where(e => e.State == EntityState.Added
+                                || e.State == EntityState.Modified)
+                    .Select(e => e.Entity);
+
+                foreach (var entity in entities)
+                {
+                    var validationContext = new ValidationContext(entity);
+                    Validator.ValidateObject(entity, validationContext, validateAllProperties: true);
+                }
+
                 _context.SaveChanges();
-            //}
-            //catch (DbEntityValidationException e)
-            //{
-            //    throw new Exception(e.EntityValidationErrors.First().ValidationErrors.First().ErrorMessage);
-            //}
+            }
+            catch (ValidationException exc)
+            {
+                Console.WriteLine($"{nameof(Save)} validation exception: {exc?.Message}");
+                throw (exc.InnerException as Exception ?? exc);
+            }
+            catch (Exception ex) //DbUpdateException 
+            {
+                throw (ex.InnerException as Exception ?? ex);
+            }
           
         }
 
@@ -157,5 +212,74 @@ namespace SysCommon.Repository
        {
            return _context.Query<T>().FromSqlRaw(sql, parameters);
        }
+       
+        #region 异步实现
+        
+        /// <summary>
+        /// 异步执行sql
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public async Task<int> ExecuteSqlRawAsync(string sql)
+        {
+            return await _context.Database.ExecuteSqlRawAsync(sql);
+        }
+        
+       
+        /// <summary>
+        /// 异步保存
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public async Task<int> SaveAsync()
+        {
+            try
+            {
+                var entities = _context.ChangeTracker.Entries()
+                    .Where(e => e.State == EntityState.Added
+                                || e.State == EntityState.Modified)
+                    .Select(e => e.Entity);
+
+                foreach (var entity in entities)
+                {
+                    var validationContext = new ValidationContext(entity);
+                    Validator.ValidateObject(entity, validationContext, validateAllProperties: true);
+                }
+
+                return await _context.SaveChangesAsync();
+            }
+            catch (ValidationException exc)
+            {
+                Console.WriteLine($"{nameof(Save)} validation exception: {exc?.Message}");
+                throw (exc.InnerException as Exception ?? exc);
+            }
+            catch (Exception ex) //DbUpdateException 
+            {
+                throw (ex.InnerException as Exception ?? ex);
+            }
+        }
+        
+        /// <summary>
+        /// 根据过滤条件获取记录数
+        /// </summary>
+        public async Task<int> CountAsync<T>(Expression<Func<T, bool>> exp = null) where T : class
+        {
+            return await Filter(exp).CountAsync();
+        }
+        
+        public async Task<bool> AnyAsync<T>(Expression<Func<T, bool>> exp) where T : class
+        {
+            return await _context.Set<T>().AnyAsync(exp);
+        }
+
+        /// <summary>
+        /// 查找单个，且不被上下文所跟踪
+        /// </summary>
+        public async Task<T> FirstOrDefaultAsync<T>(Expression<Func<T, bool>> exp) where T : class
+        {
+            return await _context.Set<T>().AsNoTracking().FirstOrDefaultAsync(exp);
+        }
+
+        #endregion
     }
 }

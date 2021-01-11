@@ -10,56 +10,45 @@ using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
-using SysCommon.Service;
+using SysCommon.App;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace SysCommon.WebApi.Model
 {
-    //public class GlobalHttpHeaderOperationFilter : IOperationFilter
-    //{
-    //    private IOptions<AppSetting> _appConfiguration;
+    public class GlobalHttpHeaderOperationFilter : IOperationFilter
+    {
+        private IOptions<AppSetting> _appConfiguration;
 
-    //    public GlobalHttpHeaderOperationFilter(IOptions<AppSetting> appConfiguration)
-    //    {
-    //        _appConfiguration = appConfiguration;
-    //    }
+        public GlobalHttpHeaderOperationFilter(IOptions<AppSetting> appConfiguration)
+        {
+            _appConfiguration = appConfiguration;
+        }
 
-    //    public void Apply(OpenApiOperation operation, OperationFilterContext context)
-    //    {
-    //        //如果是Identity认证方式，不需要界面添加x-token得输入框
-    //        if (_appConfiguration.Value.IsIdentityAuth)
-    //            return;
+        public void Apply(OpenApiOperation operation, OperationFilterContext context)
+        {
+            //如果是Identity认证方式，不需要界面添加x-token得输入框
+            if (_appConfiguration.Value.IsIdentityAuth)
+                return;
 
-    //        if (operation.Parameters == null)
-    //        {
-    //            operation.Parameters = new List<OpenApiParameter>();
-    //        }
+            if (operation.Parameters == null)
+            {
+                operation.Parameters = new List<OpenApiParameter>();
+            }
 
-    //        var actionAttrs = context.ApiDescription.ActionDescriptor.EndpointMetadata;
-    //        var isAnony = actionAttrs.Any(a => a.GetType() == typeof(AllowAnonymousAttribute));
+            var actionAttrs = context.ApiDescription.ActionDescriptor.EndpointMetadata;
+            var isAnony = actionAttrs.Any(a => a.GetType() == typeof(AllowAnonymousAttribute));
 
-    //        //不是匿名，则添加默认的X-Token
-    //        if (!isAnony)
-    //        {
-    //            operation.Parameters.Add(new OpenApiParameter
-    //            {
-    //                Name = Define.TOKEN_NAME,  
-    //                In = ParameterLocation.Header,
-    //                Description = "当前登录用户登录token",
-    //                Required = false
-    //            });
-
-
-
-
-    //            operation.Parameters.Add( new OpenApiParameter()
-    //            {
-    //                Description = "JWT授权token前面需要加上字段Bearer与一个空格,如Bearer token",
-    //                Name = "Authorization",
-    //                In = ParameterLocation.Header,
-    //                Required = false
-    //            });
-    //        }
-    //    }
-    //}
+            //不是匿名，则添加默认的X-Token
+            if (!isAnony)
+            {
+                operation.Parameters.Add(new OpenApiParameter
+                {
+                    Name = Define.TOKEN_NAME,  
+                    In = ParameterLocation.Header,
+                    Description = "当前登录用户登录token",
+                    Required = false
+                });
+            }
+        }
+    }
 }

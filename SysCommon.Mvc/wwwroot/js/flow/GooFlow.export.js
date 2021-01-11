@@ -389,7 +389,7 @@
                 catch(e){
                     //生成一个下载链接并点击
                     var base64 = canvas.toDataURL('image/png');  //将画布内的信息导出为png图片数据
-                    $('body').Append('<img src="'+base64+'" id="aaaa" name="fileName">');
+                    $('body').append('<img src="'+base64+'" id="aaaa" name="fileName">');
                     var oPop=window.open("",'_blank');
                     for (; oPop.document.readyState !== "complete";) {
                         if (oPop.document.readyState === "complete") break;
@@ -408,7 +408,7 @@
                     var a = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
                     a.href = canvas.toDataURL('image/png');  //将画布内的信息导出为png图片数据
                     a.download = fileName+".png";  //设定下载名称
-                    document.body.AppendChild(a);
+                    document.body.appendChild(a);
                     a.click(); //点击触发下载
                     document.body.removeChild(a);
                 };

@@ -19,9 +19,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Infrastructure;
-using SysCommon.Service;
-using SysCommon.Service.Interface;
-using SysCommon.Service.Response;
+using Infrastructure.Helpers;
+using SysCommon.App;
+using SysCommon.App.Interface;
+using SysCommon.App.Response;
 using SysCommon.Repository.Domain;
 
 namespace SysCommon.Mvc.Controllers
@@ -116,7 +117,7 @@ namespace SysCommon.Mvc.Controllers
         /// </summary>
         public string GetOrgs()
         {
-             var resp = new Response<List<SysOrg>>();
+             var resp = new Response<List<Org>>();
             try
             {
                 resp.Result = _authStrategyContext.Orgs;

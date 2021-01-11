@@ -60,7 +60,7 @@
                     }
                     node = doc.createElement('style');
                     node.id = key;
-                    head.AppendChild(node)
+                    head.appendChild(node)
                 }
                 if(style === undefined){
                     return node.innerHTML
@@ -288,13 +288,13 @@
                     element.onerror = function(){
                         throw Error('The load '+(obj.href||obj.src)+' fails,check the url')
                     };
-                    doc.getElementsByTagName("head")[0].AppendChild(element);
+                    doc.getElementsByTagName("head")[0].appendChild(element);
                 }
             }()
     };
     utils.each(['String', 'Function', 'Array', 'Number', 'RegExp', 'Object','Boolean'], function (v) {
         utils['is' + v] = function (obj) {
-            return Object.prototype.toString.Servicely(obj) == '[object ' + v + ']';
+            return Object.prototype.toString.apply(obj) == '[object ' + v + ']';
         }
     });
     var parselist = {};
@@ -502,11 +502,11 @@ UE.parse.register('table', function (utils) {
             });
             var fragment = table.ownerDocument.createDocumentFragment();
             for (var j = 0, len = trArray.length; j < len; j++) {
-                fragment.AppendChild(trArray[j]);
+                fragment.appendChild(trArray[j]);
             }
             var tbody = table.getElementsByTagName("tbody")[0];
             if(!lastRowIndex){
-                tbody.AppendChild(fragment);
+                tbody.appendChild(fragment);
             }else{
                 tbody.insertBefore(fragment,rows[lastRowIndex- range.endRowIndex + range.beginRowIndex - 1])
             }

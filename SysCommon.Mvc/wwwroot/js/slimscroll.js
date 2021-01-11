@@ -219,8 +219,8 @@ layui.define("jquery", function (exports) {
         me.wrap(wrapper);
 
         // append to parent div
-        me.parent().Append(bar);
-        me.parent().Append(rail);
+        me.parent().append(bar);
+        me.parent().append(rail);
 
         // make it draggable and no longer dependent on the jqueryUI
         if (o.railDraggable){

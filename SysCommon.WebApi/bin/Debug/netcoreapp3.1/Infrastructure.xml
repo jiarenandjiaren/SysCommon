@@ -53,171 +53,6 @@
             <param name="key">缓存项key</param>
             <returns>true成功,false失败</returns>
         </member>
-        <member name="T:Infrastructure.CommonHelper">
-            <summary>
-            常用公共类
-            </summary>
-        </member>
-        <member name="M:Infrastructure.CommonHelper.TimerStart">
-            <summary>
-            计时器开始
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Infrastructure.CommonHelper.TimerEnd(System.Diagnostics.Stopwatch)">
-            <summary>
-            计时器结束
-            </summary>
-            <param name="watch"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Infrastructure.CommonHelper.RemoveDup(System.String[])">
-            <summary>
-            删除数组中的重复项
-            </summary>
-            <param name="values"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Infrastructure.CommonHelper.CreateNo">
-            <summary>
-            自动生成编号  201008251145409865
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Infrastructure.CommonHelper.RndNum(System.Int32)">
-            <summary>
-            生成0-9随机数
-            </summary>
-            <param name="codeNum">生成长度</param>
-            <returns></returns>
-        </member>
-        <member name="M:Infrastructure.CommonHelper.DelLastComma(System.String)">
-            <summary>
-            删除最后结尾的一个逗号
-            </summary>
-        </member>
-        <member name="M:Infrastructure.CommonHelper.DelLastChar(System.String,System.String)">
-            <summary>
-            删除最后结尾的指定字符后的字符
-            </summary>
-        </member>
-        <member name="M:Infrastructure.CommonHelper.DelLastLength(System.String,System.Int32)">
-            <summary>
-            删除最后结尾的长度
-            </summary>
-            <param name="str"></param>
-            <param name="Length"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Infrastructure.Const.Secret">
-            <summary>
-            加密对应密钥Key
-            </summary>
-        </member>
-        <member name="P:Infrastructure.Const.Secret.User">
-            <summary>
-            用户密码加密key
-            </summary>
-        </member>
-        <member name="P:Infrastructure.Const.Secret.DB">
-            <summary>
-            数据库加密key
-            </summary>
-        </member>
-        <member name="P:Infrastructure.Const.Secret.Redis">
-            <summary>
-            redis加密key
-            </summary>
-        </member>
-        <member name="P:Infrastructure.Const.Secret.JWT">
-            <summary>
-            jwt加密key
-            </summary>
-        </member>
-        <member name="F:Infrastructure.Const.Secret.ExportFile">
-            <summary>
-            导出文件加密key
-            </summary>
-        </member>
-        <member name="M:Infrastructure.ConvertJsonExtension.String2Json(System.String)">
-            <summary>
-            过滤特殊字符
-            </summary>
-            <param name="s">字符串</param>
-            <returns>json字符串</returns>
-        </member>
-        <member name="M:Infrastructure.ConvertJsonExtension.StringFormat(System.String,System.Type)">
-            <summary>
-            格式化字符型、日期型、布尔型
-            </summary>
-            <param name="str"></param>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Infrastructure.ConvertJsonExtension.ListToJson``1(System.Collections.Generic.IList{``0})">
-            <summary>
-            list转换为Json
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="list"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Infrastructure.ConvertJsonExtension.ListToJson``1(System.Collections.Generic.IList{``0},System.String)">
-            <summary>
-            list转换为json
-            </summary>
-            <typeparam name="T1"></typeparam>
-            <param name="list"></param>
-            <param name="p"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Infrastructure.ConvertJsonExtension.ToJson(System.Object)">
-            <summary>
-            对象转换为json
-            </summary>
-            <param name="jsonObject">json对象</param>
-            <returns>json字符串</returns>
-        </member>
-        <member name="M:Infrastructure.ConvertJsonExtension.ToJson(System.Collections.IEnumerable)">
-            <summary>
-            对象集合转换为json
-            </summary>
-            <param name="array">对象集合</param>
-            <returns>json字符串</returns>
-        </member>
-        <member name="M:Infrastructure.ConvertJsonExtension.ToArrayString(System.Collections.IEnumerable)">
-            <summary>    
-            普通集合转换Json   
-            </summary>   
-            <param name="array">集合对象</param> 
-            <returns>Json字符串</returns>  
-        </member>
-        <member name="M:Infrastructure.ConvertJsonExtension.ToJson(System.Data.DataSet)">
-            <summary>    
-            DataSet转换为Json   
-            </summary>    
-            <param name="dataSet">DataSet对象</param>   
-            <returns>Json字符串</returns>    
-        </member>
-        <member name="M:Infrastructure.ConvertJsonExtension.ToJson(System.Data.DataTable)">
-            <summary>     
-            Datatable转换为Json     
-            </summary>    
-            <param name="table">Datatable对象</param>     
-            <returns>Json字符串</returns>     
-        </member>
-        <member name="M:Infrastructure.ConvertJsonExtension.ToJson(System.Data.DataTable,System.String)">
-            <summary>    
-            DataTable转换为Json     
-            </summary>    
-        </member>
-        <member name="M:Infrastructure.ConvertJsonExtension.ReaderJson(System.Data.IDataReader)">
-            <summary>     
-            DataReader转换为Json     
-            </summary>     
-            <param name="dataReader">DataReader对象</param>     
-            <returns>Json字符串</returns>  
-        </member>
         <member name="M:Infrastructure.DynamicLinq.GenerateBody``1(System.Linq.Expressions.ParameterExpression,Infrastructure.Filter)">
             <summary>
             创建linq表达示的body部分
@@ -281,28 +116,424 @@
             <param name="decryptString"></param>
             <returns></returns>
         </member>
-        <member name="M:Infrastructure.Extensions.HttpContextExtension.Request(Microsoft.AspNetCore.Http.HttpContext,System.String)">
+        <!-- Badly formed XML comment ignored for member "T:Infrastructure.Extensions.AutofacManager.AutofacContainerModule" -->
+        <member name="T:Infrastructure.Extensions.AutofacManager.IDependency">
             <summary>
-            获取Request值
+            所有AutoFac注入的基类
             </summary>
-            <param name="context"></param>
-            <param name="parameter"></param>
+        </member>
+        <member name="M:Infrastructure.Extensions.ConvertJsonExtension.String2Json(System.String)">
+            <summary>
+            过滤特殊字符
+            </summary>
+            <param name="s">字符串</param>
+            <returns>json字符串</returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.ConvertJsonExtension.StringFormat(System.String,System.Type)">
+            <summary>
+            格式化字符型、日期型、布尔型
+            </summary>
+            <param name="str"></param>
+            <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:Infrastructure.Extensions.HttpContextExtension.IsAjaxRequest(Microsoft.AspNetCore.Http.HttpContext)">
+        <member name="M:Infrastructure.Extensions.ConvertJsonExtension.ListToJson``1(System.Collections.Generic.IList{``0})">
             <summary>
-            是否为ajax请求
+            list转换为Json
             </summary>
-            <param name="request"></param>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
             <returns></returns>
         </member>
-        <member name="M:Infrastructure.Extensions.HttpContextExtension.GetRequestParameters(Microsoft.AspNetCore.Http.HttpContext)">
+        <member name="M:Infrastructure.Extensions.ConvertJsonExtension.ListToJson``1(System.Collections.Generic.IList{``0},System.String)">
             <summary>
-            获取请求的参数
-            net core 2.0已增加回读方法 context.Request.EnableRewind();
+            list转换为json
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <param name="list"></param>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.ConvertJsonExtension.ToJson(System.Object)">
+            <summary>
+            对象转换为json
+            </summary>
+            <param name="jsonObject">json对象</param>
+            <returns>json字符串</returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.ConvertJsonExtension.ToJson(System.Collections.IEnumerable)">
+            <summary>
+            对象集合转换为json
+            </summary>
+            <param name="array">对象集合</param>
+            <returns>json字符串</returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.ConvertJsonExtension.ToArrayString(System.Collections.IEnumerable)">
+            <summary>    
+            普通集合转换Json   
+            </summary>   
+            <param name="array">集合对象</param> 
+            <returns>Json字符串</returns>  
+        </member>
+        <member name="M:Infrastructure.Extensions.ConvertJsonExtension.ToJson(System.Data.DataSet)">
+            <summary>    
+            DataSet转换为Json   
+            </summary>    
+            <param name="dataSet">DataSet对象</param>   
+            <returns>Json字符串</returns>    
+        </member>
+        <member name="M:Infrastructure.Extensions.ConvertJsonExtension.ToJson(System.Data.DataTable)">
+            <summary>     
+            Datatable转换为Json     
+            </summary>    
+            <param name="table">Datatable对象</param>     
+            <returns>Json字符串</returns>     
+        </member>
+        <member name="M:Infrastructure.Extensions.ConvertJsonExtension.ToJson(System.Data.DataTable,System.String)">
+            <summary>    
+            DataTable转换为Json     
+            </summary>    
+        </member>
+        <member name="M:Infrastructure.Extensions.ConvertJsonExtension.ReaderJson(System.Data.IDataReader)">
+            <summary>     
+            DataReader转换为Json     
+            </summary>     
+            <param name="dataReader">DataReader对象</param>     
+            <returns>Json字符串</returns>  
+        </member>
+        <member name="M:Infrastructure.Extensions.DateTimeExtension.UnixTicks(System.DateTime)">
+            <summary>
+            实现由C# 的时间到 Javascript 的时间的转换
+            returns the number of milliseconds since Jan 1, 1970 (useful for converting C# dates to JS dates)  
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.DateTimeExtension.ConvertTime(System.Int64)">
+            <summary>
+            将毫秒值转成 C#  DateTime 类型
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Infrastructure.Extensions.EntityProperties.GetExpressionProperty``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})" -->
+        <member name="M:Infrastructure.Extensions.EntityProperties.GetAtrrNames(System.Type)">
+            <summary>
+            获取所有字段的名称 
+            </summary>
+            <param name="typeinfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.EntityProperties.GetColumnType(System.Reflection.PropertyInfo,System.Boolean)">
+            <summary>
+            返回属性的字段及数据库类型
+            </summary>
+            <param name="property"></param>
+            <param name="lenght">是否包括后字段具体长度:nvarchar(100)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.EntityProperties.GetArraySql(System.Object[],Infrastructure.Extensions.FieldType)">
+            <summary>
             
             </summary>
-            <param name="context"></param>
+            <param name="array">将数组转换成sql语句</param>
+            <param name="fieldType">指定FieldType数据库字段类型</param>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.EntityProperties.GetArraySql(System.Object[],Infrastructure.Extensions.FieldType,System.String)">
+             <summary>
+            <param name="sql">要执行的sql语句如：通过EntityToSqlTempName.Temp_Insert0.ToString()字符串占位，生成的的sql语句会把EntityToSqlTempName.Temp_Insert0.ToString()替换成生成的sql临时表数据
+                string sql = " ;DELETE FROM " + typeEntity.Name + " where " + typeEntity.GetKeyName() +
+                  " in (select * from " + EntityToSqlTempName.Temp_Insert0.ToString() + ")";
+             </param>
+             </summary>
+             <param name="array"></param>
+             <param name="fieldType">指定生成的数组值的类型</param>
+             <param name="sql"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.EntityProperties.GetFieldType(System.Type)">
+            <summary>
+            根据实体获取key的类型，用于update或del操作
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.EntityProperties.GetDataTableSql(System.Data.DataTable)">
+             <summary>
+            此方法适用于数据量少,只有几列数据，不超过1W行，或几十列数据不超过1000行的情况下使用
+             大批量的数据考虑其他方式
+             將datatable生成sql語句，替換datatable作為參數傳入存儲過程
+             </summary>
+             <param name="table"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.EntityProperties.GetKeyName(System.Reflection.PropertyInfo[],System.Boolean)">
+            <summary>
+            获取key列名
+            </summary>
+            <param name="properties"></param>
+            <param name="keyType">true获取key对应类型,false返回对象Key的名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.EntityProperties.GetKeyProperty(System.Type)">
+            <summary>
+            获取主键字段
+            </summary>
+            <param name="propertyInfo"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Infrastructure.Extensions.EntityProperties.ContainsCustomAttributes(System.Reflection.PropertyInfo,System.Type)" -->
+        <member name="M:Infrastructure.Extensions.EntityProperties.GetTypeCustomAttributes(System.Reflection.PropertyInfo,System.Type,System.Boolean@)">
+            <summary>
+            获取PropertyInfo指定属性
+            </summary>
+            <param name="propertyInfo"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.EntityProperties.ValidationEntityList``1(System.Collections.Generic.List{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            验证集合的属性
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="entityList"></param>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.EntityProperties.ValidationEntity``1(``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            指定需要验证的字段
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="entity"></param>
+            <param name="expression">对指定属性进行验证x=>{x.Name,x.Size}</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.EntityProperties.ValidationEntity``1(``0,System.String[],System.String[])">
+            <summary>
+            specificProperties=null并且validateProperties=null，对所有属性验证，只验证其是否合法，不验证是否为空(除属性标识指定了不能为空外)
+            specificProperties!=null，对指定属性校验，并且都必须有值
+            null并且validateProperties!=null，对指定属性校验，不判断是否有值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="entity"></param>
+            <param name="specificProperties">验证指定的属性，并且非空判断</param>
+            <param name="validateProperties">验证指定属性，只对字段合法性判断，不验证是否为空</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.EntityProperties.GetSqlDbType(System.Reflection.PropertyInfo)">
+            <summary>
+            获取数据库类型，不带长度，如varchar(100),只返回的varchar
+            </summary>
+            <param name="propertyInfo"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Infrastructure.Extensions.EntityProperties.ValidationValueForDbType(System.Reflection.PropertyInfo,System.Object[])" -->
+        <member name="M:Infrastructure.Extensions.EntityProperties.ValidationVal(System.String,System.Object,System.Reflection.PropertyInfo)">
+            <summary>
+            验证数据库字段类型与值是否正确，
+            </summary>
+            <param name="dbType">数据库字段类型(如varchar,nvarchar,decimal,不要带后面长度如:varchar(50))</param>
+            <param name="value">值</param>
+            <param name="propertyInfo">要验证的类的属性，若不为null，则会判断字符串的长度是否正确</param>
+            <returns>(bool, string, object)bool成否校验成功,string校验失败信息,object,当前校验的值</returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.EntityProperties.ValidationProperty(System.Reflection.PropertyInfo,System.Object,System.Boolean)">
+            <summary>
+            验证每个属性的值是否正确
+            </summary>
+            <param name="propertyInfo"></param>
+            <param name="objectVal">属性的值</param>
+            <param name="required">是否指定当前属性必须有值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.EntityProperties.GetTypeCustomAttributes(System.Reflection.MemberInfo,System.Type)">
+            <summary>
+            获取属性的指定属性
+            </summary>
+            <param name="propertyInfo"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.EntityProperties.GetTypeCustomAttributes(System.Type,System.Type)">
+            <summary>
+            获取类的指定属性
+            </summary>
+            <param name="propertyInfo"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Infrastructure.Extensions.EntityProperties.GetTypeCustomValues``1(System.Reflection.MemberInfo,System.Linq.Expressions.Expression{System.Func{``0,System.Object}})" -->
+        <!-- Badly formed XML comment ignored for member "M:Infrastructure.Extensions.EntityProperties.GetTypeCustomValue``1(System.Reflection.MemberInfo,System.Linq.Expressions.Expression{System.Func{``0,System.Object}})" -->
+        <member name="M:Infrastructure.Extensions.EntityProperties.ValidateDicInEntity(System.Type,System.Collections.Generic.Dictionary{System.String,System.Object},System.Boolean,System.String[])">
+            <summary>
+            判断hash的列是否为对应的实体，并且值是否有效
+            </summary>
+            <param name="typeinfo"></param>
+            <param name="dic"></param>
+            <param name="removeNotContains">移除不存在字段</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.EntityProperties.ValidateDicInEntity(System.Type,System.Collections.Generic.Dictionary{System.String,System.Object},System.Reflection.PropertyInfo[],System.Boolean,System.Boolean,System.String[])">
+            <summary>
+            判断hash的列是否为对应的实体，并且值是否有效
+            </summary>
+            <param name="typeinfo"></param>
+            <param name="dic"></param>
+            <param name="removeNotContains">移除不存在字段</param>
+            <param name="removerKey">移除主键</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Infrastructure.Extensions.EntityProperties.MapToObject``2(``0,System.Linq.Expressions.Expression{System.Func{``1,System.Object}},System.Linq.Expressions.Expression{System.Func{``0,System.Object}})" -->
+        <member name="M:Infrastructure.Extensions.EntityProperties.MapValueToEntity``2(``0,``1,System.Linq.Expressions.Expression{System.Func{``1,System.Object}})">
+            <summary>
+            将一个实体的赋到另一个实体上,应用场景：
+            两个实体，a a1= new a();b b1= new b();  a1.P=b1.P; a1.Name=b1.Name;
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="source"></param>
+            <param name="result"></param>
+            <param name="expression">指定对需要的字段赋值,格式x=>new {x.Name,x.P},返回的结果只会对Name与P赋值</param>
+        </member>
+        <member name="T:Infrastructure.Extensions.GenericExtension">
+            <summary>
+            泛型扩展
+            </summary>
+        </member>
+        <member name="M:Infrastructure.Extensions.GenericExtension.ToDictionary``1(``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            将实体指定的字段写入字典
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t"></param>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.LambdaExtensions.TakePage``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
+            <summary>
+            分页查询
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="queryable"></param>
+            <param name="page"></param>
+            <param name="size"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.LambdaExtensions.TakeOrderByPage``1(System.Linq.IQueryable{``0},System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.Dictionary{System.Object,Infrastructure.Const.QueryOrderBy}}})">
+            <summary>
+            分页查询
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="queryable"></param>
+            <param name="page"></param>
+            <param name="size"></param>
+            <param name="orderBy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.LambdaExtensions.True``1">
+            <summary>
+            创建lambda表达式：p=>true
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.LambdaExtensions.False``1">
+            <summary>
+            创建lambda表达式：p=>false
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.LambdaExtensions.GetExpression``2(System.String)">
+            <summary>
+            创建lambda表达式：p=>p.propertyName
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.LambdaExtensions.GetFun``2(System.String)">
+            <summary>
+            创建委托有返回值的表达式：p=>p.propertyName
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Infrastructure.Extensions.LambdaExtensions.GetExpression``2(System.String,System.Linq.Expressions.ParameterExpression)" -->
+        <!-- Badly formed XML comment ignored for member "M:Infrastructure.Extensions.LambdaExtensions.GetExpression``1(System.String)" -->
+        <member name="M:Infrastructure.Extensions.LambdaExtensions.CreateExpression``1(System.String,System.Object,Infrastructure.Const.LinqExpressionType)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="propertyName">字段名</param>
+            <param name="propertyValue">表达式的值</param>
+            <param name="expressionType">创建表达式的类型,如:p=>p.propertyName != propertyValue 
+            p=>p.propertyName.Contains(propertyValue)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.LambdaExtensions.CreateExpression``1(System.String,System.Object,System.Linq.Expressions.ParameterExpression,Infrastructure.Const.LinqExpressionType)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="propertyName">字段名</param>
+            <param name="propertyValue">表达式的值</param>
+            <param name="expressionType">创建表达式的类型,如:p=>p.propertyName != propertyValue 
+            p=>p.propertyName.Contains(propertyValue)</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Infrastructure.Extensions.LambdaExtensions.GetExpressionToPair``1(System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.Dictionary{System.Object,Infrastructure.Const.QueryOrderBy}}})" -->
+        <!-- Badly formed XML comment ignored for member "M:Infrastructure.Extensions.LambdaExtensions.GetExpressionToDic``1(System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.Dictionary{System.Object,Infrastructure.Const.QueryOrderBy}}})" -->
+        <member name="M:Infrastructure.Extensions.LambdaExtensions.GetIQueryableOrderBy``1(System.Linq.IQueryable{``0},System.Collections.Generic.Dictionary{System.String,Infrastructure.Const.QueryOrderBy})">
+            <summary>
+            解析多字段排序
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <param name="queryable"></param>
+            <param name="orderBySelector">string=排序的字段,bool=true降序/false升序</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Infrastructure.Extensions.LambdaExtensions.GetExpressionToArray``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})" -->
+        <!-- Badly formed XML comment ignored for member "M:Infrastructure.Extensions.LambdaExtensions.And``1(System.Collections.Generic.List{Infrastructure.Extensions.ExpressionParameters})" -->
+        <member name="M:Infrastructure.Extensions.LambdaExtensions.Or``1(System.Collections.Generic.List{Infrastructure.Extensions.ExpressionParameters})">
+            <summary>
+            同上面and用法相同
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="listExpress"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.LambdaExtensions.And``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            https://blogs.msdn.microsoft.com/meek/2008/05/02/linq-to-entities-combining-predicates/
+            表达式合并(合并生产的sql语句有性能问题)
+            合并两个where条件，如：多个查询条件时，判断条件成立才where
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Infrastructure.Extensions.LambdaExtensions.CreateMemberInitExpression``2(System.Type)" -->
+        <member name="M:Infrastructure.Extensions.LambdaExtensions.GetGenericProperties(System.Type)">
+            <summary>
+            属性判断待完
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.LambdaExtensions.GetGenericProperties(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo})">
+            <summary>
+            属性判断待完
+            </summary>
+            <param name="properties"></param>
             <returns></returns>
         </member>
         <member name="M:Infrastructure.Extensions.ObjectExtension.ReaderToDictionaryList(System.Data.IDataReader)">
@@ -776,10 +1007,34 @@
             <param name="decryptKey">解密密钥,要求为16位,和加密密钥相同</param> 
             <returns>解密成功返回解密后的字符串，失败返源串</returns> 
         </member>
-        <member name="T:Infrastructure.Extensions.StaticHttpContextExtensions">
+        <member name="M:Infrastructure.Extensions.ServerExtension.MapPath(System.String)">
             <summary>
-             配置HttpContext
+            返回的路径后面不带/，拼接时需要自己加上/
             </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.ServerExtension.MapPath(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+            <param name="rootPath">获取wwwroot路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.StringExtension.ReplacePath(System.String)">
+            <summary>
+            自动调整windows/linux下面文件目录斜杠的处理
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Extensions.StringExtension.ToCamelCase(System.String)">
+            <summary>
+            把一个字符串转成驼峰规则的字符串
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
         </member>
         <member name="M:Infrastructure.Extensions.StringExtension.GetTimeStamp(System.DateTime)">
             <summary>
@@ -865,31 +1120,6 @@
             <param name="length"></param>
             <returns></returns>
         </member>
-        <member name="M:Infrastructure.FileHelper.Write(System.String,System.String)">
-            <summary>
-            文件写入
-            </summary>
-            <param name="path"></param>
-            <param name="context"></param>
-        </member>
-        <member name="M:Infrastructure.FileHelper.getallfilesbyfolder(System.String,System.Boolean)">
-            <summary>
-            获取指定文件夹下所有的文件名称
-            </summary>
-            <param name="foldername">指定文件夹名称,绝对路径</param>
-            <param name="filefilter">文件类型过滤,根据文件后缀名,如:*,*.txt,*.xls</param>
-            <param name="iscontainsubfolder">是否包含子文件夹</param>
-            <returns>arraylist数组,为所有需要的文件路径名称</returns>
-        </member>
-        <member name="M:Infrastructure.FileHelper.GetFile(System.String,System.Collections.Generic.Dictionary{System.String,System.Int64},System.String)">
-            <summary>From:www.uzhanbao.com
-            获取路径下所有文件以及子文件夹中文件
-            </summary>
-            <param name="path">全路径根目录</param>
-            <param name="FileList">存放所有文件的全路径</param>
-            <param name="RelativePath"></param>
-            <returns></returns>
-        </member>
         <member name="P:Infrastructure.FilterGroup.Operation">
             <summary>
             or /and
@@ -933,13 +1163,163 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="T:Infrastructure.GenericHelpers">
+        <member name="T:Infrastructure.Helpers.CommonHelper">
+            <summary>
+            常用公共类
+            </summary>
+        </member>
+        <member name="M:Infrastructure.Helpers.CommonHelper.TimerStart">
+            <summary>
+            计时器开始
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Helpers.CommonHelper.TimerEnd(System.Diagnostics.Stopwatch)">
+            <summary>
+            计时器结束
+            </summary>
+            <param name="watch"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Helpers.CommonHelper.RemoveDup(System.String[])">
+            <summary>
+            删除数组中的重复项
+            </summary>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Helpers.CommonHelper.CreateNo">
+            <summary>
+            自动生成编号  201008251145409865
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Helpers.CommonHelper.RndNum(System.Int32)">
+            <summary>
+            生成0-9随机数
+            </summary>
+            <param name="codeNum">生成长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Helpers.CommonHelper.DelLastComma(System.String)">
+            <summary>
+            删除最后结尾的一个逗号
+            </summary>
+        </member>
+        <member name="M:Infrastructure.Helpers.CommonHelper.DelLastChar(System.String,System.String)">
+            <summary>
+            删除最后结尾的指定字符后的字符
+            </summary>
+        </member>
+        <member name="M:Infrastructure.Helpers.CommonHelper.DelLastLength(System.String,System.Int32)">
+            <summary>
+            删除最后结尾的长度
+            </summary>
+            <param name="str"></param>
+            <param name="Length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Helpers.FileHelper.ReadPageLine(System.String,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            通过迭代器读取平面文件行内容(必须是带有\r\n换行的文件,百万行以上的内容读取效率存在问题,适用于100M左右文件，行100W内，超出的会有卡顿)
+            </summary>
+            <param name="fullPath">文件全路径</param>
+            <param name="page">分页页数</param>
+            <param name="pageSize">分页大小</param>
+            <param name="seekEnd"> 是否最后一行向前读取,默认从前向后读取</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Helpers.FileHelper.GetPostfixStr(System.String)">
+            <summary>
+            取后缀名
+            </summary>
+            <param name="filename">文件名</param>
+            <returns>.gif|.html格式</returns>
+        </member>
+        <member name="M:Infrastructure.Helpers.FileHelper.WriteFile(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="path">路径 </param>
+            <param name="fileName">文件名</param>
+            <param name="content">写入的内容</param>
+            <param name="appendToLast">是否将内容添加到未尾,默认不添加</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.FileHelper.FileAdd(System.String,System.String)">
+            <summary>
+            追加文件
+            </summary>
+            <param name="Path">文件路径</param>
+            <param name="strings">内容</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.FileHelper.FileCoppy(System.String,System.String)">
+            <summary>
+            拷贝文件
+            </summary>
+            <param name="OrignFile">原始文件</param>
+            <param name="NewFile">新文件路径</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.FileHelper.FileDel(System.String)">
+            <summary>
+            删除文件
+            </summary>
+            <param name="Path">路径</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.FileHelper.FileMove(System.String,System.String)">
+            <summary>
+            移动文件
+            </summary>
+            <param name="OrignFile">原始路径</param>
+            <param name="NewFile">新路径</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.FileHelper.FolderCreate(System.String,System.String)">
+            <summary>
+            在当前目录下创建目录
+            </summary>
+            <param name="OrignFolder">当前目录</param>
+            <param name="NewFloder">新目录</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.FileHelper.FolderCreate(System.String)">
+            <summary>
+            创建文件夹
+            </summary>
+            <param name="Path"></param>
+        </member>
+        <member name="M:Infrastructure.Helpers.FileHelper.DeleteFolder(System.String)">
+            <summary>
+            递归删除文件夹目录及文件
+            </summary>
+            <param name="dir"></param>  
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Helpers.FileHelper.CopyDir(System.String,System.String)">
+            <summary>
+            指定文件夹下面的所有内容copy到目标文件夹下面
+            </summary>
+            <param name="srcPath">原始路径</param>
+            <param name="aimPath">目标文件夹</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.FileHelper.GetDirectoryLength(System.String)">
+            <summary>
+            获取文件夹大小
+            </summary>
+            <param name="dirPath">文件夹路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Helpers.FileHelper.GetFileAttibe(System.String)">
+            <summary>
+            获取指定文件详细属性
+            </summary>
+            <param name="filePath">文件详细路径</param>
+            <returns></returns>
+        </member>
+        <member name="T:Infrastructure.Helpers.GenericHelpers">
             <summary>
             List转成Tree
             <para>李玉宝新增于2016-10-09 19:54:07</para>
             </summary>
         </member>
-        <member name="M:Infrastructure.GenericHelpers.GenerateTree``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``1},``1)">
+        <member name="M:Infrastructure.Helpers.GenericHelpers.GenerateTree``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``1},``1)">
             <summary>
             Generates tree of items from item list
             </summary>
@@ -954,7 +1334,7 @@
             
             <returns>Tree of items</returns>
         </member>
-        <member name="M:Infrastructure.GenericHelpers.ArrayToString(System.Object,System.String)">
+        <member name="M:Infrastructure.Helpers.GenericHelpers.ArrayToString(System.Object,System.String)">
             <summary>
             把数组转为逗号连接的字符串
             </summary>
@@ -962,15 +1342,15 @@
             <param name="Str"></param>
             <returns></returns>
         </member>
-        <member name="T:Infrastructure.HttpHelper">
+        <member name="T:Infrastructure.Helpers.HttpHelper">
             <summary>
             http请求类
             </summary>
         </member>
-        <member name="M:Infrastructure.HttpHelper.#ctor(System.String)">
+        <member name="M:Infrastructure.Helpers.HttpHelper.#ctor(System.String)">
             <param name="ipaddress">请求的基础IP，例如：http://192.168.0.33:8080/ </param>
         </member>
-        <member name="M:Infrastructure.HttpHelper.#ctor(System.String,System.String,System.String)">
+        <member name="M:Infrastructure.Helpers.HttpHelper.#ctor(System.String,System.String,System.String)">
             <summary>
             创建带用户信息的请求客户端
             </summary>
@@ -978,7 +1358,7 @@
             <param name="pwd">用户密码，当WebApi端不要求密码验证时，可传空串</param>
             <param name="uriString">The URI string.</param>
         </member>
-        <member name="M:Infrastructure.HttpHelper.Get(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+        <member name="M:Infrastructure.Helpers.HttpHelper.Get(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
             <summary>
             Get请求数据
               /// <para>最终以url参数的方式提交</para>
@@ -988,7 +1368,7 @@
             <param name="requestUri">例如/api/Files/UploadFile</param>
             <returns></returns>
         </member>
-        <member name="M:Infrastructure.HttpHelper.Get``1(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+        <member name="M:Infrastructure.Helpers.HttpHelper.Get``1(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
             <summary>
             Get请求数据
             <para>最终以url参数的方式提交</para>
@@ -997,7 +1377,7 @@
             <param name="requestUri">例如/api/Files/UploadFile</param>
             <returns>实体对象</returns>
         </member>
-        <member name="M:Infrastructure.HttpHelper.Post(System.Object,System.String)">
+        <member name="M:Infrastructure.Helpers.HttpHelper.Post(System.Object,System.String)">
             <summary>
             以json的方式Post数据 返回string类型
             <para>最终以json的方式放置在http体中</para>
@@ -1006,7 +1386,7 @@
             <param name="requestUri">例如/api/Files/UploadFile</param>
             <returns></returns>
         </member>
-        <member name="M:Infrastructure.HttpHelper.PostDicObj(System.Collections.Generic.Dictionary{System.String,System.Object},System.String)">
+        <member name="M:Infrastructure.Helpers.HttpHelper.PostDicObj(System.Collections.Generic.Dictionary{System.String,System.Object},System.String)">
             <summary>
             提交字典类型的数据
             <para>最终以formurlencode的方式放置在http体中</para>
@@ -1014,7 +1394,7 @@
             </summary>
             <returns>System.String.</returns>
         </member>
-        <member name="M:Infrastructure.HttpHelper.PostDic(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+        <member name="M:Infrastructure.Helpers.HttpHelper.PostDic(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
             <summary>
             Post Dic数据
             <para>最终以formurlencode的方式放置在http体中</para>
@@ -1022,11 +1402,270 @@
             </summary>
             <returns>System.String.</returns>
         </member>
-        <member name="M:Infrastructure.HttpHelper.ConcatURL(System.String)">
+        <member name="M:Infrastructure.Helpers.HttpHelper.ConcatURL(System.String)">
             <summary>
             把请求的URL相对路径组合成绝对路径
             <para>李玉宝于2016-07-21 9:54:07</para>
             </summary>
+        </member>
+        <member name="M:Infrastructure.Helpers.ImgHelper.MakeThumbnail(System.String,System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            根据已有图片生成缩略图
+            <para>用法：MakeThumbnail(path, tpath, 120, 90, "H");</para>
+            </summary>
+            <param name="originalImagePath">源图片路径</param>
+            <param name="thumbnailPath">缩略图保存路径</param>
+            <param name="width">缩略图的宽度</param>
+            <param name="height">缩略图高度</param>
+            <param name="mode">缩略模式：H:指定高度，宽度按比例处理；W：指定宽度，高度按比例处理；HW按参数指定的高度和宽度</param>
+        </member>
+        <member name="T:Infrastructure.Helpers.XmlParameter">
+            <summary>
+            XMLHelper参数
+            </summary>
+        </member>
+        <member name="P:Infrastructure.Helpers.XmlParameter.Name">
+            <summary>
+            节点名称
+            </summary>
+        </member>
+        <member name="P:Infrastructure.Helpers.XmlParameter.InnerText">
+            <summary>
+            节点文本
+            </summary>
+        </member>
+        <member name="P:Infrastructure.Helpers.XmlParameter.NamespaceOfPrefix">
+            <summary>
+            节点前缀xmlns声明(命名空间URI)
+            </summary>
+        </member>
+        <member name="P:Infrastructure.Helpers.XmlParameter.Attributes">
+            <summary>
+            节点属性集
+            </summary>
+        </member>
+        <member name="T:Infrastructure.Helpers.AttributeParameter">
+            <summary>
+            节点属性参数
+            </summary>
+        </member>
+        <member name="P:Infrastructure.Helpers.AttributeParameter.Name">
+            <summary>
+            属性名称
+            </summary>
+        </member>
+        <member name="P:Infrastructure.Helpers.AttributeParameter.Value">
+            <summary>
+            属性值
+            </summary>
+        </member>
+        <member name="P:Infrastructure.Helpers.XMLHelper.XmlPath">
+            <summary>
+            xml文件路径
+            </summary>
+        </member>
+        <member name="P:Infrastructure.Helpers.XMLHelper.ConfigName">
+            <summary>
+            配置文件节点名称，请设置在AppSettings节点下
+            </summary>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.GetConfig">
+            <summary>
+            从配置文件读取xml路径
+            </summary>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.AppendChild(System.Xml.XmlDocument,System.Xml.XmlNode,Infrastructure.Helpers.XmlParameter[])">
+            <summary>
+            添加一个子节点
+            </summary>
+            <param name="xDoc">XmlDocument对象</param>
+            <param name="parentNode">父节点</param>
+            <param name="xlParameter">Xml参数</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.GetXmlDom">
+            <summary>
+            获得一个XmlDocument对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.CreateXmlFile(System.String,System.String,System.String,Infrastructure.Helpers.XmlParameter[])">
+            <summary>
+            创建一个XML文档，成功创建后操作路径将直接指向该文件
+            </summary>
+            <param name="fileName">文件物理路径名</param>
+            <param name="rootNode">根结点名称</param>
+            <param name="elementName">元素节点名称</param>
+            <param name="xmlParameter">XML参数</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.CreateXmlFile(System.String,System.String)">
+            <summary>
+            创建一个XML文档，成功创建后操作路径将直接指向该文件
+            </summary>
+            <param name="fileName">文件物理路径名</param>
+            <param name="xmlString">xml字符串</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.AddNewNode(System.Xml.XmlNode,Infrastructure.Helpers.XmlParameter[])">
+            <summary>
+            添加新节点
+            </summary>
+            <param name="parentNode">新节点的父节点对象</param>
+            <param name="xmlParameter">Xml参数对象</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.AddNewNode(System.String,Infrastructure.Helpers.XmlParameter[])">
+            <summary>
+            添加新节点
+            </summary>
+            <param name="xDoc">XmlDocument对象</param>
+            <param name="parentName">新节点的父节点名称</param>
+            <param name="xmlParameter">XML参数对象</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.AddAttribute(System.Xml.XmlNode,System.String,System.String,System.String)">
+            <summary>
+            添加节点属性
+            </summary>
+            <param name="node">节点对象</param>
+            <param name="namespaceOfPrefix">该节点的命名空间URI</param>
+            <param name="attributeName">新属性名称</param>
+            <param name="attributeValue">属性值</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.AddAttribute(System.Xml.XmlNode,System.String,Infrastructure.Helpers.AttributeParameter[])">
+            <summary>
+            添加节点属性
+            </summary>
+            <param name="node">节点对象</param>
+            <param name="namespaceOfPrefix">该节点的命名空间URI</param>
+            <param name="attributeParameters">节点属性参数</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.AddAttribute(System.String,System.String,System.String,System.String)">
+            <summary>
+            添加节点属性
+            </summary>
+            <param name="nodeName">节点名称</param>
+            <param name="namespaceOfPrefix">该节点的命名空间URI</param>
+            <param name="attributeName">新属性名称</param>
+            <param name="attributeValue">属性值</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.AddAttribute(System.String,System.String,Infrastructure.Helpers.AttributeParameter[])">
+            <summary>
+            添加节点属性
+            </summary>
+            <param name="nodeName">节点名称</param>
+            <param name="namespaceOfPrefix">该节点的命名空间URI</param>
+            <param name="attributeParameters">节点属性参数</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.GetNode(System.String)">
+            <summary>
+            获取指定节点名称的节点对象
+            </summary>
+            <param name="nodeName">节点名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.GetNode(System.Xml.XmlNode,System.String)">
+            <summary>
+            获取指定节点名称的节点对象
+            </summary>
+            <param name="node">节点对象</param>
+            <param name="nodeName">节点名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.GetNode(System.Int32,System.String)">
+            <summary>
+            获取指定节点名称的节点对象
+            </summary>
+            <param name="index">节点索引</param>
+            <param name="nodeName">节点名称</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.GetNode(System.Xml.XmlNode,System.String,System.String)">
+            <summary>
+            获取指定节点名称的节点对象
+            </summary>
+            <param name="node">节点对象</param>
+            <param name="nodeName">节点名称</param>
+            <param name="innerText">节点内容</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.GetNode(System.String,System.String)">
+            <summary>
+            获取指定节点名称的节点对象
+            </summary>
+            <param name="nodeName">节点名称</param>
+            <param name="innerText">节点内容</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.GetNode(Infrastructure.Helpers.XmlParameter)">
+            <summary>
+            获取指定节点名称的节点对象
+            </summary>
+            <param name="xmlParameter">XML参数</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.GetNode(System.Xml.XmlNode,Infrastructure.Helpers.XmlParameter)">
+            <summary>
+            获取指定节点名称的节点对象
+            </summary>
+            <param name="node">节点对象</param>
+            <param name="xmlParameter">XML参数</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.UpdateNode(System.Int32,Infrastructure.Helpers.XmlParameter)">
+            <summary>
+            修改节点的内容
+            </summary>
+            <param name="index">节点索引</param>
+            <param name="xmlParameter">XML参数对象</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.UpdateNode(System.Int32,System.String,System.String)">
+            <summary>
+            修改节点的内容
+            </summary>
+            <param name="index">节点索引</param>
+            <param name="nodeName">节点名称</param>
+            <param name="newInnerText">修改后的内容</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.UpdateNode(Infrastructure.Helpers.XmlParameter,System.String,Infrastructure.Helpers.AttributeParameter[])">
+            <summary>
+            修改节点的内容
+            </summary>
+            <param name="xmlParameter">XmlParameter对象</param>
+            <param name="innerText">修改后的内容</param>
+            <param name="attributeParameters">需要修改的属性</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.DeleteNode(System.Int32)">
+            <summary>
+            删除节点
+            </summary>
+            <param name="index">节点索引</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.DeleteNode(System.Xml.XmlNode[])">
+            <summary>
+            删除节点
+            </summary>
+            <param name="nodeList">需要删除的节点对象</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.DeleteNode(System.String,System.String)">
+            <summary>
+            删除节点
+            </summary>
+            <param name="xDoc">XmlDocument对象</param>
+            <param name="nodeName">节点名称</param>
+            <param name="nodeText">节点内容</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.SetAttribute(System.Xml.XmlElement,Infrastructure.Helpers.AttributeParameter[])">
+            <summary>
+            修改属性值
+            </summary>
+            <param name="elem">元素对象</param>
+            <param name="attps">属性参数</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.SetAttribute(Infrastructure.Helpers.XmlParameter,Infrastructure.Helpers.AttributeParameter[])">
+            <summary>
+            修改属性值
+            </summary>
+            <param name="xmlParameter">XML参数</param>
+            <param name="attributeParameters">属性参数</param>
+        </member>
+        <member name="M:Infrastructure.Helpers.XMLHelper.SetAttribute(Infrastructure.Helpers.XmlParameter,System.String,System.String)">
+            <summary>
+            修改属性值
+            </summary>
+            <param name="xmlParameter">XML参数</param>
+            <param name="attributeValue">新属性值</param>
         </member>
         <member name="T:Infrastructure.Json">
             <summary>
@@ -1053,154 +1692,73 @@
             字段类型
             </summary>
         </member>
-        <member name="F:Infrastructure.PayConfig.AliConfig.Uid">
+        <member name="M:Infrastructure.Provider.PathProvider.MapPath(System.String)">
             <summary>
-            合作商户uid
+            获取服务器文件路径
             </summary>
-        </member>
-        <member name="M:Infrastructure.PayConfig.Common.GenerateOutTradeNo">
-                   * 根据当前系统时间加随机序列来生成订单号
-                    * @return 订单号
-        </member>
-        <member name="M:Infrastructure.PayConfig.Common.GenerateTimeStamp">
-                    * 生成时间戳，标准北京时间，时区为东八区，自1970年1月1日 0点0分0秒以来的秒数
-                     * @return 时间戳
-        </member>
-        <member name="M:Infrastructure.PayConfig.Common.GenerateNonceStr">
-            生成随机串，随机串包含字母或数字
-            @return 随机串
-        </member>
-        <member name="M:Infrastructure.StringExtension.GetTimeStamp(System.DateTime)">
-            <summary>
-            获取时间戳 
-            </summary>
-            <param name="dateTime"></param>
+            <param name="path"></param>
             <returns></returns>
         </member>
-        <member name="M:Infrastructure.StringExtension.GetTimeSpmpToDate(System.Object)">
+        <member name="M:Infrastructure.Provider.PathProvider.MapPath(System.String,System.Boolean)">
             <summary>
-            时间戳转换成日期
+            获取wwwroot路径
             </summary>
-            <param name="timeStamp"></param>
+            <param name="path"></param>
+            <param name="rootPath">是否获取wwwroot路径</param>
             <returns></returns>
         </member>
-        <member name="M:Infrastructure.StringExtension.IsPhoneNo(System.String)">
+        <member name="P:Infrastructure.Response.Message">
             <summary>
-            判断是不是正确的手机号码
+            操作消息【当Status不为 200时，显示详细的错误信息】
             </summary>
-            <param name="input"></param>
+        </member>
+        <member name="P:Infrastructure.Response.Code">
+            <summary>
+            操作状态码，200为正常
+            </summary>
+        </member>
+        <member name="T:Infrastructure.Response`1">
+            <summary>
+            WEBAPI通用返回泛型基类
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Infrastructure.Response`1.Result">
+            <summary>
+            回传的结果
+            </summary>
+        </member>
+        <member name="T:Infrastructure.Utilities.DynamicPropertyBag">
+            <summary>
+            动态属性Bag
+            </summary>
+        </member>
+        <member name="M:Infrastructure.Utilities.ProjectPath.GetProjectDirectoryInfo">
+            <summary>
+            获取web父目录所在位置
+            </summary>
             <returns></returns>
         </member>
-        <member name="M:Infrastructure.StringExtension.IsNumber(System.String,System.String)">
+        <member name="M:Infrastructure.Utilities.ProjectPath.GetLastIndexOfDirectoryName(System.String)">
             <summary>
-            根据传入格式判断是否为小数
+            获取指定结尾的项目名称 
             </summary>
-            <param name="str"></param>
-            <param name="formatString">18,5</param>
+            <param name="lastIndexOfName"></param>
             <returns></returns>
         </member>
-        <member name="M:Infrastructure.StringExtension.IsNumber(System.String,System.Int32,System.Int32)">
+        <member name="M:Infrastructure.Utilities.ProjectPath.GetProjectDirectoryInfo(System.IO.DirectoryInfo,System.Int32)">
             <summary>
-            判断一个字符串是否为合法数字(指定整数位数和小数位数)
+            获取项目所在路径
             </summary>
-            <param name="str">字符串</param>
-            <param name="precision">整数位数</param>
-            <param name="scale">小数位数</param>
+            <param name="directoryInfo"></param>
             <returns></returns>
         </member>
-        <member name="M:Infrastructure.StringExtension.GetLong(System.Object)">
-            <summary>
-            获取 object 中的枚举值
-            </summary>
-            <param name="str"></param>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Infrastructure.StringExtension.GetFloat(System.Object)">
-            <summary>
-            获取 object 中的 float
-            </summary>
-            <param name="str"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Infrastructure.StringExtension.GetDecimal(System.Object)">
-            <summary>
-            获取 object 中的 decimal
-            </summary>
-            <param name="str"></param>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Infrastructure.StringExtension.GetDynamic(System.Object)">
-            <summary>
-            获取 object 中的 decimal
-            </summary>
-            <param name="str"></param>
-            <returns></returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Infrastructure.StringExtension.ReplaceWhitespace(System.String,System.String)">
-            <summary>
-                替换空格字符
-            </summary>
-            <param name="input"></param>
-            <param name="replacement">替换为该字符</param>
-            <returns>替换后的字符串</returns>
-        </member>
-        <member name="M:Infrastructure.StringExtension.GenerateRandomNumber(System.Int32)">
-            <summary>
-            生成指定长度的随机数
-            </summary>
-            <param name="length"></param>
-            <returns></returns>
-        </member>
-        <member name="P:Infrastructure.TreeNode.Id">
-            <summary>
-            子id
-            </summary>
-        </member>
-        <member name="P:Infrastructure.TreeNode.ParentId">
-            <summary>
-            父id
-            </summary>
-        </member>
-        <member name="P:Infrastructure.TreeNode.Name">
-            <summary>
-            名称
-            </summary>
-        </member>
-        <member name="P:Infrastructure.TreeNode.Children">
-            <summary>
-            子节点
-            </summary>
-        </member>
-        <member name="M:Infrastructure.TreeNode.#ctor">
-            <summary>
-            无参构造函数
-            </summary>
-        </member>
-        <member name="M:Infrastructure.TreeNode.#ctor(System.String,System.String,System.String)">
-            <summary>
-            有参构造函数
-            </summary>
-            <param name="id">子id</param>
-            <param name="name">名称</param>
-            <param name="parentId">父id</param>
-        </member>
-        <member name="M:Infrastructure.TreeNode.#ctor(System.String,System.String,Infrastructure.TreeNode)">
-            <summary>
-            有参构造函数
-            </summary>
-            <param name="id">子id</param>
-            <param name="name">名称</param>
-            <param name="parent">父节点</param>
-        </member>
-        <member name="T:Infrastructure.UriUtil">
+        <member name="T:Infrastructure.Utilities.UriUtil">
             <summary>
             URl帮助类
             </summary>
         </member>
-        <member name="M:Infrastructure.UriUtil.GetAppendedQueryString(System.String,System.String,System.String)">
+        <member name="M:Infrastructure.Utilities.UriUtil.GetAppendedQueryString(System.String,System.String,System.String)">
             <summary>
             在URL后面追加参数
             </summary>
@@ -1208,32 +1766,6 @@
             <param name="key"></param>
             <param name="value"></param>
             <returns></returns>
-        </member>
-        <member name="P:Infrastructure.WebResponseContent.Message">
-            <summary>
-            操作结果消息【当Code不为 100时，显示详细的错误信息】
-            </summary>
-        </member>
-        <member name="P:Infrastructure.WebResponseContent.Code">
-            <summary>
-            操作状态码，100为正常
-            </summary>
-        </member>
-        <member name="M:Infrastructure.WebResponseContent.#ctor">
-            <summary>
-            是否成功
-            </summary>
-        </member>
-        <member name="T:Infrastructure.WebResponseContent`1">
-            <summary>
-            WEBAPI通用返回泛型基类
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="P:Infrastructure.WebResponseContent`1.Data">
-            <summary>
-            回传的结果
-            </summary>
         </member>
     </members>
 </doc>

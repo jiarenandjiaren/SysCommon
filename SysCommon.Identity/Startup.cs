@@ -4,11 +4,12 @@
 
 using Autofac;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SysCommon.Service;
+using SysCommon.App;
 using SysCommon.Repository;
 
 namespace SysCommon.IdentityServer
@@ -32,7 +33,9 @@ namespace SysCommon.IdentityServer
                 .AddInMemoryApiResources(Config.GetApis())
                 .AddInMemoryClients(Config.GetClients(Environment.IsProduction()))
                 .AddProfileService<CustomProfileService>();
-
+            
+            services.ConfigureNonBreakingSameSiteCookies();
+            
             services.AddCors();
 //          todo:如果正式 环境请用下面的方式限制随意访问跨域
 //            var origins = new []
@@ -92,6 +95,9 @@ namespace SysCommon.IdentityServer
             {
                 app.UseDeveloperExceptionPage();
             }
+            
+            
+            app.UseCookiePolicy();
             
             //todo:测试可以允许任意跨域，正式环境要加权限
             app.UseCors(builder => builder.AllowAnyOrigin()

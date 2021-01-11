@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Infrastructure;
 using Microsoft.AspNetCore.Mvc;
-using SysCommon.Service;
-using SysCommon.Service.Interface;
-using SysCommon.Service.Request;
+using SysCommon.App;
+using SysCommon.App.Interface;
+using SysCommon.App.Request;
 using SysCommon.Repository.Domain;
 
 namespace SysCommon.Mvc.Controllers
@@ -54,9 +55,10 @@ namespace SysCommon.Mvc.Controllers
         }
 
 
-        public string Load([FromQuery]QueryResourcesReq request)
+        public async Task<string> Load([FromQuery]QueryResourcesReq request)
         {
-            return JsonHelper.Instance.Serialize(_app.Load(request));
+            var objs = await _app.Load(request);
+            return JsonHelper.Instance.Serialize(objs);
         }
 
        [HttpPost]

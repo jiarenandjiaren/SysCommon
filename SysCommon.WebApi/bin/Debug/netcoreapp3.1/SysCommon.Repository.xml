@@ -4,18 +4,18 @@
         <name>SysCommon.Repository</name>
     </assembly>
     <members>
-        <member name="M:SysCommon.Repository.BaseRepository`1.Find(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+        <member name="M:SysCommon.Repository.BaseRepository`2.Find(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
             <summary>
             根据过滤条件，获取记录
             </summary>
             <param name="exp">The exp.</param>
         </member>
-        <member name="M:SysCommon.Repository.BaseRepository`1.FindSingle(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+        <member name="M:SysCommon.Repository.BaseRepository`2.FirstOrDefault(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
             <summary>
             查找单个，且不被上下文所跟踪
             </summary>
         </member>
-        <member name="M:SysCommon.Repository.BaseRepository`1.Find(System.Int32,System.Int32,System.String,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+        <member name="M:SysCommon.Repository.BaseRepository`2.Find(System.Int32,System.Int32,System.String,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
             <summary>
             得到分页记录
             </summary>
@@ -23,24 +23,18 @@
             <param name="pagesize">The pagesize.</param>
             <param name="orderby">排序，格式如："Id"/"Id descending"</param>
         </member>
-        <member name="M:SysCommon.Repository.BaseRepository`1.GetCount(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+        <member name="M:SysCommon.Repository.BaseRepository`2.Count(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
             <summary>
             根据过滤条件获取记录数
             </summary>
         </member>
-        <member name="M:SysCommon.Repository.BaseRepository`1.BatchAdd(`0[])">
+        <member name="M:SysCommon.Repository.BaseRepository`2.BatchAdd(`0[])">
             <summary>
             批量添加
             </summary>
             <param name="entities">The entities.</param>
         </member>
-        <member name="M:SysCommon.Repository.BaseRepository`1.GetAll">
-            <summary>
-            获取所有没有软删除的数据
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:SysCommon.Repository.BaseRepository`1.Update(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,`0}})">
+        <member name="M:SysCommon.Repository.BaseRepository`2.Update(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,`0}})">
             <summary>
             实现按需要只更新部分更新
             <para>如：Update(u =>u.Id==1,u =>new User{Name="ok"});</para>
@@ -48,19 +42,84 @@
             <param name="where">The where.</param>
             <param name="entity">The entity.</param>
         </member>
-        <member name="M:SysCommon.Repository.BaseRepository`1.FromSql(System.String,System.Object[])">
+        <member name="M:SysCommon.Repository.BaseRepository`2.FromSql(System.String,System.Object[])">
             <summary>
             使用SQL脚本查询
             </summary>
             <typeparam name="T"> T为数据库实体</typeparam>
             <returns></returns>
         </member>
-        <member name="M:SysCommon.Repository.BaseRepository`1.Query(System.String,System.Object[])">
+        <member name="M:SysCommon.Repository.BaseRepository`2.Query(System.String,System.Object[])">
             <summary>
             使用SQL脚本查询
             </summary>
             <typeparam name="T"> T为非数据库实体，需要在DbContext中增加对应的DbQuery</typeparam>
             <returns></returns>
+        </member>
+        <member name="M:SysCommon.Repository.BaseRepository`2.ExecuteSqlRawAsync(System.String)">
+            <summary>
+            异步执行sql
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Repository.BaseRepository`2.UpdateAsync(`0)">
+            <summary>
+            异步更新
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Repository.BaseRepository`2.DeleteAsync(`0)">
+            <summary>
+            异步删除
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Repository.BaseRepository`2.SaveAsync">
+            <summary>
+            异步保存
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:SysCommon.Repository.BaseRepository`2.CountAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            根据过滤条件获取记录数
+            </summary>
+        </member>
+        <member name="M:SysCommon.Repository.BaseRepository`2.FirstOrDefaultAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            查找单个，且不被上下文所跟踪
+            </summary>
+        </member>
+        <member name="M:SysCommon.Repository.Core.BaseEntity.KeyIsNull">
+            <summary>
+            判断主键是否为空，常用做判定操作是【添加】还是【编辑】
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Repository.Core.BaseEntity.GenerateDefaultKeyVal">
+            <summary>
+            创建默认的主键值
+            </summary>
+        </member>
+        <member name="T:SysCommon.Repository.Core.Entity">
+            <summary>
+            主键为字符串的实体基类，为系统默认的实体类型
+            </summary>
+        </member>
+        <member name="M:SysCommon.Repository.Core.Entity.KeyIsNull">
+            <summary>
+            判断主键是否为空，常用做判定操作是【添加】还是【编辑】
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Repository.Core.Entity.GenerateDefaultKeyVal">
+            <summary>
+            创建默认的主键值
+            </summary>
         </member>
         <member name="T:SysCommon.Repository.Core.TreeEntity">
             <summary>
@@ -85,11 +144,6 @@
         <member name="P:SysCommon.Repository.Core.TreeEntity.ParentName">
             <summary>
             父节点名称
-            </summary>
-        </member>
-        <member name="T:SysCommon.Repository.Domain.AdminRoleTop">
-            <summary>
-            表单模板表
             </summary>
         </member>
         <member name="T:SysCommon.Repository.Domain.Application">
@@ -132,19 +186,244 @@
             创建人
             </summary>
         </member>
-        <member name="T:SysCommon.Repository.Domain.ArticleData">
+        <member name="T:SysCommon.Repository.Domain.BuilderTable">
             <summary>
-            文章数据
+            代码生成器的表信息
             </summary>
         </member>
-        <member name="T:SysCommon.Repository.Domain.ArticleType">
+        <member name="P:SysCommon.Repository.Domain.BuilderTable.TableName">
             <summary>
-            文章分类
+            表英文全称
             </summary>
         </member>
-        <member name="T:SysCommon.Repository.Domain.Label">
+        <member name="P:SysCommon.Repository.Domain.BuilderTable.Comment">
             <summary>
-            标签
+            表描述、中文名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTable.DetailTableName">
+            <summary>
+            子表英文全称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTable.DetailComment">
+            <summary>
+            子表描述、中文名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTable.ClassName">
+            <summary>
+            实体类名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTable.Namespace">
+            <summary>
+            命名空间
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTable.ModuleCode">
+            <summary>
+            模块标识
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTable.ModuleName">
+            <summary>
+            模块名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTable.Folder">
+            <summary>
+            代码相对文件夹路径
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTable.Options">
+            <summary>
+            其它生成选项
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTable.TypeId">
+            <summary>
+            分类ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTable.TypeName">
+            <summary>
+            分类名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTable.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTable.CreateUserId">
+            <summary>
+            创建人ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTable.UpdateTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTable.UpdateUserId">
+            <summary>
+            修改人ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTable.UpdateUserName">
+            <summary>
+            修改人姓名
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTable.CreateUserName">
+            <summary>
+            创建人姓名
+            </summary>
+        </member>
+        <member name="T:SysCommon.Repository.Domain.BuilderTableColumn">
+            <summary>
+            代码生成器的字段信息
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.TableId">
+            <summary>
+            归属表编号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.TableName">
+            <summary>
+            表名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.ColumnName">
+            <summary>
+            列名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.Comment">
+            <summary>
+            列描述
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.ColumnType">
+            <summary>
+            列类型
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.EntityType">
+            <summary>
+            实体类型
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.EntityName">
+            <summary>
+            实体名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.IsKey">
+            <summary>
+            是否主键
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.IsIncrement">
+            <summary>
+            是否自增
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.IsRequired">
+            <summary>
+            是否必填
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.IsInsert">
+            <summary>
+            是否为插入字段
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.IsEdit">
+            <summary>
+            是否编辑字段
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.IsList">
+            <summary>
+            是否列表字段
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.IsQuery">
+            <summary>
+            是否查询字段
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.QueryType">
+            <summary>
+            查询方式（等于、不等于、大于、小于、范围）
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.HtmlType">
+            <summary>
+            显示类型（文本框、文本域、下拉框、复选框、单选框、日期控件）
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.EditType">
+            <summary>
+            编辑类型（文本框、文本域、下拉框、复选框、单选框、日期控件）
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.CreateUserId">
+            <summary>
+            创建人ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.UpdateTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.UpdateUserId">
+            <summary>
+            修改人ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.EditRow">
+            <summary>
+            修改时的行位置
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.EditCol">
+            <summary>
+            修改时的列位置
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.UpdateUserName">
+            <summary>
+            修改人姓名
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.CreateUserName">
+            <summary>
+            创建人姓名
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.MaxLength">
+            <summary>
+            最大长度
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.BuilderTableColumn.DataSource">
+            <summary>
+            数据源（用于下拉框、复选框等取值）
             </summary>
         </member>
         <member name="T:SysCommon.Repository.Domain.Category">
@@ -232,16 +511,6 @@
             创建时间
             </summary>
         </member>
-        <member name="T:SysCommon.Repository.Domain.CommonField">
-            <summary>
-            公共字段管理
-            </summary>
-        </member>
-        <member name="T:SysCommon.Repository.Domain.ContentReplace">
-            <summary>
-            内容替换
-            </summary>
-        </member>
         <member name="T:SysCommon.Repository.Domain.DataPrivilegeRule">
             <summary>
             系统授权规制表
@@ -305,66 +574,6 @@
         <member name="P:SysCommon.Repository.Domain.DataPrivilegeRule.UpdateUserName">
             <summary>
             最后更新人
-            </summary>
-        </member>
-        <member name="T:SysCommon.Repository.Domain.Dictionarie">
-            <summary>
-            字典
-            </summary>
-        </member>
-        <member name="P:SysCommon.Repository.Domain.Dictionarie.TopName">
-            <summary>
-            关联描述（A表关联B表   ABTop）
-            </summary>
-        </member>
-        <member name="P:SysCommon.Repository.Domain.Dictionarie.TopFirstId">
-            <summary>
-            A表关联B表  （A表Id）
-            </summary>
-        </member>
-        <member name="P:SysCommon.Repository.Domain.Dictionarie.TopSecondId">
-            <summary>
-            A表关联B表  （B表Id）
-            </summary>
-        </member>
-        <member name="P:SysCommon.Repository.Domain.Dictionarie.TopThirdId">
-            <summary>
-            A表关联B表  （B表Id）
-            </summary>
-        </member>
-        <member name="T:SysCommon.Repository.Domain.Element">
-            <summary>
-            模块元素表(需要权限控制的按钮)
-            </summary>
-        </member>
-        <member name="P:SysCommon.Repository.Domain.Element.DomId">
-            <summary>
-            DOM ID
-            </summary>
-        </member>
-        <member name="P:SysCommon.Repository.Domain.Element.Name">
-            <summary>
-            名称
-            </summary>
-        </member>
-        <member name="P:SysCommon.Repository.Domain.Element.Script">
-            <summary>
-            元素调用脚本
-            </summary>
-        </member>
-        <member name="P:SysCommon.Repository.Domain.Element.Icon">
-            <summary>
-            元素图标
-            </summary>
-        </member>
-        <member name="P:SysCommon.Repository.Domain.Element.Class">
-            <summary>
-            元素样式
-            </summary>
-        </member>
-        <member name="P:SysCommon.Repository.Domain.Element.MenuId">
-            <summary>
-            功能模块Id
             </summary>
         </member>
         <member name="T:SysCommon.Repository.Domain.FlowInstance">
@@ -697,6 +906,106 @@
             所属部门
             </summary>
         </member>
+        <member name="T:SysCommon.Repository.Domain.Form">
+            <summary>
+            表单模板表
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Form.Name">
+            <summary>
+            表单名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Form.FrmType">
+            <summary>
+            表单类型，0：默认动态表单；1：Web自定义表单
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Form.WebId">
+            <summary>
+            系统页面标识，当表单类型为用Web自定义的表单时，需要标识加载哪个页面
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Form.Fields">
+            <summary>
+            字段个数
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Form.ContentData">
+            <summary>
+            表单中的控件属性描述
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Form.ContentParse">
+            <summary>
+            表单控件位置模板
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Form.Content">
+            <summary>
+            表单原html模板未经处理的
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Form.SortCode">
+            <summary>
+            排序码
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Form.DeleteMark">
+            <summary>
+            删除标记
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Form.DbName">
+            <summary>
+            数据库名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Form.Disabled">
+            <summary>
+            有效
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Form.Description">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Form.CreateDate">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Form.CreateUserId">
+            <summary>
+            创建用户主键
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Form.CreateUserName">
+            <summary>
+            创建用户
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Form.ModifyDate">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Form.ModifyUserId">
+            <summary>
+            修改用户主键
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Form.ModifyUserName">
+            <summary>
+            修改用户
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Form.OrgId">
+            <summary>
+            所属部门
+            </summary>
+        </member>
         <member name="T:SysCommon.Repository.Domain.FrmLeaveReq">
             <summary>
             模拟一个自定页面的表单，该数据会关联到流程实例FrmData，可用于复杂页面的设计及后期的数据分析
@@ -760,11 +1069,6 @@
         <member name="P:SysCommon.Repository.Domain.FrmLeaveReq.FlowInstanceId">
             <summary> 
                所属流程实例ID
-            </summary>
-        </member>
-        <member name="T:SysCommon.Repository.Domain.Menu">
-            <summary>
-            栏目管理
             </summary>
         </member>
         <member name="T:SysCommon.Repository.Domain.Module">
@@ -942,29 +1246,39 @@
             任务运行状态（0：停止，1：正在运行，2：暂停）
             </summary>
         </member>
-        <member name="P:SysCommon.Repository.Domain.OpenJob.Description">
+        <member name="P:SysCommon.Repository.Domain.OpenJob.Remark">
             <summary>
             备注
             </summary>
         </member>
-        <member name="P:SysCommon.Repository.Domain.OpenJob.CreateDate">
+        <member name="P:SysCommon.Repository.Domain.OpenJob.CreateTime">
             <summary>
             创建时间
             </summary>
         </member>
-        <member name="P:SysCommon.Repository.Domain.OpenJob.CreateId">
+        <member name="P:SysCommon.Repository.Domain.OpenJob.CreateUserId">
             <summary>
             创建人ID
             </summary>
         </member>
-        <member name="P:SysCommon.Repository.Domain.OpenJob.UpdateDate">
+        <member name="P:SysCommon.Repository.Domain.OpenJob.CreateUserName">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.OpenJob.UpdateTime">
             <summary>
             最后更新时间
             </summary>
         </member>
-        <member name="P:SysCommon.Repository.Domain.OpenJob.UpdateId">
+        <member name="P:SysCommon.Repository.Domain.OpenJob.UpdateUserId">
             <summary>
             最后更新人ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.OpenJob.UpdateUserName">
+            <summary>
+            最后更新人
             </summary>
         </member>
         <member name="P:SysCommon.Repository.Domain.OpenJob.OrgId">
@@ -972,9 +1286,69 @@
             所属部门
             </summary>
         </member>
-        <member name="T:SysCommon.Repository.Domain.Payment">
+        <member name="T:SysCommon.Repository.Domain.Org">
             <summary>
-            支付
+            组织表
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Org.HotKey">
+            <summary>
+            热键
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Org.IsLeaf">
+            <summary>
+            是否叶子节点
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Org.IsAutoExpand">
+            <summary>
+            是否自动展开
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Org.IconName">
+            <summary>
+            节点图标文件名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Org.Status">
+            <summary>
+            当前状态
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Org.BizCode">
+            <summary>
+            业务对照码
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Org.CustomCode">
+            <summary>
+            自定义扩展码
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Org.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Org.CreateId">
+            <summary>
+            创建人ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Org.SortNo">
+            <summary>
+            排序号
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Org.TypeName">
+            <summary>
+            分类名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Org.TypeId">
+            <summary>
+            分类ID
             </summary>
         </member>
         <member name="T:SysCommon.Repository.Domain.Relevance">
@@ -982,24 +1356,49 @@
             多对多关系集中映射
             </summary>
         </member>
-        <member name="P:SysCommon.Repository.Domain.Relevance.TopKey">
+        <member name="P:SysCommon.Repository.Domain.Relevance.Description">
             <summary>
-            关联Key
+            描述
             </summary>
         </member>
-        <member name="P:SysCommon.Repository.Domain.Relevance.TopFirstId">
+        <member name="P:SysCommon.Repository.Domain.Relevance.Key">
             <summary>
-            关联Key
+            映射标识
             </summary>
         </member>
-        <member name="P:SysCommon.Repository.Domain.Relevance.TopSecondId">
+        <member name="P:SysCommon.Repository.Domain.Relevance.Status">
             <summary>
-            关联Key
+            状态
             </summary>
         </member>
-        <member name="P:SysCommon.Repository.Domain.Relevance.TopThirdId">
+        <member name="P:SysCommon.Repository.Domain.Relevance.OperateTime">
             <summary>
-            关联Key
+            授权时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Relevance.OperatorId">
+            <summary>
+            授权人
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Relevance.FirstId">
+            <summary>
+            第一个表主键ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Relevance.SecondId">
+            <summary>
+            第二个表主键ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Relevance.ThirdId">
+            <summary>
+            第三个主键
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Relevance.ExtendInfo">
+            <summary>
+            扩展信息
             </summary>
         </member>
         <member name="T:SysCommon.Repository.Domain.Resource">
@@ -1072,9 +1471,39 @@
             最后更新人
             </summary>
         </member>
-        <member name="T:SysCommon.Repository.Domain.RoleMenuTop">
+        <member name="T:SysCommon.Repository.Domain.Role">
             <summary>
-            表单模板表
+            角色表
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Role.Name">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Role.Status">
+            <summary>
+            当前状态
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Role.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Role.CreateId">
+            <summary>
+            创建人ID
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Role.TypeName">
+            <summary>
+            分类名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.Role.TypeId">
+            <summary>
+            分类ID
             </summary>
         </member>
         <member name="T:SysCommon.Repository.Domain.SysLog">
@@ -1100,6 +1529,16 @@
         <member name="P:SysCommon.Repository.Domain.SysLog.Href">
             <summary>
             操作所属模块地址
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.SysLog.CreateTime">
+            <summary>
+            记录时间
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.SysLog.CreateId">
+            <summary>
+            操作人ID
             </summary>
         </member>
         <member name="P:SysCommon.Repository.Domain.SysLog.CreateName">
@@ -1187,41 +1626,6 @@
             创建人ID
             </summary>
         </member>
-        <member name="T:SysCommon.Repository.Domain.SysOrg">
-            <summary>
-            组织表
-            </summary>
-        </member>
-        <member name="P:SysCommon.Repository.Domain.SysOrg.FatherId">
-            <summary>
-            父级Id
-            </summary>
-        </member>
-        <member name="P:SysCommon.Repository.Domain.SysOrg.Name">
-            <summary>
-            组织名称
-            </summary>
-        </member>
-        <member name="P:SysCommon.Repository.Domain.SysOrg.IconName">
-            <summary>
-            组织图标
-            </summary>
-        </member>
-        <member name="T:SysCommon.Repository.Domain.SysRole">
-            <summary>
-            角色表
-            </summary>
-        </member>
-        <member name="P:SysCommon.Repository.Domain.SysRole.Name">
-            <summary>
-            角色名称
-            </summary>
-        </member>
-        <member name="T:SysCommon.Repository.Domain.SysUser">
-            <summary>
-            管理员
-            </summary>
-        </member>
         <member name="T:SysCommon.Repository.Domain.UploadFile">
             <summary>
             文件
@@ -1237,6 +1641,11 @@
             文件路径
             </summary>
         </member>
+        <member name="P:SysCommon.Repository.Domain.UploadFile.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
         <member name="P:SysCommon.Repository.Domain.UploadFile.FileType">
             <summary>
             文件类型
@@ -1250,6 +1659,36 @@
         <member name="P:SysCommon.Repository.Domain.UploadFile.Extension">
             <summary>
             扩展名称
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.UploadFile.Enable">
+            <summary>
+            是否可用
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.UploadFile.SortCode">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.UploadFile.DeleteMark">
+            <summary>
+            删除标识
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.UploadFile.CreateUserId">
+            <summary>
+            上传人
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.UploadFile.CreateUserName">
+            <summary>
+            上传人姓名
+            </summary>
+        </member>
+        <member name="P:SysCommon.Repository.Domain.UploadFile.CreateTime">
+            <summary>
+            上传时间
             </summary>
         </member>
         <member name="P:SysCommon.Repository.Domain.UploadFile.Thumbnail">
@@ -1567,18 +2006,22 @@
             所属部门
             </summary>
         </member>
-        <member name="M:SysCommon.Repository.Interface.IRepository`1.Update(`0)">
+        <member name="M:SysCommon.Repository.Interface.IRepository`2.FirstOrDefault(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            返回一个单独的实体，如果记录多于1个则取第一个
+            </summary>
+        </member>
+        <member name="M:SysCommon.Repository.Interface.IRepository`2.Any(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            判断指定条件的记录是否存在
+            </summary>
+        </member>
+        <member name="M:SysCommon.Repository.Interface.IRepository`2.Update(`0)">
             <summary>
             更新一个实体的所有属性
             </summary>
         </member>
-        <member name="M:SysCommon.Repository.Interface.IRepository`1.GetAll">
-            <summary>
-            获取所有没有软删除的数据
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:SysCommon.Repository.Interface.IRepository`1.Update(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,`0}})">
+        <member name="M:SysCommon.Repository.Interface.IRepository`2.Update(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,`0}})">
             <summary>
             实现按需要只更新部分更新
             <para>如：Update(u =>u.Id==1,u =>new User{Name="ok"});</para>
@@ -1586,77 +2029,154 @@
             <param name="where">更新条件</param>
             <param name="entity">更新后的实体</param>
         </member>
-        <member name="M:SysCommon.Repository.Interface.IRepository`1.Delete(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+        <member name="M:SysCommon.Repository.Interface.IRepository`2.Delete(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
             <summary>
             批量删除
             </summary>
         </member>
-        <member name="M:SysCommon.Repository.Interface.IRepository`1.FromSql(System.String,System.Object[])">
+        <member name="M:SysCommon.Repository.Interface.IRepository`2.FromSql(System.String,System.Object[])">
             <summary>
             使用SQL脚本查询
             </summary>
             <typeparam name="T"> T为数据库实体</typeparam>
             <returns></returns>
         </member>
-        <member name="M:SysCommon.Repository.Interface.IRepository`1.Query(System.String,System.Object[])">
+        <member name="M:SysCommon.Repository.Interface.IRepository`2.Query(System.String,System.Object[])">
             <summary>
             使用SQL脚本查询
             </summary>
             <typeparam name="T"> T为非数据库实体，需要在DbContext中增加对应的DbQuery</typeparam>
             <returns></returns>
         </member>
-        <member name="T:SysCommon.Repository.Interface.IUnitWork">
+        <member name="T:SysCommon.Repository.Interface.IUnitWork`1">
             <summary>
             工作单元接口
+            使用详见：http://doc.SysCommon.me/core/unitwork.html
             <para> 适合在一下情况使用:</para>
             <para>1 在同一事务中进行多表操作</para>
             <para>2 需要多表联合查询</para>
             <para>因为架构采用的是EF访问数据库，暂时可以不用考虑采用传统Unit Work的注册机制</para>
             </summary>
         </member>
-        <member name="M:SysCommon.Repository.Interface.IUnitWork.Update``1(``0)">
+        <member name="M:SysCommon.Repository.Interface.IUnitWork`1.ExecuteWithTransaction(System.Action)">
+            <summary>
+            EF默认情况下，每调用一次SaveChanges()都会执行一个单独的事务
+            本接口实现在一个事务中可以多次执行SaveChanges()方法
+            </summary>
+        </member>
+        <member name="M:SysCommon.Repository.Interface.IUnitWork`1.GetDbContext">
+            <summary>
+            返回DbContext,用于多线程等极端情况
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Repository.Interface.IUnitWork`1.FirstOrDefault``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            返回一个单独的实体，如果记录多于1个则取第一个
+            </summary>
+        </member>
+        <member name="M:SysCommon.Repository.Interface.IUnitWork`1.Any``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            判断指定条件的记录是否存在
+            </summary>
+        </member>
+        <member name="M:SysCommon.Repository.Interface.IUnitWork`1.Add``1(``0)">
+            <summary>
+            新增对象，如果Id为空，则会自动创建默认Id
+            </summary>
+        </member>
+        <member name="M:SysCommon.Repository.Interface.IUnitWork`1.BatchAdd``1(``0[])">
+            <summary>
+            批量新增对象，如果对象Id为空，则会自动创建默认Id
+            </summary>
+        </member>
+        <member name="M:SysCommon.Repository.Interface.IUnitWork`1.Update``1(``0)">
             <summary>
             更新一个实体的所有属性
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:SysCommon.Repository.Interface.IUnitWork.Update``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,``0}})" -->
-        <member name="M:SysCommon.Repository.Interface.IUnitWork.Delete``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+        <member name="M:SysCommon.Repository.Interface.IUnitWork`1.Update``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,``0}})">
+            <summary>
+            实现按需要只更新部分更新
+            <para>如：Update&lt;User&gt;(u =>u.Id==1,u =>new User{Name="ok"})</para>
+            <para>该方法内部自动调用了SaveChanges()，需要ExecuteWithTransaction配合才能实现事务控制</para>
+            </summary>
+            <param name="where">更新条件</param>
+            <param name="entity">更新后的实体</param>
+        </member>
+        <member name="M:SysCommon.Repository.Interface.IUnitWork`1.Delete``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>
             批量删除
+            <para>该方法内部自动调用了SaveChanges()，需要ExecuteWithTransaction配合才能实现事务控制</para>
             </summary>
         </member>
-        <member name="M:SysCommon.Repository.Interface.IUnitWork.FromSql``1(System.String,System.Object[])">
+        <member name="M:SysCommon.Repository.Interface.IUnitWork`1.ExecuteSql(System.String)">
+            <summary>
+            该方法不支持EF自带的事务,需要ExecuteWithTransaction配合才能实现事务控制,详见：http://doc.SysCommon.me/core/unitwork.html
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Repository.Interface.IUnitWork`1.FromSql``1(System.String,System.Object[])">
             <summary>
             使用SQL脚本查询
             </summary>
             <typeparam name="T"> T为数据库实体</typeparam>
             <returns></returns>
         </member>
-        <member name="M:SysCommon.Repository.Interface.IUnitWork.Query``1(System.String,System.Object[])">
+        <member name="M:SysCommon.Repository.Interface.IUnitWork`1.Query``1(System.String,System.Object[])">
             <summary>
             使用SQL脚本查询
             </summary>
             <typeparam name="T"> T为非数据库实体，需要在DbContext中增加对应的DbQuery</typeparam>
             <returns></returns>
         </member>
-        <member name="M:SysCommon.Repository.Test.TestBase.GetService">
+        <member name="P:SysCommon.Repository.SysCommonDBContext.QueryTracking">
             <summary>
-            测试框架默认只注入了缓存Cache，配置Option；
-            如果在测试的过程中需要模拟登录用户，cookie等信息，需要重写该方法，可以参考TestFlow的写法
+            设置跟踪状态
             </summary>
         </member>
-        <member name="M:SysCommon.Repository.UnitWork.Find``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+        <member name="M:SysCommon.Repository.SysCommonDBContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            数据库配置
+            </summary>
+            <param name="optionsBuilder"></param>
+        </member>
+        <member name="T:SysCommon.Repository.QueryObj.SysTableColumn">
+            <summary>
+            系统表列信息
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:SysCommon.Repository.QueryObj.SysTableColumn.ColumnName" -->
+        <!-- Badly formed XML comment ignored for member "P:SysCommon.Repository.QueryObj.SysTableColumn.Comment" -->
+        <!-- Badly formed XML comment ignored for member "P:SysCommon.Repository.QueryObj.SysTableColumn.ColumnType" -->
+        <!-- Badly formed XML comment ignored for member "P:SysCommon.Repository.QueryObj.SysTableColumn.MaxLength" -->
+        <!-- Badly formed XML comment ignored for member "P:SysCommon.Repository.QueryObj.SysTableColumn.IsNull" -->
+        <!-- Badly formed XML comment ignored for member "P:SysCommon.Repository.QueryObj.SysTableColumn.IsDisplay" -->
+        <!-- Badly formed XML comment ignored for member "P:SysCommon.Repository.QueryObj.SysTableColumn.IsKey" -->
+        <member name="M:SysCommon.Repository.UnitWork`1.ExecuteWithTransaction(System.Action)">
+            <summary>
+            EF默认情况下，每调用一次SaveChanges()都会执行一个单独的事务
+            本接口实现在一个事务中可以多次执行SaveChanges()方法
+            </summary>
+        </member>
+        <member name="M:SysCommon.Repository.UnitWork`1.GetDbContext">
+            <summary>
+            返回DbContext,用于多线程等极端情况
+            </summary>
+        </member>
+        <member name="M:SysCommon.Repository.UnitWork`1.Find``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>
             根据过滤条件，获取记录
             </summary>
             <param name="exp">The exp.</param>
         </member>
-        <member name="M:SysCommon.Repository.UnitWork.FindSingle``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+        <member name="M:SysCommon.Repository.UnitWork`1.FirstOrDefault``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>
             查找单个
             </summary>
         </member>
-        <member name="M:SysCommon.Repository.UnitWork.Find``1(System.Int32,System.Int32,System.String,System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+        <member name="M:SysCommon.Repository.UnitWork`1.Find``1(System.Int32,System.Int32,System.String,System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>
             得到分页记录
             </summary>
@@ -1664,35 +2184,59 @@
             <param name="pagesize">The pagesize.</param>
             <param name="orderby">排序，格式如："Id"/"Id descending"</param>
         </member>
-        <member name="M:SysCommon.Repository.UnitWork.GetCount``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+        <member name="M:SysCommon.Repository.UnitWork`1.Count``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>
             根据过滤条件获取记录数
             </summary>
         </member>
-        <member name="M:SysCommon.Repository.UnitWork.BatchAdd``1(``0[])">
+        <member name="M:SysCommon.Repository.UnitWork`1.Add``1(``0)">
             <summary>
-            批量添加
+            新增对象，如果Id为空，则会自动创建默认Id
             </summary>
-            <param name="entities">The entities.</param>
         </member>
-        <member name="M:SysCommon.Repository.UnitWork.Update``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,``0}})">
+        <member name="M:SysCommon.Repository.UnitWork`1.BatchAdd``1(``0[])">
+            <summary>
+            批量新增对象，如果对象Id为空，则会自动创建默认Id
+            </summary>
+        </member>
+        <member name="M:SysCommon.Repository.UnitWork`1.Update``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,``0}})">
             <summary>
             实现按需要只更新部分更新
-            <para>如：Update(u =>u.Id==1,u =>new User{Name="ok"});</para>
+            <para>如：Update&lt;User&gt;(u =>u.Id==1,u =>new User{Name="ok"})</para>
+            <para>该方法内部自动调用了SaveChanges()，需要ExecuteWithTransaction配合才能实现事务控制</para>
             </summary>
-            <param name="where">The where.</param>
-            <param name="entity">The entity.</param>
+            <param name="where">更新条件</param>
+            <param name="entity">更新后的实体</param>
         </member>
-        <member name="P:SysCommon.SysCommonDBContext.QueryTracking">
+        <member name="M:SysCommon.Repository.UnitWork`1.Delete``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
             <summary>
-            设置跟踪状态
+            批量删除
+            <para>该方法内部自动调用了SaveChanges()，需要ExecuteWithTransaction配合才能实现事务控制</para>
             </summary>
         </member>
-        <member name="M:SysCommon.SysCommonDBContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+        <member name="M:SysCommon.Repository.UnitWork`1.ExecuteSqlRawAsync(System.String)">
             <summary>
-            数据库配置
+            异步执行sql
             </summary>
-            <param name="optionsBuilder"></param>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCommon.Repository.UnitWork`1.SaveAsync">
+            <summary>
+            异步保存
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:SysCommon.Repository.UnitWork`1.CountAsync``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            根据过滤条件获取记录数
+            </summary>
+        </member>
+        <member name="M:SysCommon.Repository.UnitWork`1.FirstOrDefaultAsync``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            查找单个，且不被上下文所跟踪
+            </summary>
         </member>
     </members>
 </doc>

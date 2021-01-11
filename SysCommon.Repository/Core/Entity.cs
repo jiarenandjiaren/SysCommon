@@ -1,20 +1,31 @@
-﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
-using System;
+﻿using System;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SysCommon.Repository.Core
 {
-    public abstract class Entity
+    /// <summary>
+    /// 主键为字符串的实体基类，为系统默认的实体类型
+    /// </summary>
+    public class Entity : BaseEntity
     {
-        public Entity()
-        {
-            this.Id = Guid.NewGuid().ToString();
-            this.IsDelete = false;
-        }
         [Browsable(false)]
         public string Id { get; set; }
-        public bool IsDelete { get; set; }
+        
+        /// <summary>
+        /// 判断主键是否为空，常用做判定操作是【添加】还是【编辑】
+        /// </summary>
+        /// <returns></returns>
+        public override bool KeyIsNull()
+        {
+            return string.IsNullOrEmpty(Id);
+        }
+
+        /// <summary>
+        /// 创建默认的主键值
+        /// </summary>
+        public override void GenerateDefaultKeyVal()
+        {
+            Id = Guid.NewGuid().ToString();
+        }
     }
 }

@@ -188,10 +188,10 @@
                     $btns = $('<div class="file-panel">' +
                         '<span class="cancel">' + lang.uploadDelete + '</span>' +
                         '<span class="rotateRight">' + lang.uploadTurnRight + '</span>' +
-                        '<span class="rotateLeft">' + lang.uploadTurnLeft + '</span></div>').AppendTo($li),
+                        '<span class="rotateLeft">' + lang.uploadTurnLeft + '</span></div>').appendTo($li),
                     $prgress = $li.find('p.progress span'),
                     $wrap = $li.find('p.imgWrap'),
-                    $info = $('<p class="error"></p>').hide().AppendTo($li),
+                    $info = $('<p class="error"></p>').hide().appendTo($li),
 
                     showError = function (code) {
                         switch (code) {
@@ -219,7 +219,7 @@
                 } else {
                     $wrap.text(lang.uploadPreview);
                     if ('|png|jpg|jpeg|bmp|gif|'.indexOf('|'+file.ext.toLowerCase()+'|') == -1) {
-                        $wrap.empty().addClass('notimage').Append('<i class="file-preview file-type-' + file.ext.toLowerCase() + '"></i>' +
+                        $wrap.empty().addClass('notimage').append('<i class="file-preview file-type-' + file.ext.toLowerCase() + '"></i>' +
                         '<span class="file-title" title="' + file.name + '">' + file.name + '</span>');
                     } else {
                         if (browser.ie && browser.version <= 7) {
@@ -230,7 +230,7 @@
                                     $wrap.text(lang.uploadNoPreview);
                                 } else {
                                     var $img = $('<img src="' + src + '">');
-                                    $wrap.empty().Append($img);
+                                    $wrap.empty().append($img);
                                     $img.on('error', function () {
                                         $wrap.text(lang.uploadNoPreview);
                                     });
@@ -504,7 +504,7 @@
                         json = utils.str2json(responseText);
                     if (json.state == 'SUCCESS') {
                         _this.fileList.push(json);
-                        $file.Append('<span class="success"></span>');
+                        $file.append('<span class="success"></span>');
                     } else {
                         $file.find('.error').text(json.state).show();
                     }
@@ -584,8 +584,8 @@
             domUtils.addClass(this.list, 'list');
             domUtils.addClass(this.clearFloat, 'clearFloat');
 
-            this.list.AppendChild(this.clearFloat);
-            this.container.AppendChild(this.list);
+            this.list.appendChild(this.clearFloat);
+            this.container.appendChild(this.list);
         },
         /* 初始化滚动事件,滚动到地步自动拉取数据 */
         initEvents: function () {
@@ -688,8 +688,8 @@
                             textSpan = document.createElement('span');
                         textSpan.innerHTML = list[i].url.substr(list[i].url.lastIndexOf('/') + 1);
                         preview = document.createElement('div');
-                        preview.AppendChild(ic);
-                        preview.AppendChild(textSpan);
+                        preview.appendChild(ic);
+                        preview.appendChild(textSpan);
                         domUtils.addClass(preview, 'file-wrapper');
                         domUtils.addClass(textSpan, 'file-title');
                         domUtils.addClass(ic, 'file-type-' + filetype);
@@ -701,8 +701,8 @@
                         item.setAttribute('data-title', list[i].original);
                     }
 
-                    item.AppendChild(preview);
-                    item.AppendChild(icon);
+                    item.appendChild(preview);
+                    item.appendChild(icon);
                     this.list.insertBefore(item, this.clearFloat);
                 }
             }

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -78,7 +78,7 @@
             domUtils.remove(iframe);
         }else{
             div = editor.document.createElement("div");
-            div.AppendChild(newIframe);
+            div.appendChild(newIframe);
             editor.execCommand("inserthtml",div.innerHTML);
         }
         editor._iframe = null;

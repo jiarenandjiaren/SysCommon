@@ -15,9 +15,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using NUnit.Framework;
-using SysCommon.Service;
-using SysCommon.Service.SSO;
-using SysCommon.Service.Test;
+using SysCommon.App;
+using SysCommon.App.SSO;
+using SysCommon.App.Test;
 using SysCommon.WebApi.Controllers;
 
 namespace SysCommon.WebApi.Test
@@ -31,7 +31,7 @@ namespace SysCommon.WebApi.Test
             var services = new ServiceCollection();
 
             var cachemock = new Mock<ICacheContext>();
-            cachemock.Setup(x => x.Get<UserAuthSession>("tokentest")).Returns(new UserAuthSession{ Name = "admin"});
+            cachemock.Setup(x => x.Get<UserAuthSession>("tokentest")).Returns(new UserAuthSession{Account = "admin"});
             services.AddScoped(x => cachemock.Object);
 
             var httpContextAccessorMock = new Mock<IHttpContextAccessor>();
@@ -58,14 +58,13 @@ namespace SysCommon.WebApi.Test
         [Test]
         public void GetModulesTree()
         {
-            //Stopwatch watch = Stopwatch.StartNew();
-            //var controller = _autofacServiceProvider.GetService<CheckController>();
+            Stopwatch watch = Stopwatch.StartNew();
+            var controller = _autofacServiceProvider.GetService<CheckController>();
 
-            ////var result =  controller.GetModulesTree();
-            //var result = null;
-            //Console.WriteLine(JsonHelper.Instance.Serialize(result));
-            //watch.Stop();
-            //Console.WriteLine($"总耗时:{watch.ElapsedMilliseconds}");
+            var result =  controller.GetModulesTree();
+            Console.WriteLine(JsonHelper.Instance.Serialize(result));
+            watch.Stop();
+            Console.WriteLine($"总耗时:{watch.ElapsedMilliseconds}");
         }
     }
 }

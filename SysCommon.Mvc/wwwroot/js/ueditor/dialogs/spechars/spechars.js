@@ -34,7 +34,7 @@ var charsContent = [
             this.className = "focus";
             $G(this.getAttribute("tabSrc")).style.display = "";
         });
-        $G("tabHeads").AppendChild(span);
+        $G("tabHeads").appendChild(span);
         domUtils.insertAfter(span, document.createTextNode("\n"));
         var div = document.createElement("div");
         div.id = ci.name;
@@ -47,9 +47,9 @@ var charsContent = [
                 editor.execCommand("insertHTML", this.innerHTML);
                 dialog.close();
             });
-            div.AppendChild(charSpan);
+            div.appendChild(charSpan);
         }
-        $G("tabBodys").AppendChild(div);
+        $G("tabBodys").appendChild(div);
     }
 })(charsContent);
 function toArray(str) {

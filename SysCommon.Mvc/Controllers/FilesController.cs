@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SysCommon.Service;
-using SysCommon.Service.Interface;
+using SysCommon.App;
+using SysCommon.App.Interface;
 using SysCommon.Repository.Domain;
 
 namespace SysCommon.Mvc.Controllers
@@ -33,7 +33,7 @@ namespace SysCommon.Mvc.Controllers
             var result = new Response<IList<UploadFile>>();
             try
             {
-                result.Data = _app.Add(files);
+                result.Result = _app.Add(files);
             }
             catch (Exception ex)
             {

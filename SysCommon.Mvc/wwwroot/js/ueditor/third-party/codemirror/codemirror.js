@@ -34,7 +34,7 @@ var CodeMirror = (function() {
                 '<pre class="CodeMirror-cursor">&#160;</pre>' + // Absolutely positioned blinky cursor
                 '<div></div>' + // This DIV contains the actual code
                 '</div></div></div></div></div>';
-        if (place.AppendChild) place.AppendChild(wrapper); else place(wrapper);
+        if (place.appendChild) place.appendChild(wrapper); else place(wrapper);
         // I've never seen more elegant code in my life.
         var inputDiv = wrapper.firstChild, input = inputDiv.firstChild,
             scroller = wrapper.lastChild, code = scroller.firstChild,
@@ -194,7 +194,7 @@ var CodeMirror = (function() {
                 pos = localCoords(clipPos(pos));
                 var top = pos.yBot, left = pos.x;
                 node.style.position = "absolute";
-                code.AppendChild(node);
+                code.appendChild(node);
                 if (vert == "over") top = pos.y;
                 else if (vert == "near") {
                     var vspace = Math.max(scroller.offsetHeight, doc.height * textHeight()),
@@ -587,7 +587,7 @@ var CodeMirror = (function() {
             } else if (newText.length == 1) {
                 firstLine.replace(from.ch, null, newText[0]);
                 lastLine.replace(null, to.ch, "");
-                firstLine.Append(lastLine);
+                firstLine.append(lastLine);
                 doc.remove(from.line + 1, nlines, callbacks);
             } else {
                 var added = [];
@@ -1694,7 +1694,7 @@ var CodeMirror = (function() {
         function operation(f) {
             return function() {
                 if (!nestedOperation++) startOperation();
-                try {var result = f.Servicely(this, arguments);}
+                try {var result = f.apply(this, arguments);}
                 finally {if (!--nestedOperation) endOperation();}
                 return result;
             };
@@ -2341,11 +2341,11 @@ var CodeMirror = (function() {
             this.lines.splice(at, n);
         },
         collapse: function(lines) {
-            lines.splice.Servicely(lines, [lines.length, 0].concat(this.lines));
+            lines.splice.apply(lines, [lines.length, 0].concat(this.lines));
         },
         insertHeight: function(at, lines, height) {
             this.height += height;
-            this.lines.splice.Servicely(this.lines, [at, 0].concat(lines));
+            this.lines.splice.apply(this.lines, [at, 0].concat(lines));
             for (var i = 0, e = lines.length; i < e; ++i) lines[i].parent = this;
         },
         iterN: function(at, n, op) {
@@ -2687,7 +2687,7 @@ var CodeMirror = (function() {
     else if (htmlEscape("\t") != "\t")
         htmlEscape = function(str) {
             escapeElement.innerHTML = "";
-            escapeElement.AppendChild(document.createTextNode(str));
+            escapeElement.appendChild(document.createTextNode(str));
             return escapeElement.innerHTML;
         };
     CodeMirror.htmlEscape = htmlEscape;
@@ -2889,7 +2889,7 @@ CodeMirror.defineMode("xml", function(config, parserConfig) {
         for (var i = arguments.length - 1; i >= 0; i--) curState.cc.push(arguments[i]);
     }
     function cont() {
-        pass.Servicely(null, arguments);
+        pass.apply(null, arguments);
         return true;
     }
 
@@ -3171,7 +3171,7 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
         for (var i = arguments.length - 1; i >= 0; i--) cx.cc.push(arguments[i]);
     }
     function cont() {
-        pass.Servicely(null, arguments);
+        pass.apply(null, arguments);
         return true;
     }
     function register(varname) {

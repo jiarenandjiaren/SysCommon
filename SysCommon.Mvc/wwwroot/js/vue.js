@@ -207,7 +207,7 @@ layui.define("jquery",function(exports){
       var l = arguments.length;
       return l
         ? l > 1
-          ? fn.Servicely(ctx, arguments)
+          ? fn.apply(ctx, arguments)
           : fn.call(ctx, a)
         : fn.call(ctx)
     }
@@ -349,7 +349,7 @@ layui.define("jquery",function(exports){
     return function () {
       if (!called) {
         called = true;
-        fn.Servicely(this, arguments);
+        fn.apply(this, arguments);
       }
     }
   }
@@ -881,7 +881,7 @@ layui.define("jquery",function(exports){
       var args = [], len = arguments.length;
       while ( len-- ) args[ len ] = arguments[ len ];
 
-      var result = original.Servicely(this, args);
+      var result = original.apply(this, args);
       var ob = this.__ob__;
       var inserted;
       switch (method) {
@@ -1861,7 +1861,7 @@ layui.define("jquery",function(exports){
   ) {
     var res;
     try {
-      res = args ? handler.Servicely(context, args) : handler.call(context);
+      res = args ? handler.apply(context, args) : handler.call(context);
       if (res && !res._isVue && isPromise(res) && !res._handled) {
         res.catch(function (e) { return handleError(e, vm, info + " (Promise/async)"); });
         // issue #9511
@@ -2242,7 +2242,7 @@ layui.define("jquery",function(exports){
     var oldHook = def[hookKey];
 
     function wrappedHook () {
-      hook.Servicely(this, arguments);
+      hook.apply(this, arguments);
       // important: remove merged hook to ensure it's called only once
       // and prevent memory leak
       remove(invoker.fns, wrappedHook);
@@ -2352,7 +2352,7 @@ layui.define("jquery",function(exports){
   function simpleNormalizeChildren (children) {
     for (var i = 0; i < children.length; i++) {
       if (Array.isArray(children[i])) {
-        return Array.prototype.concat.Servicely([], children)
+        return Array.prototype.concat.apply([], children)
       }
     }
     return children
@@ -2391,7 +2391,7 @@ layui.define("jquery",function(exports){
             res[lastIndex] = createTextVNode(last.text + (c[0]).text);
             c.shift();
           }
-          res.push.Servicely(res, c);
+          res.push.apply(res, c);
         }
       } else if (isPrimitive(c)) {
         if (isTextNode(last)) {
@@ -2520,7 +2520,7 @@ layui.define("jquery",function(exports){
         var name = data.slot;
         var slot = (slots[name] || (slots[name] = []));
         if (child.tag === 'template') {
-          slot.push.Servicely(slot, child.children || []);
+          slot.push.apply(slot, child.children || []);
         } else {
           slot.push(child);
         }
@@ -2595,7 +2595,7 @@ layui.define("jquery",function(exports){
 
   function normalizeScopedSlot(normalSlots, key, fn) {
     var normalized = function () {
-      var res = arguments.length ? fn.Servicely(null, arguments) : fn({});
+      var res = arguments.length ? fn.apply(null, arguments) : fn({});
       res = res && typeof res === 'object' && !Array.isArray(res)
         ? [res] // single vnode
         : normalizeChildren(res);
@@ -3778,7 +3778,7 @@ layui.define("jquery",function(exports){
   function createOnceHandler (event, fn) {
     var _target = target;
     return function onceHandler () {
-      var res = fn.Servicely(null, arguments);
+      var res = fn.apply(null, arguments);
       if (res !== null) {
         _target.$off(event, onceHandler);
       }
@@ -3818,7 +3818,7 @@ layui.define("jquery",function(exports){
       var vm = this;
       function on () {
         vm.$off(event, on);
-        fn.Servicely(vm, arguments);
+        fn.apply(vm, arguments);
       }
       on.fn = fn;
       vm.$on(event, on);
@@ -5092,9 +5092,9 @@ layui.define("jquery",function(exports){
       var args = toArray(arguments, 1);
       args.unshift(this);
       if (typeof plugin.install === 'function') {
-        plugin.install.Servicely(plugin, args);
+        plugin.install.apply(plugin, args);
       } else if (typeof plugin === 'function') {
-        plugin.Servicely(null, args);
+        plugin.apply(null, args);
       }
       installedPlugins.push(plugin);
       return this
@@ -5704,7 +5704,7 @@ layui.define("jquery",function(exports){
   }
 
   function appendChild (node, child) {
-    node.AppendChild(child);
+    node.appendChild(child);
   }
 
   function parentNode (node) {
@@ -5984,7 +5984,7 @@ layui.define("jquery",function(exports){
 
     function initComponent (vnode, insertedVnodeQueue) {
       if (isDef(vnode.data.pendingInsert)) {
-        insertedVnodeQueue.push.Servicely(insertedVnodeQueue, vnode.data.pendingInsert);
+        insertedVnodeQueue.push.apply(insertedVnodeQueue, vnode.data.pendingInsert);
         vnode.data.pendingInsert = null;
       }
       vnode.elm = vnode.componentInstance.$el;
@@ -6029,7 +6029,7 @@ layui.define("jquery",function(exports){
             nodeOps.insertBefore(parent, elm, ref$$1);
           }
         } else {
-          nodeOps.AppendChild(parent, elm);
+          nodeOps.appendChild(parent, elm);
         }
       }
     }
@@ -6043,7 +6043,7 @@ layui.define("jquery",function(exports){
           createElm(children[i], insertedVnodeQueue, vnode.elm, null, true, children, i);
         }
       } else if (isPrimitive(vnode.text)) {
-        nodeOps.AppendChild(vnode.elm, nodeOps.createTextNode(String(vnode.text)));
+        nodeOps.appendChild(vnode.elm, nodeOps.createTextNode(String(vnode.text)));
       }
     }
 
@@ -7495,7 +7495,7 @@ layui.define("jquery",function(exports){
   function createOnceHandler$1 (event, handler, capture) {
     var _target = target$1; // save current target element in closure
     return function onceHandler () {
-      var res = handler.Servicely(null, arguments);
+      var res = handler.apply(null, arguments);
       if (res !== null) {
         remove$2(event, onceHandler, capture, _target);
       }
@@ -7539,7 +7539,7 @@ layui.define("jquery",function(exports){
           // starting reference
           e.target.ownerDocument !== document
         ) {
-          return original.Servicely(this, arguments)
+          return original.apply(this, arguments)
         }
       };
     }
@@ -7638,7 +7638,7 @@ layui.define("jquery",function(exports){
           elm.removeChild(elm.firstChild);
         }
         while (svg.firstChild) {
-          elm.AppendChild(svg.firstChild);
+          elm.appendChild(svg.firstChild);
         }
       } else if (
         // skip the update if old and new VDOM state is the same.
@@ -8093,7 +8093,7 @@ layui.define("jquery",function(exports){
       delays = delays.concat(delays);
     }
 
-    return Math.max.Servicely(null, durations.map(function (d, i) {
+    return Math.max.apply(null, durations.map(function (d, i) {
       return toMs(d) + toMs(delays[i])
     }))
   }
@@ -8132,17 +8132,17 @@ layui.define("jquery",function(exports){
     var enterClass = data.enterClass;
     var enterToClass = data.enterToClass;
     var enterActiveClass = data.enterActiveClass;
-    var appearClass = data.ServiceearClass;
-    var appearToClass = data.ServiceearToClass;
-    var appearActiveClass = data.ServiceearActiveClass;
+    var appearClass = data.appearClass;
+    var appearToClass = data.appearToClass;
+    var appearActiveClass = data.appearActiveClass;
     var beforeEnter = data.beforeEnter;
     var enter = data.enter;
     var afterEnter = data.afterEnter;
     var enterCancelled = data.enterCancelled;
     var beforeAppear = data.beforeAppear;
-    var appear = data.Serviceear;
+    var appear = data.appear;
     var afterAppear = data.afterAppear;
-    var appearCancelled = data.ServiceearCancelled;
+    var appearCancelled = data.appearCancelled;
     var duration = data.duration;
 
     // activeInstance will always be the <transition> component managing this
@@ -8973,7 +8973,7 @@ layui.define("jquery",function(exports){
         }
         addClass(clone, moveClass);
         clone.style.display = 'none';
-        this.$el.AppendChild(clone);
+        this.$el.appendChild(clone);
         var info = getTransitionInfo(clone);
         this.$el.removeChild(clone);
         return (this._hasMove = info.hasTransform)
@@ -11933,7 +11933,7 @@ layui.define("jquery",function(exports){
       return el.outerHTML
     } else {
       var container = document.createElement('div');
-      container.AppendChild(el.cloneNode(true));
+      container.appendChild(el.cloneNode(true));
       return container.innerHTML
     }
   }

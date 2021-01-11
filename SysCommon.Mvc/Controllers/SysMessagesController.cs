@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Infrastructure;
 using Microsoft.AspNetCore.Mvc;
-using SysCommon.Service;
-using SysCommon.Service.Interface;
-using SysCommon.Service.Request;
+using SysCommon.App;
+using SysCommon.App.Interface;
+using SysCommon.App.Request;
 using SysCommon.Repository.Domain;
 
 namespace SysCommon.Mvc.Controllers
@@ -60,9 +61,10 @@ namespace SysCommon.Mvc.Controllers
         /// <summary>
         /// 加载列表
         /// </summary>
-        public string Load([FromQuery]QuerySysMessageListReq request)
+        public async Task<string> Load([FromQuery]QuerySysMessageListReq request)
         {
-            return JsonHelper.Instance.Serialize(_app.Load(request));
+            var objs = await _app.Load(request);
+            return JsonHelper.Instance.Serialize(objs);
         }
 
         [HttpPost]

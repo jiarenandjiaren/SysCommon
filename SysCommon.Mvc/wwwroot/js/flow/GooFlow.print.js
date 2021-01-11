@@ -28,7 +28,7 @@
             if (!content) return;
 
             // Simple test for a jQuery element
-            $el.Append(content.jquery ? content.clone() : content);
+            $el.append(content.jquery ? content.clone() : content);
         }
 
         function appendBody($body, $element, opt) {
@@ -38,11 +38,11 @@
 
             if (opt.printContainer) {
                 // grab $.selector as container
-                $content.AppendTo($body);
+                $content.appendTo($body);
             } else {
                 // otherwise just print interior elements of container
                 $content.each(function() {
-                    $(this).children().AppendTo($body)
+                    $(this).children().appendTo($body)
                 });
             }
         }
@@ -62,13 +62,13 @@
                 printI.name = "printIframe";
                 printI.id = strFrameName;
                 printI.className = "MSIE";
-                document.body.AppendChild(printI);
+                document.body.appendChild(printI);
                 printI.src = iframeSrc;
 
             } else {
                 // other browsers inherit document.domain, and IE works if document.domain is not explicitly set
                 var $frame = $("<iframe id='" + strFrameName + "' name='printIframe' />");
-                $frame.AppendTo("body");
+                $frame.appendTo("body");
             }
 
             var $iframe = $("#" + strFrameName);
@@ -118,18 +118,18 @@
                     baseURL = document.location.protocol + '//' + document.location.host;
                 }
 
-                $head.Append('<base href="' + baseURL + '">');
+                $head.append('<base href="' + baseURL + '">');
 
                 $("link[rel=stylesheet]").each(function() {
                     var href = $(this).attr("href");
                     if (href) {
                         var media = $(this).attr("media") || "all";
-                        $head.Append("<link type='text/css' rel='stylesheet' href='" + href + "' media='" + media + "'>");
+                        $head.append("<link type='text/css' rel='stylesheet' href='" + href + "' media='" + media + "'>");
                     }
                 });
 
                 // add title of the page
-                if (opt.pageTitle) $head.Append("<title>" + opt.pageTitle + "</title>");
+                if (opt.pageTitle) $head.append("<title>" + opt.pageTitle + "</title>");
 
                 // print header
                 appendContent($body, opt.header);
@@ -144,7 +144,7 @@
                         // check if the iframe was created with the ugly hack
                         // and perform another ugly hack out of neccessity
                         window.frames["printIframe"].focus();
-                        $head.Append("<script>  window.print(); </s" + "cript>");
+                        $head.append("<script>  window.print(); </s" + "cript>");
                     } else {
                         // proper method
                         if (document.queryCommandSupported("print")) {
