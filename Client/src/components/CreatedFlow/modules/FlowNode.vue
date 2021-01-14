@@ -313,7 +313,7 @@ export default {
       if (this.node.setInfo !== undefined && this.node.setInfo !== null && this.node.setInfo.Taged !== undefined && this.node.setInfo.Taged !== null) {
         let tips = '<div style="text-align:left">'
         const tagname = { '1': '通过', '2': '不通过', '3': '驳回' }
-        tips += '<p>处理人：' + this.node.setInfo.UserName + '</p>'
+        tips += '<p>处理人：' + this.node.setInfo.Account + '</p>'
         tips += '<p>结果：' + tagname[this.node.setInfo.Taged] + '</p>'
         tips += '<p>处理时间：' + this.node.setInfo.TagedTime + '</p>'
         tips += '<p>备注：' + this.node.setInfo.Description + '</p></div>'

@@ -1,12 +1,12 @@
 import request from '@/utils/request'
 import { getToken } from '@/utils/auth' // 验权
 
-export function login(UserName, password) {
+export function login(Account, password) {
   return request({
     url: '/check/login',
     method: 'post',
     data: {
-      UserName: UserName,
+      Account: Account,
       Password: password,
       AppKey: 'openauth'
     }
@@ -15,7 +15,7 @@ export function login(UserName, password) {
 
 export function getInfo(token) {
   return request({
-    url: '/check/getusername',
+    url: '/check/GetUserName',
     method: 'post',
     params: { token }
   })

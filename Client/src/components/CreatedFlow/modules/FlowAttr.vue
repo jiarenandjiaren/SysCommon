@@ -55,7 +55,7 @@
 								prop="NodeDesignateUsers"
 							>
 								<select-users
-									:userNames.sync="currentSelect.setInfo.NodeDesignateData.Texts"
+									:Accounts.sync="currentSelect.setInfo.NodeDesignateData.Texts"
 									:users="currentSelect.setInfo.NodeDesignateData.users"
 									v-on:users-change="usersChange"
 								></select-users>
@@ -68,7 +68,7 @@
 								prop="NodeDesignateUsers"
 							>
 								<select-roles
-									:userNames.sync="currentSelect.setInfo.NodeDesignateData.Texts"
+									:Accounts.sync="currentSelect.setInfo.NodeDesignateData.Texts"
 									:roles="currentSelect.setInfo.NodeDesignateData.roles"
 									v-on:roles-change="rolesChange"
 								></select-roles>

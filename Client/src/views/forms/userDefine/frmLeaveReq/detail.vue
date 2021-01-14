@@ -12,8 +12,8 @@
             <el-radio label="事假"></el-radio>
           </el-radio-group>
         </el-form-item>
-        <el-form-item :label="'请假人'" prop="userName">
-          <el-input name="name" :disabled="true" v-model="temp.userName"></el-input>
+        <el-form-item :label="'请假人'" prop="Account">
+          <el-input name="name" :disabled="true" v-model="temp.Account"></el-input>
         </el-form-item>
 
         <el-form-item label="开始时间">

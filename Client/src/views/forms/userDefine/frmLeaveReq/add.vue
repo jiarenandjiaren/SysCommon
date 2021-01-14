@@ -10,8 +10,8 @@
             <el-radio label="事假"></el-radio>
           </el-radio-group>
         </el-form-item>
-        <el-form-item :label="'请假人'" prop="userName">
-          <el-input name="name" v-model="temp.userName"></el-input>
+        <el-form-item :label="'请假人'" prop="Account">
+          <el-input name="name" v-model="temp.Account"></el-input>
         </el-form-item>
 
         <el-form-item label="开始时间">
@@ -96,7 +96,7 @@
         baseURL: process.env.BASE_API, // api的base_url
         temp: {
           id: '', // ID
-          userName: '', // 请假人姓名
+          Account: '', // 请假人姓名
           requestType: '', // 请假分类，病假，事假，公休等
           startDate: '', // 开始日期
           startTime: '', // 开始时间
@@ -144,7 +144,7 @@
       },
       getFormInfo() { // 用于流程分支条件选择
         return [{
-          name: 'userName',
+          name: 'Account',
           title: '请假人姓名'
         },
         {

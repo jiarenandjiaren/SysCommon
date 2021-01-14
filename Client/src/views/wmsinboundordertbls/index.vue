@@ -383,9 +383,9 @@
     methods: {
       isEdit(key) {
         switch (key) {
-          case 'updateUserName':
+          case 'updateAccount':
           case 'updateTime':
-          case 'createUserName':
+          case 'createAccount':
           case 'createTime':
             return false
           default:

@@ -37,7 +37,7 @@
 
           <el-table-column align="center" min-width="80px" :label="'账号'">
             <template slot-scope="scope">
-              <span class="link-type">{{scope.row.UserName}}</span>
+              <span class="link-type">{{scope.row.Account}}</span>
             </template>
           </el-table-column>
 
@@ -115,7 +115,7 @@ import * as login from '@/api/login'
 import * as users from '@/api/users'
 import * as roles from '@/api/roles'
 export default {
-  props: ['show', 'users', 'userNames', 'loginKey', 'orgId', 'hiddenFooter'],
+  props: ['show', 'users', 'Accounts', 'loginKey', 'orgId', 'hiddenFooter'],
   data() {
     return {
       orgsTree: [],
@@ -176,7 +176,7 @@ export default {
   },
   mounted() {
     this.tableData.selectIds = [...this.users]
-    this.tableData.selectTexts = this.userNames && this.userNames.split(',')
+    this.tableData.selectTexts = this.Accounts && this.Accounts.split(',')
     this.loadData()
   },
   methods: {
@@ -273,13 +273,13 @@ export default {
       this.groupData()
       const names = this.tableData.selectTexts && this.tableData.selectTexts.join(',')
       // const ids = this.tableData.selectIds && this.tableData.selectIds.join(',')
-      this.$emit('update:userNames', names)
+      this.$emit('update:Accounts', names)
       this.$emit('update:users', this.tableData.selectIds)
       this.$emit('update:show', false)
     },
     // 选择用户
     handleSelectionUser(val) {
-      this.tableData.selectTextsC = val.map(item => item.name || item.UserName)
+      this.tableData.selectTextsC = val.map(item => item.name || item.Account)
       this.tableData.selectIdsC = val.map(item => item.id)
     },
     // 获取角色
@@ -289,7 +289,7 @@ export default {
       roles.getList(this.listQuery).then(response => {
         this.tableData.datas = response.result
         this.tableData.loading = false
-        this.tableData.selectTextsC = [...this.tableData.datas].filter(x => this.tableData.selectTexts.indexOf(x.name || x.UserName) > -1).map(item => item.name || item.UserName)
+        this.tableData.selectTextsC = [...this.tableData.datas].filter(x => this.tableData.selectTexts.indexOf(x.name || x.Account) > -1).map(item => item.name || item.Account)
         this.tableData.selectIdsC = [...this.tableData.datas].filter(x => this.tableData.selectIds.indexOf(x.id) > -1).map(item => item.id)
         this.setSelectTable()
       })

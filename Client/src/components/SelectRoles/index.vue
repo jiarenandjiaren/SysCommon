@@ -3,7 +3,7 @@
     <el-input @focus="selectDialog = true" v-model="names"></el-input>
     <el-dialog :destroy-on-close="true" class="dialog-mini custom-dialog user-dialog" width="850px" title="选择角色"
       :visible.sync="selectDialog">
-      <selectUsersCom v-if="selectDialog" :selectUsers:sync="selectRoleList" :show.sync="selectDialog" :loginKey="'loginRole'" :users.sync="selectRoles" :userNames.sync="names"></selectUsersCom>
+      <selectUsersCom v-if="selectDialog" :selectUsers:sync="selectRoleList" :show.sync="selectDialog" :loginKey="'loginRole'" :users.sync="selectRoles" :Accounts.sync="names"></selectUsersCom>
     </el-dialog>
   </div>
 </template>
@@ -16,11 +16,11 @@
     components: {
       selectUsersCom
     },
-    props: ['roles', 'userNames'],
+    props: ['roles', 'Accounts'],
     data() { // todo:兼容layui的样式、图标
       return {
         // selectRoles: this.roles,
-        // names: this.userNames,
+        // names: this.Accounts,
         selectDialog: false,
         selectRoleList: [],
         flag: false
@@ -37,7 +37,7 @@
       },
       names:{
         get(){
-          return this.userNames
+          return this.Accounts
         },
         set(val){
           this.$emit('roles-change', 'Texts', val)
@@ -45,13 +45,13 @@
       }
     },
     watch: {
-      userNames() {
-        this.names = this.userNames
+      Accounts() {
+        this.names = this.Accounts
         this.groupList()
       },
       selectRoleList(val) {
         this.selectRoles = val && val.length > 0 && val.map(item => item.id) || []
-        this.names = val && val.length > 0 && val.map(item => item.name || item.UserName).join(',') || ''
+        this.names = val && val.length > 0 && val.map(item => item.name || item.Account).join(',') || ''
       }
     },
     mounted() {
@@ -59,11 +59,11 @@
     },
     methods: {
       groupList() {
-        if (!this.userNames) {
+        if (!this.Accounts) {
           this.selectRoleList = []
           return
         }
-        const nameArr = this.userNames && this.userNames.split(',')
+        const nameArr = this.Accounts && this.Accounts.split(',')
         this.selectRoleList = this.selectRoles.map((item, index) => { return { id: item, name: nameArr[index] } })
       }
     }

@@ -24,7 +24,7 @@
               </el-select>
             </el-form-item>
             <el-form-item v-if="handleShowMore(rule.Key)" style="display: inline-block;margin-bottom: 0;width:260px;margin-right: 5px;">
-              <el-input :readonly="['CreateUserId', 'CreateUserName'].indexOf(rule.Key) >= 0 ? false : true" size="mini" style="text-overflow: ellipsis;padding-right: 30px;" v-model="rule.Text"></el-input>
+              <el-input :readonly="['CreateUserId', 'CreateAccount'].indexOf(rule.Key) >= 0 ? false : true" size="mini" style="text-overflow: ellipsis;padding-right: 30px;" v-model="rule.Text"></el-input>
               <span style="position: absolute;right: 0;top:6px;bottom:7px;line-height: 28px;display:inline-block;background: #fff;border: 1px solid #DCDFE6;padding: 0 10px;border-radius: 0 4px 4px 0;cursor:pointer;" @click="handleSelectUser(ruleForm, ruleIndex)"><i class="el-icon-more"></i></span>
             </el-form-item>
             <el-form-item v-else style="display: inline-block;margin-bottom: 0;width:260px;margin-right: 5px;">
@@ -91,7 +91,7 @@
 
             <el-table-column align="center" min-width="80px" :label="'账号'">
               <template slot-scope="scope">
-                <span class="link-type">{{scope.row.UserName}}</span>
+                <span class="link-type">{{scope.row.Account}}</span>
               </template>
             </el-table-column>
 
@@ -313,7 +313,7 @@ export default {
       return `${Math.random()}_${key}`
     },
     handleShowMore(key) {
-      // const keys = ['{loginUser}', '{loginRole}', 'CreateUserId', 'CreateUserName']
+      // const keys = ['{loginUser}', '{loginRole}', 'CreateUserId', 'CreateAccount']
       const keys = ['{loginUser}', '{loginRole}']
       if (keys.indexOf(key) > -1) {
         return true

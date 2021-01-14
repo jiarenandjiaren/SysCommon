@@ -4,7 +4,7 @@
     <el-dialog :destroy-on-close="true" class="dialog-mini custom-dialog user-dialog" width="850px" title="选择用户"
       :visible.sync="selectDialog">
       <!-- 使用v-if的原因：dialog在关闭的时候会执行组件里面的mounted，所以需要关闭dialog时销毁子组件 -->
-      <selectUsersCom ref="selectUser" :hiddenFooter="true" v-if="selectDialog" :selectUsers.sync="selectUserList" :orgId="orgId" :show.sync="selectDialog" :users.sync="selectUsers" :loginKey="'loginUser'" :userNames.sync="names"></selectUsersCom>
+      <selectUsersCom ref="selectUser" :hiddenFooter="true" v-if="selectDialog" :selectUsers.sync="selectUserList" :orgId="orgId" :show.sync="selectDialog" :users.sync="selectUsers" :loginKey="'loginUser'" :Accounts.sync="names"></selectUsersCom>
       <div slot="footer" style="text-align:right;">
         <el-button size="small" type="cancel" @click="selectDialog = false">取消</el-button>
         <el-button size="small" type="primary" @click="handleSaveUsers">确定</el-button>
@@ -22,12 +22,12 @@
     components: {
       selectUsersCom
     },
-    props: ['users', 'userNames', 'orgId'],
+    props: ['users', 'Accounts', 'orgId'],
     data() { // todo:兼容layui的样式、图标
       return {
         // selectUsers: this.users,
-        // userNames: '',
-        // names: this.userNames,
+        // Accounts: '',
+        // names: this.Accounts,
         defaultSelectUsers: this.users,
         orgUsers: [],
         orgs: [],
@@ -47,7 +47,7 @@
       },
       names:{
         get(){
-          return this.userNames
+          return this.Accounts
         },
         set(val){
           this.$emit('users-change', 'Texts', val)
@@ -58,13 +58,13 @@
       // selectUsers() {
       //   this.$emit('users-change', this.selectUsers, this.names)
       // },
-      userNames() {
-        this.names = this.userNames
+      Accounts() {
+        this.names = this.Accounts
         this.groupList()
       },
       selectUserList(val) {
         this.selectUsers = val && val.length > 0 && val.map(item => item.id) || []
-        this.names = val && val.length > 0 && val.map(item => item.name || item.UserName).join(',') || ''
+        this.names = val && val.length > 0 && val.map(item => item.name || item.Account).join(',') || ''
       }
     },
     mounted() {
@@ -72,11 +72,11 @@
     },
     methods: {
       groupList() {
-        if (!this.userNames) {
+        if (!this.Accounts) {
           this.selectUserList = []
           return
         }
-        const nameArr = this.userNames && this.userNames.split(',')
+        const nameArr = this.Accounts && this.Accounts.split(',')
         this.selectUserList = this.selectUsers.map((item, index) => { return { id: item, name: nameArr[index] } })
       },
       handleSaveUsers() {

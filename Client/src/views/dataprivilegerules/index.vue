@@ -300,10 +300,10 @@
           enable: true,
           createTime: '',
           createUserId: '',
-          createUserName: '',
+          createAccount: '',
           updateTime: '',
           updateUserId: '',
-          updateUserName: '',
+          updateAccount: '',
           extendInfo: ''
         }
       },

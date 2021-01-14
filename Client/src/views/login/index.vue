@@ -6,11 +6,11 @@
         label-position="left">
         <h3 class="title">OpenAuth.Pro</h3>
         <p class="tips">OpenAuth.Core企业版</p>
-        <el-form-item prop="username">
+        <el-form-item prop="Account">
           <span class="svg-container svg-container_login">
             <svg-icon icon-class="user" />
           </span>
-          <el-input name="username" type="text" v-model="loginForm.username" autoComplete="on" placeholder="请输入登录账号" />
+          <el-input name="Account" type="text" v-model="loginForm.Account" autoComplete="on" placeholder="请输入登录账号" />
         </el-form-item>
         <el-form-item prop="password">
           <span class="svg-container">
@@ -51,7 +51,7 @@
       waves
     },
     data() {
-      const validateUsername = (rule, value, callback) => {
+      const validateAccount = (rule, value, callback) => {
         if (value.length <= 0) {
           callback(new Error('用户名不能为空'))
         } else {
@@ -67,14 +67,14 @@
       }
       return {
         loginForm: {
-          username: 'System',
+          Account: 'System',
           password: '123456'
         },
         loginRules: {
-          username: [{
+          Account: [{
             required: true,
             trigger: 'blur',
-            validator: validateUsername
+            validator: validateAccount
           }],
           password: [{
             required: true,

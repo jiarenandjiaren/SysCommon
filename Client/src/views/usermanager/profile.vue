@@ -10,8 +10,8 @@
                 <el-button type="text" style="padding: 0 11px">基本资料</el-button>
               </div>
               <el-form ref="dataForm" :model="temp" label-position="right" label-width="100px">
-                <el-form-item size="small" :label="'账号'" prop="UserName">
-                  <span>{{temp.UserName}}</span>
+                <el-form-item size="small" :label="'账号'" prop="Account">
+                  <span>{{temp.Account}}</span>
                 </el-form-item>
 
                 <el-form-item size="small" :label="'姓名'" prop="name">
@@ -120,7 +120,7 @@
         modulesTree: [], // 用户可访问的所有模块组成的树
 
         temp: {
-          UserName: '',
+          Account: '',
           name: '',
           sex: 0
         },
@@ -152,7 +152,7 @@
       changePassword() {
         const _this = this
         users.changePassword({
-          UserName: _this.temp.UserName,
+          Account: _this.temp.Account,
           password: _this.newpwd
         }).then(response => {
           _this.$message({

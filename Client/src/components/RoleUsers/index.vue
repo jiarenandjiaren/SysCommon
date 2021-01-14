@@ -14,7 +14,7 @@
 
   export default {
     name: 'role-users',
-    props: ['roleId', 'selectUsers', 'userNames', 'selectUserIds'],
+    props: ['roleId', 'selectUsers', 'Accounts', 'selectUserIds'],
     data() { // todo:兼容layui的样式、图标
       return {
         // users: '',
@@ -33,7 +33,7 @@
     },
     watch: {
       selectUsers(val) {
-        this.users = val.length > 0 && val.map(item => item.name || item.UserName) || []
+        this.users = val.length > 0 && val.map(item => item.name || item.Account) || []
         if (this.users.length >= this.count || this.users.length === 0) {
           this.buttonVisible = false
         }
@@ -51,14 +51,14 @@
           _this.isLoading = false
           if (response.data.length > 0) {
             // var data = response.data.map(function(item, index, input) {
-            //   return item.name || item.UserName
+            //   return item.name || item.Account
             // })
             // var ids = response.data.map(function(item, index, input) {
             //   return item.id
             // })
   
             // _this.$emit('update:selectUserIds', ids)
-            // _this.$emit('update:userNames', data.length > 0 && data.join(','))
+            // _this.$emit('update:Accounts', data.length > 0 && data.join(','))
             // _this.users = _this.users.concat(data)
             // _this.users += '  ' + data.join(',')
             _this.page++ // 页码加
